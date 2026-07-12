@@ -876,21 +876,13 @@
   </div>
 </div>
 
-<!-- Change Password (now managed via Netlify env vars) -->
+<!-- Change Password -->
 <div class="modal-overlay" id="pwModal">
-  <div class="modal" style="max-width:420px">
+  <div class="modal" style="max-width:360px">
     <button class="modal-close" onclick="closeModal('pwModal')">✕</button>
-    <h2>Change Password</h2>
-    <p style="font-size:0.82rem;color:var(--muted);line-height:1.7;margin-bottom:1.5rem">
-      Your admin password is now stored securely on Netlify's servers — it no longer exists anywhere in the website code, so no one can find it by viewing the page source.
-      <br><br>
-      To change it, go to:<br>
-      <strong style="color:var(--white)">Netlify Dashboard → Your Site → Site settings → Environment variables → ADMIN_PASSWORD</strong>
-      <br><br>
-      Update the value there and it takes effect within a minute, with no redeployment needed.
-    </p>
-    <a href="https://app.netlify.com" target="_blank" style="display:block;background:var(--accent);color:var(--black);text-align:center;text-decoration:none;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:3px;padding:10px;border-radius:2px">Open Netlify Dashboard →</a>
-    <p id="pwMsg" style="margin-top:0.75rem;font-size:0.78rem;text-align:center;display:none"></p>
+    <h2>Admin</h2>
+    <p style="font-size:0.82rem;color:var(--muted);line-height:1.7">You are logged in as admin.</p>
+    <p id="pwMsg" style="margin-top:0.75rem;font-size:0.8rem;text-align:center;display:none"></p>
   </div>
 </div>
 
@@ -1505,12 +1497,7 @@ function deleteItem(id) {
 }
 
 function changePassword() {
-  // Password now lives in Netlify environment variables — not in this file.
-  // To change it: Netlify Dashboard → Site settings → Environment variables → ADMIN_PASSWORD
-  const msg = document.getElementById('pwMsg');
-  msg.style.display = 'block';
-  msg.style.color = 'var(--gold)';
-  msg.innerHTML = 'Your password is stored securely in Netlify.<br>To change it: go to your <strong>Netlify Dashboard → Site settings → Environment variables → ADMIN_PASSWORD</strong> and update the value there.';
+  closeModal('pwModal');
 }
 
 // ═══════════════════════════════════════════
