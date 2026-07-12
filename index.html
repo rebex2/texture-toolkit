@@ -1384,7 +1384,7 @@ async function doLogin() {
 
   // Hash what the user typed and compare to stored hash.
   // The hash below is SHA-256 — it cannot be reversed back to the original password.
-  const PW_HASH = 'e0e1670c0582bd6e82c797c8102288a0e1d172e9100b5652d8136b95a3ca1802';
+  const PW_HASH = 'bed3caeb957d28184809e670c545c460acbce7ef37c527e4f40cf4e4fb02eaff';
   const data = new TextEncoder().encode(entered);
   const buf  = await crypto.subtle.digest('SHA-256', data);
   const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
