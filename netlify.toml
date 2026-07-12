@@ -1,0 +1,9 @@
+[build]
+  functions = "netlify/functions"
+
+# Optional: if you rename your HTML file to index.html this isn't needed,
+# but it keeps the existing rockstarpromohub.html name working as the homepage.
+[[redirects]]
+  from = "/"
+  to = "/rockstarpromohub.html"
+  status = 200
