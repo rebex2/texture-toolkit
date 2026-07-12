@@ -928,8 +928,7 @@ const AVATAR_KEY  = 'rph_avatar';
 const SYNC_BIN_KEY = 'rph_sync_bin';
 const SYNC_API_KEY = 'rph_sync_api';
 
-// Password is checked server-side by /.netlify/functions/check-password
-// No password or hash lives in this file — visitors cannot find it here.
+// Password is stored as a SHA-256 hash — cannot be reversed to the original.
 // ═══════════════════════════════════════════
 //  CATALOGUE DATA
 // ═══════════════════════════════════════════
@@ -1391,42 +1390,36 @@ async function doLogin() {
   btn.textContent = 'Checking…'; btn.disabled = true;
   errEl.style.display = 'none';
 
-  try {
-    const res = await fetch('/.netlify/functions/check-password', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password: entered })
-    });
-    const data = await res.json();
+  // Hash what the user typed and compare to stored hash.
+  // The hash below is SHA-256 — it cannot be reversed back to the original password.
+  const PW_HASH = 'e0e1670c0582bd6e82c797c8102288a0e1d172e9100b5652d8136b95a3ca1802';
+  const data = new TextEncoder().encode(entered);
+  const buf  = await crypto.subtle.digest('SHA-256', data);
+  const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
 
-    if (data.ok) {
-      closeModal('loginModal');
-      document.body.classList.add('admin-mode');
-      ABOUT_FIELDS.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) { el.contentEditable = 'true'; el.addEventListener('input', saveAbout); }
-      });
-      const { bin, key } = getSyncConfig();
-      document.getElementById('sync_bin_id').value = bin;
-      document.getElementById('sync_api_key').value = key;
-      await cloudPull();
-      if (currentItemId && document.getElementById('page-item').classList.contains('active')) {
-        renderItemPage(currentItemId);
-      }
-    } else if (data.error) {
-      // Function responded but ADMIN_PASSWORD env var not set
-      errEl.textContent = 'Server config error: ' + data.error;
-      errEl.style.display = 'block';
-    } else {
-      errEl.textContent = 'Incorrect password. Try again.';
-      errEl.style.display = 'block';
-    }
-  } catch (e) {
-    // Network error or running locally without Netlify dev — fall back gracefully
-    errEl.textContent = 'Could not reach the auth server. Are you running this locally? Use "netlify dev" to test.';
+  if (hash === PW_HASH) {
+    await unlockAdmin();
+  } else {
+    errEl.textContent = 'Incorrect password. Try again.';
     errEl.style.display = 'block';
-  } finally {
-    btn.textContent = 'Unlock Admin'; btn.disabled = false;
+  }
+
+  btn.textContent = 'Unlock Admin'; btn.disabled = false;
+}
+
+async function unlockAdmin() {
+  closeModal('loginModal');
+  document.body.classList.add('admin-mode');
+  ABOUT_FIELDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.contentEditable = 'true'; el.addEventListener('input', saveAbout); }
+  });
+  const { bin, key } = getSyncConfig();
+  document.getElementById('sync_bin_id').value = bin;
+  document.getElementById('sync_api_key').value = key;
+  await cloudPull();
+  if (currentItemId && document.getElementById('page-item').classList.contains('active')) {
+    renderItemPage(currentItemId);
   }
 }
 
