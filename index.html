@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Update this version with each GitHub Pages deployment. It helps returning visitors refresh stale HTML. -->
+<meta name="rph-version" content="2026.07.15.1">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
 <title>R★ Games Promo Hub — Official Merch Catalogue</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -333,7 +336,18 @@
     text-decoration: none; color: inherit;
   }
   .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-  .card-img-placeholder { font-size: 3rem; opacity: 0.2; user-select: none; }
+  .card-img-placeholder, .image-placeholder {
+    width: 100%; height: 100%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 0.55rem; user-select: none;
+    background: radial-gradient(circle at 50% 35%, rgba(201,168,76,0.15), transparent 42%), #111;
+    color: var(--gold); text-align: center;
+  }
+  .card-img-placeholder { font-size: 2.4rem; }
+  .image-placeholder .placeholder-icon { font-size: 3.3rem; opacity: 0.72; line-height: 1; }
+  .image-placeholder .placeholder-label, .card-img-placeholder .placeholder-label {
+    font-size: 0.58rem; font-family: 'Inter', sans-serif; font-weight: 600;
+    letter-spacing: 1.8px; text-transform: uppercase; color: var(--muted);
+  }
   .card-badge {
     position: absolute; top: 10px; right: 10px;
     background: var(--accent); color: var(--black);
@@ -428,6 +442,7 @@
     border: 1px solid var(--border);
   }
   .item-hero img { width: 100%; height: 100%; object-fit: contain; }
+  .item-hero .image-placeholder { min-height: 100%; }
 
   /* Thumbnail strip */
   .view-thumbs {
@@ -455,7 +470,7 @@
   }
 
   /* Left: name + description */
-  .item-detail-main {}
+  .item-detail-main { padding: 1.75rem; background: linear-gradient(145deg, rgba(34,34,34,0.9), rgba(13,13,13,0.9)); border: 1px solid var(--border); }
   .item-game-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; color: var(--gold); font-weight: 600; margin-bottom: 0.5rem; }
   .item-detail-name {
     font-family: 'Bebas Neue', sans-serif;
@@ -488,7 +503,7 @@
   .item-desc-edit-hint { font-size: 0.7rem; color: var(--muted); }
 
   /* Right: labels panel */
-  .item-detail-sidebar { display: flex; flex-direction: column; gap: 0; }
+  .item-detail-sidebar { display: flex; flex-direction: column; gap: 0; position: sticky; top: 84px; }
   .item-label-block {
     padding: 1rem 1.25rem;
     border: 1px solid var(--border);
@@ -531,7 +546,6 @@
   }
   .btn-copy-link:hover { border-color: var(--accent); color: var(--accent); }
   .btn-copy-link.copied { border-color: var(--green); color: var(--green); }
-  .item-not-found { text-align: center; padding: 5rem 1rem; color: var(--muted); }
 
   /* ── MODALS ── */
   .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 300; align-items: center; justify-content: center; padding: 1rem; }
@@ -590,6 +604,8 @@
     .filter-bar, .search-wrap { padding: 0.75rem 1rem; }
     .form-row { grid-template-columns: 1fr; }
     .item-detail-body { grid-template-columns: 1fr; gap: 2rem; }
+    .item-detail-sidebar { position: static; }
+    .item-detail-main { padding: 1.25rem; }
     .item-detail-wrap { padding: 1.5rem 1rem 3rem; }
     .item-count { display: none; }
     .contact-wrap { padding: 2rem 1rem; }
@@ -925,8 +941,17 @@ const SYNC_API_KEY = 'rph_sync_api';
 //  CATALOGUE DATA
 // ═══════════════════════════════════════════
 function getItems() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || defaultItems(); }
-  catch { return defaultItems(); }
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      const items = JSON.parse(stored);
+      if (Array.isArray(items)) return items;
+    }
+  } catch { /* Replace unreadable legacy data with a fresh catalogue below. */ }
+  // Persist starter data once so generated IDs and share links stay stable between renders.
+  const items = defaultItems();
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+  return items;
 }
 function saveItems(items) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
@@ -1129,6 +1154,35 @@ const CATEGORY_EMOJI = {
   Poster: '🖼️', Collectible: '⭐', Keychain: '🔑', Sticker: '🏷️', Other: '📦'
 };
 
+const APP_VERSION = document.querySelector('meta[name="rph-version"]').content;
+const PLACEHOLDER_DESCRIPTION = 'No description has been added yet.';
+
+// Normalising at the rendering boundary keeps legacy and partially-complete records usable.
+function normaliseItem(item = {}, fallbackId = '') {
+  return {
+    id: String(item.id || fallbackId || uid()), name: item.name || 'Untitled catalogue item',
+    game: item.game || 'Rockstar Games', category: item.category || 'Other', desc: item.desc || '',
+    badge: item.badge || '', image: item.image || '', link: item.link || '',
+    extraImages: Array.isArray(item.extraImages) ? item.extraImages.filter(Boolean) : []
+  };
+}
+function escapeHTML(value) {
+  return String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
+}
+function safeExternalUrl(value) {
+  try {
+    const url = new URL(value);
+    return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
+  } catch { return ''; }
+}
+function placeholderImageMarkup(category, label = 'Image coming soon') {
+  return `<div class="image-placeholder"><span class="placeholder-icon">${CATEGORY_EMOJI[category] || '★'}</span><span class="placeholder-label">${label}</span></div>`;
+}
+function imageMarkup(src, alt, category, eager = false) {
+  if (!src) return placeholderImageMarkup(category);
+  return `<img src="${escapeHTML(src)}" alt="${escapeHTML(alt)}" loading="${eager ? 'eager' : 'lazy'}" decoding="async" referrerpolicy="no-referrer" onerror="this.replaceWith(document.createRange().createContextualFragment(placeholderImageMarkup('${escapeHTML(category)}')).firstChild)">`;
+}
+
 function renderHome() {
   const items = getItems();
   document.getElementById('homeStatItems').textContent = items.length;
@@ -1139,18 +1193,18 @@ function renderHome() {
 }
 
 function cardHTML(item) {
+  item = normaliseItem(item);
   return `
     <div class="merch-card" data-id="${item.id}">
       <a class="card-img-wrap" href="#item/${item.id}">
-        ${item.image ? `<img src="${item.image}" alt="${item.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
-        <div class="card-img-placeholder" style="${item.image ? 'display:none' : 'display:flex;align-items:center;justify-content:center;width:100%;height:100%'}">${CATEGORY_EMOJI[item.category] || '★'}</div>
+        ${imageMarkup(item.image, item.name, item.category)}
         ${item.badge ? `<span class="card-badge">${item.badge}</span>` : ''}
       </a>
       <a class="card-body" href="#item/${item.id}">
-        <div class="card-game">${item.game}</div>
-        <div class="card-name">${item.name}</div>
-        <div class="card-desc">${item.desc || 'No description.'}</div>
-        <div class="card-footer"><span class="card-category">${item.category}</span></div>
+        <div class="card-game">${escapeHTML(item.game)}</div>
+        <div class="card-name">${escapeHTML(item.name)}</div>
+        <div class="card-desc">${escapeHTML(item.desc || PLACEHOLDER_DESCRIPTION)}</div>
+        <div class="card-footer"><span class="card-category">${escapeHTML(item.category)}</span></div>
       </a>
       <div class="card-edit-btns">
         <button class="btn-edit"   onclick="openEditModal('${item.id}')">✏ Edit</button>
@@ -1222,21 +1276,12 @@ function populateGameFilters(items) {
 let currentItemId = null;
 
 function renderItemPage(id) {
-  const item = getItems().find(i => i.id === id);
+  const storedItem = getItems().find(i => i.id === id);
+  // A retired or incomplete link remains a useful, shareable catalogue detail page.
+  const item = normaliseItem(storedItem, id);
   const wrap = document.querySelector('.item-detail-wrap');
-  if (!item) {
-    wrap.innerHTML = `
-      <button class="btn-back" onclick="showPage('catalogue')">← Back to Catalogue</button>
-      <div class="item-not-found">
-        <span style="font-size:3rem;display:block;margin-bottom:1rem;opacity:0.2">★</span>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:2px;color:var(--white);margin-bottom:0.5rem">Item Not Found</h3>
-        <p>This item may have been removed or the link may be outdated.</p>
-      </div>`;
-    return;
-  }
   currentItemId = item.id;
   const allImages = [item.image, ...(item.extraImages || [])].filter(Boolean);
-  const emoji = CATEGORY_EMOJI[item.category] || '★';
   const isAdmin = document.body.classList.contains('admin-mode');
 
   wrap.innerHTML = `
@@ -1244,7 +1289,7 @@ function renderItemPage(id) {
 
     <!-- Hero image -->
     <div class="item-hero" id="itemPageHero">
-      ${allImages[0] ? `<img src="${allImages[0]}" alt="${item.name}" onerror="this.parentElement.innerHTML='${emoji}'">` : emoji}
+      ${imageMarkup(allImages[0], item.name, item.category, true)}
     </div>
 
     <!-- Thumbnail strip (only if multiple images) -->
@@ -1278,7 +1323,7 @@ function renderItemPage(id) {
   // Fill name & game
   document.getElementById('itemPageGame').textContent = item.game;
   document.getElementById('itemPageName').textContent = item.name;
-  document.getElementById('itemPageDesc').textContent = item.desc || 'No description has been added yet.';
+  document.getElementById('itemPageDesc').textContent = item.desc || PLACEHOLDER_DESCRIPTION;
 
   // Build sidebar label blocks
   const sidebar = document.getElementById('itemPageSidebar');
@@ -1286,22 +1331,23 @@ function renderItemPage(id) {
     { key: 'Game',     val: item.game,     cls: 'gold' },
     { key: 'Category', val: item.category, cls: '' },
     ...(item.badge ? [{ key: 'Edition / Badge', val: item.badge, cls: 'badge-pill' }] : []),
-    ...(item.link  ? [{ key: 'Source', val: `<a href="${item.link}" target="_blank" style="color:var(--gold);font-family:Inter,sans-serif;font-size:0.8rem;word-break:break-all">${item.link}</a>`, cls: '', raw: true }] : []),
+    ...(safeExternalUrl(item.link) ? [{ key: 'Source', val: `<a href="${escapeHTML(safeExternalUrl(item.link))}" target="_blank" rel="noopener noreferrer" style="color:var(--gold);font-family:Inter,sans-serif;font-size:0.8rem;word-break:break-all">${escapeHTML(safeExternalUrl(item.link))}</a>`, cls: '', raw: true }] : []),
   ];
   sidebar.innerHTML = labels.map(l => `
     <div class="item-label-block">
       <span class="item-label-key">${l.key}</span>
       ${l.raw
         ? `<div style="margin-top:2px">${l.val}</div>`
-        : `<div class="item-label-val ${l.cls||''}">${l.val}</div>`
+        : `<div class="item-label-val ${l.cls||''}">${escapeHTML(l.val)}</div>`
       }
     </div>`).join('');
 
   // Source link button (if present)
-  if (item.link) {
+  if (safeExternalUrl(item.link)) {
     const linkBtn = document.createElement('a');
-    linkBtn.href = item.link;
+    linkBtn.href = safeExternalUrl(item.link);
     linkBtn.target = '_blank';
+    linkBtn.rel = 'noopener noreferrer';
     linkBtn.className = 'view-link';
     linkBtn.style.marginTop = '1rem';
     linkBtn.textContent = 'View / Buy This Item →';
@@ -1312,11 +1358,11 @@ function renderItemPage(id) {
   const thumbsEl = document.getElementById('itemPageThumbs');
   const heroEl   = document.getElementById('itemPageHero');
   function setMainImage(src) {
-    heroEl.innerHTML = `<img src="${src}" alt="${item.name}" onerror="this.parentElement.innerHTML='${emoji}'">`;
+    heroEl.innerHTML = imageMarkup(src, item.name, item.category, true);
   }
   if (allImages.length > 1) {
     thumbsEl.innerHTML = allImages.map((src, i) =>
-      `<div class="view-thumb ${i === 0 ? 'active' : ''}" data-src="${src}"><img src="${src}" alt="thumb ${i+1}"></div>`
+      `<div class="view-thumb ${i === 0 ? 'active' : ''}" data-src="${escapeHTML(src)}"><img src="${escapeHTML(src)}" alt="Thumbnail ${i+1}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('.view-thumb').remove()"></div>`
     ).join('');
     thumbsEl.querySelectorAll('.view-thumb').forEach(t => {
       t.addEventListener('click', () => {
@@ -1517,10 +1563,25 @@ document.addEventListener('keydown', e => {
 // ═══════════════════════════════════════════
 //  INIT
 // ═══════════════════════════════════════════
+// GitHub Pages serves static files, so there are no deploy-time cache headers to manage here.
+// Bump the meta version above for each release; a changed version refreshes the document once.
+function applyVersionStrategy() {
+  const key = 'rph_app_version';
+  const previousVersion = localStorage.getItem(key);
+  localStorage.setItem(key, APP_VERSION);
+  if (previousVersion && previousVersion !== APP_VERSION && !location.search.includes('v=' + APP_VERSION)) {
+    location.replace(`${location.pathname}?v=${encodeURIComponent(APP_VERSION)}${location.hash}`);
+    return true;
+  }
+  return false;
+}
+
+if (!applyVersionStrategy()) {
 loadAbout();
 renderHome();
 renderCatalogue();
 handleRoute();
+}
 </script>
 </body>
 </html>
