@@ -1141,7 +1141,9 @@ function showPage(name) {
   window.scrollTo(0, 0);
   if (name === 'catalogue') renderCatalogue();
   if (name === 'home') renderHome();
-  if (name !== 'item' && !location.hash.startsWith('#item/')) {
+  // Always replace an item hash when leaving its detail page. Otherwise reopening
+  // the same item does not fire hashchange and appears to leave cards unclickable.
+  if (name !== 'item') {
     history.replaceState(null, '', name === 'home' ? location.pathname : '#' + name);
   }
 }
