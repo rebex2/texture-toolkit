@@ -1,262 +1,2510 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Update this version with each GitHub Pages deployment. It helps returning visitors refresh stale HTML. -->
-<meta name="rph-version" content="2026.07.25.1">
-<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
-<title>R★ Games Promo Hub — Official Merch Catalogue</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>:root{--black:#0D0D0D;--charcoal:#1A1A1A;--panel:#222222;--border:#333333;--accent:#F2F2F2;--gold:#C9A84C;--white:#E8E8E8;--muted:#888888;--red:#C0392B;--green:#27AE60}*,::after,::before{box-sizing:border-box;margin:0;padding:0}body{background:var(--black);color:var(--white);font-family:Inter,sans-serif;min-height:100vh}header{background:var(--charcoal);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;height:64px;display:flex;align-items:center;padding:0 2rem;gap:1.5rem}.logo{display:flex;align-items:baseline;gap:4px;cursor:pointer;text-decoration:none;flex-shrink:0}.logo-word-r{font-family:'Bebas Neue',sans-serif;font-size:1.55rem;letter-spacing:3px;color:var(--white);line-height:1}.logo-word-r span{color:var(--gold)}.logo-divider{width:1px;height:22px;background:var(--border);margin:0 8px;flex-shrink:0;align-self:center}.logo-sub{font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-weight:500;line-height:1;align-self:center}nav{display:flex;align-items:center;gap:0;flex:1;justify-content:center}.nav-link{background:0 0;border:none;color:var(--muted);font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:2px;padding:8px 16px;cursor:pointer;position:relative;transition:color .15s;white-space:nowrap}.nav-link::after{content:'';position:absolute;bottom:-1px;left:16px;right:16px;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .2s;transform-origin:left}.nav-link:hover{color:var(--white)}.nav-link.active{color:var(--white)}.nav-link.active::after{transform:scaleX(1)}.header-right{display:flex;align-items:center;gap:.75rem;flex-shrink:0;margin-left:auto}.item-count{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;white-space:nowrap}.hamburger{display:none;flex-direction:column;gap:5px;background:0 0;border:none;cursor:pointer;padding:4px;flex-shrink:0}.hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:all .25s}.hamburger.open span:first-child{transform:translateY(7px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;background:var(--charcoal);border-bottom:1px solid var(--border);z-index:199;flex-direction:column;padding:.5rem 0 1rem;animation:slide-down .2s ease-out}@keyframes slide-down{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}.mobile-nav.open{display:flex}.mobile-nav-link{background:0 0;border:none;color:var(--muted);font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:3px;padding:14px 2rem;cursor:pointer;text-align:left;width:100%;border-left:3px solid transparent;transition:all .15s}.mobile-nav-link.active,.mobile-nav-link:hover{color:var(--white);border-left-color:var(--gold);background:rgba(255,255,255,.03)}.mobile-nav-divider{height:1px;background:var(--border);margin:.5rem 2rem}.page{display:none;animation:fade-in .25s ease-out}.page.active{display:block}@keyframes fade-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}.home-hero{min-height:82vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;position:relative;overflow:hidden;background:var(--charcoal);border-bottom:1px solid var(--border)}.home-hero-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}.home-star-bg{font-size:60vw;color:rgba(255,255,255,.02);line-height:1;animation:slow-spin 80s linear infinite}@keyframes slow-spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}.home-eyebrow{font-size:.68rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1.25rem}.home-hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem, 10vw, 8rem);letter-spacing:6px;line-height:.9;color:var(--white);margin-bottom:.5rem}.home-hero h1 em{color:var(--gold);font-style:normal}.home-hero-sub{font-size:clamp(.85rem, 2vw, 1rem);color:var(--muted);max-width:520px;line-height:1.7;margin:1.5rem auto 2.5rem}.home-cta-row{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}.btn-primary{background:var(--white);color:var(--black);border:none;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:3px;padding:12px 32px;cursor:pointer;border-radius:2px;transition:opacity .2s,transform .2s}.btn-primary:hover{opacity:.85;transform:translateY(-2px)}.btn-secondary{background:0 0;color:var(--white);border:1px solid var(--border);font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:3px;padding:12px 32px;cursor:pointer;border-radius:2px;transition:border-color .2s}.btn-secondary:hover{border-color:var(--white)}.home-stats{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--border)}.stat-block{padding:2rem;text-align:center;border-right:1px solid var(--border)}.stat-block:last-child{border-right:none}.stat-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem, 5vw, 3.5rem);color:var(--gold);letter-spacing:2px;line-height:1;display:block}.stat-label{font-size:.68rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-top:4px;display:block}.home-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));border-bottom:1px solid var(--border)}.feature-block{padding:2.5rem 2rem;border-right:1px solid var(--border)}.feature-block:last-child{border-right:none}.feature-icon{font-size:2rem;margin-bottom:1rem;display:block}.feature-block h3{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:2px;color:var(--white);margin-bottom:.5rem}.feature-block p{font-size:.82rem;color:var(--muted);line-height:1.65}.home-section{padding:3rem 2rem;border-bottom:1px solid var(--border)}.section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.75rem;gap:1rem}.section-header h2{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:3px;color:var(--white)}.section-header h2 span{color:var(--gold)}.btn-see-all{background:0 0;border:1px solid var(--border);color:var(--muted);font-family:'Bebas Neue',sans-serif;font-size:.85rem;letter-spacing:2px;padding:5px 14px;cursor:pointer;border-radius:2px;white-space:nowrap;transition:all .15s}.btn-see-all:hover{border-color:var(--accent);color:var(--accent)}.home-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.25rem}.page-hero{background:var(--charcoal);border-bottom:1px solid var(--border);padding:2.5rem 2rem 2rem;text-align:center;position:relative;overflow:hidden}.page-hero::before{content:'★';position:absolute;font-size:18rem;color:rgba(255,255,255,.02);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;line-height:1}.page-hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem, 5vw, 4rem);letter-spacing:4px;color:var(--white);line-height:1}.page-hero p{margin-top:.5rem;color:var(--muted);font-size:.82rem;letter-spacing:2px;text-transform:uppercase}.filter-bar{padding:.8rem 2rem;background:var(--charcoal);border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}.filter-label{font-family:'Bebas Neue',sans-serif;font-size:.8rem;letter-spacing:2px;color:var(--muted);margin-right:.4rem;flex-shrink:0}.filter-pill{background:0 0;border:1px solid var(--border);color:var(--muted);font-family:Inter,sans-serif;font-size:.72rem;font-weight:500;padding:3px 11px;border-radius:2px;cursor:pointer;transition:all .15s;text-transform:uppercase;letter-spacing:1px;white-space:nowrap}.filter-pill:hover{border-color:var(--gold);color:var(--gold)}.filter-pill.active{background:var(--accent);border-color:var(--accent);color:var(--black)}.search-wrap{padding:.85rem 2rem;background:var(--black);border-bottom:1px solid var(--border)}.search-input{width:100%;max-width:400px;background:var(--charcoal);border:1px solid var(--border);color:var(--white);font-family:Inter,sans-serif;font-size:.85rem;padding:8px 14px;outline:0;border-radius:2px;transition:border-color .2s}.search-input:focus{border-color:var(--accent)}.search-input::placeholder{color:var(--muted)}.catalogue{padding:2rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.5rem}.empty-state{grid-column:1/-1;text-align:center;padding:5rem 1rem;color:var(--muted)}.empty-state .big-star{font-size:4rem;display:block;margin-bottom:1rem;opacity:.2}.empty-state h3{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:2px;margin-bottom:.5rem;color:var(--white)}.merch-card{background:var(--charcoal);border:1px solid var(--border);position:relative;transition:transform .2s,border-color .2s;animation:card-in .3s ease-out}@keyframes card-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}@media (hover:hover){.merch-card:hover{transform:translateY(-4px);border-color:var(--gold)}.merch-card:hover .card-img-wrap img{transform:scale(1.05)}}.card-img-wrap{background:#111;aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;cursor:pointer;-webkit-tap-highlight-color:rgba(242,242,242,0.1);text-decoration:none;color:inherit}.card-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .3s}.card-img-placeholder,.image-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.55rem;user-select:none;background:radial-gradient(circle at 50% 35%,rgba(201,168,76,.15),transparent 42%),#111;color:var(--gold);text-align:center}.card-img-placeholder{font-size:2.4rem}.image-placeholder .placeholder-icon{font-size:3.3rem;opacity:.72;line-height:1}.card-img-placeholder .placeholder-label,.image-placeholder .placeholder-label{font-size:.58rem;font-family:Inter,sans-serif;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted)}.card-badge{position:absolute;top:10px;right:10px;background:var(--accent);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:.68rem;letter-spacing:1px;padding:3px 8px;border-radius:1px}.card-body{padding:1rem;cursor:pointer;display:block;text-decoration:none;color:inherit}.card-game{font-size:.6rem;text-transform:uppercase;letter-spacing:2px;color:var(--gold);font-weight:600;margin-bottom:4px}.card-name{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:1px;color:var(--white);line-height:1.2;margin-bottom:6px}.card-desc{font-size:.73rem;color:var(--muted);line-height:1.5;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.card-footer{display:flex;align-items:center;justify-content:flex-end}.card-category{font-size:.6rem;background:var(--panel);border:1px solid var(--border);color:var(--muted);padding:2px 8px;text-transform:uppercase;letter-spacing:1px}.about-hero{background:var(--charcoal);border-bottom:1px solid var(--border)}.about-hero-inner{max-width:1100px;margin:0 auto;padding:4rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}.about-eyebrow{font-size:.68rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1rem}.about-hero-text h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem, 5vw, 4rem);letter-spacing:3px;line-height:1;color:var(--white);margin-bottom:1.5rem}.about-hero-text h1 span{color:var(--gold)}.about-hero-text p{font-size:.88rem;color:var(--muted);line-height:1.75;margin-bottom:1rem}.about-avatar-wrap{display:flex;flex-direction:column;align-items:center;gap:1.5rem}.about-avatar{width:200px;height:200px;border-radius:2px;border:2px solid var(--accent);background:var(--panel);display:flex;align-items:center;justify-content:center;font-size:5rem;overflow:hidden;position:relative}.about-avatar img{width:100%;height:100%;object-fit:cover}.about-avatar-label{font-size:.7rem;letter-spacing:2px;color:var(--muted);text-transform:uppercase;text-align:center}.team-section{border-bottom:1px solid var(--border);padding:3rem 2rem}.team-section-inner{max-width:1100px;margin:0 auto}.team-heading{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:3px;color:var(--white);text-align:center;margin-bottom:2rem}.team-heading span{color:var(--gold)}.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}.team-card{background:var(--charcoal);border:1px solid var(--border);padding:2rem 1.5rem;text-align:center;transition:border-color .2s}.team-card:hover{border-color:var(--gold)}.team-avatar{width:70px;height:70px;border-radius:50%;background:var(--panel);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 1rem}.team-name{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:2px;color:var(--white);margin-bottom:.25rem}.team-role{font-size:.68rem;text-transform:uppercase;letter-spacing:2px;color:var(--gold);font-weight:600;margin-bottom:.85rem}.team-desc{font-size:.8rem;color:var(--muted);line-height:1.65}.about-content{max-width:1100px;margin:0 auto;padding:3rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;border-bottom:1px solid var(--border)}.about-section h3{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:3px;color:var(--gold);margin-bottom:1rem}.about-section p{font-size:.85rem;color:var(--muted);line-height:1.75}.games-list{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}.game-tag{background:var(--panel);border:1px solid var(--border);color:var(--white);font-size:.7rem;padding:4px 12px;text-transform:uppercase;letter-spacing:1px}.contact-wrap{max-width:860px;margin:0 auto;padding:4rem 2rem}.contact-intro{margin-bottom:2.5rem}.contact-intro h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem, 5vw, 4rem);letter-spacing:3px;line-height:1;color:var(--white);margin-bottom:.75rem}.contact-intro h1 span{color:var(--gold)}.contact-intro p{font-size:.88rem;color:var(--muted);line-height:1.7;max-width:540px}.contact-form-embed{background:var(--charcoal);border:1px solid var(--border);border-radius:2px;overflow:hidden}.contact-form-embed iframe{width:100%;border:none;display:block;min-height:700px;background:0 0}.item-detail-wrap{max-width:1100px;margin:0 auto;padding:2rem 2rem 5rem}.btn-back{display:inline-flex;align-items:center;gap:.4rem;background:0 0;border:1px solid var(--border);color:var(--muted);font-family:'Bebas Neue',sans-serif;font-size:.85rem;letter-spacing:2px;padding:6px 14px;cursor:pointer;border-radius:2px;margin-bottom:2rem;transition:all .15s}.btn-back:hover{border-color:var(--accent);color:var(--accent)}.item-hero{width:100%;background:#0a0a0a;aspect-ratio:16/7;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:8rem;color:rgba(255,255,255,.06);margin-bottom:0;position:relative;border:1px solid var(--border)}.item-hero img{width:100%;height:100%;object-fit:contain}.item-hero .image-placeholder{min-height:100%}.view-thumbs{display:flex;gap:8px;flex-wrap:wrap;padding:12px;background:var(--charcoal);border:1px solid var(--border);border-top:none;margin-bottom:2.5rem}.view-thumb{width:72px;height:72px;border:2px solid var(--border);cursor:pointer;overflow:hidden;flex-shrink:0;transition:border-color .15s,opacity .15s;opacity:.55;border-radius:1px}.view-thumb img{width:100%;height:100%;object-fit:cover}.view-thumb:hover{opacity:.85}.view-thumb.active{border-color:var(--gold);opacity:1}.item-detail-body{display:grid;grid-template-columns:1fr 300px;gap:3rem;align-items:start}.item-detail-main{padding:1.75rem;background:linear-gradient(145deg,rgba(34,34,34,.9),rgba(13,13,13,.9));border:1px solid var(--border)}.item-game-label{font-size:.65rem;text-transform:uppercase;letter-spacing:3px;color:var(--gold);font-weight:600;margin-bottom:.5rem}.item-detail-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem, 5vw, 3.5rem);letter-spacing:2px;color:var(--white);line-height:1;margin-bottom:1.25rem}.item-detail-section-label{font-size:.62rem;text-transform:uppercase;letter-spacing:3px;color:var(--muted);font-weight:600;margin-bottom:.5rem;display:block;border-bottom:1px solid var(--border);padding-bottom:6px;margin-bottom:10px}.item-detail-desc{font-size:.9rem;color:var(--muted);line-height:1.85;margin-bottom:1.5rem;white-space:pre-line}.item-detail-sidebar{display:flex;flex-direction:column;gap:0;position:sticky;top:84px}.item-label-block{padding:1rem 1.25rem;border:1px solid var(--border);border-bottom:none;background:var(--charcoal)}.item-label-block:last-child{border-bottom:1px solid var(--border)}.item-label-key{font-size:.6rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted);font-weight:600;margin-bottom:5px;display:block}.item-label-val{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:1px;color:var(--white)}.item-label-val.gold{color:var(--gold)}.item-label-val.badge-pill{display:inline-block;background:var(--accent);color:var(--black);font-size:.72rem;padding:3px 10px;letter-spacing:1px}.view-link{display:block;margin-top:1.5rem;background:var(--accent);color:var(--black);text-align:center;text-decoration:none;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:3px;padding:11px;border-radius:2px;transition:opacity .2s}.view-link:hover{opacity:.85}.item-detail-share{display:flex;align-items:center;gap:.75rem;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--border)}.item-detail-share-label{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}.btn-copy-link{background:var(--panel);border:1px solid var(--border);color:var(--white);font-family:Inter,sans-serif;font-size:.75rem;font-weight:500;padding:5px 12px;cursor:pointer;border-radius:2px;transition:all .15s}.btn-copy-link:hover{border-color:var(--accent);color:var(--accent)}.btn-copy-link.copied{border-color:var(--green);color:var(--green)}footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:var(--muted);font-size:.7rem;letter-spacing:1px;text-transform:uppercase}.footer-links{display:flex;gap:1.5rem;justify-content:center;margin-bottom:1rem;flex-wrap:wrap}.footer-links button{background:0 0;border:none;color:var(--muted);font-family:Inter,sans-serif;font-size:.7rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:color .15s}.footer-links button:hover{color:var(--accent)}footer span{color:var(--gold)}@media (max-width:768px){header{padding:0 1rem}nav{display:none}.hamburger{display:flex}.header-right{margin-left:auto}.about-hero-inner{grid-template-columns:1fr;gap:2rem;padding:2rem 1rem}.about-avatar-wrap{order:-1}.about-content{grid-template-columns:1fr;gap:2rem;padding:2rem 1rem}.home-stats{grid-template-columns:1fr}.stat-block{border-right:none;border-bottom:1px solid var(--border)}.stat-block:last-child{border-bottom:none}.home-features{grid-template-columns:1fr}.feature-block{border-right:none;border-bottom:1px solid var(--border)}.feature-block:last-child{border-bottom:none}.catalogue{padding:1rem;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(155px,1fr))}.filter-bar,.search-wrap{padding:.75rem 1rem}.item-detail-body{grid-template-columns:1fr;gap:2rem}.item-detail-sidebar{position:static}.item-detail-main{padding:1.25rem}.item-detail-wrap{padding:1.5rem 1rem 3rem}.item-count{display:none}.contact-wrap{padding:2rem 1rem}}</style>
-</head><body><!-- Header --><header><div class="logo" onclick="showPage('home')"><div class="logo-word-r">R<span>★</span> GAMES <span>PROMO</span> HUB</div><div class="logo-divider"></div><div class="logo-sub">Merch<br>Catalogue</div></div><nav><button class="nav-link active" id="nav-home" onclick="showPage('home')">Home</button><button class="nav-link" id="nav-catalogue" onclick="showPage('catalogue')">Catalogue</button><button class="nav-link" id="nav-about" onclick="showPage('about')">About</button><button class="nav-link" id="nav-contact" onclick="showPage('contact')">Contact Us / Submissions</button></nav><div class="header-right"><span class="item-count" id="itemCount">0 items</span><button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu"><span></span><span></span><span></span></button></div></header><!-- Mobile nav drawer --><div class="mobile-nav" id="mobileNav"><button class="mobile-nav-link active" id="mnav-home" onclick="showPage('home');toggleMobileNav()">Home</button><button class="mobile-nav-link" id="mnav-catalogue" onclick="showPage('catalogue');toggleMobileNav()">Catalogue</button><button class="mobile-nav-link" id="mnav-about" onclick="showPage('about');toggleMobileNav()">About</button><button class="mobile-nav-link" id="mnav-contact" onclick="showPage('contact');toggleMobileNav()">Contact Us / Submissions</button></div><!-- ════════════════════════════════════════
-Want to add a new item to the catalogue?
-Scroll down to the script section near the
-bottom of this file and look for "YOUR ITEMS" —
-that's the only part you need to edit.
-════════════════════════════════════════ --><!-- Home page --><div class="page active" id="page-home"><section class="home-hero"><div class="home-hero-bg"><span class="home-star-bg">★</span></div><p class="home-eyebrow">The #1 Fan Resource For</p><h1>Rockstar<br><em>Promo</em><br>Hub</h1><p class="home-hero-sub">The most complete catalogue of Rockstar Games promotional merchandise — from launch-day giveaways to limited-edition collector's pieces across every title.</p><div class="home-cta-row"><button class="btn-primary" onclick="showPage('catalogue')">Browse Catalogue →</button><button class="btn-secondary" onclick="showPage('about')">About This Site</button></div></section><div class="home-stats"><div class="stat-block"><span class="stat-num" id="homeStatItems">0</span><span class="stat-label">Items Catalogued</span></div><div class="stat-block"><span class="stat-num" id="homeStatGames">0</span><span class="stat-label">Games Covered</span></div><div class="stat-block"><span class="stat-num" id="homeStatCats">9</span><span class="stat-label">Categories</span></div></div><div class="home-features"><div class="feature-block"><span class="feature-icon">🧢</span><h3>Every Category</h3><p>Hats, plushies, tees, hoodies, posters, collectibles, keychains, stickers, and more — all in one place with category filters.</p></div><div class="feature-block"><span class="feature-icon">🎮</span><h3>All Rockstar Titles</h3><p>GTA, Red Dead Redemption, Bully, Midnight Club, Max Payne — promo merch from the full Rockstar library.</p></div><div class="feature-block"><span class="feature-icon">⭐</span><h3>Rare & Limited Finds</h3><p>From E3 giveaways to launch-day exclusives, we track down the hard-to-find pieces that collectors care about.</p></div></div><section class="home-section"><div class="section-header"><h2>Latest <span>Additions</span></h2><button class="btn-see-all" onclick="showPage('catalogue')">See All →</button></div><div class="home-grid" id="homeGrid"></div></section></div><!-- Catalogue page --><div class="page" id="page-catalogue"><section class="page-hero"><h1>Merch Catalogue</h1><p>Every piece of promo gear — from GTA to Red Dead &amp; beyond</p></section><div class="filter-bar"><span class="filter-label">Type:</span><button class="filter-pill active" data-filter="all" onclick="setFilter('all', this)">All</button><button class="filter-pill" data-filter="Hat" onclick="setFilter('Hat', this)">Hats</button><button class="filter-pill" data-filter="Plushie" onclick="setFilter('Plushie', this)">Plushies</button><button class="filter-pill" data-filter="T-Shirt" onclick="setFilter('T-Shirt', this)">T-Shirts</button><button class="filter-pill" data-filter="Hoodie" onclick="setFilter('Hoodie', this)">Hoodies</button><button class="filter-pill" data-filter="Poster" onclick="setFilter('Poster', this)">Posters</button><button class="filter-pill" data-filter="Collectible" onclick="setFilter('Collectible', this)">Collectibles</button><button class="filter-pill" data-filter="Keychain" onclick="setFilter('Keychain', this)">Keychains</button><button class="filter-pill" data-filter="Sticker" onclick="setFilter('Sticker', this)">Stickers</button><button class="filter-pill" data-filter="Other" onclick="setFilter('Other', this)">Other</button></div><div class="filter-bar" id="gameFilterBar"><span class="filter-label">Game:</span><button class="filter-pill active" data-game-filter="all" onclick="setGameFilter('all', this)">All Games</button></div><div class="search-wrap"><input class="search-input" type="text" id="searchInput" placeholder="Search by name, game, or keyword…" oninput="renderCatalogue()"></div><main class="catalogue" id="catalogue"></main></div><!-- About page --><div class="page" id="page-about"><div class="about-hero"><div class="about-hero-inner"><div class="about-hero-text"><p class="about-eyebrow">Fan-made &amp; community-driven</p><h1>About <span>This</span><br>Site</h1><p id="about-p1" style="display:block;padding:4px 0">
-Hey! We're two massive Rockstar Games fans who got tired of hunting across the internet for promo merch photos. So we built RockstarPromoHub — a single, searchable home for every piece of Rockstar promotional merchandise we can track down.
-</p><p id="about-p2" style="display:block;padding:4px 0;margin-top:0.75rem">
-Whether it's a snapback handed out at E3, a Red Dead plushie from a launch event, or a GTA hoodie from an online store — if Rockstar made it, we want it catalogued here.
-</p></div><div class="about-avatar-wrap"><div class="about-avatar" id="aboutAvatarWrap"><span id="aboutAvatarEmoji" style="font-size:5rem">⭐</span></div><p class="about-avatar-label" id="about-name">RockstarPromoHub</p></div></div></div><div class="team-section"><div class="team-section-inner"><h3 class="team-heading">Meet The <span>Team</span></h3><div class="team-grid"><div class="team-card"><div class="team-avatar">🕴️</div><div class="team-name" id="about-wade-name">Wade</div><div class="team-role" id="about-wade-role">Site Builder &amp; Cataloguer</div><p class="team-desc" id="about-wade-desc">Handles all the website creation, item logging, and basically everything else that keeps this place running behind the scenes.</p></div><div class="team-card"><div class="team-avatar">🎙️</div><div class="team-name" id="about-tommy-name">The Editor</div><div class="team-role" id="about-tommy-role">Advisor</div><p class="team-desc" id="about-tommy-desc">Gives verbal advice and direction on where the site should go next — the voice in the room making sure things stay on track.</p></div></div></div></div><div class="about-content"><div class="about-section"><h3>What We Cover</h3><p id="about-p3" style="display:block">
-This catalogue covers official promotional merchandise from all Rockstar Games titles — past and present. Each item is logged with its game, category, description, and source where possible.
-</p><div class="games-list"><span class="game-tag">GTA V</span><span class="game-tag">GTA VI</span><span class="game-tag">GTA Online</span><span class="game-tag">Red Dead Redemption</span><span class="game-tag">Red Dead 2</span><span class="game-tag">Bully</span><span class="game-tag">Max Payne</span><span class="game-tag">Midnight Club</span><span class="game-tag">L.A. Noire</span><span class="game-tag">+ More</span></div></div><div class="about-section"><h3>How To Help</h3><p id="about-p4" style="display:block">
-Spotted a piece of merch that isn't in the catalogue? Get in touch via the Contact Us / Submissions page and we'll get it added. High-quality photos, source links, and any details about the item are all super helpful.
-</p><br><p id="about-p5" style="display:block">
-This site is not affiliated with Rockstar Games or Take-Two Interactive. All trademarks belong to their respective owners. This is a fan project built out of love for the games.
-</p></div></div></div><!-- Contact page --><div class="page" id="page-contact"><div class="contact-wrap"><div class="contact-intro"><h1>Get In <span>Touch</span></h1><p>Got a tip about some merch? Spotted something missing from the catalogue? Fill in the form below and we'll get back to you.</p></div><div class="contact-form-embed"><iframe
-src="https://docs.google.com/forms/d/e/1FAIpQLSdhKhp1s9aOOpSQHgJoEfNrcz-2Pm8gGiEETikGLTqmCvsWYA/viewform?embedded=true"
-title="Contact Form"
-loading="lazy">
-Loading form…
-</iframe></div></div></div><!-- ════════════════ PAGE: ITEM DETAIL ════════════════ --><div class="page" id="page-item"><div class="item-detail-wrap"></div></div><!-- Footer --><footer><div class="footer-links"><button onclick="showPage('home')">Home</button><button onclick="showPage('catalogue')">Catalogue</button><button onclick="showPage('about')">About</button><button onclick="showPage('contact')">Contact Us / Submissions</button></div><p>© 2024–2026 <span>RockstarPromoHub.com</span> — Fan-made. Not affiliated with Rockstar Games.</p></footer>
-<script>
-// ═══════════════════════════════════════════════════════════════════
-//  YOUR ITEMS — this is the only section you ever need to touch.
-//
-//  HOW TO ADD A NEW ITEM:
-//  1. Copy one whole block below — from its opening { down to the
-//     closing },
-//  2. Paste it at the end of the list (just above the closing ]; ).
-//  3. Fill in your own details between the quote marks.
-//  4. Save the file and refresh the page in your browser. Done —
-//     no forms, no login, no external service.
-//
-//  FIELD GUIDE:
-//    name         Item name — shown as the title.                (required)
-//    game         Which game it's from, e.g. "GTA V".             (required)
-//    category     One of: Hat, Plushie, T-Shirt, Hoodie, Poster,
-//                 Collectible, Keychain, Sticker, Other.           (required)
-//    description  A sentence or two about the item.               (optional — leave as "")
-//    year         Year the item was released.                       (optional — leave as "")
-//    rarity       One of: Common, Rare, Incredibly Rare.            (optional — leave as "")
-//    availability One of: Sold on Rockstar Website, Sold in Stores,
-//                 Giveaway Item, Competition Winner Item.           (optional — leave as "")
-//    image        A direct link to a photo of the item.            (optional — leave as "")
-//    extraImages  More photo links, e.g. ["url1", "url2"].         (optional — leave as [])
-//    link         A link to buy it or read more about it.          (optional — leave as "")
-//
-//  Don't worry about breaking the site — if you miss a comma, the
-//  page will just stay blank and your browser's console (F12) will
-//  point at the line. Nothing gets sent anywhere; it all lives right
-//  here in this file.
-// ═══════════════════════════════════════════════════════════════════
-const ITEMS = [
-  {
-    name: "Chop the Dog Plush",
-    game: "GTA V",
-    category: "Hat",
-    description: "Official embroidered snapback cap featuring the Los Santos cityscape logo. Adjustable fit, one-size-most.",
-    year: "2013",
-    rarity: "Rare",
-    availability: "Sold in Stores",
-    image: "images/chop.jpg",
-    extraImages: [],
-    link: ""
-  },
-  
-  // 👆 copy a block like one of these, paste it below, and fill in your own item.
-];
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-function slugify(text){return String(text).toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"")||"item"}function getItems(){const usedIds={};return ITEMS.map(raw=>{let id=slugify(raw.name+"-"+raw.game);return usedIds[id]=(usedIds[id]||0)+1,usedIds[id]>1&&(id+="-"+usedIds[id]),{id:id,name:raw.name||"Untitled item",game:raw.game||"Rockstar Games",category:raw.category||"Other",desc:raw.description||"",badge:raw.badge||"",image:raw.image||"",link:raw.link||"",extraImages:Array.isArray(raw.extraImages)?raw.extraImages.filter(Boolean):[]}})}let mobileNavOpen=!1;function toggleMobileNav(){mobileNavOpen=!mobileNavOpen,document.getElementById("mobileNav").classList.toggle("open",mobileNavOpen),document.getElementById("hamburger").classList.toggle("open",mobileNavOpen)}function showPage(name){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active")),document.querySelectorAll(".nav-link").forEach(n=>n.classList.remove("active")),document.querySelectorAll(".mobile-nav-link").forEach(n=>n.classList.remove("active")),document.getElementById("page-"+name).classList.add("active");const nl=document.getElementById("nav-"+name);nl&&nl.classList.add("active");const mnl=document.getElementById("mnav-"+name);mnl&&mnl.classList.add("active"),window.scrollTo(0,0),"catalogue"===name&&renderCatalogue(),"home"===name&&renderHome(),"item"!==name&&history.replaceState(null,"","home"===name?location.pathname:"#"+name)}const CATEGORY_EMOJI={Hat:"🧢",Plushie:"🧸","T-Shirt":"👕",Hoodie:"🥋",Poster:"🖼️",Collectible:"⭐",Keychain:"🔑",Sticker:"🏷️",Other:"📦"},PLACEHOLDER_DESCRIPTION="No description has been added yet.";function normaliseItem(item={},fallbackId=""){return{id:String(item.id||fallbackId||"item"),name:item.name||"Untitled catalogue item",game:item.game||"Rockstar Games",category:item.category||"Other",desc:item.desc||"",badge:item.badge||"",image:item.image||"",link:item.link||"",extraImages:Array.isArray(item.extraImages)?item.extraImages.filter(Boolean):[]}}function escapeHTML(value){return String(value??"").replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]))}function safeExternalUrl(value){try{const url=new URL(value);return["http:","https:"].includes(url.protocol)?url.href:""}catch{return""}}function placeholderImageMarkup(category,label="Image coming soon"){return`<div class="image-placeholder"><span class="placeholder-icon">${CATEGORY_EMOJI[category]||"★"}</span><span class="placeholder-label">${label}</span></div>`}function imageMarkup(src,alt,category,eager=!1){return src?`<img src="${escapeHTML(src)}" alt="${escapeHTML(alt)}" loading="${eager?"eager":"lazy"}" decoding="async" referrerpolicy="no-referrer" onerror="this.replaceWith(document.createRange().createContextualFragment(placeholderImageMarkup('${escapeHTML(category)}')).firstChild)">`:placeholderImageMarkup(category)}function renderHome(){const items=getItems();document.getElementById("homeStatItems").textContent=items.length,document.getElementById("homeStatGames").textContent=new Set(items.map(i=>i.game)).size,document.getElementById("itemCount").textContent=`${items.length} item${1!==items.length?"s":""}`;const recent=[...items].reverse().slice(0,4);document.getElementById("homeGrid").innerHTML=recent.map(item=>cardHTML(item)).join("")}function cardHTML(item){return`\n    <div class="merch-card" data-id="${(item=normaliseItem(item)).id}">\n      <a class="card-img-wrap" href="#item/${item.id}">\n        ${imageMarkup(item.image,item.name,item.category)}\n        ${item.badge?`<span class="card-badge">${item.badge}</span>`:""}\n      </a>\n      <a class="card-body" href="#item/${item.id}">\n        <div class="card-game">${escapeHTML(item.game)}</div>\n        <div class="card-name">${escapeHTML(item.name)}</div>\n        <div class="card-desc">${escapeHTML(item.desc||PLACEHOLDER_DESCRIPTION)}</div>\n        <div class="card-footer"><span class="card-category">${escapeHTML(item.category)}</span></div>\n      </a>\n    </div>`}let currentFilter="all",currentGameFilter="all";function renderCatalogue(){const items=getItems(),q=(document.getElementById("searchInput").value||"").toLowerCase().trim();document.getElementById("itemCount").textContent=`${items.length} item${1!==items.length?"s":""}`,populateGameFilters(items);const filtered=items.filter(item=>{const matchFilter="all"===currentFilter||item.category===currentFilter,matchGame="all"===currentGameFilter||item.game===currentGameFilter,matchSearch=!q||[item.name,item.game,item.category,item.desc].some(v=>(v||"").toLowerCase().includes(q));return matchFilter&&matchGame&&matchSearch}),el=document.getElementById("catalogue");0!==filtered.length?el.innerHTML=filtered.map(item=>cardHTML(item)).join(""):el.innerHTML='<div class="empty-state"><span class="big-star">★</span><h3>No Items Found</h3><p>Try a different filter or search term.</p></div>'}function setFilter(val,el){currentFilter=val,document.querySelectorAll(".filter-bar:not(#gameFilterBar) .filter-pill").forEach(p=>p.classList.remove("active")),el.classList.add("active"),renderCatalogue()}function setGameFilter(val,el){currentGameFilter=val,document.querySelectorAll("#gameFilterBar .filter-pill").forEach(p=>p.classList.remove("active")),el.classList.add("active"),renderCatalogue()}function populateGameFilters(items){const bar=document.getElementById("gameFilterBar"),games=[...new Set(items.map(i=>i.game).filter(Boolean))].sort((a,b)=>a.localeCompare(b)),existing=Array.from(bar.querySelectorAll('.filter-pill[data-game-filter]:not([data-game-filter="all"])')),existingNames=existing.map(p=>p.dataset.gameFilter);if(existingNames.length===games.length&&existingNames.every(g=>games.includes(g)))return;"all"===currentGameFilter||games.includes(currentGameFilter)||(currentGameFilter="all"),existing.forEach(p=>p.remove()),games.forEach(game=>{const btn=document.createElement("button");btn.className="filter-pill"+(currentGameFilter===game?" active":""),btn.dataset.gameFilter=game,btn.textContent=game,btn.onclick=()=>setGameFilter(game,btn),bar.appendChild(btn)});const allPill=bar.querySelector('.filter-pill[data-game-filter="all"]');allPill&&allPill.classList.toggle("active","all"===currentGameFilter)}let currentItemId=null;function renderItemPage(id){const item=normaliseItem(getItems().find(i=>i.id===id),id),wrap=document.querySelector(".item-detail-wrap");currentItemId=item.id;const allImages=[item.image,...item.extraImages||[]].filter(Boolean);wrap.innerHTML=`\n    <button class="btn-back" onclick="showPage('catalogue')">← Back to Catalogue</button>\n\n    \x3c!-- Hero image --\x3e\n    <div class="item-hero" id="itemPageHero">\n      ${imageMarkup(allImages[0],item.name,item.category,!0)}\n    </div>\n\n    \x3c!-- Thumbnail strip (only if multiple images) --\x3e\n    <div class="view-thumbs" id="itemPageThumbs" style="${allImages.length>1?"":"display:none"}"></div>\n\n    \x3c!-- Body: description left, labels sidebar right --\x3e\n    <div class="item-detail-body">\n      <div class="item-detail-main">\n        <div class="item-game-label" id="itemPageGame"></div>\n        <h1 class="item-detail-name" id="itemPageName"></h1>\n\n        <span class="item-detail-section-label">Description</span>\n        <p class="item-detail-desc" id="itemPageDesc"></p>\n\n        <div class="item-detail-share">\n          <span class="item-detail-share-label">Share this item:</span>\n          <button class="btn-copy-link" id="btnCopyLink" onclick="copyItemLink()">🔗 Copy Link</button>\n        </div>\n      </div>\n\n      <div class="item-detail-sidebar" id="itemPageSidebar">\n        \x3c!-- Populated by JS below --\x3e\n      </div>\n    </div>`,document.getElementById("itemPageGame").textContent=item.game,document.getElementById("itemPageName").textContent=item.name,document.getElementById("itemPageDesc").textContent=item.desc||PLACEHOLDER_DESCRIPTION;const sidebar=document.getElementById("itemPageSidebar"),labels=[{key:"Game",val:item.game,cls:"gold"},{key:"Category",val:item.category,cls:""},...item.badge?[{key:"Edition / Badge",val:item.badge,cls:"badge-pill"}]:[],...safeExternalUrl(item.link)?[{key:"Source",val:`<a href="${escapeHTML(safeExternalUrl(item.link))}" target="_blank" rel="noopener noreferrer" style="color:var(--gold);font-family:Inter,sans-serif;font-size:0.8rem;word-break:break-all">${escapeHTML(safeExternalUrl(item.link))}</a>`,cls:"",raw:!0}]:[]];if(sidebar.innerHTML=labels.map(l=>`\n    <div class="item-label-block">\n      <span class="item-label-key">${l.key}</span>\n      ${l.raw?`<div style="margin-top:2px">${l.val}</div>`:`<div class="item-label-val ${l.cls||""}">${escapeHTML(l.val)}</div>`}\n    </div>`).join(""),safeExternalUrl(item.link)){const linkBtn=document.createElement("a");linkBtn.href=safeExternalUrl(item.link),linkBtn.target="_blank",linkBtn.rel="noopener noreferrer",linkBtn.className="view-link",linkBtn.style.marginTop="1rem",linkBtn.textContent="View / Buy This Item →",sidebar.appendChild(linkBtn)}const thumbsEl=document.getElementById("itemPageThumbs"),heroEl=document.getElementById("itemPageHero");allImages.length>1&&(thumbsEl.innerHTML=allImages.map((src,i)=>`<div class="view-thumb ${0===i?"active":""}" data-src="${escapeHTML(src)}"><img src="${escapeHTML(src)}" alt="Thumbnail ${i+1}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('.view-thumb').remove()"></div>`).join(""),thumbsEl.querySelectorAll(".view-thumb").forEach(t=>{t.addEventListener("click",()=>{var src;thumbsEl.querySelectorAll(".view-thumb").forEach(x=>x.classList.remove("active")),t.classList.add("active"),src=t.dataset.src,heroEl.innerHTML=imageMarkup(src,item.name,item.category,!0)})}))}function copyItemLink(){const url=location.origin+location.pathname+"#item/"+currentItemId,btn=document.getElementById("btnCopyLink");navigator.clipboard.writeText(url).then(()=>{btn.textContent="✓ Copied!",btn.classList.add("copied"),setTimeout(()=>{btn.textContent="🔗 Copy Link",btn.classList.remove("copied")},1800)}).catch(()=>prompt("Copy this link:",url))}function handleRoute(){const hash=location.hash;if(hash.startsWith("#item/")){const id=hash.slice(6);document.querySelectorAll(".page").forEach(p=>p.classList.remove("active")),document.querySelectorAll(".nav-link, .mobile-nav-link").forEach(n=>n.classList.remove("active")),document.getElementById("page-item").classList.add("active"),renderItemPage(id),window.scrollTo(0,0)}else["#catalogue","#about","#contact"].includes(hash)?showPage(hash.slice(1)):showPage("home")}function applyVersionStrategy(){const APP_VERSION=document.querySelector('meta[name="rph-version"]').content,key="rph_app_version",previousVersion=localStorage.getItem(key);return localStorage.setItem(key,APP_VERSION),!(!previousVersion||previousVersion===APP_VERSION||location.search.includes("v="+APP_VERSION))&&(location.replace(`${location.pathname}?v=${encodeURIComponent(APP_VERSION)}${location.hash}`),!0)}window.addEventListener("hashchange",handleRoute),applyVersionStrategy()||(renderHome(),renderCatalogue(),handleRoute());
- </script>
- <script>
- // ═══════════════════════════════════════════════════════════════════
- //  Catalogue field upgrades
- //  Year, rarity, and availability are intentionally display-only:
- //  they are shown on the item detail page but are not filter controls.
- // ═══════════════════════════════════════════════════════════════════
- (function () {
-   const LEGACY_ITEM_DEFAULTS = {
-     "Chop the Dog Plush": {
-       year: "2013",
-       rarity: "Rare",
-       availability: "Sold in Stores"
-     }
-   };
+    <!--
+      ROCKSTAR GAMES PROMO HUB
+      ========================
 
-   function itemFields(raw) {
-     const defaults = LEGACY_ITEM_DEFAULTS[raw.name] || {};
-     return {
-       year: raw.year || defaults.year || "Not specified",
-       rarity: raw.rarity || defaults.rarity || "Not specified",
-       availability:
-         raw.availability ||
-         defaults.availability ||
-         (raw.badge === "OFFICIAL" ? "Sold in Stores" : "") ||
-         "Not specified"
-     };
-   }
+      This is a complete, single-file website. There are no build tools,
+      databases, or separate files required.
 
-   window.getItems = function () {
-     const usedIds = {};
-     return ITEMS.map(function (raw) {
-       let id = slugify((raw.name || "Untitled item") + "-" + (raw.game || "Rockstar Games"));
-       usedIds[id] = (usedIds[id] || 0) + 1;
-       if (usedIds[id] > 1) id += "-" + usedIds[id];
-       return Object.assign(
-         {
-           id: id,
-           name: raw.name || "Untitled item",
-           game: raw.game || "Rockstar Games",
-           category: raw.category || "Other",
-           desc: raw.description || "",
-           image: raw.image || "",
-           link: raw.link || "",
-           extraImages: Array.isArray(raw.extraImages) ? raw.extraImages.filter(Boolean) : []
-         },
-         itemFields(raw)
-       );
-     });
-   };
+      QUICK EDITING GUIDE
+      -------------------
+      1. Add or edit catalogue items in the "CATALOGUE DATA" section near
+         the bottom of this file.
+      2. Change the site's colours in the CSS variables near the top of
+         the <style> section.
+      3. Change page wording by searching for the words you see on screen.
+      4. Change the contact form by replacing its Google Forms URL.
+      5. Change the cache version below whenever you publish a new version.
 
-   window.normaliseItem = function (item, fallbackId) {
-     item = item || {};
-     const fields = itemFields(item);
-     return {
-       id: String(item.id || fallbackId || "item"),
-       name: item.name || "Untitled catalogue item",
-       game: item.game || "Rockstar Games",
-       category: item.category || "Other",
-       desc: item.desc || item.description || "",
-       image: item.image || "",
-       link: item.link || "",
-       extraImages: Array.isArray(item.extraImages) ? item.extraImages.filter(Boolean) : [],
-       year: fields.year,
-       rarity: fields.rarity,
-       availability: fields.availability
-     };
-   };
+      If something goes wrong, open the browser developer tools with F12
+      and look in the Console tab for a useful error message.
+    -->
 
-   window.renderItemPage = function (id) {
-     const item = normaliseItem(getItems().find(function (entry) {
-       return entry.id === id;
-     }), id);
-     const wrap = document.querySelector(".item-detail-wrap");
-     currentItemId = item.id;
-     const allImages = [item.image].concat(item.extraImages || []).filter(Boolean);
+    <!--
+      Increase this version number whenever you upload a new copy.
+      This makes returning visitors receive the latest version instead of
+      an older cached copy. Use a date and a counter, for example:
+      2026.07.25.2
+    -->
+    <meta name="rph-version" content="2026.07.25.2" />
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
 
-     wrap.innerHTML = `
-       <button class="btn-back" onclick="showPage('catalogue')">← Back to Catalogue</button>
-       <div class="item-hero" id="itemPageHero">
-         ${imageMarkup(allImages[0], item.name, item.category, true)}
-       </div>
-       <div class="view-thumbs" id="itemPageThumbs" style="${allImages.length > 1 ? "" : "display:none"}"></div>
-       <div class="item-detail-body">
-         <div class="item-detail-main">
-           <div class="item-game-label" id="itemPageGame"></div>
-           <h1 class="item-detail-name" id="itemPageName"></h1>
-           <span class="item-detail-section-label">Description</span>
-           <p class="item-detail-desc" id="itemPageDesc"></p>
-           <div class="item-detail-share">
-             <span class="item-detail-share-label">Share this item:</span>
-             <button class="btn-copy-link" id="btnCopyLink" onclick="copyItemLink()">🔗 Copy Link</button>
-           </div>
-         </div>
-         <div class="item-detail-sidebar" id="itemPageSidebar"></div>
-       </div>`;
+    <title>R★ Games Promo Hub — Official Merch Catalogue</title>
 
-     document.getElementById("itemPageGame").textContent = item.game;
-     document.getElementById("itemPageName").textContent = item.name;
-     document.getElementById("itemPageDesc").textContent = item.desc || PLACEHOLDER_DESCRIPTION;
+    <!-- Fonts used by the website. These can be replaced with other Google Fonts. -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-     const labels = [
-       { key: "Game", val: item.game, cls: "gold" },
-       { key: "Category", val: item.category, cls: "" },
-       { key: "Year of Release", val: item.year, cls: "" },
-       { key: "Rarity", val: item.rarity, cls: "gold" },
-       { key: "Availability", val: item.availability, cls: "badge-pill" }
-     ];
+    <style>
+      /* ================================================================
+         1. SITE-WIDE SETTINGS
+         ================================================================
 
-     const sidebar = document.getElementById("itemPageSidebar");
-     sidebar.innerHTML = labels.map(function (label) {
-       return `
-         <div class="item-label-block">
-           <span class="item-label-key">${label.key}</span>
-           <div class="item-label-val ${label.cls || ""}">${escapeHTML(label.val)}</div>
-         </div>`;
-     }).join("");
+         These variables control the main colours used throughout the site.
+         To change the look, edit the values here instead of hunting through
+         the rest of the stylesheet.
 
-     const safeLink = safeExternalUrl(item.link);
-     if (safeLink) {
-       const source = document.createElement("div");
-       source.className = "item-label-block";
-       source.innerHTML = `
-         <span class="item-label-key">Source</span>
-         <div style="margin-top:2px">
-           <a href="${escapeHTML(safeLink)}" target="_blank" rel="noopener noreferrer"
-             style="color:var(--gold);font-family:Inter,sans-serif;font-size:0.8rem;word-break:break-all">
-             ${escapeHTML(safeLink)}
-           </a>
-         </div>`;
-       sidebar.appendChild(source);
+         Example:
+         --gold: #C9A84C;  changes the gold used for stars, accents, and links.
+         ================================================================ */
 
-       const linkButton = document.createElement("a");
-       linkButton.href = safeLink;
-       linkButton.target = "_blank";
-       linkButton.rel = "noopener noreferrer";
-       linkButton.className = "view-link";
-       linkButton.style.marginTop = "1rem";
-       linkButton.textContent = "View / Buy This Item →";
-       sidebar.appendChild(linkButton);
-     }
+      :root {
+        --black: #0d0d0d;
+        --charcoal: #1a1a1a;
+        --panel: #222222;
+        --border: #333333;
+        --accent: #f2f2f2;
+        --gold: #c9a84c;
+        --white: #e8e8e8;
+        --muted: #888888;
+        --red: #c0392b;
+        --green: #27ae60;
 
-     const thumbs = document.getElementById("itemPageThumbs");
-     const hero = document.getElementById("itemPageHero");
-     if (allImages.length > 1) {
-       thumbs.innerHTML = allImages.map(function (src, index) {
-         return `
-           <div class="view-thumb ${index === 0 ? "active" : ""}" data-src="${escapeHTML(src)}">
-             <img src="${escapeHTML(src)}" alt="Thumbnail ${index + 1}" loading="lazy"
-               decoding="async" referrerpolicy="no-referrer"
-               onerror="this.closest('.view-thumb').remove()">
-           </div>`;
-       }).join("");
-       thumbs.querySelectorAll(".view-thumb").forEach(function (thumb) {
-         thumb.addEventListener("click", function () {
-           thumbs.querySelectorAll(".view-thumb").forEach(function (entry) {
-             entry.classList.remove("active");
-           });
-           thumb.classList.add("active");
-           hero.innerHTML = imageMarkup(thumb.dataset.src, item.name, item.category, true);
-         });
-       });
-     }
-   };
+        /* The two fonts used by the site. */
+        --font-heading: "Bebas Neue", sans-serif;
+        --font-body: "Inter", sans-serif;
+      }
 
-   const title = document.querySelector(".home-hero h1");
-   if (title) title.innerHTML = 'R<span>★</span> Games<br><em>Promo</em><br>Hub';
+      /* Make sizing predictable for every element. */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-   const aboutCopy = document.getElementById("about-p3");
-   if (aboutCopy) {
-     aboutCopy.textContent =
-       "This catalogue covers official promotional merchandise from all Rockstar Games titles — past and present. Each item is logged with its game, category, year of release, rarity, and availability where possible.";
-   }
+      /* Basic page appearance. */
+      body {
+        min-height: 100vh;
+        background: var(--black);
+        color: var(--white);
+        font-family: var(--font-body);
+      }
 
-   renderHome();
-   renderCatalogue();
-   handleRoute();
- }());
- </script>
- </body>
+      /* Keep links from showing the browser's default underline/colour. */
+      a {
+        color: inherit;
+      }
+
+      /* ================================================================
+         2. SHARED HEADER AND NAVIGATION
+         ================================================================ */
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        height: 64px;
+        padding: 0 2rem;
+        background: var(--charcoal);
+        border-bottom: 1px solid var(--border);
+      }
+
+      /* Clicking the logo always takes the visitor back to Home. */
+      .logo {
+        display: flex;
+        flex-shrink: 0;
+        align-items: baseline;
+        gap: 4px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .logo-word {
+        color: var(--white);
+        font-family: var(--font-heading);
+        font-size: 1.55rem;
+        letter-spacing: 3px;
+        line-height: 1;
+      }
+
+      /* This is the gold star in the header logo. */
+      .logo-star {
+        color: var(--gold);
+      }
+
+      .logo-divider {
+        align-self: center;
+        width: 1px;
+        height: 22px;
+        margin: 0 8px;
+        background: var(--border);
+      }
+
+      .logo-subtitle {
+        align-self: center;
+        color: var(--muted);
+        font-size: 0.6rem;
+        font-weight: 500;
+        letter-spacing: 3px;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      /* Desktop navigation sits in the middle of the header. */
+      .desktop-nav {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-link,
+      .mobile-nav-link {
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        font-family: var(--font-heading);
+        letter-spacing: 2px;
+        transition: color 0.15s;
+      }
+
+      .nav-link {
+        position: relative;
+        padding: 8px 16px;
+        font-size: 0.95rem;
+        white-space: nowrap;
+      }
+
+      /* Gold line beneath the currently selected desktop page. */
+      .nav-link::after {
+        position: absolute;
+        right: 16px;
+        bottom: -1px;
+        left: 16px;
+        height: 2px;
+        background: var(--gold);
+        content: "";
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.2s;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--white);
+      }
+
+      .nav-link.active::after {
+        transform: scaleX(1);
+      }
+
+      .header-right {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        gap: 0.75rem;
+        margin-left: auto;
+      }
+
+      .item-count {
+        color: var(--muted);
+        font-size: 0.68rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      /* The hamburger is only shown on small screens. */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        padding: 4px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        border-radius: 2px;
+        background: var(--white);
+        transition: all 0.25s;
+      }
+
+      /* Turn the three hamburger lines into an X when the menu is open. */
+      .hamburger.open span:first-child {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+
+      .hamburger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* Mobile navigation drawer. */
+      .mobile-nav {
+        position: fixed;
+        top: 64px;
+        right: 0;
+        left: 0;
+        z-index: 199;
+        display: none;
+        flex-direction: column;
+        padding: 0.5rem 0 1rem;
+        background: var(--charcoal);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .mobile-nav.open {
+        display: flex;
+      }
+
+      .mobile-nav-link {
+        width: 100%;
+        padding: 14px 2rem;
+        border-left: 3px solid transparent;
+        font-size: 1.2rem;
+        text-align: left;
+      }
+
+      .mobile-nav-link.active,
+      .mobile-nav-link:hover {
+        color: var(--white);
+        background: rgba(255, 255, 255, 0.03);
+        border-left-color: var(--gold);
+      }
+
+      /* ================================================================
+         3. SHARED BUTTONS, PAGES, AND ANIMATIONS
+         ================================================================ */
+
+      .page {
+        display: none;
+        animation: fade-in 0.25s ease-out;
+      }
+
+      .page.active {
+        display: block;
+      }
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .btn-primary,
+      .btn-secondary,
+      .btn-see-all,
+      .btn-back,
+      .btn-copy-link {
+        cursor: pointer;
+        font-family: var(--font-heading);
+        letter-spacing: 2px;
+      }
+
+      .btn-primary {
+        padding: 12px 32px;
+        border: 0;
+        border-radius: 2px;
+        background: var(--white);
+        color: var(--black);
+        font-size: 1.1rem;
+        letter-spacing: 3px;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+      }
+
+      .btn-primary:hover {
+        opacity: 0.85;
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        padding: 12px 32px;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        background: transparent;
+        color: var(--white);
+        font-size: 1.1rem;
+        letter-spacing: 3px;
+        transition: border-color 0.2s;
+      }
+
+      .btn-secondary:hover {
+        border-color: var(--white);
+      }
+
+      /* ================================================================
+         4. HOME PAGE
+         ================================================================ */
+
+      .home-hero {
+        position: relative;
+        display: flex;
+        min-height: 82vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        padding: 4rem 2rem;
+        background: var(--charcoal);
+        border-bottom: 1px solid var(--border);
+        text-align: center;
+      }
+
+      /* Large, faint decorative star behind the home page content. */
+      .home-hero-background {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+      }
+
+      .home-background-star {
+        color: rgba(255, 255, 255, 0.02);
+        font-size: 60vw;
+        line-height: 1;
+        animation: slow-spin 80s linear infinite;
+      }
+
+      @keyframes slow-spin {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .home-hero-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .home-eyebrow,
+      .about-eyebrow {
+        color: var(--gold);
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+      }
+
+      .home-eyebrow {
+        margin-bottom: 1.25rem;
+      }
+
+      .home-title {
+        margin-bottom: 0.5rem;
+        color: var(--white);
+        font-family: var(--font-heading);
+        font-size: clamp(3rem, 10vw, 8rem);
+        letter-spacing: 6px;
+        line-height: 0.9;
+      }
+
+      /* Specifically makes the R★ star gold on the home page. */
+      .home-title .brand-star {
+        color: var(--gold);
+      }
+
+      .home-title em {
+        color: var(--gold);
+        font-style: normal;
+      }
+
+      .home-hero-description {
+        max-width: 520px;
+        margin: 1.5rem auto 2.5rem;
+        color: var(--muted);
+        font-size: clamp(0.85rem, 2vw, 1rem);
+        line-height: 1.7;
+      }
+
+      .home-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      /* Three summary numbers below the home hero. */
+      .home-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .stat-block {
+        padding: 2rem;
+        border-right: 1px solid var(--border);
+        text-align: center;
+      }
+
+      .stat-block:last-child {
+        border-right: 0;
+      }
+
+      .stat-number {
+        display: block;
+        color: var(--gold);
+        font-family: var(--font-heading);
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        letter-spacing: 2px;
+        line-height: 1;
+      }
+
+      .stat-label {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 0.68rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      /* Three short explanations of what the catalogue contains. */
+      .home-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        border-bottom: 1px solid var(--border);
+      }
+
+      .feature-block {
+        padding: 2.5rem 2rem;
+        border-right: 1px solid var(--border);
+      }
+
+      .feature-block:last-child {
+        border-right: 0;
+      }
+
+      .feature-icon {
+        display: block;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+      }
+
+      .feature-block h3 {
+        margin-bottom: 0.5rem;
+        color: var(--white);
+        font-family: var(--font-heading);
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+      }
+
+      .feature-block p {
+        color: var(--muted);
+        font-size: 0.82rem;
+        line-height: 1.65;
+      }
+
+      .home-section {
+        padding: 3rem 2rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .section-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1.75rem;
+      }
+
+      .section-header h2 {
+        color: var(--white);
+        font-family: var(--font-heading);
+        font-size: 1.8rem;
+        letter-spacing: 3px;
+      }
+
+      .section-header h2 span {
+        color: var(--gold);
+      }
+
+      .btn-see-all {
+        padding: 5px 14px;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        background: transparent;
+        color: var(--muted);
+        font-size: 0.85rem;
+        white-space: nowrap;
+        transition: all 0.15s;
+      }
+
+      .btn-see-all:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      /* ================================================================
+         5. CATALOGUE PAGE, FILTERS, SEARCH, AND ITEM CARDS
+         ================================================================ */
+
+      .page-hero {
+        position: relative;
+        overflow: hidden;
+        padding: 2.5rem 2rem 2rem;
+        background: var(--charcoal);
+        border-bottom: 1px solid var(--border);
+        text-align: center;
+      }
+
+      .page-hero::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: rgba(255, 255, 255, 0.02);
+        content: "★";
+        font-size: 18rem;
+        line-height: 1;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+      }
+
+      .page-hero h1 {
+        position: relative;
+        color: var(--white);
+        font-family: var(--font-heading);
+        font-size: clamp(2rem, 5vw, 4rem);
+        letter-spacing: 4px;
+        line-height: 1;
+      }
+
+      .page-hero p {
+        position: relative;
+        margin-top: 0.5rem;
+        color: var(--muted);
+        font-size: 0.82rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .filter-bar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.8rem 2rem;
+        background: var(--charcoal);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .filter-label {
+        flex-shrink: 0;
+        margin-right: 0.4rem;
+        color: var(--muted);
+        font-family: var(--font-heading);
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+      }
+
+      .filter-pill {
+        padding: 3px 11px;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        font-family: var(--font-body);
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: all 0.15s;
+        white-space: nowrap;
+      }
+
+      .filter-pill:hover {
+        color: var(--gold);
+        border-color: var(--gold);
+      }
+
+      .filter-pill.active {
+        background: var(--accent);
+        color: var(--black);
+        border-color: var(--accent);
+      }
+
+      .search-wrap {
+        padding: 0.85rem 2rem;
+        background: var(--black);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .search-input {
+        width: 100%;
+        max-width: 400px;
+        padding: 8px 14px;
+        outline: 0;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        background: var(--charcoal);
+        color: var(--white);
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        transition: border-color 0.2s;
+      }
+
+      .search-input:focus {
+        border-color: var(--accent);
+      }
+
+      .search-input::placeholder {
+        color: var(--muted);
+      }
+
+      .catalogue-grid,
+      .home-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .catalogue-grid {
+        padding: 2rem;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      }
+
+      .merch-card {
+        position: relative;
+        background: var(--charcoal);
+        border: 1px solid var(--border);
+        animation: card-in 0.3s ease-out;
+        transition:
+          transform 0.2s,
+          border-color 0.2s;
+      }
+
+      @keyframes card-in {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (hover: hover) {
+        .merch-card:hover {
+          border-color: var(--gold);
+          transform: translateY(-4px);
+        }
+
+        .merch-card:hover .card-image img {
+          transform: scale(1.05);
+        }
+      }
+
+      .card-image {
+        position: relative;
+        display: flex;
+        aspect-ratio: 1;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: #111111;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s;
+      }
+
+      /* Placeholder shown when an item does not have an image yet. */
+      .image-placeholder {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.55rem;
+        background: radial-gradient(
+            circle at 50% 35%,
+            rgba(201, 168, 76, 0.15),
+            transparent 42%
+          ),
+          #111111;
+        color: var(--gold);
+        text-align: center;
+        user-select: none;
+      }
+
+      .image-placeholder[hidden] {
+        display: none;
+      }
+
+      .placeholder-icon {
+        font-size: 3.3rem;
+        line-height: 1;
+        opacity: 0.72;
+      }
+
+      .placeholder-label {
+        color: var(--muted);
+        font-family: var(--font-body);
+        font-size: 0.58rem;
+        font-weight: 600;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+      }
+
+      .card-body {
+        display: block;
+        padding: 1rem;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .card-game {
+        margin-bottom: 4px;
+        color: var(--gold);
+        font-size: 0.6rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .card-name {
+        margin-bottom: 6px;
+        color: var(--white);
+        font-family: var(--font-heading);
+        font-size: 1.15rem;
+        letter-spacing: 1px;
+        line-height: 1.2;
+      }
+
+      .card-description {
+        display: -webkit-box;
+        overflow: hidden;
+        margin-bottom: 8px;
+        color: var(--muted);
+        font-size: 0.73rem;
+        line-height: 1.5;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+
+      .card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+
+      .card-category {
+        padding: 2px 8px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .empty-state {
+        grid-column: 1 / -1;
+        padding: 5rem 1rem;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .empty-state .big-star {
+        display: block;
+        margin-bottom: 1rem;
+        font-size: 4rem;
+        opacity: 0.2;
+      }
+
+      .empty-state h3 {
+        margin-bottom: 0.5rem;
+        color: var(--white);
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+      }
+
+      /* ================================================================
+         6. ABOUT PAGE
+         ================================================================ */
+
+      .about-hero {
+        background: var(--charcoal);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .about-hero-inner {
+        display: grid;
+        max-width: 1100px;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 4rem;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+
+      .about-eyebrow {
+        margin-bottom: 1rem;
+      }
+
+      .about-hero-text h1 {
+        margin-bottom: 1.5rem;
+        color: var(--white);
+        font-family: var(--font-heading);
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        letter-spacing: 3px;
+        line-height: 1;
+      }
+
+      .about-hero-text h1 span {
+        color: var(--gold);
+      }
+
+      .about-hero-text p,
+      .about-section p {
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.75;
+      }
+
+      .about-hero-text p {
+        margin-bottom: 1rem;
+      }
+
+      .about-avatar-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .about-avatar {
+        display: flex;
+        width: 200px;
+        height: 200px;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: var(--panel);
+        border: 2px solid var(--accent);
+        border-radius: 2px;
+        font-size: 5rem;
+      }
+
+      .about-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .about-avatar-label {
+        color: var(--muted);
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .team-section {
+        padding: 3rem 2rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .team-section-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .team-heading {
+        margin-bottom: 2rem;
+        color: var(--white);
+        font-family: var(--font-heading);
+        font-size: 1.8rem;
+        letter-spacing: 3px;
+        text-align: center;
+      }
+
+      .team-heading span {
+        color: var(--gold);
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .team-card {
+        padding: 2rem 1.5rem;
+        background: var(--charcoal);
+        border: 1px solid var(--border);
+        text-align: center;
+        transition: border-color 0.2s;
+      }
+
+      .team-card:hover {
+        border-color: var(--gold);
+      }
+
+      .team-avatar {
+        display: flex;
+        width: 70px;
+        height: 70px;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        background: var(--panel);
+        border: 2px solid var(--accent);
+        border-radius: 50%;
+        font-size: 2rem;
+      }
+
+      .team-name {
+        margin-bottom: 0.25rem;
+        color: var(--white);
+        font-family: var(--font-heading);
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+      }
+
+      .team-role {
+        margin-bottom: 0.85rem;
+        color: var(--gold);
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .team-desc {
+        color: var(--muted);
+        font-size: 0.8rem;
+        line-height: 1.65;
+      }
+
+      .about-content {
+        display: grid;
+        max-width: 1100px;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .about-section h3 {
+        margin-bottom: 1rem;
+        color: var(--gold);
+        font-family: var(--font-heading);
+        font-size: 1.4rem;
+        letter-spacing: 3px;
+      }
+
+      .games-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .game-tag {
+        padding: 4px 12px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        color: var(--white);
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      /* ================================================================
+         7. CONTACT PAGE
+         ================================================================ */
+
+      .contact-wrap {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+
+      .contact-intro {
+        margin-bottom: 2.5rem;
+      }
+
+      .contact-intro h1 {
+        margin-bottom: 0.75rem;
+        color: var(--white);
+        font-family: var(--font-heading);
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        letter-spacing: 3px;
+        line-height: 1;
+      }
+
+      .contact-intro h1 span {
+        color: var(--gold);
+      }
+
+      .contact-intro p {
+        max-width: 540px;
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.7;
+      }
+
+      .contact-form-embed {
+        overflow: hidden;
+        background: var(--charcoal);
+        border: 1px solid var(--border);
+        border-radius: 2px;
+      }
+
+      .contact-form-embed iframe {
+        display: block;
+        width: 100%;
+        min-height: 700px;
+        border: 0;
+        background: transparent;
+      }
+
+      /* ================================================================
+         8. ITEM DETAIL PAGE
+         ================================================================ */
+
+      .item-detail-wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2rem 2rem 5rem;
+      }
+
+      .btn-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin-bottom: 2rem;
+        padding: 6px 14px;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        background: transparent;
+        color: var(--muted);
+        font-size: 0.85rem;
+        transition: all 0.15s;
+      }
+
+      .btn-back:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      .item-hero {
+        position: relative;
+        display: flex;
+        width: 100%;
+        aspect-ratio: 16 / 7;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: #0a0a0a;
+        border: 1px solid var(--border);
+        color: rgba(255, 255, 255, 0.06);
+        font-size: 8rem;
+      }
+
+      .item-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .item-hero .image-placeholder {
+        min-height: 100%;
+      }
+
+      .view-thumbs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 2.5rem;
+        padding: 12px;
+        background: var(--charcoal);
+        border: 1px solid var(--border);
+        border-top: 0;
+      }
+
+      .view-thumb {
+        width: 72px;
+        height: 72px;
+        overflow: hidden;
+        border: 2px solid var(--border);
+        border-radius: 1px;
+        cursor: pointer;
+        opacity: 0.55;
+        transition:
+          border-color 0.15s,
+          opacity 0.15s;
+      }
+
+      .view-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .view-thumb:hover {
+        opacity: 0.85;
+      }
+
+      .view-thumb.active {
+        border-color: var(--gold);
+        opacity: 1;
+      }
+
+      .item-detail-body {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        align-items: start;
+        gap: 3rem;
+      }
+
+      .item-detail-main {
+        padding: 1.75rem;
+        background: linear-gradient(
+          145deg,
+          rgba(34, 34, 34, 0.9),
+          rgba(13, 13, 13, 0.9)
+        );
+        border: 1px solid var(--border);
+      }
+
+      .item-game-label {
+        margin-bottom: 0.5rem;
+        color: var(--gold);
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      }
+
+      .item-detail-name {
+        margin-bottom: 1.25rem;
+        color: var(--white);
+        font-family: var(--font-heading);
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+        letter-spacing: 2px;
+        line-height: 1;
+      }
+
+      .item-detail-section-label {
+        display: block;
+        margin-bottom: 10px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 0.62rem;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      }
+
+      .item-detail-description {
+        margin-bottom: 1.5rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.85;
+        white-space: pre-line;
+      }
+
+      .item-detail-sidebar {
+        position: sticky;
+        top: 84px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .item-label-block {
+        padding: 1rem 1.25rem;
+        background: var(--charcoal);
+        border: 1px solid var(--border);
+        border-bottom: 0;
+      }
+
+      .item-label-block:last-child {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .item-label-key {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--muted);
+        font-size: 0.6rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .item-label-value {
+        color: var(--white);
+        font-family: var(--font-heading);
+        font-size: 1rem;
+        letter-spacing: 1px;
+      }
+
+      .item-label-value.gold {
+        color: var(--gold);
+      }
+
+      .item-label-value.pill {
+        display: inline-block;
+        padding: 3px 10px;
+        background: var(--accent);
+        color: var(--black);
+        font-size: 0.72rem;
+        letter-spacing: 1px;
+      }
+
+      .view-link {
+        display: block;
+        margin-top: 1rem;
+        padding: 11px;
+        border-radius: 2px;
+        background: var(--accent);
+        color: var(--black);
+        font-family: var(--font-heading);
+        font-size: 1rem;
+        letter-spacing: 3px;
+        text-align: center;
+        text-decoration: none;
+        transition: opacity 0.2s;
+      }
+
+      .view-link:hover {
+        opacity: 0.85;
+      }
+
+      .item-detail-share {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--border);
+      }
+
+      .item-detail-share-label {
+        color: var(--muted);
+        font-size: 0.65rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .btn-copy-link {
+        padding: 5px 12px;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        background: var(--panel);
+        color: var(--white);
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        font-weight: 500;
+        transition: all 0.15s;
+      }
+
+      .btn-copy-link:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      .btn-copy-link.copied {
+        color: var(--green);
+        border-color: var(--green);
+      }
+
+      /* ================================================================
+         9. FOOTER
+         ================================================================ */
+
+      footer {
+        padding: 2rem;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .footer-links button {
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        font-family: var(--font-body);
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: color 0.15s;
+      }
+
+      .footer-links button:hover {
+        color: var(--accent);
+      }
+
+      footer span {
+        color: var(--gold);
+      }
+
+      /* ================================================================
+         10. MOBILE LAYOUT
+         ================================================================
+
+         This breakpoint controls how the site changes on phones.
+         If you want the mobile layout to start at a different width,
+         change 768px below.
+         ================================================================ */
+
+      @media (max-width: 768px) {
+        header {
+          padding: 0 1rem;
+        }
+
+        .desktop-nav {
+          display: none;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        .item-count {
+          display: none;
+        }
+
+        .home-stats {
+          grid-template-columns: 1fr;
+        }
+
+        .stat-block {
+          border-right: 0;
+          border-bottom: 1px solid var(--border);
+        }
+
+        .stat-block:last-child {
+          border-bottom: 0;
+        }
+
+        .home-features {
+          grid-template-columns: 1fr;
+        }
+
+        .feature-block {
+          border-right: 0;
+          border-bottom: 1px solid var(--border);
+        }
+
+        .feature-block:last-child {
+          border-bottom: 0;
+        }
+
+        .catalogue-grid {
+          grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+          gap: 1rem;
+          padding: 1rem;
+        }
+
+        .filter-bar,
+        .search-wrap {
+          padding: 0.75rem 1rem;
+        }
+
+        .about-hero-inner {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          padding: 2rem 1rem;
+        }
+
+        .about-avatar-wrap {
+          order: -1;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          padding: 2rem 1rem;
+        }
+
+        .item-detail-wrap {
+          padding: 1.5rem 1rem 3rem;
+        }
+
+        .item-detail-body {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .item-detail-sidebar {
+          position: static;
+        }
+
+        .item-detail-main {
+          padding: 1.25rem;
+        }
+
+        .contact-wrap {
+          padding: 2rem 1rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ==============================================================
+         11. SITE HEADER
+         ============================================================== -->
+    <header>
+      <!-- Logo: click it to return to the Home page. -->
+      <a class="logo" href="#home" onclick="showPage('home')">
+        <div class="logo-word">
+          R<span class="logo-star">★</span> GAMES
+          <span class="logo-star">PROMO</span> HUB
+        </div>
+        <div class="logo-divider"></div>
+        <div class="logo-subtitle">Merch<br />Catalogue</div>
+      </a>
+
+      <!-- Desktop navigation links. -->
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <button class="nav-link active" id="nav-home" onclick="showPage('home')">
+          Home
+        </button>
+        <button class="nav-link" id="nav-catalogue" onclick="showPage('catalogue')">
+          Catalogue
+        </button>
+        <button class="nav-link" id="nav-about" onclick="showPage('about')">
+          About
+        </button>
+        <button class="nav-link" id="nav-contact" onclick="showPage('contact')">
+          Contact Us / Submissions
+        </button>
+      </nav>
+
+      <!-- Item count and mobile menu button. -->
+      <div class="header-right">
+        <span class="item-count" id="itemCount">0 items</span>
+        <button
+          class="hamburger"
+          id="hamburger"
+          onclick="toggleMobileNav()"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile navigation drawer. Hidden until the hamburger is clicked. -->
+    <div class="mobile-nav" id="mobileNav">
+      <button class="mobile-nav-link active" id="mnav-home" onclick="goToMobilePage('home')">
+        Home
+      </button>
+      <button class="mobile-nav-link" id="mnav-catalogue" onclick="goToMobilePage('catalogue')">
+        Catalogue
+      </button>
+      <button class="mobile-nav-link" id="mnav-about" onclick="goToMobilePage('about')">
+        About
+      </button>
+      <button class="mobile-nav-link" id="mnav-contact" onclick="goToMobilePage('contact')">
+        Contact Us / Submissions
+      </button>
+    </div>
+
+    <!-- ==============================================================
+         12. HOME PAGE
+         ============================================================== -->
+    <main>
+      <section class="page active" id="page-home">
+        <section class="home-hero">
+          <!-- Decorative background star. It does not affect page content. -->
+          <div class="home-hero-background" aria-hidden="true">
+            <span class="home-background-star">★</span>
+          </div>
+
+          <div class="home-hero-content">
+            <p class="home-eyebrow">The #1 Fan Resource For</p>
+
+            <!-- The brand star here is gold through .home-title .brand-star. -->
+            <h1 class="home-title">
+              R<span class="brand-star">★</span> Games<br />
+              <em>Promo</em><br />
+              Hub
+            </h1>
+
+            <p class="home-hero-description">
+              The most complete catalogue of Rockstar Games promotional
+              merchandise — from launch-day giveaways to limited-edition
+              collector's pieces across every title.
+            </p>
+
+            <div class="home-actions">
+              <button class="btn-primary" onclick="showPage('catalogue')">
+                Browse Catalogue →
+              </button>
+              <button class="btn-secondary" onclick="showPage('about')">
+                About This Site
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- These numbers are filled in automatically by JavaScript. -->
+        <section class="home-stats" aria-label="Catalogue statistics">
+          <div class="stat-block">
+            <span class="stat-number" id="homeStatItems">0</span>
+            <span class="stat-label">Items Catalogued</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-number" id="homeStatGames">0</span>
+            <span class="stat-label">Games Covered</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-number" id="homeStatCats">9</span>
+            <span class="stat-label">Categories</span>
+          </div>
+        </section>
+
+        <!-- Edit these three blocks if you want to change the home page features. -->
+        <section class="home-features">
+          <article class="feature-block">
+            <span class="feature-icon">🧢</span>
+            <h3>Every Category</h3>
+            <p>
+              Hats, plushies, tees, hoodies, posters, collectibles, keychains,
+              stickers, and more — all in one place with category filters.
+            </p>
+          </article>
+          <article class="feature-block">
+            <span class="feature-icon">🎮</span>
+            <h3>All Rockstar Titles</h3>
+            <p>
+              GTA, Red Dead Redemption, Bully, Midnight Club, Max Payne — promo
+              merch from the full Rockstar library.
+            </p>
+          </article>
+          <article class="feature-block">
+            <span class="feature-icon">⭐</span>
+            <h3>Rare &amp; Limited Finds</h3>
+            <p>
+              From E3 giveaways to launch-day exclusives, we track down the
+              hard-to-find pieces that collectors care about.
+            </p>
+          </article>
+        </section>
+
+        <!-- The four most recently added items appear here automatically. -->
+        <section class="home-section">
+          <div class="section-header">
+            <h2>Latest <span>Additions</span></h2>
+            <button class="btn-see-all" onclick="showPage('catalogue')">
+              See All →
+            </button>
+          </div>
+          <div class="home-grid" id="homeGrid"></div>
+        </section>
+      </section>
+
+      <!-- ============================================================
+           13. CATALOGUE PAGE
+           ============================================================ -->
+      <section class="page" id="page-catalogue">
+        <section class="page-hero">
+          <h1>Merch Catalogue</h1>
+          <p>Every piece of promo gear — from GTA to Red Dead &amp; beyond</p>
+        </section>
+
+        <!--
+          Type filters are generated from this list.
+          Year and rarity are deliberately NOT filters; they only appear
+          on an item's detail page.
+        -->
+        <div class="filter-bar" aria-label="Filter by item type">
+          <span class="filter-label">Type:</span>
+          <button class="filter-pill active" onclick="setTypeFilter('all', this)">
+            All
+          </button>
+          <button class="filter-pill" onclick="setTypeFilter('Hat', this)">Hats</button>
+          <button class="filter-pill" onclick="setTypeFilter('Plushie', this)">
+            Plushies
+          </button>
+          <button class="filter-pill" onclick="setTypeFilter('T-Shirt', this)">
+            T-Shirts
+          </button>
+          <button class="filter-pill" onclick="setTypeFilter('Hoodie', this)">
+            Hoodies
+          </button>
+          <button class="filter-pill" onclick="setTypeFilter('Poster', this)">
+            Posters
+          </button>
+          <button class="filter-pill" onclick="setTypeFilter('Collectible', this)">
+            Collectibles
+          </button>
+          <button class="filter-pill" onclick="setTypeFilter('Keychain', this)">
+            Keychains
+          </button>
+          <button class="filter-pill" onclick="setTypeFilter('Sticker', this)">
+            Stickers
+          </button>
+          <button class="filter-pill" onclick="setTypeFilter('Other', this)">Other</button>
+        </div>
+
+        <!-- Game filters are filled in from the games used in CATALOGUE DATA. -->
+        <div class="filter-bar" id="gameFilterBar" aria-label="Filter by game">
+          <span class="filter-label">Game:</span>
+          <button class="filter-pill active" onclick="setGameFilter('all', this)">
+            All Games
+          </button>
+        </div>
+
+        <!-- Search checks the item name, game, category, and description. -->
+        <div class="search-wrap">
+          <input
+            class="search-input"
+            id="searchInput"
+            type="search"
+            placeholder="Search by name, game, or keyword…"
+            oninput="renderCatalogue()"
+            aria-label="Search catalogue"
+          />
+        </div>
+
+        <!-- Cards are generated here by JavaScript. -->
+        <div class="catalogue-grid" id="catalogue"></div>
+      </section>
+
+      <!-- ============================================================
+           14. ABOUT PAGE
+           ============================================================ -->
+      <section class="page" id="page-about">
+        <section class="about-hero">
+          <div class="about-hero-inner">
+            <div class="about-hero-text">
+              <p class="about-eyebrow">Fan-made &amp; community-driven</p>
+              <h1>About <span>This</span><br />Site</h1>
+              <p>
+                Hey! We're two massive Rockstar Games fans who got tired of
+                hunting across the internet for promo merch photos. So we built
+                RockstarPromoHub — a single, searchable home for every piece of
+                Rockstar promotional merchandise we can track down.
+              </p>
+              <p>
+                Whether it's a snapback handed out at E3, a Red Dead plushie
+                from a launch event, or a GTA hoodie from an online store — if
+                Rockstar made it, we want it catalogued here.
+              </p>
+            </div>
+
+            <div class="about-avatar-wrap">
+              <!-- Replace the star with an image by adding an <img> here. -->
+              <div class="about-avatar">
+                <span>⭐</span>
+              </div>
+              <p class="about-avatar-label">RockstarPromoHub</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Edit the names, roles, and descriptions here if the team changes. -->
+        <section class="team-section">
+          <div class="team-section-inner">
+            <h2 class="team-heading">Meet The <span>Team</span></h2>
+            <div class="team-grid">
+              <article class="team-card">
+                <div class="team-avatar">🕴️</div>
+                <h3 class="team-name">Wade</h3>
+                <p class="team-role">Site Builder &amp; Cataloguer</p>
+                <p class="team-desc">
+                  Handles all the website creation, item logging, and basically
+                  everything else that keeps this place running behind the scenes.
+                </p>
+              </article>
+              <article class="team-card">
+                <div class="team-avatar">🎙️</div>
+                <h3 class="team-name">The Editor</h3>
+                <p class="team-role">Advisor</p>
+                <p class="team-desc">
+                  Gives verbal advice and direction on where the site should go
+                  next — the voice in the room making sure things stay on track.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="about-content">
+          <div class="about-section">
+            <h2>What We Cover</h2>
+            <p>
+              This catalogue covers official promotional merchandise from all
+              Rockstar Games titles — past and present. Each item is logged with
+              its game, category, description, year of release, rarity, and
+              availability where possible.
+            </p>
+            <div class="games-list">
+              <span class="game-tag">GTA V</span>
+              <span class="game-tag">GTA VI</span>
+              <span class="game-tag">GTA Online</span>
+              <span class="game-tag">Red Dead Redemption</span>
+              <span class="game-tag">Red Dead 2</span>
+              <span class="game-tag">Bully</span>
+              <span class="game-tag">Max Payne</span>
+              <span class="game-tag">Midnight Club</span>
+              <span class="game-tag">L.A. Noire</span>
+              <span class="game-tag">+ More</span>
+            </div>
+          </div>
+
+          <div class="about-section">
+            <h2>How To Help</h2>
+            <p>
+              Spotted a piece of merch that isn't in the catalogue? Get in touch
+              via the Contact Us / Submissions page and we'll get it added.
+              High-quality photos, source links, and any details about the item
+              are all super helpful.
+            </p>
+            <br />
+            <p>
+              This site is not affiliated with Rockstar Games or Take-Two
+              Interactive. All trademarks belong to their respective owners.
+              This is a fan project built out of love for the games.
+            </p>
+          </div>
+        </section>
+      </section>
+
+      <!-- ============================================================
+           15. CONTACT PAGE
+           ============================================================ -->
+      <section class="page" id="page-contact">
+        <div class="contact-wrap">
+          <div class="contact-intro">
+            <h1>Get In <span>Touch</span></h1>
+            <p>
+              Got a tip about some merch? Spotted something missing from the
+              catalogue? Fill in the form below and we'll get back to you.
+            </p>
+          </div>
+
+          <!--
+            To use a different form, replace the URL in the iframe's src
+            attribute. Keep the title and loading attributes if possible.
+          -->
+          <div class="contact-form-embed">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSdhKhp1s9aOOpSQHgJoEfNrcz-2Pm8gGiEETikGLTqmCvsWYA/viewform?embedded=true"
+              title="Contact Form"
+              loading="lazy"
+            >
+              Loading form…
+            </iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           16. ITEM DETAIL PAGE
+           ============================================================ -->
+      <section class="page" id="page-item">
+        <!-- JavaScript fills this container when a card is opened. -->
+        <div class="item-detail-wrap"></div>
+      </section>
+    </main>
+
+    <!-- ==============================================================
+         17. FOOTER
+         ============================================================== -->
+    <footer>
+      <div class="footer-links">
+        <button onclick="showPage('home')">Home</button>
+        <button onclick="showPage('catalogue')">Catalogue</button>
+        <button onclick="showPage('about')">About</button>
+        <button onclick="showPage('contact')">Contact Us / Submissions</button>
+      </div>
+      <p>
+        © 2024–2026 <span>RockstarPromoHub.com</span> — Fan-made. Not affiliated
+        with Rockstar Games.
+      </p>
+    </footer>
+
+    <script>
+      /* ==============================================================
+         18. CATALOGUE DATA — THE MAIN EDITING AREA
+         ==============================================================
+
+         This is the most important section for day-to-day editing.
+         To add a new item:
+
+         1. Copy the complete object between { and }.
+         2. Paste it underneath the existing item.
+         3. Change the text between the quotation marks.
+         4. Keep commas between fields and between item objects.
+         5. Save the file and refresh the browser.
+
+         Field guide:
+         - name:          The item's displayed name. Required.
+         - game:          The game it belongs to. Required.
+         - category:      Hat, Plushie, T-Shirt, Hoodie, Poster, Collectible,
+                          Keychain, Sticker, or Other.
+         - description:   A description shown on the card and detail page.
+         - year:          Year of release. Display-only, not a filter.
+         - rarity:        Common, Rare, or Incredibly Rare. Display-only.
+         - availability:  Sold on Rockstar Website, Sold in Stores,
+                          Giveaway Item, or Competition Winner Item.
+         - image:         A direct image path or URL. Leave "" for no image.
+         - extraImages:   Additional image paths/URLs in square brackets.
+         - link:          A buying or source URL. Leave "" if there is none.
+
+         Image tips:
+         - For a local image, place it beside this HTML file and use:
+           "images/my-photo.jpg"
+         - For an online image, use its complete https:// URL.
+         - If an image cannot load, the site shows a placeholder automatically.
+      ============================================================== */
+
+      const ITEMS = [
+        {
+          name: "Chop the Dog Plush",
+          game: "GTA V",
+          category: "Hat",
+          description:
+            "Official embroidered snapback cap featuring the Los Santos cityscape logo. Adjustable fit, one-size-most.",
+          year: "2013",
+          rarity: "Rare",
+          availability: "Sold in Stores",
+          image: "images/chop.jpg",
+          extraImages: [],
+          link: "",
+        },
+
+        /*
+          ADD NEW ITEMS ABOVE THIS COMMENT.
+
+          Example:
+          {
+            name: "Example GTA T-Shirt",
+            game: "GTA Online",
+            category: "T-Shirt",
+            description: "A short description of the item.",
+            year: "2020",
+            rarity: "Common",
+            availability: "Sold on Rockstar Website",
+            image: "images/example-shirt.jpg",
+            extraImages: ["images/example-shirt-back.jpg"],
+            link: "https://example.com",
+          },
+        */
+      ];
+
+      /* ==============================================================
+         19. SMALL HELPERS AND SHARED SETTINGS
+         ============================================================== */
+
+      // Short helper for finding an element by its ID.
+      const byId = (id) => document.getElementById(id);
+
+      // Text shown when an item has no description yet.
+      const PLACEHOLDER_DESCRIPTION = "No description has been added yet.";
+
+      // The emoji used when an item does not have an image.
+      const CATEGORY_EMOJI = {
+        Hat: "🧢",
+        Plushie: "🧸",
+        "T-Shirt": "👕",
+        Hoodie: "🥋",
+        Poster: "🖼️",
+        Collectible: "⭐",
+        Keychain: "🔑",
+        Sticker: "🏷️",
+        Other: "📦",
+      };
+
+      // The current state of the site: menu, filters, and opened item.
+      let mobileNavOpen = false;
+      let currentTypeFilter = "all";
+      let currentGameFilter = "all";
+      let currentItemId = null;
+
+      // Turn a name into a safe URL fragment such as "gta-shirt-gta-v".
+      function slugify(text) {
+        return (
+          String(text)
+            .toLowerCase()
+            .trim()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/(^-|-$)/g, "") || "item"
+        );
+      }
+
+      // Prevent catalogue text from being interpreted as HTML.
+      function escapeHTML(value) {
+        return String(value ?? "").replace(
+          /[&<>"']/g,
+          (character) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[character],
+        );
+      }
+
+      // Only allow normal HTTP or HTTPS links to be opened.
+      function safeExternalUrl(value) {
+        try {
+          const url = new URL(value);
+          return ["http:", "https:"].includes(url.protocol) ? url.href : "";
+        } catch {
+          return "";
+        }
+      }
+
+      // Give every raw item a complete, predictable set of fields.
+      function normaliseItem(item = {}, fallbackId = "") {
+        return {
+          id: String(item.id || fallbackId || "item"),
+          name: item.name || "Untitled catalogue item",
+          game: item.game || "Rockstar Games",
+          category: item.category || "Other",
+          description: item.description || "",
+          year: item.year || "Not specified",
+          rarity: item.rarity || "Not specified",
+          availability: item.availability || "Not specified",
+          image: item.image || "",
+          extraImages: Array.isArray(item.extraImages)
+            ? item.extraImages.filter(Boolean)
+            : [],
+          link: item.link || "",
+        };
+      }
+
+      // Add a unique ID to every item, even if two items have the same name.
+      function getItems() {
+        const usedIds = {};
+
+        return ITEMS.map((rawItem) => {
+          let id = slugify(`${rawItem.name}-${rawItem.game}`);
+          usedIds[id] = (usedIds[id] || 0) + 1;
+
+          if (usedIds[id] > 1) {
+            id = `${id}-${usedIds[id]}`;
+          }
+
+          return normaliseItem(rawItem, id);
+        });
+      }
+
+      // HTML used when an item's image is missing or fails to load.
+      function placeholderImageMarkup(
+        category,
+        label = "Image coming soon",
+        hidden = false,
+      ) {
+        return `
+          <div class="image-placeholder" ${hidden ? "hidden" : ""}>
+            <span class="placeholder-icon">${CATEGORY_EMOJI[category] || "★"}</span>
+            <span class="placeholder-label">${label}</span>
+          </div>
+        `;
+      }
+
+      // Create image HTML plus a fallback placeholder for broken image links.
+      function imageMarkup(source, altText, category, eager = false) {
+        if (!source) {
+          return placeholderImageMarkup(category);
+        }
+
+        return `
+          <img
+            src="${escapeHTML(source)}"
+            alt="${escapeHTML(altText)}"
+            loading="${eager ? "eager" : "lazy"}"
+            decoding="async"
+            referrerpolicy="no-referrer"
+            onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
+          />
+          ${placeholderImageMarkup(category, "Image coming soon", true)}
+        `;
+      }
+
+      /* ==============================================================
+         20. NAVIGATION
+         ============================================================== */
+
+      // Open or close the mobile navigation drawer.
+      function toggleMobileNav() {
+        mobileNavOpen = !mobileNavOpen;
+        byId("mobileNav").classList.toggle("open", mobileNavOpen);
+        byId("hamburger").classList.toggle("open", mobileNavOpen);
+        byId("hamburger").setAttribute("aria-expanded", String(mobileNavOpen));
+      }
+
+      // Close the mobile menu after selecting a page.
+      function goToMobilePage(pageName) {
+        showPage(pageName);
+        if (mobileNavOpen) {
+          toggleMobileNav();
+        }
+      }
+
+      // Show one page and mark its navigation button as active.
+      function showPage(pageName) {
+        document.querySelectorAll(".page").forEach((page) => {
+          page.classList.toggle("active", page.id === `page-${pageName}`);
+        });
+
+        document.querySelectorAll(".nav-link, .mobile-nav-link").forEach((link) => {
+          link.classList.remove("active");
+        });
+
+        byId(`nav-${pageName}`)?.classList.add("active");
+        byId(`mnav-${pageName}`)?.classList.add("active");
+        window.scrollTo(0, 0);
+
+        if (pageName === "catalogue") {
+          renderCatalogue();
+        }
+
+        if (pageName === "home") {
+          renderHome();
+        }
+
+        // Keep the browser address linked to the visible page.
+        if (pageName !== "item") {
+          const newHash = pageName === "home" ? "" : `#${pageName}`;
+          history.replaceState(null, "", `${location.pathname}${newHash}`);
+        }
+      }
+
+      /* ==============================================================
+         21. HOME PAGE RENDERING
+         ============================================================== */
+
+      // Fill the home page's numbers and latest-items grid.
+      function renderHome() {
+        const items = getItems();
+        const uniqueGames = new Set(items.map((item) => item.game));
+        const latestItems = [...items].reverse().slice(0, 4);
+
+        byId("homeStatItems").textContent = items.length;
+        byId("homeStatGames").textContent = uniqueGames.size;
+        byId("itemCount").textContent = `${items.length} item${
+          items.length === 1 ? "" : "s"
+        }`;
+        byId("homeGrid").innerHTML = latestItems.map(cardHTML).join("");
+      }
+
+      // Build one catalogue card.
+      function cardHTML(rawItem) {
+        const item = normaliseItem(rawItem);
+
+        return `
+          <article class="merch-card">
+            <a class="card-image" href="#item/${item.id}" aria-label="View ${escapeHTML(
+              item.name,
+            )}">
+              ${imageMarkup(item.image, item.name, item.category)}
+            </a>
+            <a class="card-body" href="#item/${item.id}">
+              <div class="card-game">${escapeHTML(item.game)}</div>
+              <div class="card-name">${escapeHTML(item.name)}</div>
+              <div class="card-description">
+                ${escapeHTML(item.description || PLACEHOLDER_DESCRIPTION)}
+              </div>
+              <div class="card-footer">
+                <span class="card-category">${escapeHTML(item.category)}</span>
+              </div>
+            </a>
+          </article>
+        `;
+      }
+
+      /* ==============================================================
+         22. CATALOGUE FILTERING AND SEARCH
+         ============================================================== */
+
+      // Change the selected item-type filter.
+      function setTypeFilter(value, clickedButton) {
+        currentTypeFilter = value;
+        document
+          .querySelectorAll(".filter-bar:not(#gameFilterBar) .filter-pill")
+          .forEach((button) => button.classList.remove("active"));
+        clickedButton.classList.add("active");
+        renderCatalogue();
+      }
+
+      // Change the selected game filter.
+      function setGameFilter(value, clickedButton) {
+        currentGameFilter = value;
+        document
+          .querySelectorAll("#gameFilterBar .filter-pill")
+          .forEach((button) => button.classList.remove("active"));
+        clickedButton.classList.add("active");
+        renderCatalogue();
+      }
+
+      // Create one game filter button for each game in the catalogue data.
+      function populateGameFilters(items) {
+        const filterBar = byId("gameFilterBar");
+        const games = [...new Set(items.map((item) => item.game).filter(Boolean))].sort(
+          (a, b) => a.localeCompare(b),
+        );
+
+        if (!games.includes(currentGameFilter)) {
+          currentGameFilter = "all";
+        }
+
+        filterBar
+          .querySelectorAll('[data-generated-game-filter="true"]')
+          .forEach((button) => button.remove());
+
+        games.forEach((game) => {
+          const button = document.createElement("button");
+          button.className = `filter-pill${
+            currentGameFilter === game ? " active" : ""
+          }`;
+          button.dataset.generatedGameFilter = "true";
+          button.textContent = game;
+          button.onclick = () => setGameFilter(game, button);
+          filterBar.appendChild(button);
+        });
+
+        filterBar
+          .querySelector(".filter-pill")
+          ?.classList.toggle("active", currentGameFilter === "all");
+      }
+
+      // Render cards that match the current filters and search text.
+      function renderCatalogue() {
+        const items = getItems();
+        const searchTerm = byId("searchInput").value.toLowerCase().trim();
+
+        populateGameFilters(items);
+        byId("itemCount").textContent = `${items.length} item${
+          items.length === 1 ? "" : "s"
+        }`;
+
+        const filteredItems = items.filter((item) => {
+          const matchesType =
+            currentTypeFilter === "all" || item.category === currentTypeFilter;
+          const matchesGame =
+            currentGameFilter === "all" || item.game === currentGameFilter;
+          const searchableText = [
+            item.name,
+            item.game,
+            item.category,
+            item.description,
+          ]
+            .join(" ")
+            .toLowerCase();
+          const matchesSearch = !searchTerm || searchableText.includes(searchTerm);
+
+          return matchesType && matchesGame && matchesSearch;
+        });
+
+        if (filteredItems.length === 0) {
+          byId("catalogue").innerHTML = `
+            <div class="empty-state">
+              <span class="big-star">★</span>
+              <h3>No Items Found</h3>
+              <p>Try a different filter or search term.</p>
+            </div>
+          `;
+          return;
+        }
+
+        byId("catalogue").innerHTML = filteredItems.map(cardHTML).join("");
+      }
+
+      /* ==============================================================
+         23. ITEM DETAIL PAGE
+         ============================================================== */
+
+      // Create the expanded detail view for one item.
+      function renderItemPage(itemId) {
+        const item = normaliseItem(
+          getItems().find((entry) => entry.id === itemId),
+          itemId,
+        );
+        const allImages = [item.image, ...item.extraImages].filter(Boolean);
+        const detailWrap = document.querySelector(".item-detail-wrap");
+
+        currentItemId = item.id;
+
+        detailWrap.innerHTML = `
+          <button class="btn-back" onclick="showPage('catalogue')">
+            ← Back to Catalogue
+          </button>
+
+          <div class="item-hero" id="itemPageHero">
+            ${imageMarkup(allImages[0], item.name, item.category, true)}
+          </div>
+
+          <div
+            class="view-thumbs"
+            id="itemPageThumbs"
+            style="${allImages.length > 1 ? "" : "display: none"}"
+          ></div>
+
+          <div class="item-detail-body">
+            <div class="item-detail-main">
+              <div class="item-game-label">${escapeHTML(item.game)}</div>
+              <h1 class="item-detail-name">${escapeHTML(item.name)}</h1>
+
+              <span class="item-detail-section-label">Description</span>
+              <p class="item-detail-description">
+                ${escapeHTML(item.description || PLACEHOLDER_DESCRIPTION)}
+              </p>
+
+              <div class="item-detail-share">
+                <span class="item-detail-share-label">Share this item:</span>
+                <button class="btn-copy-link" id="btnCopyLink" onclick="copyItemLink()">
+                  Copy Link
+                </button>
+              </div>
+            </div>
+
+            <aside class="item-detail-sidebar" id="itemPageSidebar">
+              <!-- Labels are inserted below. -->
+            </aside>
+          </div>
+        `;
+
+        const labels = [
+          { key: "Game", value: item.game, className: "gold" },
+          { key: "Category", value: item.category, className: "" },
+          { key: "Year of Release", value: item.year, className: "" },
+          { key: "Rarity", value: item.rarity, className: "gold" },
+          { key: "Availability", value: item.availability, className: "pill" },
+        ];
+
+        byId("itemPageSidebar").innerHTML = labels
+          .map(
+            (label) => `
+              <div class="item-label-block">
+                <span class="item-label-key">${label.key}</span>
+                <div class="item-label-value ${label.className}">
+                  ${escapeHTML(label.value)}
+                </div>
+              </div>
+            `,
+          )
+          .join("");
+
+        addSourceLink(item);
+        setupThumbnailButtons(item, allImages);
+      }
+
+      // Add the optional source/buy link beneath the item details.
+      function addSourceLink(item) {
+        const link = safeExternalUrl(item.link);
+
+        if (!link) {
+          return;
+        }
+
+        const sidebar = byId("itemPageSidebar");
+        const sourceBlock = document.createElement("div");
+        sourceBlock.className = "item-label-block";
+        sourceBlock.innerHTML = `
+          <span class="item-label-key">Source</span>
+          <a
+            href="${escapeHTML(link)}"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="color: var(--gold); word-break: break-all; font-size: 0.8rem;"
+          >
+            ${escapeHTML(link)}
+          </a>
+        `;
+        sidebar.appendChild(sourceBlock);
+
+        const viewLink = document.createElement("a");
+        viewLink.className = "view-link";
+        viewLink.href = link;
+        viewLink.target = "_blank";
+        viewLink.rel = "noopener noreferrer";
+        viewLink.textContent = "View / Buy This Item →";
+        sidebar.appendChild(viewLink);
+      }
+
+      // Make extra item images clickable thumbnails.
+      function setupThumbnailButtons(item, allImages) {
+        if (allImages.length <= 1) {
+          return;
+        }
+
+        const thumbnails = byId("itemPageThumbs");
+        const hero = byId("itemPageHero");
+
+        thumbnails.innerHTML = allImages
+          .map(
+            (source, index) => `
+              <button
+                class="view-thumb ${index === 0 ? "active" : ""}"
+                data-source="${escapeHTML(source)}"
+                aria-label="Show image ${index + 1}"
+              >
+                <img
+                  src="${escapeHTML(source)}"
+                  alt="${escapeHTML(item.name)} thumbnail ${index + 1}"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                />
+              </button>
+            `,
+          )
+          .join("");
+
+        thumbnails.querySelectorAll(".view-thumb").forEach((thumbnail) => {
+          thumbnail.addEventListener("click", () => {
+            thumbnails
+              .querySelectorAll(".view-thumb")
+              .forEach((button) => button.classList.remove("active"));
+            thumbnail.classList.add("active");
+            hero.innerHTML = imageMarkup(
+              thumbnail.dataset.source,
+              item.name,
+              item.category,
+              true,
+            );
+          });
+        });
+      }
+
+      // Copy a shareable item URL to the clipboard.
+      function copyItemLink() {
+        const url = `${location.origin}${location.pathname}#item/${currentItemId}`;
+        const button = byId("btnCopyLink");
+
+        navigator.clipboard
+          .writeText(url)
+          .then(() => {
+            button.textContent = "Copied!";
+            button.classList.add("copied");
+            setTimeout(() => {
+              button.textContent = "Copy Link";
+              button.classList.remove("copied");
+            }, 1800);
+          })
+          .catch(() => {
+            // Older browsers may not support the Clipboard API.
+            window.prompt("Copy this link:", url);
+          });
+      }
+
+      /* ==============================================================
+         24. URL ROUTING AND STARTUP
+         ============================================================== */
+
+      // Display the correct page when a visitor opens a saved item link.
+      function handleRoute() {
+        const hash = location.hash;
+
+        if (hash.startsWith("#item/")) {
+          document.querySelectorAll(".page").forEach((page) => {
+            page.classList.remove("active");
+          });
+          document
+            .querySelectorAll(".nav-link, .mobile-nav-link")
+            .forEach((link) => link.classList.remove("active"));
+          byId("page-item").classList.add("active");
+          renderItemPage(hash.slice(6));
+          window.scrollTo(0, 0);
+          return;
+        }
+
+        if (["#catalogue", "#about", "#contact"].includes(hash)) {
+          showPage(hash.slice(1));
+          return;
+        }
+
+        showPage("home");
+      }
+
+      // Update the cache version in local storage and reload once if needed.
+      function applyVersionStrategy() {
+        const appVersion = document.querySelector(
+          'meta[name="rph-version"]',
+        ).content;
+        const storageKey = "rph_app_version";
+        const previousVersion = localStorage.getItem(storageKey);
+
+        localStorage.setItem(storageKey, appVersion);
+
+        if (
+          previousVersion &&
+          previousVersion !== appVersion &&
+          !location.search.includes(`v=${appVersion}`)
+        ) {
+          const query = `?v=${encodeURIComponent(appVersion)}`;
+          location.replace(`${location.pathname}${query}${location.hash}`);
+          return true;
+        }
+
+        return false;
+      }
+
+      // Listen for browser back/forward navigation between hash routes.
+      window.addEventListener("hashchange", handleRoute);
+
+      // Start the site after the page HTML has loaded.
+      if (!applyVersionStrategy()) {
+        renderHome();
+        renderCatalogue();
+        handleRoute();
+      }
+    </script>
+  </body>
 </html>
