@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Update this version with each GitHub Pages deployment. It helps returning visitors refresh stale HTML. -->
-<meta name="rph-version" content="2026.07.15.1">
+<meta name="rph-version" content="2026.07.25.1">
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
 <title>R★ Games Promo Hub — Official Merch Catalogue</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -48,7 +48,10 @@ Loading form…
 //    category     One of: Hat, Plushie, T-Shirt, Hoodie, Poster,
 //                 Collectible, Keychain, Sticker, Other.           (required)
 //    description  A sentence or two about the item.               (optional — leave as "")
-//    badge        A short tag like RARE, LIMITED, PROMO, NEW.      (optional — leave as "")
+//    year         Year the item was released.                       (optional — leave as "")
+//    rarity       One of: Common, Rare, Incredibly Rare.            (optional — leave as "")
+//    availability One of: Sold on Rockstar Website, Sold in Stores,
+//                 Giveaway Item, Competition Winner Item.           (optional — leave as "")
 //    image        A direct link to a photo of the item.            (optional — leave as "")
 //    extraImages  More photo links, e.g. ["url1", "url2"].         (optional — leave as [])
 //    link         A link to buy it or read more about it.          (optional — leave as "")
@@ -64,7 +67,9 @@ const ITEMS = [
     game: "GTA V",
     category: "Hat",
     description: "Official embroidered snapback cap featuring the Los Santos cityscape logo. Adjustable fit, one-size-most.",
-    badge: "OFFICIAL",
+    year: "2013",
+    rarity: "Rare",
+    availability: "Sold in Stores",
     image: "images/chop.jpg",
     extraImages: [],
     link: ""
@@ -74,6 +79,184 @@ const ITEMS = [
 ];
 
 function slugify(text){return String(text).toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"")||"item"}function getItems(){const usedIds={};return ITEMS.map(raw=>{let id=slugify(raw.name+"-"+raw.game);return usedIds[id]=(usedIds[id]||0)+1,usedIds[id]>1&&(id+="-"+usedIds[id]),{id:id,name:raw.name||"Untitled item",game:raw.game||"Rockstar Games",category:raw.category||"Other",desc:raw.description||"",badge:raw.badge||"",image:raw.image||"",link:raw.link||"",extraImages:Array.isArray(raw.extraImages)?raw.extraImages.filter(Boolean):[]}})}let mobileNavOpen=!1;function toggleMobileNav(){mobileNavOpen=!mobileNavOpen,document.getElementById("mobileNav").classList.toggle("open",mobileNavOpen),document.getElementById("hamburger").classList.toggle("open",mobileNavOpen)}function showPage(name){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active")),document.querySelectorAll(".nav-link").forEach(n=>n.classList.remove("active")),document.querySelectorAll(".mobile-nav-link").forEach(n=>n.classList.remove("active")),document.getElementById("page-"+name).classList.add("active");const nl=document.getElementById("nav-"+name);nl&&nl.classList.add("active");const mnl=document.getElementById("mnav-"+name);mnl&&mnl.classList.add("active"),window.scrollTo(0,0),"catalogue"===name&&renderCatalogue(),"home"===name&&renderHome(),"item"!==name&&history.replaceState(null,"","home"===name?location.pathname:"#"+name)}const CATEGORY_EMOJI={Hat:"🧢",Plushie:"🧸","T-Shirt":"👕",Hoodie:"🥋",Poster:"🖼️",Collectible:"⭐",Keychain:"🔑",Sticker:"🏷️",Other:"📦"},PLACEHOLDER_DESCRIPTION="No description has been added yet.";function normaliseItem(item={},fallbackId=""){return{id:String(item.id||fallbackId||"item"),name:item.name||"Untitled catalogue item",game:item.game||"Rockstar Games",category:item.category||"Other",desc:item.desc||"",badge:item.badge||"",image:item.image||"",link:item.link||"",extraImages:Array.isArray(item.extraImages)?item.extraImages.filter(Boolean):[]}}function escapeHTML(value){return String(value??"").replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]))}function safeExternalUrl(value){try{const url=new URL(value);return["http:","https:"].includes(url.protocol)?url.href:""}catch{return""}}function placeholderImageMarkup(category,label="Image coming soon"){return`<div class="image-placeholder"><span class="placeholder-icon">${CATEGORY_EMOJI[category]||"★"}</span><span class="placeholder-label">${label}</span></div>`}function imageMarkup(src,alt,category,eager=!1){return src?`<img src="${escapeHTML(src)}" alt="${escapeHTML(alt)}" loading="${eager?"eager":"lazy"}" decoding="async" referrerpolicy="no-referrer" onerror="this.replaceWith(document.createRange().createContextualFragment(placeholderImageMarkup('${escapeHTML(category)}')).firstChild)">`:placeholderImageMarkup(category)}function renderHome(){const items=getItems();document.getElementById("homeStatItems").textContent=items.length,document.getElementById("homeStatGames").textContent=new Set(items.map(i=>i.game)).size,document.getElementById("itemCount").textContent=`${items.length} item${1!==items.length?"s":""}`;const recent=[...items].reverse().slice(0,4);document.getElementById("homeGrid").innerHTML=recent.map(item=>cardHTML(item)).join("")}function cardHTML(item){return`\n    <div class="merch-card" data-id="${(item=normaliseItem(item)).id}">\n      <a class="card-img-wrap" href="#item/${item.id}">\n        ${imageMarkup(item.image,item.name,item.category)}\n        ${item.badge?`<span class="card-badge">${item.badge}</span>`:""}\n      </a>\n      <a class="card-body" href="#item/${item.id}">\n        <div class="card-game">${escapeHTML(item.game)}</div>\n        <div class="card-name">${escapeHTML(item.name)}</div>\n        <div class="card-desc">${escapeHTML(item.desc||PLACEHOLDER_DESCRIPTION)}</div>\n        <div class="card-footer"><span class="card-category">${escapeHTML(item.category)}</span></div>\n      </a>\n    </div>`}let currentFilter="all",currentGameFilter="all";function renderCatalogue(){const items=getItems(),q=(document.getElementById("searchInput").value||"").toLowerCase().trim();document.getElementById("itemCount").textContent=`${items.length} item${1!==items.length?"s":""}`,populateGameFilters(items);const filtered=items.filter(item=>{const matchFilter="all"===currentFilter||item.category===currentFilter,matchGame="all"===currentGameFilter||item.game===currentGameFilter,matchSearch=!q||[item.name,item.game,item.category,item.desc].some(v=>(v||"").toLowerCase().includes(q));return matchFilter&&matchGame&&matchSearch}),el=document.getElementById("catalogue");0!==filtered.length?el.innerHTML=filtered.map(item=>cardHTML(item)).join(""):el.innerHTML='<div class="empty-state"><span class="big-star">★</span><h3>No Items Found</h3><p>Try a different filter or search term.</p></div>'}function setFilter(val,el){currentFilter=val,document.querySelectorAll(".filter-bar:not(#gameFilterBar) .filter-pill").forEach(p=>p.classList.remove("active")),el.classList.add("active"),renderCatalogue()}function setGameFilter(val,el){currentGameFilter=val,document.querySelectorAll("#gameFilterBar .filter-pill").forEach(p=>p.classList.remove("active")),el.classList.add("active"),renderCatalogue()}function populateGameFilters(items){const bar=document.getElementById("gameFilterBar"),games=[...new Set(items.map(i=>i.game).filter(Boolean))].sort((a,b)=>a.localeCompare(b)),existing=Array.from(bar.querySelectorAll('.filter-pill[data-game-filter]:not([data-game-filter="all"])')),existingNames=existing.map(p=>p.dataset.gameFilter);if(existingNames.length===games.length&&existingNames.every(g=>games.includes(g)))return;"all"===currentGameFilter||games.includes(currentGameFilter)||(currentGameFilter="all"),existing.forEach(p=>p.remove()),games.forEach(game=>{const btn=document.createElement("button");btn.className="filter-pill"+(currentGameFilter===game?" active":""),btn.dataset.gameFilter=game,btn.textContent=game,btn.onclick=()=>setGameFilter(game,btn),bar.appendChild(btn)});const allPill=bar.querySelector('.filter-pill[data-game-filter="all"]');allPill&&allPill.classList.toggle("active","all"===currentGameFilter)}let currentItemId=null;function renderItemPage(id){const item=normaliseItem(getItems().find(i=>i.id===id),id),wrap=document.querySelector(".item-detail-wrap");currentItemId=item.id;const allImages=[item.image,...item.extraImages||[]].filter(Boolean);wrap.innerHTML=`\n    <button class="btn-back" onclick="showPage('catalogue')">← Back to Catalogue</button>\n\n    \x3c!-- Hero image --\x3e\n    <div class="item-hero" id="itemPageHero">\n      ${imageMarkup(allImages[0],item.name,item.category,!0)}\n    </div>\n\n    \x3c!-- Thumbnail strip (only if multiple images) --\x3e\n    <div class="view-thumbs" id="itemPageThumbs" style="${allImages.length>1?"":"display:none"}"></div>\n\n    \x3c!-- Body: description left, labels sidebar right --\x3e\n    <div class="item-detail-body">\n      <div class="item-detail-main">\n        <div class="item-game-label" id="itemPageGame"></div>\n        <h1 class="item-detail-name" id="itemPageName"></h1>\n\n        <span class="item-detail-section-label">Description</span>\n        <p class="item-detail-desc" id="itemPageDesc"></p>\n\n        <div class="item-detail-share">\n          <span class="item-detail-share-label">Share this item:</span>\n          <button class="btn-copy-link" id="btnCopyLink" onclick="copyItemLink()">🔗 Copy Link</button>\n        </div>\n      </div>\n\n      <div class="item-detail-sidebar" id="itemPageSidebar">\n        \x3c!-- Populated by JS below --\x3e\n      </div>\n    </div>`,document.getElementById("itemPageGame").textContent=item.game,document.getElementById("itemPageName").textContent=item.name,document.getElementById("itemPageDesc").textContent=item.desc||PLACEHOLDER_DESCRIPTION;const sidebar=document.getElementById("itemPageSidebar"),labels=[{key:"Game",val:item.game,cls:"gold"},{key:"Category",val:item.category,cls:""},...item.badge?[{key:"Edition / Badge",val:item.badge,cls:"badge-pill"}]:[],...safeExternalUrl(item.link)?[{key:"Source",val:`<a href="${escapeHTML(safeExternalUrl(item.link))}" target="_blank" rel="noopener noreferrer" style="color:var(--gold);font-family:Inter,sans-serif;font-size:0.8rem;word-break:break-all">${escapeHTML(safeExternalUrl(item.link))}</a>`,cls:"",raw:!0}]:[]];if(sidebar.innerHTML=labels.map(l=>`\n    <div class="item-label-block">\n      <span class="item-label-key">${l.key}</span>\n      ${l.raw?`<div style="margin-top:2px">${l.val}</div>`:`<div class="item-label-val ${l.cls||""}">${escapeHTML(l.val)}</div>`}\n    </div>`).join(""),safeExternalUrl(item.link)){const linkBtn=document.createElement("a");linkBtn.href=safeExternalUrl(item.link),linkBtn.target="_blank",linkBtn.rel="noopener noreferrer",linkBtn.className="view-link",linkBtn.style.marginTop="1rem",linkBtn.textContent="View / Buy This Item →",sidebar.appendChild(linkBtn)}const thumbsEl=document.getElementById("itemPageThumbs"),heroEl=document.getElementById("itemPageHero");allImages.length>1&&(thumbsEl.innerHTML=allImages.map((src,i)=>`<div class="view-thumb ${0===i?"active":""}" data-src="${escapeHTML(src)}"><img src="${escapeHTML(src)}" alt="Thumbnail ${i+1}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('.view-thumb').remove()"></div>`).join(""),thumbsEl.querySelectorAll(".view-thumb").forEach(t=>{t.addEventListener("click",()=>{var src;thumbsEl.querySelectorAll(".view-thumb").forEach(x=>x.classList.remove("active")),t.classList.add("active"),src=t.dataset.src,heroEl.innerHTML=imageMarkup(src,item.name,item.category,!0)})}))}function copyItemLink(){const url=location.origin+location.pathname+"#item/"+currentItemId,btn=document.getElementById("btnCopyLink");navigator.clipboard.writeText(url).then(()=>{btn.textContent="✓ Copied!",btn.classList.add("copied"),setTimeout(()=>{btn.textContent="🔗 Copy Link",btn.classList.remove("copied")},1800)}).catch(()=>prompt("Copy this link:",url))}function handleRoute(){const hash=location.hash;if(hash.startsWith("#item/")){const id=hash.slice(6);document.querySelectorAll(".page").forEach(p=>p.classList.remove("active")),document.querySelectorAll(".nav-link, .mobile-nav-link").forEach(n=>n.classList.remove("active")),document.getElementById("page-item").classList.add("active"),renderItemPage(id),window.scrollTo(0,0)}else["#catalogue","#about","#contact"].includes(hash)?showPage(hash.slice(1)):showPage("home")}function applyVersionStrategy(){const APP_VERSION=document.querySelector('meta[name="rph-version"]').content,key="rph_app_version",previousVersion=localStorage.getItem(key);return localStorage.setItem(key,APP_VERSION),!(!previousVersion||previousVersion===APP_VERSION||location.search.includes("v="+APP_VERSION))&&(location.replace(`${location.pathname}?v=${encodeURIComponent(APP_VERSION)}${location.hash}`),!0)}window.addEventListener("hashchange",handleRoute),applyVersionStrategy()||(renderHome(),renderCatalogue(),handleRoute());
-</script>
-</body>
+ </script>
+ <script>
+ // ═══════════════════════════════════════════════════════════════════
+ //  Catalogue field upgrades
+ //  Year, rarity, and availability are intentionally display-only:
+ //  they are shown on the item detail page but are not filter controls.
+ // ═══════════════════════════════════════════════════════════════════
+ (function () {
+   const LEGACY_ITEM_DEFAULTS = {
+     "Chop the Dog Plush": {
+       year: "2013",
+       rarity: "Rare",
+       availability: "Sold in Stores"
+     }
+   };
+
+   function itemFields(raw) {
+     const defaults = LEGACY_ITEM_DEFAULTS[raw.name] || {};
+     return {
+       year: raw.year || defaults.year || "Not specified",
+       rarity: raw.rarity || defaults.rarity || "Not specified",
+       availability:
+         raw.availability ||
+         defaults.availability ||
+         (raw.badge === "OFFICIAL" ? "Sold in Stores" : "") ||
+         "Not specified"
+     };
+   }
+
+   window.getItems = function () {
+     const usedIds = {};
+     return ITEMS.map(function (raw) {
+       let id = slugify((raw.name || "Untitled item") + "-" + (raw.game || "Rockstar Games"));
+       usedIds[id] = (usedIds[id] || 0) + 1;
+       if (usedIds[id] > 1) id += "-" + usedIds[id];
+       return Object.assign(
+         {
+           id: id,
+           name: raw.name || "Untitled item",
+           game: raw.game || "Rockstar Games",
+           category: raw.category || "Other",
+           desc: raw.description || "",
+           image: raw.image || "",
+           link: raw.link || "",
+           extraImages: Array.isArray(raw.extraImages) ? raw.extraImages.filter(Boolean) : []
+         },
+         itemFields(raw)
+       );
+     });
+   };
+
+   window.normaliseItem = function (item, fallbackId) {
+     item = item || {};
+     const fields = itemFields(item);
+     return {
+       id: String(item.id || fallbackId || "item"),
+       name: item.name || "Untitled catalogue item",
+       game: item.game || "Rockstar Games",
+       category: item.category || "Other",
+       desc: item.desc || item.description || "",
+       image: item.image || "",
+       link: item.link || "",
+       extraImages: Array.isArray(item.extraImages) ? item.extraImages.filter(Boolean) : [],
+       year: fields.year,
+       rarity: fields.rarity,
+       availability: fields.availability
+     };
+   };
+
+   window.renderItemPage = function (id) {
+     const item = normaliseItem(getItems().find(function (entry) {
+       return entry.id === id;
+     }), id);
+     const wrap = document.querySelector(".item-detail-wrap");
+     currentItemId = item.id;
+     const allImages = [item.image].concat(item.extraImages || []).filter(Boolean);
+
+     wrap.innerHTML = `
+       <button class="btn-back" onclick="showPage('catalogue')">← Back to Catalogue</button>
+       <div class="item-hero" id="itemPageHero">
+         ${imageMarkup(allImages[0], item.name, item.category, true)}
+       </div>
+       <div class="view-thumbs" id="itemPageThumbs" style="${allImages.length > 1 ? "" : "display:none"}"></div>
+       <div class="item-detail-body">
+         <div class="item-detail-main">
+           <div class="item-game-label" id="itemPageGame"></div>
+           <h1 class="item-detail-name" id="itemPageName"></h1>
+           <span class="item-detail-section-label">Description</span>
+           <p class="item-detail-desc" id="itemPageDesc"></p>
+           <div class="item-detail-share">
+             <span class="item-detail-share-label">Share this item:</span>
+             <button class="btn-copy-link" id="btnCopyLink" onclick="copyItemLink()">🔗 Copy Link</button>
+           </div>
+         </div>
+         <div class="item-detail-sidebar" id="itemPageSidebar"></div>
+       </div>`;
+
+     document.getElementById("itemPageGame").textContent = item.game;
+     document.getElementById("itemPageName").textContent = item.name;
+     document.getElementById("itemPageDesc").textContent = item.desc || PLACEHOLDER_DESCRIPTION;
+
+     const labels = [
+       { key: "Game", val: item.game, cls: "gold" },
+       { key: "Category", val: item.category, cls: "" },
+       { key: "Year of Release", val: item.year, cls: "" },
+       { key: "Rarity", val: item.rarity, cls: "gold" },
+       { key: "Availability", val: item.availability, cls: "badge-pill" }
+     ];
+
+     const sidebar = document.getElementById("itemPageSidebar");
+     sidebar.innerHTML = labels.map(function (label) {
+       return `
+         <div class="item-label-block">
+           <span class="item-label-key">${label.key}</span>
+           <div class="item-label-val ${label.cls || ""}">${escapeHTML(label.val)}</div>
+         </div>`;
+     }).join("");
+
+     const safeLink = safeExternalUrl(item.link);
+     if (safeLink) {
+       const source = document.createElement("div");
+       source.className = "item-label-block";
+       source.innerHTML = `
+         <span class="item-label-key">Source</span>
+         <div style="margin-top:2px">
+           <a href="${escapeHTML(safeLink)}" target="_blank" rel="noopener noreferrer"
+             style="color:var(--gold);font-family:Inter,sans-serif;font-size:0.8rem;word-break:break-all">
+             ${escapeHTML(safeLink)}
+           </a>
+         </div>`;
+       sidebar.appendChild(source);
+
+       const linkButton = document.createElement("a");
+       linkButton.href = safeLink;
+       linkButton.target = "_blank";
+       linkButton.rel = "noopener noreferrer";
+       linkButton.className = "view-link";
+       linkButton.style.marginTop = "1rem";
+       linkButton.textContent = "View / Buy This Item →";
+       sidebar.appendChild(linkButton);
+     }
+
+     const thumbs = document.getElementById("itemPageThumbs");
+     const hero = document.getElementById("itemPageHero");
+     if (allImages.length > 1) {
+       thumbs.innerHTML = allImages.map(function (src, index) {
+         return `
+           <div class="view-thumb ${index === 0 ? "active" : ""}" data-src="${escapeHTML(src)}">
+             <img src="${escapeHTML(src)}" alt="Thumbnail ${index + 1}" loading="lazy"
+               decoding="async" referrerpolicy="no-referrer"
+               onerror="this.closest('.view-thumb').remove()">
+           </div>`;
+       }).join("");
+       thumbs.querySelectorAll(".view-thumb").forEach(function (thumb) {
+         thumb.addEventListener("click", function () {
+           thumbs.querySelectorAll(".view-thumb").forEach(function (entry) {
+             entry.classList.remove("active");
+           });
+           thumb.classList.add("active");
+           hero.innerHTML = imageMarkup(thumb.dataset.src, item.name, item.category, true);
+         });
+       });
+     }
+   };
+
+   const title = document.querySelector(".home-hero h1");
+   if (title) title.innerHTML = 'R<span>★</span> Games<br><em>Promo</em><br>Hub';
+
+   const aboutCopy = document.getElementById("about-p3");
+   if (aboutCopy) {
+     aboutCopy.textContent =
+       "This catalogue covers official promotional merchandise from all Rockstar Games titles — past and present. Each item is logged with its game, category, year of release, rarity, and availability where possible.";
+   }
+
+   renderHome();
+   renderCatalogue();
+   handleRoute();
+ }());
+ </script>
+ </body>
 </html>
