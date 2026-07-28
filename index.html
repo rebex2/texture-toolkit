@@ -1219,9 +1219,9 @@
         margin-bottom: 1.25rem;
         color: var(--white);
         font-family: var(--font-heading);
-        font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+        font-size: clamp(1.4rem, 3vw, 2rem);
         letter-spacing: 2px;
-        line-height: 1;
+        line-height: 1.2;
       }
 
       .item-detail-section-label {
@@ -1877,37 +1877,62 @@
 
     <script>
       /* ==============================================================
-         18. CATALOGUE DATA — THE MAIN EDITING AREA
+         ★ ★ ★  CATALOGUE ITEMS — ADD NEW ITEMS HERE  ★ ★ ★
          ==============================================================
 
-         This is the most important section for day-to-day editing.
-         To add a new item:
+         HOW TO ADD A NEW ITEM (5 easy steps):
 
-         1. Copy the complete object between { and }.
-         2. Paste it underneath the existing item.
-         3. Change the text between the quotation marks.
-         4. Keep commas between fields and between item objects.
-         5. Save the file and refresh the browser.
+         STEP 1.  Scroll down to the line that says:
+                  "ADD NEW ITEMS ABOVE THIS LINE"
 
-         Field guide:
-         - name:          The item's displayed name. Required.
-         - game:          The game it belongs to. Required.
-         - category:      Hat, Plushie, T-Shirt, Hoodie, Poster, Collectible,
-                          Keychain, Sticker, or Other.
-         - description:   A description shown on the card and detail page.
-         - year:          Year of release. Display-only, not a filter.
-         - rarity:        Common, Rare, or Incredibly Rare. Display-only.
-         - availability:  Sold on Rockstar Website, Sold in Stores,
-                          Giveaway Item, or Competition Winner Item.
-         - image:         A direct image path or URL. Leave "" for no image.
-         - extraImages:   Additional image paths/URLs in square brackets.
-         - link:          A buying or source URL. Leave "" if there is none.
+         STEP 2.  Copy this whole block (including the { and } ):
 
-         Image tips:
-         - For a local image, place it beside this HTML file and use:
-           "images/my-photo.jpg"
-         - For an online image, use its complete https:// URL.
-         - If an image cannot load, the site shows a placeholder automatically.
+                  {
+                    name: "Item Name Goes Here",
+                    game: "GTA V",
+                    category: "Plushie",
+                    description: "Write a short description here.",
+                    year: "2024",
+                    rarity: "Common",
+                    availability: "Sold on Rockstar Website",
+                    image: "",
+                    extraImages: [],
+                    link: "",
+                  },
+
+         STEP 3.  Paste the copied block just ABOVE the
+                  "ADD NEW ITEMS ABOVE THIS LINE" comment.
+
+         STEP 4.  Replace the words inside the quotation marks " "
+                  with the real details for the new item.
+                  ⚠️  Always keep the quotation marks and the comma
+                      at the end of the closing  }  — do not delete them.
+
+         STEP 5.  Save the file and refresh the page in your browser.
+                  The new item will appear straight away!
+
+         WHAT TO PUT IN EACH FIELD:
+         ─────────────────────────────────────────────────────────────
+         name         → The item's full name, e.g. "Chop the Dog Plushie"
+         game         → The game name, e.g. "GTA V"
+         category     → One of: Hat  Plushie  T-Shirt  Hoodie  Poster
+                                  Collectible  Keychain  Sticker  Other
+         description  → A sentence or two describing the item.
+         year         → The year it was released, e.g. "2013"
+         rarity       → One of: Common   Rare   Incredibly Rare
+         availability → One of: Sold on Rockstar Website
+                                  Sold in Stores
+                                  Giveaway Item
+                                  Competition Winner Item
+         image        → File path to a photo, e.g. "images/myphoto.jpg"
+                          Leave as "" if you don't have a photo yet.
+         extraImages  → Extra photos, e.g. ["images/back.jpg"]
+                          Leave as [] if there's only one (or no) photo.
+         link         → A web address to buy/view the item.
+                          Leave as "" if there is no link.
+
+         IF SOMETHING BREAKS: Press Ctrl+Z (undo) a few times to go
+         back to how the file was, then try again more carefully.
       ============================================================== */
 
       const ITEMS = [
@@ -1925,23 +1950,8 @@
           link: "",
         },
 
-        /*
-          ADD NEW ITEMS ABOVE THIS COMMENT.
-
-          Example:
-          {
-            name: "Example GTA T-Shirt",
-            game: "GTA Online",
-            category: "T-Shirt",
-            description: "A short description of the item.",
-            year: "2020",
-            rarity: "Common",
-            availability: "Sold on Rockstar Website",
-            image: "images/example-shirt.jpg",
-            extraImages: ["images/example-shirt-back.jpg"],
-            link: "https://example.com",
-          },
-        */
+        // ▼▼▼  ADD NEW ITEMS ABOVE THIS LINE  ▼▼▼
+        // (Copy the template block from the guide above, paste it here, fill in the details.)
       ];
 
       /* ==============================================================
