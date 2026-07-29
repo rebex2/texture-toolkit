@@ -12,4 +12,17 @@ const ITEMS = [
           extraImages: [],
           link: "",
         },
-      ];
+  {
+    name: "test",
+    game: "Grand Theft Auto V (2013)",
+    category: "Other",
+    description:
+      "t",
+    year: "t",
+    rarity: "t",
+    availability: "t",
+    image: "",
+    extraImages: [],
+    link: "",
+  },
+];
