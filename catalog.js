@@ -12,7 +12,4 @@ const ITEMS = [
           extraImages: [],
           link: "",
         },
-
-        // ▼▼▼  ADD NEW ITEMS ABOVE THIS LINE  ▼▼▼
-        // (Copy the template block from the guide above, paste it here, fill in the details.)
       ];
