@@ -23,7 +23,7 @@ const ITEMS = [
     rarity: "Very Rare",
     availability: "Given to Developers",
     image: "images/pisswasser.jpg",
-    extraImages: "images/crate.jpg,
+    extraImages: ["images/crate.jpg"],
     link: "",
   },
 ];
