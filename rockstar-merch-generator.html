@@ -389,13 +389,15 @@ function buildNewItemText(){
     // so multi-line descriptions remain valid JavaScript.
     const jsString = value => JSON.stringify(value);
 
-    let extra = document.getElementById("extraImages").value.trim();
+        let extra = document.getElementById("extraImages").value.trim();
     let extraImages = "[]";
 
     if(extra !== ""){
         extraImages = "[" +
             extra.split(",")
-            .map(i => jsString(i.trim()))
+            .map(i => i.trim())
+            .filter(Boolean)
+            .map(i => jsString(i))
             .join(", ")
             + "]";
     }
