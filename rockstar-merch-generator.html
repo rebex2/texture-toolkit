@@ -385,29 +385,32 @@ async function fetchFromGithub(){
 
 function buildNewItemText(){
 
+    // JSON.stringify safely escapes quotes, backslashes and line breaks
+    // so multi-line descriptions remain valid JavaScript.
+    const jsString = value => JSON.stringify(value);
+
     let extra = document.getElementById("extraImages").value.trim();
     let extraImages = "[]";
 
     if(extra !== ""){
         extraImages = "[" +
             extra.split(",")
-            .map(i => `"${i.trim()}"`)
+            .map(i => jsString(i.trim()))
             .join(", ")
             + "]";
     }
 
     return `  {
-    name: "${document.getElementById("name").value}",
-    game: "${document.getElementById("game").value}",
-    category: "${document.getElementById("category").value}",
-    description:
-      "${document.getElementById("description").value}",
-    year: "${document.getElementById("year").value}",
-    rarity: "${document.getElementById("rarity").value}",
-    availability: "${document.getElementById("availability").value}",
-    image: "${document.getElementById("image").value}",
+    name: ${jsString(document.getElementById("name").value)},
+    game: ${jsString(document.getElementById("game").value)},
+    category: ${jsString(document.getElementById("category").value)},
+    description: ${jsString(document.getElementById("description").value)},
+    year: ${jsString(document.getElementById("year").value)},
+    rarity: ${jsString(document.getElementById("rarity").value)},
+    availability: ${jsString(document.getElementById("availability").value)},
+    image: ${jsString(document.getElementById("image").value)},
     extraImages: ${extraImages},
-    link: "${document.getElementById("link").value}",
+    link: ${jsString(document.getElementById("link").value)},
   },`;
 }
 
