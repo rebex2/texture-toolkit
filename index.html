@@ -1664,7 +1664,7 @@ infringement.
           Year and rarity are deliberately NOT filters; they only appear
           on an item's detail page.
         -->
-        <div class="filter-bar" aria-label="Filter by item type">
+        <div class="filter-bar" id="typeFilterBar" aria-label="Filter by item type">
           <span class="filter-label">Type:</span>
           <button class="filter-pill active" onclick="setTypeFilter('all', this)">
             All
@@ -1873,7 +1873,7 @@ infringement.
     </footer>
 
 
-    <script src="catalog.js"></script>
+
 
     
     <script>
@@ -2430,15 +2430,27 @@ infringement.
         return false;
       }
 
-      // Listen for browser back/forward navigation between hash routes.
+           // Listen for browser back/forward navigation between hash routes.
       window.addEventListener("hashchange", handleRoute);
 
-      // Start the site after the page HTML has loaded.
-      if (!applyVersionStrategy()) {
-        renderHome();
-        renderCatalogue();
-        handleRoute();
+      // Initialize the application after catalog data is ready.
+      function initApp() {
+        if (!applyVersionStrategy()) {
+          renderHome();
+          renderCatalogue();
+          handleRoute();
+        }
       }
+
+      // Load catalog.js dynamically with a cache-busting timestamp so updates reflect immediately
+      const catalogScript = document.createElement("script");
+      catalogScript.src = "catalog.js?v=" + Date.now();
+      catalogScript.onload = initApp;
+      catalogScript.onerror = function () {
+        console.error("Could not load catalog.js");
+        initApp();
+      };
+      document.head.appendChild(catalogScript);
     </script>
   </body>
 </html>
