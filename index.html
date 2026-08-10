@@ -1874,7 +1874,12 @@ infringement.
 
 
     <script>
-  document.write('<script src="catalog.js?v=' + Date.now() + '"><\/script>');
+  window.__catalogReady = new Promise(function (resolve) {
+    var s = document.createElement('script');
+    s.src = 'catalog.js?v=' + Date.now();
+    s.onload = resolve;
+    document.head.appendChild(s);
+  });
 </script>
 
     
