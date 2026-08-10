@@ -12,18 +12,7 @@ const ITEMS = [
     extraImages: [],
     link: "",
   },
-  {
-    name: "test",
-    game: "Grand Theft Auto V (2013)",
-    category: "Other",
-    description: "t",
-    year: "t",
-    rarity: "t",
-    availability: "t",
-    image: "",
-    extraImages: [],
-    link: "",
-  },
+
   {
     name: "Pißwasser Beer Bottle",
     game: "Grand Theft Auto IV (2008)",
@@ -33,8 +22,8 @@ const ITEMS = [
     year: "2008",
     rarity: "Very Rare",
     availability: "Given to Developers",
-    image: "",
-    extraImages: [],
+    image: "images/pisswasser.jpg",
+    extraImages: "images/crate.jpg,
     link: "",
   },
 ];
