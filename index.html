@@ -1873,14 +1873,7 @@ infringement.
     </footer>
 
 
-    <script>
-  window.__catalogReady = new Promise(function (resolve) {
-    var s = document.createElement('script');
-    s.src = 'catalog.js?v=' + Date.now();
-    s.onload = resolve;
-    document.head.appendChild(s);
-  });
-</script>
+    <script src="catalog.js"></script>
 
     
     <script>
@@ -2441,13 +2434,11 @@ infringement.
       window.addEventListener("hashchange", handleRoute);
 
       // Start the site after the page HTML has loaded.
-      window.__catalogReady.then(function () {
-  if (!applyVersionStrategy()) {
-    renderHome();
-    renderCatalogue();
-    handleRoute();
-  }
-});
+      if (!applyVersionStrategy()) {
+        renderHome();
+        renderCatalogue();
+        handleRoute();
+      }
     </script>
   </body>
 </html>
