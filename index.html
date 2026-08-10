@@ -2441,11 +2441,13 @@ infringement.
       window.addEventListener("hashchange", handleRoute);
 
       // Start the site after the page HTML has loaded.
-      if (!applyVersionStrategy()) {
-        renderHome();
-        renderCatalogue();
-        handleRoute();
-      }
+      window.__catalogReady.then(function () {
+  if (!applyVersionStrategy()) {
+    renderHome();
+    renderCatalogue();
+    handleRoute();
+  }
+});
     </script>
   </body>
 </html>
