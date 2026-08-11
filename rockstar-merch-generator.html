@@ -204,19 +204,19 @@ button:disabled{
 <h1>Rockstar Merchandise Generator</h1>
 
 <div class="step">
-<h2>Step 1 — Load the current catalog.js</h2>
-<div class="stepDesc">Paste the raw contents of the most recent catalog.js from GitHub below, or fetch it directly from a raw GitHub URL. This is required — the new item can't be added until the existing catalog is loaded.</div>
+<h2>Step 1 — Load current catalog.js</h2>
+<div class="stepDesc">This tool automatically fetches the latest catalog.js directly from your GitHub repository when opened. You can also click "Fetch Latest" or paste catalog.js contents manually.</div>
 
-<label for="githubUrl">Raw GitHub URL (optional shortcut)</label>
+<label for="githubUrl">GitHub Repository catalog.js URL</label>
 <div class="row">
-  <input id="githubUrl" placeholder="https://raw.githubusercontent.com/user/repo/branch/catalog.js">
-  <button class="fetchBtn" onclick="fetchFromGithub()">Fetch</button>
+  <input id="githubUrl" value="https://github.com/rebex2/texture-toolkit/blob/main/catalog.js" placeholder="https://github.com/rebex2/texture-toolkit/blob/main/catalog.js">
+  <button class="fetchBtn" onclick="fetchFromGithub()">Fetch Latest</button>
 </div>
 <div id="fetchStatus" class="status"></div>
 
 <label for="catalogInput">catalog.js contents <span style="color:#ff6b6b">*required*</span></label>
-<textarea id="catalogInput" placeholder="Paste the full contents of catalog.js here..."></textarea>
-<div class="hint">Tip: on GitHub, open catalog.js, click "Raw", then copy everything (Ctrl/Cmd+A, Ctrl/Cmd+C) and paste it here — or just paste the raw URL above and hit Fetch.</div>
+<textarea id="catalogInput" placeholder="catalog.js contents will automatically load here..."></textarea>
+<div class="hint">Tip: If auto-fetch succeeds, you don't need to touch Step 1 at all! Just fill in Step 2 below to add your item.</div>
 </div>
 
 <div class="step">
@@ -319,17 +319,13 @@ button:disabled{
   <option value="Other">
 </datalist>
 
-<label for="image">Image Filename</label>
-<div class="note">Leave blank, it's fine.</div>
-<input id="image" placeholder="images/example.jpg">
+<label for="image">Main Image Path / Filename</label>
+<div class="note">Subfolders supported, e.g. <code>images/gta4/chop.jpg</code> or <code>gta4/chop.jpg</code> (Leave blank if none).</div>
+<input id="image" placeholder="images/gta4/chop.jpg">
 
-<label for="extraImages">Extra Images (comma separated)</label>
-<div class="note">Leave blank, it's fine.</div>
-<input id="extraImages" placeholder="image1.jpg,image2.jpg">
-
-<label for="link">Link</label>
-<div class="note">Leave blank, it's fine.</div>
-<input id="link">
+<label for="extraImages">Extra Images (comma or newline separated)</label>
+<div class="note">Enter as many images as you like, e.g. <code>images/gta4/crate1.jpg, images/gta4/crate2.jpg</code></div>
+<textarea id="extraImages" style="min-height:70px;" placeholder="images/gta4/crate1.jpg&#10;images/gta4/crate2.jpg"></textarea>
 
 <button onclick="generate()">Generate Updated catalog.js</button>
 <div id="generateStatus" class="status"></div>
@@ -346,28 +342,44 @@ button:disabled{
 
 <script>
 
-async function fetchFromGithub(){
+// Clean and normalize image paths (handles quotes, slashes, and optional 'images/' folder prefix)
+function formatImagePath(rawPath) {
+    let path = String(rawPath || "").trim().replace(/^["']|["']$/g, "").trim();
+    if (!path) return "";
+    path = path.replace(/\\/g, "/");
+    if (!path.startsWith("images/") && !path.startsWith("http://") && !path.startsWith("https://") && !path.startsWith("/")) {
+        path = "images/" + path;
+    }
+    return path;
+}
+
+async function fetchFromGithub(isAutoLoad = false){
 
     const urlField = document.getElementById("githubUrl");
     const statusEl = document.getElementById("fetchStatus");
     let url = urlField.value.trim();
 
     if(url === ""){
-        statusEl.textContent = "Enter a raw GitHub URL first.";
+        statusEl.textContent = "Enter a GitHub URL first.";
         statusEl.className = "status err";
         return;
     }
 
-    // Convert a normal github.com blob URL into a raw URL automatically
+    // Convert normal github.com blob or raw URLs into raw URLs automatically
     if(url.includes("github.com") && url.includes("/blob/")){
         url = url.replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/");
+    } else if(url.includes("github.com") && url.includes("/raw/")){
+        url = url.replace("github.com", "raw.githubusercontent.com").replace("/raw/", "/");
     }
 
-    statusEl.textContent = "Fetching...";
+    // Append timestamp for cache busting
+    const fetchUrl = url + (url.includes("?") ? "&" : "?") + "t=" + Date.now();
+
+    statusEl.textContent = isAutoLoad ? "Auto-loading latest catalog.js from GitHub..." : "Fetching...";
     statusEl.className = "status";
 
     try{
-        const res = await fetch(url);
+        const res = await fetch(fetchUrl);
 
         if(!res.ok){
             throw new Error("HTTP " + res.status);
@@ -375,10 +387,10 @@ async function fetchFromGithub(){
 
         const text = await res.text();
         document.getElementById("catalogInput").value = text;
-        statusEl.textContent = "Loaded catalog.js (" + text.length + " characters).";
+        statusEl.textContent = "✓ " + (isAutoLoad ? "Automatically loaded" : "Loaded") + " latest catalog.js (" + text.length + " characters).";
         statusEl.className = "status ok";
     }catch(err){
-        statusEl.textContent = "Couldn't fetch that URL (" + err.message + "). Paste the file contents manually instead.";
+        statusEl.textContent = isAutoLoad ? "Notice: Could not auto-fetch catalog.js (" + err.message + "). You can click Fetch Latest or paste catalog.js manually." : "Couldn't fetch URL (" + err.message + "). Paste file contents manually.";
         statusEl.className = "status err";
     }
 }
@@ -389,18 +401,12 @@ function buildNewItemText(){
     // so multi-line descriptions remain valid JavaScript.
     const jsString = value => JSON.stringify(value);
 
-        let extra = document.getElementById("extraImages").value.trim();
-    let extraImages = "[]";
-
-    if(extra !== ""){
-        extraImages = "[" +
-            extra.split(",")
-            .map(i => i.trim())
-            .filter(Boolean)
-            .map(i => jsString(i))
-            .join(", ")
-            + "]";
-    }
+    let extra = document.getElementById("extraImages").value.trim();
+    let extraImagesList = extra
+        .split(/[\n,]+/)
+        .map(formatImagePath)
+        .filter(Boolean);
+    let extraImagesJson = "[" + extraImagesList.map(jsString).join(", ") + "]";
 
     return `  {
     name: ${jsString(document.getElementById("name").value)},
@@ -410,9 +416,9 @@ function buildNewItemText(){
     year: ${jsString(document.getElementById("year").value)},
     rarity: ${jsString(document.getElementById("rarity").value)},
     availability: ${jsString(document.getElementById("availability").value)},
-    image: ${jsString(document.getElementById("image").value)},
-    extraImages: ${extraImages},
-    link: ${jsString(document.getElementById("link").value)},
+    image: ${jsString(formatImagePath(document.getElementById("image").value))},
+    extraImages: ${extraImagesJson},
+    link: "",
   },`;
 }
 
@@ -497,6 +503,11 @@ function downloadOutput(){
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 }
+
+// Automatically fetch latest catalog.js from GitHub on load
+window.addEventListener("DOMContentLoaded", () => {
+    fetchFromGithub(true);
+});
 
 </script>
 
