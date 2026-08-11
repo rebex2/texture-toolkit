@@ -26,4 +26,16 @@ const ITEMS = [
     extraImages: ["images/crate.jpg"],
     link: "",
   },
+  {
+    name: "Flex Handcuffs",
+    game: "Grand Theft Auto IV (2008)",
+    category: "Other",
+    description: "Flex handcuffs used to promote the release of GTA IV.",
+    year: "2008",
+    rarity: "Very Rare",
+    availability: "Sold on Rockstar Website",
+    image: "images/fc1.jpg",
+    extraImages: ["images/fc2.jpg"],
+    link: "",
+  },
 ];
