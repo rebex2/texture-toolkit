@@ -35,7 +35,7 @@ const ITEMS = [
     rarity: "Very Rare",
     availability: "Sold on Rockstar Website",
     image: "images/fc1.jpg",
-    extraImages: ["images/fc2.jpg"],
+    extraImages: ["/images/fc2.jpg", "/images/fc3.jpg", "/images/fc4.jpg", "/images/fc5.jpg" ],
     link: "",
   },
   {
