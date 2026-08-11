@@ -45,7 +45,7 @@ const ITEMS = [
     description: "San Andreas-themed gift wrap/wrapping paper.",
     year: "2004",
     rarity: "Common",
-    availability: "Sold on Rockstar Website",
+    availability: "Available as a pre-order bonus for San Andreas or at the midnight release of the game at EB Games and Gamestop.",
     image: "/images/GTA-SA-wrappingpaper1.jpg",
     extraImages: ["/images/GTA-SA-wrappingpaper2.jpg", "/images/GTA-SA-wrappingpaper3.jpg", "/images/GTA-SA-wrappingpaper4.jpg"],
     link: "",
