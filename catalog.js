@@ -39,7 +39,7 @@ const ITEMS = [
     link: "",
   },
   {
-    name: "Gift Warp Paper",
+    name: "Gift Wrap Paper",
     game: "Grand Theft Auto: San Andreas (2004)",
     category: "Wrapping Paper",
     description: "Gift wrap paper.",
