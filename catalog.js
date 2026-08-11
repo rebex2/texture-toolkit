@@ -38,4 +38,16 @@ const ITEMS = [
     extraImages: ["images/fc2.jpg"],
     link: "",
   },
+  {
+    name: "San Andreas wrapping paper",
+    game: "Grand Theft A ",
+    category: "Other",
+    description: "test",
+    year: "2008",
+    rarity: "Common",
+    availability: "Other",
+    image: "images/GTA-SA-wrappingpaper1.jpg",
+    extraImages: ["images/GTA-SA-wrappingpaper2.jpg", "images/GTA-SA-wrappingpaper3.jpg", "images/GTA-SA-wrappingpaper4.jpg", "images/GTA-SA-wrappingpaper5.jpg"],
+    link: "",
+  },
 ];
