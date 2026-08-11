@@ -38,16 +38,4 @@ const ITEMS = [
     extraImages: ["images/fc2.jpg"],
     link: "",
   },
-  {
-    name: "Gift Wrap Paper",
-    game: "Grand Theft Auto: San Andreas (2004)",
-    category: "Wrapping Paper",
-    description: "Gift wrap paper.",
-    year: "2004",
-    rarity: "Common",
-    availability: "Sold on Rockstar Website",
-    image: "images/GTA-SA-wrappingpaper1.jpg",
-    extraImages: ["images/GTA-SA-wrappingpaper2.jpg"],
-    link: "",
-  },
 ];
