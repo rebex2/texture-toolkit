@@ -4,7 +4,7 @@ const ITEMS = [
     game: "GTA V",
     category: "Hat",
     description:
-      "Announced and released into the Rockstar Warehouse on 5th December 2013.\n\n A soft plush version of Chop with a removable leather collar and tag plus a secret stash pocket with a silver effect bullet whistle etched with GTA V text and logo. The plush is approximately 15cm high and 25cm long. \n\n\ Rarer to find in its original open-fronted retail box and many are missing the whistle (which was also sold separately). The leash and collar were also sold separately as a set.",
+      "Announced and released into the Rockstar Warehouse on 5th December 2013 and also given away in many Social Club contests.\n\n A soft plush version of Chop with a removable leather collar and tag plus a secret stash pocket with a silver effect bullet whistle etched with GTA V text and logo. The plush is approximately 15cm high and 25cm long. \n\n\ Rarer to find in its original open-fronted retail box and many are missing the whistle (which was also sold separately). The leash and collar were also sold separately as a set.",
     year: "2013",
     rarity: "Rare",
     availability: "Sold in Stores",
