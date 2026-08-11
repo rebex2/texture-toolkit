@@ -47,7 +47,7 @@ const ITEMS = [
     rarity: "Common",
     availability: "Sold on Rockstar Website",
     image: "images/GTA-SA-wrappingpaper1.jpg",
-    extraImages: ["images/GTA-SA-wrappingpaper2.jpg"],
+    extraImages: ["images/GTA-SA-wrappingpaper2.jpg"]["images/GTA-SA-wrappingpaper3.jpg"],
     link: "",
   },
 ];
