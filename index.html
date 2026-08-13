@@ -4,29 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--
-===============================================================================
-
-                                ROCKSTAR GAMES PROMO HUB
-
-Copyright © 2026 Rockstar Games Promo Hub.
-All rights reserved.
-
-This source code, website structure, styling, JavaScript, text, catalogue
-format, and other original content are provided solely for the operation of
-this website.
-
-If you are viewing this source code through your browser's developer tools or
-"View Source", you are NOT granted permission to copy, reproduce, redistribute,
-republish, modify, or reuse any portion of this code or its contents for your
-own projects without prior written permission from the website owner.
-
-Unauthorised copying or redistribution of this source may constitute copyright
-infringement.
-
-===============================================================================
--->
-
     <meta name="rph-version" content="2026.08.13.1" />
     <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
 
@@ -44,70 +21,37 @@ infringement.
 
   <body>
 
-    <!-- ==============================================================
-         SITE HEADER
-         ============================================================== -->
-
+    <!-- SITE HEADER -->
     <header>
-      <!-- Logo -->
       <a class="logo" href="#home" onclick="showPage('home')">
         <div class="logo-word">
           R<span class="logo-star">★</span> GAMES
           <span class="logo-star">PROMO</span> HUB
         </div>
-
         <div class="logo-divider"></div>
-
         <div class="logo-subtitle">
           Merch<br />
           Catalogue
         </div>
       </a>
 
-      <!-- Desktop navigation -->
       <nav class="desktop-nav" aria-label="Main navigation">
-
-        <button
-          class="nav-link active"
-          id="nav-home"
-          onclick="showPage('home')"
-        >
+        <button class="nav-link active" id="nav-home" onclick="showPage('home')">
           Home
         </button>
-
-        <button
-          class="nav-link"
-          id="nav-catalogue"
-          onclick="showPage('catalogue')"
-        >
+        <button class="nav-link" id="nav-catalogue" onclick="showPage('catalogue')">
           Catalogue
         </button>
-
-        <button
-          class="nav-link"
-          id="nav-about"
-          onclick="showPage('about')"
-        >
+        <button class="nav-link" id="nav-about" onclick="showPage('about')">
           About
         </button>
-
-        <button
-          class="nav-link"
-          id="nav-contact"
-          onclick="showPage('contact')"
-        >
+        <button class="nav-link" id="nav-contact" onclick="showPage('contact')">
           Contact Us / Submissions
         </button>
-
       </nav>
 
-      <!-- Header right side -->
       <div class="header-right">
-
-        <span class="item-count" id="itemCount">
-          0 items
-        </span>
-
+        <span class="item-count" id="itemCount">0 items</span>
         <button
           class="hamburger"
           id="hamburger"
@@ -119,319 +63,120 @@ infringement.
           <span></span>
           <span></span>
         </button>
-
       </div>
     </header>
 
-
-    <!-- ==============================================================
-         MOBILE NAVIGATION
-         ============================================================== -->
-
+    <!-- MOBILE NAVIGATION -->
     <div class="mobile-nav" id="mobileNav">
-
-      <button
-        class="mobile-nav-link active"
-        id="mnav-home"
-        onclick="goToMobilePage('home')"
-      >
+      <button class="mobile-nav-link active" id="mnav-home" onclick="goToMobilePage('home')">
         Home
       </button>
-
-      <button
-        class="mobile-nav-link"
-        id="mnav-catalogue"
-        onclick="goToMobilePage('catalogue')"
-      >
+      <button class="mobile-nav-link" id="mnav-catalogue" onclick="goToMobilePage('catalogue')">
         Catalogue
       </button>
-
-      <button
-        class="mobile-nav-link"
-        id="mnav-about"
-        onclick="goToMobilePage('about')"
-      >
+      <button class="mobile-nav-link" id="mnav-about" onclick="goToMobilePage('about')">
         About
       </button>
-
-      <button
-        class="mobile-nav-link"
-        id="mnav-contact"
-        onclick="goToMobilePage('contact')"
-      >
+      <button class="mobile-nav-link" id="mnav-contact" onclick="goToMobilePage('contact')">
         Contact Us / Submissions
       </button>
-
     </div>
 
-
-    <!-- ==============================================================
-         MAIN CONTENT
-         ============================================================== -->
-
+    <!-- MAIN CONTENT -->
     <main>
-
-      <!-- ============================================================
-           HOME PAGE
-           ============================================================ -->
-
+      <!-- HOME PAGE -->
       <section class="page active" id="page-home">
-
         <section class="home-hero">
-
-          <div
-            class="home-hero-background"
-            aria-hidden="true"
-          >
+          <div class="home-hero-background" aria-hidden="true">
             <span class="home-background-star">★</span>
           </div>
-
           <div class="home-hero-content">
-
-            <p class="home-eyebrow">
-              The #1 Fan Resource For
-            </p>
-
+            <p class="home-eyebrow">The #1 Fan Resource For</p>
             <h1 class="home-title">
               R<span class="brand-star">★</span> Games<br />
               <em>Promo</em><br />
               Hub
             </h1>
-
             <p class="home-hero-description">
-              The most complete catalogue of Rockstar Games promotional
-              merchandise — from launch-day giveaways to limited-edition
-              collector's pieces across every title.
+              The most complete catalogue of Rockstar Games promotional merchandise — from launch-day giveaways to limited-edition collector's pieces across every title.
             </p>
-
             <div class="home-actions">
-
-              <button
-                class="btn-primary"
-                onclick="showPage('catalogue')"
-              >
+              <button class="btn-primary" onclick="showPage('catalogue')">
                 Browse Catalogue →
               </button>
-
-              <button
-                class="btn-secondary"
-                onclick="showPage('about')"
-              >
+              <button class="btn-secondary" onclick="showPage('about')">
                 About This Site
               </button>
-
             </div>
-
           </div>
-
         </section>
 
-
-        <!-- Catalogue statistics -->
-
-        <section
-          class="home-stats"
-          aria-label="Catalogue statistics"
-        >
-
+        <section class="home-stats" aria-label="Catalogue statistics">
           <div class="stat-block">
-            <span
-              class="stat-number"
-              id="homeStatItems"
-            >
-              0
-            </span>
-
-            <span class="stat-label">
-              Items Catalogued
-            </span>
+            <span class="stat-number" id="homeStatItems">0</span>
+            <span class="stat-label">Items Catalogued</span>
           </div>
-
-
           <div class="stat-block">
-            <span
-              class="stat-number"
-              id="homeStatGames"
-            >
-              0
-            </span>
-
-            <span class="stat-label">
-              Games Covered
-            </span>
+            <span class="stat-number" id="homeStatGames">0</span>
+            <span class="stat-label">Games Covered</span>
           </div>
-
-
           <div class="stat-block">
-            <span
-              class="stat-number"
-              id="homeStatCats"
-            >
-              0
-            </span>
-
-            <span class="stat-label">
-              Categories
-            </span>
+            <span class="stat-number" id="homeStatCats">0</span>
+            <span class="stat-label">Categories</span>
           </div>
-
         </section>
-
-
-        <!-- Home features -->
 
         <section class="home-features">
-
           <article class="feature-block">
-
             <span class="feature-icon">🧢</span>
-
-            <h3>
-              Every Category
-            </h3>
-
-            <p>
-              Hats, plushies, tees, hoodies, posters, collectibles,
-              keychains, stickers, and more — all in one place with
-              category filters.
-            </p>
-
+            <h3>Every Category</h3>
+            <p>Hats, plushies, tees, hoodies, posters, collectibles, keychains, stickers, and more — all in one place with category filters.</p>
           </article>
-
-
           <article class="feature-block">
-
             <span class="feature-icon">🎮</span>
-
-            <h3>
-              All Rockstar Titles
-            </h3>
-
-            <p>
-              GTA, Red Dead Redemption, Bully, Midnight Club, Max Payne —
-              promo merch from the full Rockstar library.
-            </p>
-
+            <h3>All Rockstar Titles</h3>
+            <p>GTA, Red Dead Redemption, Bully, Midnight Club, Max Payne — promo merch from the full Rockstar library.</p>
           </article>
-
-
           <article class="feature-block">
-
             <span class="feature-icon">⭐</span>
-
-            <h3>
-              Rare &amp; Limited Finds
-            </h3>
-
-            <p>
-              From E3 giveaways to launch-day exclusives, we track down
-              the hard-to-find pieces that collectors care about.
-            </p>
-
+            <h3>Rare &amp; Limited Finds</h3>
+            <p>From E3 giveaways to launch-day exclusives, we track down the hard-to-find pieces that collectors care about.</p>
           </article>
-
         </section>
-
-
-        <!-- Latest additions -->
 
         <section class="home-section">
-
           <div class="section-header">
-
-            <h2>
-              Latest <span>Additions</span>
-            </h2>
-
-            <button
-              class="btn-see-all"
-              onclick="showPage('catalogue')"
-            >
+            <h2>Latest <span>Additions</span></h2>
+            <button class="btn-see-all" onclick="showPage('catalogue')">
               See All →
             </button>
-
           </div>
-
-          <div
-            class="home-grid"
-            id="homeGrid"
-          ></div>
-
+          <div class="home-grid" id="homeGrid"></div>
         </section>
-
       </section>
 
-
-      <!-- ============================================================
-           CATALOGUE PAGE
-           ============================================================ -->
-
-      <section
-        class="page"
-        id="page-catalogue"
-      >
-
+      <!-- CATALOGUE PAGE -->
+      <section class="page" id="page-catalogue">
         <section class="page-hero">
-
-          <h1>
-            Merch Catalogue
-          </h1>
-
-          <p>
-            Every piece of promo gear — from GTA to Red Dead &amp; beyond
-          </p>
-
+          <h1>Merch Catalogue</h1>
+          <p>Every piece of promo gear — from GTA to Red Dead &amp; beyond</p>
         </section>
 
-
-        <!-- Type filters -->
-
-        <div
-          class="filter-bar"
-          id="typeFilterBar"
-          aria-label="Filter by item type"
-        >
-
-          <span class="filter-label">
-            Type:
-          </span>
-
-          <button
-            class="filter-pill active"
-            onclick="setTypeFilter('all', this)"
-          >
+        <div class="filter-bar" id="typeFilterBar" aria-label="Filter by item type">
+          <span class="filter-label">Type:</span>
+          <button class="filter-pill active" onclick="setTypeFilter('all', this)">
             All
           </button>
-
         </div>
 
-
-        <!-- Game filters -->
-
-        <div
-          class="filter-bar"
-          id="gameFilterBar"
-          aria-label="Filter by game"
-        >
-
-          <span class="filter-label">
-            Game:
-          </span>
-
-          <button
-            class="filter-pill active"
-            onclick="setGameFilter('all', this)"
-          >
+        <div class="filter-bar" id="gameFilterBar" aria-label="Filter by game">
+          <span class="filter-label">Game:</span>
+          <button class="filter-pill active" onclick="setGameFilter('all', this)">
             All Games
           </button>
-
         </div>
 
-
-        <!-- Search -->
-
         <div class="search-wrap">
-
           <input
             class="search-input"
             id="searchInput"
@@ -440,160 +185,53 @@ infringement.
             oninput="renderCatalogue()"
             aria-label="Search catalogue"
           />
-
         </div>
 
-
-        <!-- Catalogue cards are generated by script.js -->
-
-        <div
-          class="catalogue-grid"
-          id="catalogue"
-        ></div>
-
+        <div class="catalogue-grid" id="catalogue"></div>
       </section>
 
-
-      <!-- ============================================================
-           ABOUT PAGE
-           ============================================================ -->
-
-      <section
-        class="page"
-        id="page-about"
-      >
-
+      <!-- ABOUT PAGE -->
+      <section class="page" id="page-about">
         <section class="about-hero">
-
           <div class="about-hero-inner">
-
             <div class="about-hero-text">
-
-              <p class="about-eyebrow">
-                Fan-made &amp; community-driven
-              </p>
-
-              <h1>
-                About <span>This</span><br />
-                Site
-              </h1>
-
-              <p>
-                Hey! We're two massive Rockstar Games fans who got tired of
-                hunting across the internet for promo merch photos. So we
-                built RockstarPromoHub — a single, searchable home for every
-                piece of Rockstar promotional merchandise we can track down.
-              </p>
-
-              <p>
-                Whether it's a snapback handed out at E3, a Red Dead plushie
-                from a launch event, or a GTA hoodie from an online store —
-                if Rockstar made it, we want it catalogued here.
-              </p>
-
+              <p class="about-eyebrow">Fan-made &amp; community-driven</p>
+              <h1>About <span>This</span><br />Site</h1>
+              <p>Hey! We're two massive Rockstar Games fans who got tired of hunting across the internet for promo merch photos. So we built RockstarPromoHub — a single, searchable home for every piece of Rockstar promotional merchandise we can track down.</p>
+              <p>Whether it's a snapback handed out at E3, a Red Dead plushie from a launch event, or a GTA hoodie from an online store — if Rockstar made it, we want it catalogued here.</p>
             </div>
-
-
             <div class="about-avatar-wrap">
-
-              <div class="about-avatar">
-                <span>⭐</span>
-              </div>
-
-              <p class="about-avatar-label">
-                RockstarPromoHub
-              </p>
-
+              <div class="about-avatar"><span>⭐</span></div>
+              <p class="about-avatar-label">RockstarPromoHub</p>
             </div>
-
           </div>
-
         </section>
-
-
-        <!-- Team -->
 
         <section class="team-section">
-
           <div class="team-section-inner">
-
-            <h2 class="team-heading">
-              Meet The <span>Team</span>
-            </h2>
-
+            <h2 class="team-heading">Meet The <span>Team</span></h2>
             <div class="team-grid">
-
               <article class="team-card">
-
-                <div class="team-avatar">
-                  🕴️
-                </div>
-
-                <h3 class="team-name">
-                  Wade
-                </h3>
-
-                <p class="team-role">
-                  Site Builder &amp; Cataloguer
-                </p>
-
-                <p class="team-desc">
-                  Handles all the website creation, item logging, and
-                  basically everything else that keeps this place running
-                  behind the scenes.
-                </p>
-
+                <div class="team-avatar">🕴️</div>
+                <h3 class="team-name">Wade</h3>
+                <p class="team-role">Site Builder &amp; Cataloguer</p>
+                <p class="team-desc">Handles all the website creation, item logging, and basically everything else that keeps this place running behind the scenes.</p>
               </article>
-
-
               <article class="team-card">
-
-                <div class="team-avatar">
-                  🎙️
-                </div>
-
-                <h3 class="team-name">
-                  The Editor
-                </h3>
-
-                <p class="team-role">
-                  Advisor
-                </p>
-
-                <p class="team-desc">
-                  Gives verbal advice and direction on where the site should
-                  go next — the voice in the room making sure things stay
-                  on track.
-                </p>
-
+                <div class="team-avatar">🎙️</div>
+                <h3 class="team-name">The Editor</h3>
+                <p class="team-role">Advisor</p>
+                <p class="team-desc">Gives verbal advice and direction on where the site should go next — the voice in the room making sure things stay on track.</p>
               </article>
-
             </div>
-
           </div>
-
         </section>
 
-
-        <!-- About content -->
-
         <section class="about-content">
-
           <div class="about-section">
-
-            <h2>
-              What We Cover
-            </h2>
-
-            <p>
-              This catalogue covers official promotional merchandise from
-              all Rockstar Games titles — past and present. Each item is
-              logged with its game, category, description, year of release,
-              rarity, and availability where possible.
-            </p>
-
+            <h2>What We Cover</h2>
+            <p>This catalogue covers official promotional merchandise from all Rockstar Games titles — past and present. Each item is logged with its game, category, description, year of release, rarity, and availability where possible.</p>
             <div class="games-list">
-
               <span class="game-tag">GTA V</span>
               <span class="game-tag">GTA VI</span>
               <span class="game-tag">GTA Online</span>
@@ -604,217 +242,475 @@ infringement.
               <span class="game-tag">Midnight Club</span>
               <span class="game-tag">L.A. Noire</span>
               <span class="game-tag">+ More</span>
-
             </div>
-
           </div>
-
 
           <div class="about-section">
-
-            <h2>
-              How To Help
-            </h2>
-
-            <p>
-              Spotted a piece of merch that isn't in the catalogue? Get in
-              touch via the Contact Us / Submissions page and we'll get it
-              added. High-quality photos, source links, and any details about
-              the item are all super helpful.
-            </p>
-
+            <h2>How To Help</h2>
+            <p>Spotted a piece of merch that isn't in the catalogue? Get in touch via the Contact Us / Submissions page and we'll get it added. High-quality photos, source links, and any details about the item are all super helpful.</p>
             <br />
-
-            <p>
-              This site is not affiliated with Rockstar Games or Take-Two
-              Interactive. All trademarks belong to their respective owners.
-              This is a fan project built out of love for the games.
-            </p>
-
+            <p>This site is not affiliated with Rockstar Games or Take-Two Interactive. All trademarks belong to their respective owners. This is a fan project built out of love for the games.</p>
           </div>
-
         </section>
-
       </section>
 
-
-      <!-- ============================================================
-           CONTACT PAGE
-           ============================================================ -->
-
-      <section
-        class="page"
-        id="page-contact"
-      >
-
+      <!-- CONTACT PAGE -->
+      <section class="page" id="page-contact">
         <div class="contact-wrap">
-
           <div class="contact-intro">
-
-            <h1>
-              Get In <span>Touch</span>
-            </h1>
-
-            <p>
-              Got a tip about some merch? Spotted something missing from
-              the catalogue? Fill in the form below and we'll get back to
-              you.
-            </p>
-
+            <h1>Get In <span>Touch</span></h1>
+            <p>Got a tip about some merch? Spotted something missing from the catalogue? Fill in the form below and we'll get back to you.</p>
           </div>
-
-
           <div class="contact-form-embed">
-
             <iframe
               src="https://docs.google.com/forms/d/e/1FAIpQLSdhKhp1s9aOOpSQHgJoEfNrcz-2Pm8gGiEETikGLTqmCvsWYA/viewform?embedded=true"
               title="Contact Form"
               loading="lazy"
-            >
-              Loading form…
-            </iframe>
-
+            >Loading form…</iframe>
           </div>
-
         </div>
-
       </section>
 
-
-      <!-- ============================================================
-           ITEM DETAIL PAGE
-           ============================================================ -->
-
-      <section
-        class="page"
-        id="page-item"
-      >
-
+      <!-- ITEM DETAIL PAGE -->
+      <section class="page" id="page-item">
         <div class="item-detail-wrap"></div>
-
       </section>
-
     </main>
 
-
-    <!-- ==============================================================
-         FOOTER
-         ============================================================== -->
-
+    <!-- FOOTER -->
     <footer>
-
       <div class="footer-links">
-
-        <button onclick="showPage('home')">
-          Home
-        </button>
-
-        <button onclick="showPage('catalogue')">
-          Catalogue
-        </button>
-
-        <button onclick="showPage('about')">
-          About
-        </button>
-
-        <button onclick="showPage('contact')">
-          Contact Us / Submissions
-        </button>
-
+        <button onclick="showPage('home')">Home</button>
+        <button onclick="showPage('catalogue')">Catalogue</button>
+        <button onclick="showPage('about')">About</button>
+        <button onclick="showPage('contact')">Contact Us / Submissions</button>
       </div>
-
-      <p>
-        © 2024–2026
-        <span>RockstarPromoHub.com</span>
-        — Fan-made. Not affiliated with Rockstar Games.
-      </p>
-
+      <p>© 2024–2026 <span>RockstarPromoHub.com</span> — Fan-made. Not affiliated with Rockstar Games.</p>
     </footer>
 
-
-    <!-- ==============================================================
-         LIGHTBOX
-         ============================================================== -->
-
-    <div
-      class="lightbox-modal"
-      id="lightboxModal"
-      aria-hidden="true"
-    >
-
-      <button
-        class="lightbox-close"
-        id="lightboxClose"
-        aria-label="Close image view"
-      >
-        ✕
-      </button>
-
-
-      <button
-        class="lightbox-nav-btn lightbox-prev"
-        id="lightboxPrev"
-        aria-label="Previous image"
-      >
-        ‹
-      </button>
-
-
+    <!-- LIGHTBOX -->
+    <div class="lightbox-modal" id="lightboxModal" aria-hidden="true">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close image view">✕</button>
+      <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
       <div class="lightbox-content">
-
-        <div
-          class="lightbox-img-wrap"
-          id="lightboxImgWrap"
-        >
-
-          <img
-            class="lightbox-img"
-            id="lightboxImg"
-            src=""
-            alt="Expanded View"
-          />
-
-          <span
-            class="lightbox-zoom-hint"
-            id="lightboxHint"
-          >
-            Click image to zoom
-          </span>
-
+        <div class="lightbox-img-wrap" id="lightboxImgWrap">
+          <img class="lightbox-img" id="lightboxImg" src="" alt="Expanded View" />
+          <span class="lightbox-zoom-hint" id="lightboxHint">Click image to zoom</span>
         </div>
-
-
-        <div
-          class="lightbox-counter"
-          id="lightboxCounter"
-        >
-          1 / 1
-        </div>
-
+        <div class="lightbox-counter" id="lightboxCounter">1 / 1</div>
       </div>
-
-
-      <button
-        class="lightbox-nav-btn lightbox-next"
-        id="lightboxNext"
-        aria-label="Next image"
-      >
-        ›
-      </button>
-
+      <button class="lightbox-nav-btn lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
     </div>
 
+    <!-- JAVASCRIPT -->
+    <script>
+      const byId = (id) => document.getElementById(id);
+      const PLACEHOLDER_DESCRIPTION = "No description has been added yet.";
+      const CATEGORY_EMOJI = {
+        Hat: "🧢", Plushie: "🧸", "T-Shirt": "👕", Hoodie: "🥋",
+        Poster: "🖼️", Collectible: "⭐", Keychain: "🔑", Sticker: "🏷️", Other: "📦"
+      };
 
-    <!-- ==============================================================
-         JAVASCRIPT
-         
-         IMPORTANT:
-         catalog.js MUST load before script.js because script.js uses
-         the ITEMS array defined by catalog.js.
-         ============================================================== -->
+      let mobileNavOpen = false;
+      let currentTypeFilter = "all";
+      let currentGameFilter = "all";
+      let currentItemId = null;
 
-    <script src="catalog.js"></script>
-    <script src="js/script.js"></script>
+      function slugify(text) {
+        return String(text).toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") || "item";
+      }
 
+      function escapeHTML(value) {
+        return String(value ?? "").replace(/[&<>"']/g, (c) => ({
+          "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+        })[c]);
+      }
+
+      function safeExternalUrl(value) {
+        try {
+          const url = new URL(value);
+          return ["http:", "https:"].includes(url.protocol) ? url.href : "";
+        } catch { return ""; }
+      }
+
+      function normaliseItem(item = {}, fallbackId = "") {
+        return {
+          id: String(item.id || fallbackId || "item"),
+          name: item.name || "Untitled catalogue item",
+          game: item.game || "Rockstar Games",
+          category: item.category || "Other",
+          description: item.description || "",
+          year: item.year || "Not specified",
+          rarity: item.rarity || "Not specified",
+          availability: item.availability || "Not specified",
+          image: item.image || "",
+          extraImages: Array.isArray(item.extraImages)
+            ? item.extraImages.filter(Boolean)
+            : typeof item.extraImages === "string" && item.extraImages.trim()
+            ? item.extraImages.split(",").map((s) => s.trim()).filter(Boolean)
+            : [],
+          link: item.link || "",
+        };
+      }
+
+      function getItems() {
+        if (typeof ITEMS === "undefined" || !Array.isArray(ITEMS)) return [];
+        const usedIds = {};
+        return ITEMS.map((rawItem) => {
+          let id = slugify(`${rawItem.name}-${rawItem.game}`);
+          usedIds[id] = (usedIds[id] || 0) + 1;
+          if (usedIds[id] > 1) id = `${id}-${usedIds[id]}`;
+          return normaliseItem(rawItem, id);
+        });
+      }
+
+      function placeholderImageMarkup(category, label = "Image coming soon", hidden = false) {
+        return `
+          <div class="image-placeholder" ${hidden ? "hidden" : ""}>
+            <span class="placeholder-icon">${CATEGORY_EMOJI[category] || "★"}</span>
+            <span class="placeholder-label">${label}</span>
+          </div>
+        `;
+      }
+
+      function imageMarkup(source, altText, category, eager = false) {
+        if (!source) return placeholderImageMarkup(category);
+        return `
+          <img
+            src="${escapeHTML(source)}"
+            alt="${escapeHTML(altText)}"
+            loading="${eager ? "eager" : "lazy"}"
+            decoding="async"
+            referrerpolicy="no-referrer"
+            onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
+          />
+          ${placeholderImageMarkup(category, "Image coming soon", true)}
+        `;
+      }
+
+      function toggleMobileNav() {
+        mobileNavOpen = !mobileNavOpen;
+        byId("mobileNav")?.classList.toggle("open", mobileNavOpen);
+        byId("hamburger")?.classList.toggle("open", mobileNavOpen);
+        byId("hamburger")?.setAttribute("aria-expanded", String(mobileNavOpen));
+      }
+
+      function goToMobilePage(pageName) {
+        showPage(pageName);
+        if (mobileNavOpen) toggleMobileNav();
+      }
+
+      function showPage(pageName) {
+        document.querySelectorAll(".page").forEach((page) => {
+          page.classList.toggle("active", page.id === `page-${pageName}`);
+        });
+        document.querySelectorAll(".nav-link, .mobile-nav-link").forEach((link) => {
+          link.classList.remove("active");
+        });
+
+        byId(`nav-${pageName}`)?.classList.add("active");
+        byId(`mnav-${pageName}`)?.classList.add("active");
+        window.scrollTo(0, 0);
+
+        if (pageName === "catalogue") renderCatalogue();
+        if (pageName === "home") renderHome();
+
+        if (pageName !== "item") {
+          const newHash = pageName === "home" ? "" : `#${pageName}`;
+          history.replaceState(null, "", `${location.pathname}${newHash}`);
+        }
+      }
+
+      function renderHome() {
+        const items = getItems();
+        const uniqueGames = new Set(items.map((item) => item.game).filter(Boolean));
+        const uniqueCats = new Set(items.map((item) => item.category).filter(Boolean));
+        const latestItems = [...items].reverse().slice(0, 4);
+
+        if (byId("homeStatItems")) byId("homeStatItems").textContent = items.length;
+        if (byId("homeStatGames")) byId("homeStatGames").textContent = uniqueGames.size;
+        if (byId("homeStatCats")) byId("homeStatCats").textContent = uniqueCats.size || 0;
+        if (byId("itemCount")) byId("itemCount").textContent = `${items.length} item${items.length === 1 ? "" : "s"}`;
+        if (byId("homeGrid")) byId("homeGrid").innerHTML = latestItems.map(cardHTML).join("");
+      }
+
+      function cardHTML(rawItem) {
+        const item = normaliseItem(rawItem);
+        return `
+          <article class="merch-card">
+            <a class="card-image" href="#item/${item.id}" aria-label="View ${escapeHTML(item.name)}">
+              ${imageMarkup(item.image, item.name, item.category)}
+            </a>
+            <a class="card-body" href="#item/${item.id}">
+              <div class="card-game">${escapeHTML(item.game)}</div>
+              <div class="card-name">${escapeHTML(item.name)}</div>
+              <div class="card-description">${escapeHTML(item.description || PLACEHOLDER_DESCRIPTION)}</div>
+              <div class="card-footer">
+                <span class="card-category">${escapeHTML(item.category)}</span>
+              </div>
+            </a>
+          </article>
+        `;
+      }
+
+      function setTypeFilter(value, clickedButton) {
+        currentTypeFilter = value;
+        document.querySelectorAll("#typeFilterBar .filter-pill").forEach((btn) => btn.classList.remove("active"));
+        clickedButton?.classList.add("active");
+        renderCatalogue();
+      }
+
+      function setGameFilter(value, clickedButton) {
+        currentGameFilter = value;
+        document.querySelectorAll("#gameFilterBar .filter-pill").forEach((btn) => btn.classList.remove("active"));
+        clickedButton?.classList.add("active");
+        renderCatalogue();
+      }
+
+      function populateTypeFilters(items) {
+        const filterBar = byId("typeFilterBar");
+        if (!filterBar) return;
+        const types = [...new Set(items.map((item) => item.category).filter(Boolean))].sort();
+        if (!types.includes(currentTypeFilter)) currentTypeFilter = "all";
+
+        filterBar.querySelectorAll('[data-gen-type="true"]').forEach((btn) => btn.remove());
+        types.forEach((type) => {
+          const button = document.createElement("button");
+          button.className = `filter-pill${currentTypeFilter === type ? " active" : ""}`;
+          button.dataset.genType = "true";
+          button.textContent = type;
+          button.onclick = () => setTypeFilter(type, button);
+          filterBar.appendChild(button);
+        });
+        filterBar.querySelector(".filter-pill")?.classList.toggle("active", currentTypeFilter === "all");
+      }
+
+      function populateGameFilters(items) {
+        const filterBar = byId("gameFilterBar");
+        if (!filterBar) return;
+        const games = [...new Set(items.map((item) => item.game).filter(Boolean))].sort();
+        if (!games.includes(currentGameFilter)) currentGameFilter = "all";
+
+        filterBar.querySelectorAll('[data-gen-game="true"]').forEach((btn) => btn.remove());
+        games.forEach((game) => {
+          const button = document.createElement("button");
+          button.className = `filter-pill${currentGameFilter === game ? " active" : ""}`;
+          button.dataset.genGame = "true";
+          button.textContent = game;
+          button.onclick = () => setGameFilter(game, button);
+          filterBar.appendChild(button);
+        });
+        filterBar.querySelector(".filter-pill")?.classList.toggle("active", currentGameFilter === "all");
+      }
+
+      function renderCatalogue() {
+        const catalogueEl = byId("catalogue");
+        if (!catalogueEl) return;
+
+        const items = getItems();
+        const searchInput = byId("searchInput");
+        const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : "";
+
+        populateTypeFilters(items);
+        populateGameFilters(items);
+        if (byId("itemCount")) byId("itemCount").textContent = `${items.length} item${items.length === 1 ? "" : "s"}`;
+
+        const filteredItems = items.filter((item) => {
+          const matchesType = currentTypeFilter === "all" || item.category === currentTypeFilter;
+          const matchesGame = currentGameFilter === "all" || item.game === currentGameFilter;
+          const searchableText = [item.name, item.game, item.category, item.description].join(" ").toLowerCase();
+          const matchesSearch = !searchTerm || searchableText.includes(searchTerm);
+          return matchesType && matchesGame && matchesSearch;
+        });
+
+        if (filteredItems.length === 0) {
+          catalogueEl.innerHTML = `
+            <div class="empty-state">
+              <span class="big-star">★</span>
+              <h3>No Items Found</h3>
+              <p>Try a different filter or search term.</p>
+            </div>
+          `;
+          return;
+        }
+
+        catalogueEl.innerHTML = filteredItems.map(cardHTML).join("");
+      }
+
+      function renderItemPage(itemId) {
+        const item = normaliseItem(getItems().find((entry) => entry.id === itemId), itemId);
+        const allImages = [item.image, ...item.extraImages].filter(Boolean);
+        const detailWrap = document.querySelector(".item-detail-wrap");
+        if (!detailWrap) return;
+
+        currentItemId = item.id;
+        detailWrap.innerHTML = `
+          <button class="btn-back" onclick="showPage('catalogue')">← Back to Catalogue</button>
+          <div class="item-hero" id="itemPageHero">
+            ${imageMarkup(allImages[0], item.name, item.category, true)}
+          </div>
+          <div class="view-thumbs" id="itemPageThumbs" style="${allImages.length > 1 ? "" : "display: none"}"></div>
+          <div class="item-detail-body">
+            <div class="item-detail-main">
+              <div class="item-game-label">${escapeHTML(item.game)}</div>
+              <h1 class="item-detail-name">${escapeHTML(item.name)}</h1>
+              <span class="item-detail-section-label">Description</span>
+              <p class="item-detail-description">${escapeHTML(item.description || PLACEHOLDER_DESCRIPTION)}</p>
+              <div class="item-detail-share">
+                <span class="item-detail-share-label">Share this item:</span>
+                <button class="btn-copy-link" id="btnCopyLink" onclick="copyItemLink()">Copy Link</button>
+              </div>
+            </div>
+            <aside class="item-detail-sidebar" id="itemPageSidebar"></aside>
+          </div>
+        `;
+
+        const labels = [
+          { key: "Associated Game", value: item.game, className: "" },
+          { key: "Year of Release", value: item.year, className: "gold" },
+          { key: "Category", value: item.category, className: "" },
+          { key: "Rarity", value: item.rarity, className: "gold" },
+          { key: "Availability", value: item.availability, className: "pill" },
+        ];
+
+        if (byId("itemPageSidebar")) {
+          byId("itemPageSidebar").innerHTML = labels.map((l) => `
+            <div class="item-label-block">
+              <span class="item-label-key">${l.key}</span>
+              <div class="item-label-value ${l.className}">${escapeHTML(l.value)}</div>
+            </div>
+          `).join("");
+        }
+
+        addSourceLink(item);
+        setupThumbnailButtons(item, allImages);
+
+        const hero = byId("itemPageHero");
+        if (hero) hero.onclick = () => openLightbox(allImages, 0);
+      }
+
+      function addSourceLink(item) {
+        const link = safeExternalUrl(item.link);
+        if (!link) return;
+        const sidebar = byId("itemPageSidebar");
+        if (!sidebar) return;
+
+        const sourceBlock = document.createElement("div");
+        sourceBlock.className = "item-label-block";
+        sourceBlock.innerHTML = `
+          <span class="item-label-key">Source</span>
+          <a href="${escapeHTML(link)}" target="_blank" rel="noopener noreferrer" style="color: var(--gold); word-break: break-all; font-size: 0.8rem;">
+            ${escapeHTML(link)}
+          </a>
+        `;
+        sidebar.appendChild(sourceBlock);
+      }
+
+      function setupThumbnailButtons(item, allImages) {
+        if (allImages.length <= 1) return;
+        const thumbnails = byId("itemPageThumbs");
+        const hero = byId("itemPageHero");
+        if (!thumbnails || !hero) return;
+
+        thumbnails.innerHTML = allImages.map((src, idx) => `
+          <button class="view-thumb ${idx === 0 ? "active" : ""}" data-index="${idx}">
+            <img src="${escapeHTML(src)}" alt="${escapeHTML(item.name)} thumbnail ${idx + 1}" />
+          </button>
+        `).join("");
+
+        thumbnails.querySelectorAll(".view-thumb").forEach((thumb) => {
+          thumb.addEventListener("click", () => {
+            const idx = parseInt(thumb.dataset.index, 10) || 0;
+            thumbnails.querySelectorAll(".view-thumb").forEach((b) => b.classList.remove("active"));
+            thumb.classList.add("active");
+            hero.innerHTML = imageMarkup(allImages[idx], item.name, item.category, true);
+          });
+        });
+      }
+
+      let lightboxImages = [];
+      let lightboxIndex = 0;
+
+      function openLightbox(images, startIndex = 0) {
+        lightboxImages = images.filter(Boolean);
+        if (!lightboxImages.length) return;
+        lightboxIndex = startIndex;
+        updateLightbox();
+        const modal = byId("lightboxModal");
+        if (modal) {
+          modal.classList.add("active");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+        }
+      }
+
+      function closeLightbox() {
+        const modal = byId("lightboxModal");
+        if (!modal) return;
+        modal.classList.remove("active");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      function updateLightbox() {
+        const img = byId("lightboxImg");
+        const counter = byId("lightboxCounter");
+        if (img) img.src = lightboxImages[lightboxIndex];
+        if (counter) counter.textContent = `${lightboxIndex + 1} / ${lightboxImages.length}`;
+      }
+
+      function copyItemLink() {
+        const url = `${location.origin}${location.pathname}#item/${currentItemId}`;
+        navigator.clipboard.writeText(url).then(() => {
+          const btn = byId("btnCopyLink");
+          if (btn) {
+            btn.textContent = "Copied!";
+            setTimeout(() => { btn.textContent = "Copy Link"; }, 1800);
+          }
+        });
+      }
+
+      function handleRoute() {
+        const hash = location.hash;
+        if (hash.startsWith("#item/")) {
+          document.querySelectorAll(".page").forEach((p) => p.classList.remove("active"));
+          document.querySelectorAll(".nav-link, .mobile-nav-link").forEach((l) => l.classList.remove("active"));
+          byId("page-item")?.classList.add("active");
+          renderItemPage(hash.slice(6));
+          window.scrollTo(0, 0);
+          return;
+        }
+        if (["#catalogue", "#about", "#contact"].includes(hash)) {
+          showPage(hash.slice(1));
+          return;
+        }
+        showPage("home");
+      }
+
+      window.addEventListener("hashchange", handleRoute);
+
+      function initApp() {
+        renderHome();
+        renderCatalogue();
+        handleRoute();
+      }
+
+      // Load catalog.js dynamically (tries root first, falls back to /js folder)
+      function loadCatalogScript(pathIndex = 0) {
+        const paths = ["catalog.js", "js/catalog.js"];
+        if (pathIndex >= paths.length) {
+          console.warn("catalog.js not found. Initializing empty catalogue.");
+          initApp();
+          return;
+        }
+        const script = document.createElement("script");
+        script.src = paths[pathIndex] + "?v=" + Date.now();
+        script.onload = initApp;
+        script.onerror = () => loadCatalogScript(pathIndex + 1);
+        document.head.appendChild(script);
+      }
+
+      loadCatalogScript();
+    </script>
   </body>
 </html>
