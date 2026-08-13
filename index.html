@@ -1257,6 +1257,79 @@
           padding: 2rem 1rem;
         }
       }
+
+      /* ================================================================
+         ZOOM OVERLAY STYLES
+         ================================================================ */
+      #zoomOverlay {
+        animation: zoomFadeIn 0.3s ease-out;
+      }
+
+      @keyframes zoomFadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      #zoomImage {
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      /* Style the range sliders - horizontal and zoom */
+      #zoomHorizontal::-webkit-slider-thumb,
+      #zoomLevel::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--gold);
+        cursor: pointer;
+        border: 2px solid var(--white);
+      }
+
+      #zoomHorizontal::-moz-range-thumb,
+      #zoomLevel::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--gold);
+        cursor: pointer;
+        border: 2px solid var(--white);
+      }
+
+      /* Vertical slider support */
+      #zoomVertical {
+        -webkit-appearance: slider-vertical;
+        appearance: slider-vertical;
+        height: 120px;
+        width: 6px;
+      }
+      
+      #zoomVertical::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--gold);
+        cursor: pointer;
+        border: 2px solid var(--white);
+      }
+      
+      #zoomVertical::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--gold);
+        cursor: pointer;
+        border: 2px solid var(--white);
+      }
     </style>
   </head>
   <body>
@@ -1409,22 +1482,33 @@
     </main>
     <!-- ZOOM OVERLAY -->
     <div id="zoomOverlay" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:9999; background:rgba(0,0,0,0.92); backdrop-filter:blur(8px); justify-content:center; align-items:center; flex-direction:column; padding:2rem;">
-      <button id="closeZoom" style="position:absolute; top:20px; right:30px; background:transparent; border:none; color:white; font-size:2.5rem; cursor:pointer; font-family:var(--font-heading); z-index:10000;">✕</button>
-      <div style="width:100%; max-width:1200px; max-height:80vh; overflow:hidden; position:relative; background:#0a0a0a; border:1px solid var(--gold); border-radius:4px;">
-        <img id="zoomImage" src="" alt="Zoomed view" style="width:100%; height:100%; object-fit:contain; max-height:80vh; transition:transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+      <button id="closeZoom" style="position:absolute; top:20px; right:30px; background:transparent; border:none; color:white; font-size:2.5rem; cursor:pointer; font-family:var(--font-heading); z-index:10000; transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">✕</button>
+      
+      <!-- Image container -->
+      <div style="width:100%; max-width:1200px; max-height:70vh; overflow:hidden; position:relative; background:#0a0a0a; border:1px solid var(--gold); border-radius:4px;">
+        <img id="zoomImage" src="" alt="Zoomed view" style="width:100%; height:100%; object-fit:contain; max-height:70vh; transition:transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
       </div>
-      <div style="width:100%; max-width:1200px; margin-top:1.5rem; display:flex; flex-direction:column; gap:0.8rem; padding:0 0.5rem;">
-        <div style="display:flex; align-items:center; gap:1rem; width:100%;">
-          <span style="color:var(--muted); font-size:0.8rem; letter-spacing:1px; min-width:60px;">Horizontal</span>
+      
+      <!-- Controls -->
+      <div style="width:100%; max-width:1200px; margin-top:1.5rem; display:flex; gap:2rem; align-items:center; justify-content:center; padding:0 0.5rem; flex-wrap:wrap;">
+        
+        <!-- Horizontal Slider -->
+        <div style="display:flex; align-items:center; gap:1rem; flex:1; min-width:200px;">
+          <span style="color:var(--muted); font-size:0.7rem; letter-spacing:1px; min-width:70px; text-transform:uppercase;">← H →</span>
           <input type="range" id="zoomHorizontal" min="-100" max="100" value="0" style="flex:1; height:6px; -webkit-appearance:none; appearance:none; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
         </div>
-        <div style="display:flex; align-items:center; gap:1rem; width:100%;">
-          <span style="color:var(--muted); font-size:0.8rem; letter-spacing:1px; min-width:60px;">Vertical</span>
-          <input type="range" id="zoomVertical" min="-100" max="100" value="0" style="flex:1; height:6px; -webkit-appearance:none; appearance:none; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
+        
+        <!-- Vertical Slider - NOW ACTUALLY VERTICAL! -->
+        <div style="display:flex; align-items:center; gap:0.5rem; height:120px;">
+          <span style="color:var(--muted); font-size:0.7rem; letter-spacing:1px; writing-mode:vertical-lr; text-orientation:mixed; min-width:20px; text-transform:uppercase;">↑ V ↓</span>
+          <input type="range" id="zoomVertical" min="-100" max="100" value="0" style="height:120px; width:6px; -webkit-appearance:slider-vertical; appearance:slider-vertical; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
         </div>
-        <div style="display:flex; align-items:center; gap:1rem; width:100%;">
-          <span style="color:var(--muted); font-size:0.8rem; letter-spacing:1px; min-width:60px;">Zoom</span>
+        
+        <!-- Zoom Level Slider -->
+        <div style="display:flex; align-items:center; gap:1rem; flex:1; min-width:200px;">
+          <span style="color:var(--muted); font-size:0.7rem; letter-spacing:1px; min-width:50px; text-transform:uppercase;">🔍</span>
           <input type="range" id="zoomLevel" min="1" max="3" step="0.1" value="1.8" style="flex:1; height:6px; -webkit-appearance:none; appearance:none; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
+          <span id="zoomLevelDisplay" style="color:var(--gold); font-size:0.8rem; min-width:40px; text-align:center;">1.8×</span>
         </div>
       </div>
     </div>
@@ -1678,7 +1762,7 @@
         });
       }
 
-        function setupZoom(item, allImages) {
+      function setupZoom(item, allImages) {
         const hero = byId("itemPageHero");
         const overlay = byId("zoomOverlay");
         const zoomImg = byId("zoomImage");
@@ -1686,8 +1770,10 @@
         const hSlider = byId("zoomHorizontal");
         const vSlider = byId("zoomVertical");
         const zSlider = byId("zoomLevel");
+        const zoomDisplay = byId("zoomLevelDisplay");
         
         let currentImage = allImages[0] || item.image;
+        let currentScale = 1.8;
 
         // Click on hero to open zoom
         hero.addEventListener("click", (e) => {
@@ -1711,6 +1797,8 @@
           hSlider.value = 0;
           vSlider.value = 0;
           zSlider.value = 1.8;
+          currentScale = 1.8;
+          zoomDisplay.textContent = "1.8×";
           zoomImg.style.transform = "scale(1.8) translate(0px, 0px)";
         }
 
@@ -1723,6 +1811,20 @@
           if (e.key === "Escape") closeZoom();
         });
 
+        // Scroll wheel zoom support
+        overlay.addEventListener("wheel", (e) => {
+          e.preventDefault();
+          // Calculate new scale
+          const delta = e.deltaY > 0 ? -0.1 : 0.1;
+          let newScale = Math.min(3, Math.max(1, currentScale + delta));
+          // Round to 1 decimal place
+          newScale = Math.round(newScale * 10) / 10;
+          currentScale = newScale;
+          zSlider.value = newScale;
+          zoomDisplay.textContent = newScale + "×";
+          updateZoom();
+        }, { passive: false });
+
         function openZoom(imageSrc) {
           if (!imageSrc) return;
           zoomImg.src = imageSrc;
@@ -1731,11 +1833,15 @@
           hSlider.value = 0;
           vSlider.value = 0;
           zSlider.value = 1.8;
+          currentScale = 1.8;
+          zoomDisplay.textContent = "1.8×";
           zoomImg.style.transform = "scale(1.8) translate(0px, 0px)";
         }
 
         function updateZoom() {
           const scale = parseFloat(zSlider.value);
+          currentScale = scale;
+          zoomDisplay.textContent = scale + "×";
           const hPos = parseFloat(hSlider.value);
           const vPos = parseFloat(vSlider.value);
           const hTranslate = (hPos / 100) * 30;
