@@ -3,55 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!--
-      <!--
-===============================================================================
-
-                               ROCKSTAR GAMES PROMO HUB
-
-Copyright © 2026 Rockstar Games Promo Hub.
-All rights reserved.
-
-This source code, website structure, styling, JavaScript, text, catalogue
-format, and other original content are provided solely for the operation of
-this website.
-
-If you are viewing this source code through your browser's developer tools or
-"View Source", you are NOT granted permission to copy, reproduce, redistribute,
-republish, modify, or reuse any portion of this code or its contents for your
-own projects without prior written permission from the website owner.
-
-Unauthorised copying or redistribution of this source may constitute copyright
-infringement.
-
-===============================================================================
--->
-    -->
-    <meta name="rph-version" content="2026.07.25.2" />
+    <!-- RPH Version -->
+    <meta name="rph-version" content="2026.07.25.3" />
     <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
-
     <title>R★ Games Promo Hub — Official Merch Catalogue</title>
-
-    <!-- Fonts used by the website. These can be replaced with other Google Fonts. -->
+    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
     <style>
       /* ================================================================
-         1. SITE-WIDE SETTINGS
-         ================================================================
-
-         These variables control the main colours used throughout the site.
-         To change the look, edit the values here instead of hunting through
-         the rest of the stylesheet.
-
-         Example:
-         --gold: #C9A84C;  changes the gold used for stars, accents, and links.
+         GLOBAL & VARIABLES
          ================================================================ */
-
       :root {
         --black: #0d0d0d;
         --charcoal: #1a1a1a;
@@ -63,13 +27,9 @@ infringement.
         --muted: #888888;
         --red: #c0392b;
         --green: #27ae60;
-
-        /* The two fonts used by the site. */
         --font-heading: "Bebas Neue", sans-serif;
         --font-body: "Inter", sans-serif;
       }
-
-      /* Make sizing predictable for every element. */
       *,
       *::before,
       *::after {
@@ -77,24 +37,19 @@ infringement.
         margin: 0;
         padding: 0;
       }
-
-      /* Basic page appearance. */
       body {
         min-height: 100vh;
         background: var(--black);
         color: var(--white);
         font-family: var(--font-body);
       }
-
-      /* Keep links from showing the browser's default underline/colour. */
       a {
         color: inherit;
+        text-decoration: none;
       }
-
       /* ================================================================
-         2. SHARED HEADER AND NAVIGATION
+         HEADER & NAV
          ================================================================ */
-
       header {
         position: sticky;
         top: 0;
@@ -107,17 +62,13 @@ infringement.
         background: var(--charcoal);
         border-bottom: 1px solid var(--border);
       }
-
-      /* Clicking the logo always takes the visitor back to Home. */
       .logo {
         display: flex;
         flex-shrink: 0;
         align-items: baseline;
         gap: 4px;
         cursor: pointer;
-        text-decoration: none;
       }
-
       .logo-word {
         color: var(--white);
         font-family: var(--font-heading);
@@ -125,12 +76,9 @@ infringement.
         letter-spacing: 3px;
         line-height: 1;
       }
-
-      /* This is the gold star in the header logo. */
       .logo-star {
         color: var(--gold);
       }
-
       .logo-divider {
         align-self: center;
         width: 1px;
@@ -138,25 +86,20 @@ infringement.
         margin: 0 8px;
         background: var(--border);
       }
-
       .logo-subtitle {
         align-self: center;
         color: var(--muted);
         font-size: 0.6rem;
         font-weight: 500;
         letter-spacing: 3px;
-        line-height: 1;
         text-transform: uppercase;
       }
-
-      /* Desktop navigation sits in the middle of the header. */
       .desktop-nav {
         display: flex;
         flex: 1;
         align-items: center;
         justify-content: center;
       }
-
       .nav-link,
       .mobile-nav-link {
         border: 0;
@@ -167,15 +110,12 @@ infringement.
         letter-spacing: 2px;
         transition: color 0.15s;
       }
-
       .nav-link {
         position: relative;
         padding: 8px 16px;
         font-size: 0.95rem;
         white-space: nowrap;
       }
-
-      /* Gold line beneath the currently selected desktop page. */
       .nav-link::after {
         position: absolute;
         right: 16px;
@@ -188,16 +128,13 @@ infringement.
         transform-origin: left;
         transition: transform 0.2s;
       }
-
       .nav-link:hover,
       .nav-link.active {
         color: var(--white);
       }
-
       .nav-link.active::after {
         transform: scaleX(1);
       }
-
       .header-right {
         display: flex;
         flex-shrink: 0;
@@ -205,7 +142,6 @@ infringement.
         gap: 0.75rem;
         margin-left: auto;
       }
-
       .item-count {
         color: var(--muted);
         font-size: 0.68rem;
@@ -213,8 +149,6 @@ infringement.
         text-transform: uppercase;
         white-space: nowrap;
       }
-
-      /* The hamburger is only shown on small screens. */
       .hamburger {
         display: none;
         flex-direction: column;
@@ -224,7 +158,6 @@ infringement.
         background: transparent;
         cursor: pointer;
       }
-
       .hamburger span {
         display: block;
         width: 22px;
@@ -233,22 +166,16 @@ infringement.
         background: var(--white);
         transition: all 0.25s;
       }
-
-      /* Turn the three hamburger lines into an X when the menu is open. */
       .hamburger.open span:first-child {
         transform: translateY(7px) rotate(45deg);
       }
-
       .hamburger.open span:nth-child(2) {
         opacity: 0;
         transform: scaleX(0);
       }
-
       .hamburger.open span:nth-child(3) {
         transform: translateY(-7px) rotate(-45deg);
       }
-
-      /* Mobile navigation drawer. */
       .mobile-nav {
         position: fixed;
         top: 64px;
@@ -261,11 +188,9 @@ infringement.
         background: var(--charcoal);
         border-bottom: 1px solid var(--border);
       }
-
       .mobile-nav.open {
         display: flex;
       }
-
       .mobile-nav-link {
         width: 100%;
         padding: 14px 2rem;
@@ -273,7 +198,6 @@ infringement.
         font-size: 1.2rem;
         text-align: left;
       }
-
       .mobile-nav-link.active,
       .mobile-nav-link:hover {
         color: var(--white);
@@ -282,30 +206,25 @@ infringement.
       }
 
       /* ================================================================
-         3. SHARED BUTTONS, PAGES, AND ANIMATIONS
+         PAGES & BUTTONS
          ================================================================ */
-
       .page {
         display: none;
         animation: fade-in 0.25s ease-out;
       }
-
       .page.active {
         display: block;
       }
-
       @keyframes fade-in {
         from {
           opacity: 0;
           transform: translateY(6px);
         }
-
         to {
           opacity: 1;
           transform: translateY(0);
         }
       }
-
       .btn-primary,
       .btn-secondary,
       .btn-see-all,
@@ -315,7 +234,6 @@ infringement.
         font-family: var(--font-heading);
         letter-spacing: 2px;
       }
-
       .btn-primary {
         padding: 12px 32px;
         border: 0;
@@ -324,16 +242,12 @@ infringement.
         color: var(--black);
         font-size: 1.1rem;
         letter-spacing: 3px;
-        transition:
-          opacity 0.2s,
-          transform 0.2s;
+        transition: opacity 0.2s, transform 0.2s;
       }
-
       .btn-primary:hover {
         opacity: 0.85;
         transform: translateY(-2px);
       }
-
       .btn-secondary {
         padding: 12px 32px;
         border: 1px solid var(--border);
@@ -344,15 +258,13 @@ infringement.
         letter-spacing: 3px;
         transition: border-color 0.2s;
       }
-
       .btn-secondary:hover {
         border-color: var(--white);
       }
 
       /* ================================================================
-         4. HOME PAGE
+         HOME PAGE
          ================================================================ */
-
       .home-hero {
         position: relative;
         display: flex;
@@ -366,8 +278,6 @@ infringement.
         border-bottom: 1px solid var(--border);
         text-align: center;
       }
-
-      /* Large, faint decorative star behind the home page content. */
       .home-hero-background {
         position: absolute;
         inset: 0;
@@ -376,29 +286,24 @@ infringement.
         justify-content: center;
         pointer-events: none;
       }
-
       .home-background-star {
         color: rgba(255, 255, 255, 0.02);
         font-size: 60vw;
         line-height: 1;
         animation: slow-spin 80s linear infinite;
       }
-
       @keyframes slow-spin {
         from {
           transform: rotate(0deg);
         }
-
         to {
           transform: rotate(360deg);
         }
       }
-
       .home-hero-content {
         position: relative;
         z-index: 1;
       }
-
       .home-eyebrow,
       .about-eyebrow {
         color: var(--gold);
@@ -407,11 +312,9 @@ infringement.
         letter-spacing: 4px;
         text-transform: uppercase;
       }
-
       .home-eyebrow {
         margin-bottom: 1.25rem;
       }
-
       .home-title {
         margin-bottom: 0.5rem;
         color: var(--white);
@@ -420,17 +323,13 @@ infringement.
         letter-spacing: 6px;
         line-height: 0.9;
       }
-
-      /* Specifically makes the R★ star gold on the home page. */
       .home-title .brand-star {
         color: var(--gold);
       }
-
       .home-title em {
         color: var(--gold);
         font-style: normal;
       }
-
       .home-hero-description {
         max-width: 520px;
         margin: 1.5rem auto 2.5rem;
@@ -438,31 +337,25 @@ infringement.
         font-size: clamp(0.85rem, 2vw, 1rem);
         line-height: 1.7;
       }
-
       .home-actions {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
       }
-
-      /* Three summary numbers below the home hero. */
       .home-stats {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         border-bottom: 1px solid var(--border);
       }
-
       .stat-block {
         padding: 2rem;
         border-right: 1px solid var(--border);
         text-align: center;
       }
-
       .stat-block:last-child {
         border-right: 0;
       }
-
       .stat-number {
         display: block;
         color: var(--gold);
@@ -471,7 +364,6 @@ infringement.
         letter-spacing: 2px;
         line-height: 1;
       }
-
       .stat-label {
         display: block;
         margin-top: 4px;
@@ -480,29 +372,23 @@ infringement.
         letter-spacing: 2px;
         text-transform: uppercase;
       }
-
-      /* Three short explanations of what the catalogue contains. */
       .home-features {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         border-bottom: 1px solid var(--border);
       }
-
       .feature-block {
         padding: 2.5rem 2rem;
         border-right: 1px solid var(--border);
       }
-
       .feature-block:last-child {
         border-right: 0;
       }
-
       .feature-icon {
         display: block;
         margin-bottom: 1rem;
         font-size: 2rem;
       }
-
       .feature-block h3 {
         margin-bottom: 0.5rem;
         color: var(--white);
@@ -510,18 +396,15 @@ infringement.
         font-size: 1.3rem;
         letter-spacing: 2px;
       }
-
       .feature-block p {
         color: var(--muted);
         font-size: 0.82rem;
         line-height: 1.65;
       }
-
       .home-section {
         padding: 3rem 2rem;
         border-bottom: 1px solid var(--border);
       }
-
       .section-header {
         display: flex;
         align-items: baseline;
@@ -529,18 +412,15 @@ infringement.
         gap: 1rem;
         margin-bottom: 1.75rem;
       }
-
       .section-header h2 {
         color: var(--white);
         font-family: var(--font-heading);
         font-size: 1.8rem;
         letter-spacing: 3px;
       }
-
       .section-header h2 span {
         color: var(--gold);
       }
-
       .btn-see-all {
         padding: 5px 14px;
         border: 1px solid var(--border);
@@ -551,16 +431,14 @@ infringement.
         white-space: nowrap;
         transition: all 0.15s;
       }
-
       .btn-see-all:hover {
         color: var(--accent);
         border-color: var(--accent);
       }
 
       /* ================================================================
-         5. CATALOGUE PAGE, FILTERS, SEARCH, AND ITEM CARDS
+         CATALOGUE
          ================================================================ */
-
       .page-hero {
         position: relative;
         overflow: hidden;
@@ -569,7 +447,6 @@ infringement.
         border-bottom: 1px solid var(--border);
         text-align: center;
       }
-
       .page-hero::before {
         position: absolute;
         top: 50%;
@@ -581,7 +458,6 @@ infringement.
         pointer-events: none;
         transform: translate(-50%, -50%);
       }
-
       .page-hero h1 {
         position: relative;
         color: var(--white);
@@ -590,7 +466,6 @@ infringement.
         letter-spacing: 4px;
         line-height: 1;
       }
-
       .page-hero p {
         position: relative;
         margin-top: 0.5rem;
@@ -599,7 +474,6 @@ infringement.
         letter-spacing: 2px;
         text-transform: uppercase;
       }
-
       .filter-bar {
         display: flex;
         flex-wrap: wrap;
@@ -609,7 +483,6 @@ infringement.
         background: var(--charcoal);
         border-bottom: 1px solid var(--border);
       }
-
       .filter-label {
         flex-shrink: 0;
         margin-right: 0.4rem;
@@ -618,7 +491,6 @@ infringement.
         font-size: 0.8rem;
         letter-spacing: 2px;
       }
-
       .filter-pill {
         padding: 3px 11px;
         border: 1px solid var(--border);
@@ -634,24 +506,20 @@ infringement.
         transition: all 0.15s;
         white-space: nowrap;
       }
-
       .filter-pill:hover {
         color: var(--gold);
         border-color: var(--gold);
       }
-
       .filter-pill.active {
         background: var(--accent);
         color: var(--black);
         border-color: var(--accent);
       }
-
       .search-wrap {
         padding: 0.85rem 2rem;
         background: var(--black);
         border-bottom: 1px solid var(--border);
       }
-
       .search-input {
         width: 100%;
         max-width: 400px;
@@ -665,61 +533,49 @@ infringement.
         font-size: 0.85rem;
         transition: border-color 0.2s;
       }
-
       .search-input:focus {
         border-color: var(--accent);
       }
-
       .search-input::placeholder {
         color: var(--muted);
       }
-
       .catalogue-grid,
       .home-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 1.25rem;
       }
-
       .catalogue-grid {
         padding: 2rem;
         gap: 1.5rem;
         grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
       }
-
       .merch-card {
         position: relative;
         background: var(--charcoal);
         border: 1px solid var(--border);
         animation: card-in 0.3s ease-out;
-        transition:
-          transform 0.2s,
-          border-color 0.2s;
+        transition: transform 0.2s, border-color 0.2s;
       }
-
       @keyframes card-in {
         from {
           opacity: 0;
           transform: translateY(10px);
         }
-
         to {
           opacity: 1;
           transform: translateY(0);
         }
       }
-
       @media (hover: hover) {
         .merch-card:hover {
           border-color: var(--gold);
           transform: translateY(-4px);
         }
-
         .merch-card:hover .card-image img {
           transform: scale(1.05);
         }
       }
-
       .card-image {
         position: relative;
         display: flex;
@@ -731,15 +587,12 @@ infringement.
         cursor: pointer;
         text-decoration: none;
       }
-
       .card-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         transition: transform 0.3s;
       }
-
-      /* Placeholder shown when an item does not have an image yet. */
       .image-placeholder {
         display: flex;
         width: 100%;
@@ -758,17 +611,14 @@ infringement.
         text-align: center;
         user-select: none;
       }
-
       .image-placeholder[hidden] {
         display: none;
       }
-
       .placeholder-icon {
         font-size: 3.3rem;
         line-height: 1;
         opacity: 0.72;
       }
-
       .placeholder-label {
         color: var(--muted);
         font-family: var(--font-body);
@@ -777,14 +627,12 @@ infringement.
         letter-spacing: 1.8px;
         text-transform: uppercase;
       }
-
       .card-body {
         display: block;
         padding: 1rem;
         cursor: pointer;
         text-decoration: none;
       }
-
       .card-game {
         margin-bottom: 4px;
         color: var(--gold);
@@ -793,7 +641,6 @@ infringement.
         letter-spacing: 2px;
         text-transform: uppercase;
       }
-
       .card-name {
         margin-bottom: 6px;
         color: var(--white);
@@ -802,7 +649,6 @@ infringement.
         letter-spacing: 1px;
         line-height: 1.2;
       }
-
       .card-description {
         display: -webkit-box;
         overflow: hidden;
@@ -813,13 +659,11 @@ infringement.
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
       }
-
       .card-footer {
         display: flex;
         align-items: center;
         justify-content: flex-end;
       }
-
       .card-category {
         padding: 2px 8px;
         background: var(--panel);
@@ -829,21 +673,18 @@ infringement.
         letter-spacing: 1px;
         text-transform: uppercase;
       }
-
       .empty-state {
         grid-column: 1 / -1;
         padding: 5rem 1rem;
         color: var(--muted);
         text-align: center;
       }
-
       .empty-state .big-star {
         display: block;
         margin-bottom: 1rem;
         font-size: 4rem;
         opacity: 0.2;
       }
-
       .empty-state h3 {
         margin-bottom: 0.5rem;
         color: var(--white);
@@ -853,14 +694,12 @@ infringement.
       }
 
       /* ================================================================
-         6. ABOUT PAGE
+         ABOUT
          ================================================================ */
-
       .about-hero {
         background: var(--charcoal);
         border-bottom: 1px solid var(--border);
       }
-
       .about-hero-inner {
         display: grid;
         max-width: 1100px;
@@ -870,11 +709,9 @@ infringement.
         margin: 0 auto;
         padding: 4rem 2rem;
       }
-
       .about-eyebrow {
         margin-bottom: 1rem;
       }
-
       .about-hero-text h1 {
         margin-bottom: 1.5rem;
         color: var(--white);
@@ -883,29 +720,24 @@ infringement.
         letter-spacing: 3px;
         line-height: 1;
       }
-
       .about-hero-text h1 span {
         color: var(--gold);
       }
-
       .about-hero-text p,
       .about-section p {
         color: var(--muted);
         font-size: 0.88rem;
         line-height: 1.75;
       }
-
       .about-hero-text p {
         margin-bottom: 1rem;
       }
-
       .about-avatar-wrap {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
       }
-
       .about-avatar {
         display: flex;
         width: 200px;
@@ -918,13 +750,11 @@ infringement.
         border-radius: 2px;
         font-size: 5rem;
       }
-
       .about-avatar img {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
-
       .about-avatar-label {
         color: var(--muted);
         font-size: 0.7rem;
@@ -932,17 +762,14 @@ infringement.
         text-align: center;
         text-transform: uppercase;
       }
-
       .team-section {
         padding: 3rem 2rem;
         border-bottom: 1px solid var(--border);
       }
-
       .team-section-inner {
         max-width: 1100px;
         margin: 0 auto;
       }
-
       .team-heading {
         margin-bottom: 2rem;
         color: var(--white);
@@ -951,17 +778,14 @@ infringement.
         letter-spacing: 3px;
         text-align: center;
       }
-
       .team-heading span {
         color: var(--gold);
       }
-
       .team-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         gap: 1.5rem;
       }
-
       .team-card {
         padding: 2rem 1.5rem;
         background: var(--charcoal);
@@ -969,11 +793,9 @@ infringement.
         text-align: center;
         transition: border-color 0.2s;
       }
-
       .team-card:hover {
         border-color: var(--gold);
       }
-
       .team-avatar {
         display: flex;
         width: 70px;
@@ -986,7 +808,6 @@ infringement.
         border-radius: 50%;
         font-size: 2rem;
       }
-
       .team-name {
         margin-bottom: 0.25rem;
         color: var(--white);
@@ -994,7 +815,6 @@ infringement.
         font-size: 1.4rem;
         letter-spacing: 2px;
       }
-
       .team-role {
         margin-bottom: 0.85rem;
         color: var(--gold);
@@ -1003,13 +823,11 @@ infringement.
         letter-spacing: 2px;
         text-transform: uppercase;
       }
-
       .team-desc {
         color: var(--muted);
         font-size: 0.8rem;
         line-height: 1.65;
       }
-
       .about-content {
         display: grid;
         max-width: 1100px;
@@ -1019,7 +837,6 @@ infringement.
         padding: 3rem 2rem;
         border-bottom: 1px solid var(--border);
       }
-
       .about-section h3 {
         margin-bottom: 1rem;
         color: var(--gold);
@@ -1027,14 +844,12 @@ infringement.
         font-size: 1.4rem;
         letter-spacing: 3px;
       }
-
       .games-list {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
         margin-top: 1rem;
       }
-
       .game-tag {
         padding: 4px 12px;
         background: var(--panel);
@@ -1046,19 +861,16 @@ infringement.
       }
 
       /* ================================================================
-         7. CONTACT PAGE
+         CONTACT
          ================================================================ */
-
       .contact-wrap {
         max-width: 860px;
         margin: 0 auto;
         padding: 4rem 2rem;
       }
-
       .contact-intro {
         margin-bottom: 2.5rem;
       }
-
       .contact-intro h1 {
         margin-bottom: 0.75rem;
         color: var(--white);
@@ -1067,25 +879,21 @@ infringement.
         letter-spacing: 3px;
         line-height: 1;
       }
-
       .contact-intro h1 span {
         color: var(--gold);
       }
-
       .contact-intro p {
         max-width: 540px;
         color: var(--muted);
         font-size: 0.88rem;
         line-height: 1.7;
       }
-
       .contact-form-embed {
         overflow: hidden;
         background: var(--charcoal);
         border: 1px solid var(--border);
         border-radius: 2px;
       }
-
       .contact-form-embed iframe {
         display: block;
         width: 100%;
@@ -1095,15 +903,13 @@ infringement.
       }
 
       /* ================================================================
-         8. ITEM DETAIL PAGE
+         ITEM DETAIL PAGE (with zoom)
          ================================================================ */
-
       .item-detail-wrap {
         max-width: 1100px;
         margin: 0 auto;
         padding: 2rem 2rem 5rem;
       }
-
       .btn-back {
         display: inline-flex;
         align-items: center;
@@ -1117,34 +923,51 @@ infringement.
         font-size: 0.85rem;
         transition: all 0.15s;
       }
-
       .btn-back:hover {
         color: var(--accent);
         border-color: var(--accent);
       }
 
+      /* hero container — click to zoom */
       .item-hero {
         position: relative;
-        display: flex;
         width: 100%;
         aspect-ratio: 16 / 7;
-        align-items: center;
-        justify-content: center;
         overflow: hidden;
         background: #0a0a0a;
         border: 1px solid var(--border);
-        color: rgba(255, 255, 255, 0.06);
-        font-size: 8rem;
+        cursor: zoom-in;
+        transition: border-color 0.2s;
       }
-
-      .item-hero img {
+      .item-hero.zoomed {
+        cursor: zoom-out;
+        border-color: var(--gold);
+      }
+      .item-hero .zoom-wrapper {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+      .item-hero .zoom-wrapper img {
         width: 100%;
         height: 100%;
         object-fit: contain;
+        transition: transform 0.15s ease;
+        transform-origin: 0 0;
+        will-change: transform;
       }
-
       .item-hero .image-placeholder {
         min-height: 100%;
+      }
+      .item-hero.zoomed .zoom-wrapper img {
+        object-fit: none;
+        width: 200%;
+        height: 200%;
+        cursor: grab;
+      }
+      .item-hero.zoomed .zoom-wrapper img:active {
+        cursor: grabbing;
       }
 
       .view-thumbs {
@@ -1157,7 +980,6 @@ infringement.
         border: 1px solid var(--border);
         border-top: 0;
       }
-
       .view-thumb {
         width: 72px;
         height: 72px;
@@ -1166,21 +988,16 @@ infringement.
         border-radius: 1px;
         cursor: pointer;
         opacity: 0.55;
-        transition:
-          border-color 0.15s,
-          opacity 0.15s;
+        transition: border-color 0.15s, opacity 0.15s;
       }
-
       .view-thumb img {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
-
       .view-thumb:hover {
         opacity: 0.85;
       }
-
       .view-thumb.active {
         border-color: var(--gold);
         opacity: 1;
@@ -1192,7 +1009,6 @@ infringement.
         align-items: start;
         gap: 3rem;
       }
-
       .item-detail-main {
         padding: 1.75rem;
         background: linear-gradient(
@@ -1202,7 +1018,6 @@ infringement.
         );
         border: 1px solid var(--border);
       }
-
       .item-game-label {
         margin-bottom: 0.5rem;
         color: var(--gold);
@@ -1211,7 +1026,6 @@ infringement.
         letter-spacing: 3px;
         text-transform: uppercase;
       }
-
       .item-detail-name {
         margin-bottom: 1.25rem;
         color: var(--white);
@@ -1220,7 +1034,6 @@ infringement.
         letter-spacing: 2px;
         line-height: 1.2;
       }
-
       .item-detail-section-label {
         display: block;
         margin-bottom: 10px;
@@ -1232,7 +1045,6 @@ infringement.
         letter-spacing: 3px;
         text-transform: uppercase;
       }
-
       .item-detail-description {
         margin-bottom: 1.5rem;
         color: var(--muted);
@@ -1240,7 +1052,6 @@ infringement.
         line-height: 1.85;
         white-space: pre-line;
       }
-
       .item-detail-sidebar {
         position: sticky;
         top: 84px;
@@ -1248,18 +1059,15 @@ infringement.
         flex-direction: column;
         gap: 0;
       }
-
       .item-label-block {
         padding: 1rem 1.25rem;
         background: var(--charcoal);
         border: 1px solid var(--border);
         border-bottom: 0;
       }
-
       .item-label-block:last-child {
         border-bottom: 1px solid var(--border);
       }
-
       .item-label-key {
         display: block;
         margin-bottom: 5px;
@@ -1269,18 +1077,15 @@ infringement.
         letter-spacing: 2px;
         text-transform: uppercase;
       }
-
       .item-label-value {
         color: var(--white);
         font-family: var(--font-heading);
         font-size: 1rem;
         letter-spacing: 1px;
       }
-
       .item-label-value.gold {
         color: var(--gold);
       }
-
       .item-label-value.pill {
         display: inline-block;
         padding: 3px 10px;
@@ -1289,7 +1094,6 @@ infringement.
         font-size: 0.72rem;
         letter-spacing: 1px;
       }
-
       .view-link {
         display: block;
         margin-top: 1rem;
@@ -1304,11 +1108,9 @@ infringement.
         text-decoration: none;
         transition: opacity 0.2s;
       }
-
       .view-link:hover {
         opacity: 0.85;
       }
-
       .item-detail-share {
         display: flex;
         align-items: center;
@@ -1317,14 +1119,12 @@ infringement.
         padding-top: 1.25rem;
         border-top: 1px solid var(--border);
       }
-
       .item-detail-share-label {
         color: var(--muted);
         font-size: 0.65rem;
         letter-spacing: 1px;
         text-transform: uppercase;
       }
-
       .btn-copy-link {
         padding: 5px 12px;
         border: 1px solid var(--border);
@@ -1336,21 +1136,18 @@ infringement.
         font-weight: 500;
         transition: all 0.15s;
       }
-
       .btn-copy-link:hover {
         color: var(--accent);
         border-color: var(--accent);
       }
-
       .btn-copy-link.copied {
         color: var(--green);
         border-color: var(--green);
       }
 
       /* ================================================================
-         9. FOOTER
+         FOOTER
          ================================================================ */
-
       footer {
         padding: 2rem;
         border-top: 1px solid var(--border);
@@ -1360,7 +1157,6 @@ infringement.
         text-align: center;
         text-transform: uppercase;
       }
-
       .footer-links {
         display: flex;
         flex-wrap: wrap;
@@ -1368,7 +1164,6 @@ infringement.
         gap: 1.5rem;
         margin-bottom: 1rem;
       }
-
       .footer-links button {
         border: 0;
         background: transparent;
@@ -1380,124 +1175,93 @@ infringement.
         text-transform: uppercase;
         transition: color 0.15s;
       }
-
       .footer-links button:hover {
         color: var(--accent);
       }
-
       footer span {
         color: var(--gold);
       }
 
       /* ================================================================
-         10. MOBILE LAYOUT
-         ================================================================
-
-         This breakpoint controls how the site changes on phones.
-         If you want the mobile layout to start at a different width,
-         change 768px below.
+         MOBILE
          ================================================================ */
-
       @media (max-width: 768px) {
         header {
           padding: 0 1rem;
         }
-
         .desktop-nav {
           display: none;
         }
-
         .hamburger {
           display: flex;
         }
-
         .item-count {
           display: none;
         }
-
         .home-stats {
           grid-template-columns: 1fr;
         }
-
         .stat-block {
           border-right: 0;
           border-bottom: 1px solid var(--border);
         }
-
         .stat-block:last-child {
           border-bottom: 0;
         }
-
         .home-features {
           grid-template-columns: 1fr;
         }
-
         .feature-block {
           border-right: 0;
           border-bottom: 1px solid var(--border);
         }
-
         .feature-block:last-child {
           border-bottom: 0;
         }
-
         .catalogue-grid {
           grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
           gap: 1rem;
           padding: 1rem;
         }
-
         .filter-bar,
         .search-wrap {
           padding: 0.75rem 1rem;
         }
-
         .about-hero-inner {
           grid-template-columns: 1fr;
           gap: 2rem;
           padding: 2rem 1rem;
         }
-
         .about-avatar-wrap {
           order: -1;
         }
-
         .about-content {
           grid-template-columns: 1fr;
           gap: 2rem;
           padding: 2rem 1rem;
         }
-
         .item-detail-wrap {
           padding: 1.5rem 1rem 3rem;
         }
-
         .item-detail-body {
           grid-template-columns: 1fr;
           gap: 2rem;
         }
-
         .item-detail-sidebar {
           position: static;
         }
-
         .item-detail-main {
           padding: 1.25rem;
         }
-
         .contact-wrap {
           padding: 2rem 1rem;
         }
       }
     </style>
   </head>
-
   <body>
-    <!-- ==============================================================
-         11. SITE HEADER
-         ============================================================== -->
+    <!-- HEADER -->
     <header>
-      <!-- Logo: click it to return to the Home page. -->
       <a class="logo" href="#home" onclick="showPage('home')">
         <div class="logo-word">
           R<span class="logo-star">★</span> GAMES
@@ -1506,359 +1270,145 @@ infringement.
         <div class="logo-divider"></div>
         <div class="logo-subtitle">Merch<br />Catalogue</div>
       </a>
-
-      <!-- Desktop navigation links. -->
       <nav class="desktop-nav" aria-label="Main navigation">
-        <button class="nav-link active" id="nav-home" onclick="showPage('home')">
-          Home
-        </button>
-        <button class="nav-link" id="nav-catalogue" onclick="showPage('catalogue')">
-          Catalogue
-        </button>
-        <button class="nav-link" id="nav-about" onclick="showPage('about')">
-          About
-        </button>
-        <button class="nav-link" id="nav-contact" onclick="showPage('contact')">
-          Contact Us / Submissions
-        </button>
+        <button class="nav-link active" id="nav-home" onclick="showPage('home')">Home</button>
+        <button class="nav-link" id="nav-catalogue" onclick="showPage('catalogue')">Catalogue</button>
+        <button class="nav-link" id="nav-about" onclick="showPage('about')">About</button>
+        <button class="nav-link" id="nav-contact" onclick="showPage('contact')">Contact Us / Submissions</button>
       </nav>
-
-      <!-- Item count and mobile menu button. -->
       <div class="header-right">
         <span class="item-count" id="itemCount">0 items</span>
-        <button
-          class="hamburger"
-          id="hamburger"
-          onclick="toggleMobileNav()"
-          aria-label="Open menu"
-          aria-expanded="false"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
+        <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
         </button>
       </div>
     </header>
-
-    <!-- Mobile navigation drawer. Hidden until the hamburger is clicked. -->
+    <!-- Mobile Nav -->
     <div class="mobile-nav" id="mobileNav">
-      <button class="mobile-nav-link active" id="mnav-home" onclick="goToMobilePage('home')">
-        Home
-      </button>
-      <button class="mobile-nav-link" id="mnav-catalogue" onclick="goToMobilePage('catalogue')">
-        Catalogue
-      </button>
-      <button class="mobile-nav-link" id="mnav-about" onclick="goToMobilePage('about')">
-        About
-      </button>
-      <button class="mobile-nav-link" id="mnav-contact" onclick="goToMobilePage('contact')">
-        Contact Us / Submissions
-      </button>
+      <button class="mobile-nav-link active" id="mnav-home" onclick="goToMobilePage('home')">Home</button>
+      <button class="mobile-nav-link" id="mnav-catalogue" onclick="goToMobilePage('catalogue')">Catalogue</button>
+      <button class="mobile-nav-link" id="mnav-about" onclick="goToMobilePage('about')">About</button>
+      <button class="mobile-nav-link" id="mnav-contact" onclick="goToMobilePage('contact')">Contact Us / Submissions</button>
     </div>
 
-    <!-- ==============================================================
-         12. HOME PAGE
-         ============================================================== -->
+    <!-- MAIN PAGES -->
     <main>
+      <!-- HOME -->
       <section class="page active" id="page-home">
         <section class="home-hero">
-          <!-- Decorative background star. It does not affect page content. -->
-          <div class="home-hero-background" aria-hidden="true">
-            <span class="home-background-star">★</span>
-          </div>
-
+          <div class="home-hero-background" aria-hidden="true"><span class="home-background-star">★</span></div>
           <div class="home-hero-content">
             <p class="home-eyebrow">The #1 Fan Resource For</p>
-
-            <!-- The brand star here is gold through .home-title .brand-star. -->
-            <h1 class="home-title">
-              R<span class="brand-star">★</span> Games<br />
-              <em>Promo</em><br />
-              Hub
-            </h1>
-
-            <p class="home-hero-description">
-              The most complete catalogue of Rockstar Games promotional
-              merchandise — from launch-day giveaways to limited-edition
-              collector's pieces across every title.
-            </p>
-
+            <h1 class="home-title">R<span class="brand-star">★</span> Games<br /><em>Promo</em><br />Hub</h1>
+            <p class="home-hero-description">The most complete catalogue of Rockstar Games promotional merchandise — from launch-day giveaways to limited-edition collector's pieces across every title.</p>
             <div class="home-actions">
-              <button class="btn-primary" onclick="showPage('catalogue')">
-                Browse Catalogue →
-              </button>
-              <button class="btn-secondary" onclick="showPage('about')">
-                About This Site
-              </button>
+              <button class="btn-primary" onclick="showPage('catalogue')">Browse Catalogue →</button>
+              <button class="btn-secondary" onclick="showPage('about')">About This Site</button>
             </div>
           </div>
         </section>
-
-        <!-- These numbers are filled in automatically by JavaScript. -->
         <section class="home-stats" aria-label="Catalogue statistics">
-          <div class="stat-block">
-            <span class="stat-number" id="homeStatItems">0</span>
-            <span class="stat-label">Items Catalogued</span>
-          </div>
-          <div class="stat-block">
-            <span class="stat-number" id="homeStatGames">0</span>
-            <span class="stat-label">Games Covered</span>
-          </div>
-          <div class="stat-block">
-            <span class="stat-number" id="homeStatCats">9</span>
-            <span class="stat-label">Categories</span>
-          </div>
+          <div class="stat-block"><span class="stat-number" id="homeStatItems">0</span><span class="stat-label">Items Catalogued</span></div>
+          <div class="stat-block"><span class="stat-number" id="homeStatGames">0</span><span class="stat-label">Games Covered</span></div>
+          <div class="stat-block"><span class="stat-number" id="homeStatCats">9</span><span class="stat-label">Categories</span></div>
         </section>
-
-        <!-- Edit these three blocks if you want to change the home page features. -->
         <section class="home-features">
-          <article class="feature-block">
-            <span class="feature-icon">🧢</span>
-            <h3>Every Category</h3>
-            <p>
-              Hats, plushies, tees, hoodies, posters, collectibles, keychains,
-              stickers, and more — all in one place with category filters.
-            </p>
-          </article>
-          <article class="feature-block">
-            <span class="feature-icon">🎮</span>
-            <h3>All Rockstar Titles</h3>
-            <p>
-              GTA, Red Dead Redemption, Bully, Midnight Club, Max Payne — promo
-              merch from the full Rockstar library.
-            </p>
-          </article>
-          <article class="feature-block">
-            <span class="feature-icon">⭐</span>
-            <h3>Rare &amp; Limited Finds</h3>
-            <p>
-              From E3 giveaways to launch-day exclusives, we track down the
-              hard-to-find pieces that collectors care about.
-            </p>
-          </article>
+          <article class="feature-block"><span class="feature-icon">🧢</span><h3>Every Category</h3><p>Hats, plushies, tees, hoodies, posters, collectibles, keychains, stickers, and more — all in one place with category filters.</p></article>
+          <article class="feature-block"><span class="feature-icon">🎮</span><h3>All Rockstar Titles</h3><p>GTA, Red Dead Redemption, Bully, Midnight Club, Max Payne — promo merch from the full Rockstar library.</p></article>
+          <article class="feature-block"><span class="feature-icon">⭐</span><h3>Rare &amp; Limited Finds</h3><p>From E3 giveaways to launch-day exclusives, we track down the hard-to-find pieces that collectors care about.</p></article>
         </section>
-
-        <!-- The four most recently added items appear here automatically. -->
         <section class="home-section">
-          <div class="section-header">
-            <h2>Latest <span>Additions</span></h2>
-            <button class="btn-see-all" onclick="showPage('catalogue')">
-              See All →
-            </button>
-          </div>
+          <div class="section-header"><h2>Latest <span>Additions</span></h2><button class="btn-see-all" onclick="showPage('catalogue')">See All →</button></div>
           <div class="home-grid" id="homeGrid"></div>
         </section>
       </section>
 
-      <!-- ============================================================
-           13. CATALOGUE PAGE
-           ============================================================ -->
+      <!-- CATALOGUE -->
       <section class="page" id="page-catalogue">
-        <section class="page-hero">
-          <h1>Merch Catalogue</h1>
-          <p>Every piece of promo gear — from GTA to Red Dead &amp; beyond</p>
-        </section>
-
-        <!--
-          Type filters are generated from this list.
-          Year and rarity are deliberately NOT filters; they only appear
-          on an item's detail page.
-        -->
+        <section class="page-hero"><h1>Merch Catalogue</h1><p>Every piece of promo gear — from GTA to Red Dead &amp; beyond</p></section>
         <div class="filter-bar" aria-label="Filter by item type">
           <span class="filter-label">Type:</span>
-          <button class="filter-pill active" onclick="setTypeFilter('all', this)">
-            All
-          </button>
+          <button class="filter-pill active" onclick="setTypeFilter('all', this)">All</button>
           <button class="filter-pill" onclick="setTypeFilter('Hat', this)">Hats</button>
-          <button class="filter-pill" onclick="setTypeFilter('Plushie', this)">
-            Plushies
-          </button>
-          <button class="filter-pill" onclick="setTypeFilter('T-Shirt', this)">
-            T-Shirts
-          </button>
-          <button class="filter-pill" onclick="setTypeFilter('Hoodie', this)">
-            Hoodies
-          </button>
-          <button class="filter-pill" onclick="setTypeFilter('Poster', this)">
-            Posters
-          </button>
-          <button class="filter-pill" onclick="setTypeFilter('Collectible', this)">
-            Collectibles
-          </button>
-          <button class="filter-pill" onclick="setTypeFilter('Keychain', this)">
-            Keychains
-          </button>
-          <button class="filter-pill" onclick="setTypeFilter('Sticker', this)">
-            Stickers
-          </button>
+          <button class="filter-pill" onclick="setTypeFilter('Plushie', this)">Plushies</button>
+          <button class="filter-pill" onclick="setTypeFilter('T-Shirt', this)">T-Shirts</button>
+          <button class="filter-pill" onclick="setTypeFilter('Hoodie', this)">Hoodies</button>
+          <button class="filter-pill" onclick="setTypeFilter('Poster', this)">Posters</button>
+          <button class="filter-pill" onclick="setTypeFilter('Collectible', this)">Collectibles</button>
+          <button class="filter-pill" onclick="setTypeFilter('Keychain', this)">Keychains</button>
+          <button class="filter-pill" onclick="setTypeFilter('Sticker', this)">Stickers</button>
           <button class="filter-pill" onclick="setTypeFilter('Other', this)">Other</button>
         </div>
-
-        <!-- Game filters are filled in from the games used in CATALOGUE DATA. -->
         <div class="filter-bar" id="gameFilterBar" aria-label="Filter by game">
           <span class="filter-label">Game:</span>
-          <button class="filter-pill active" onclick="setGameFilter('all', this)">
-            All Games
-          </button>
+          <button class="filter-pill active" onclick="setGameFilter('all', this)">All Games</button>
         </div>
-
-        <!-- Search checks the item name, game, category, and description. -->
         <div class="search-wrap">
-          <input
-            class="search-input"
-            id="searchInput"
-            type="search"
-            placeholder="Search by name, game, or keyword…"
-            oninput="renderCatalogue()"
-            aria-label="Search catalogue"
-          />
+          <input class="search-input" id="searchInput" type="search" placeholder="Search by name, game, or keyword…" oninput="renderCatalogue()" aria-label="Search catalogue" />
         </div>
-
-        <!-- Cards are generated here by JavaScript. -->
         <div class="catalogue-grid" id="catalogue"></div>
       </section>
 
-      <!-- ============================================================
-           14. ABOUT PAGE
-           ============================================================ -->
+      <!-- ABOUT -->
       <section class="page" id="page-about">
         <section class="about-hero">
           <div class="about-hero-inner">
             <div class="about-hero-text">
               <p class="about-eyebrow">Fan-made &amp; community-driven</p>
               <h1>About <span>This</span><br />Site</h1>
-              <p>
-                Hey! We're two massive Rockstar Games fans who got tired of
-                hunting across the internet for promo merch photos. So we built
-                RockstarPromoHub — a single, searchable home for every piece of
-                Rockstar promotional merchandise we can track down.
-              </p>
-              <p>
-                Whether it's a snapback handed out at E3, a Red Dead plushie
-                from a launch event, or a GTA hoodie from an online store — if
-                Rockstar made it, we want it catalogued here.
-              </p>
+              <p>Hey! We're two massive Rockstar Games fans who got tired of hunting across the internet for promo merch photos. So we built RockstarPromoHub — a single, searchable home for every piece of Rockstar promotional merchandise we can track down.</p>
+              <p>Whether it's a snapback handed out at E3, a Red Dead plushie from a launch event, or a GTA hoodie from an online store — if Rockstar made it, we want it catalogued here.</p>
             </div>
-
             <div class="about-avatar-wrap">
-              <!-- Replace the star with an image by adding an <img> here. -->
-              <div class="about-avatar">
-                <span>⭐</span>
-              </div>
+              <div class="about-avatar"><span>⭐</span></div>
               <p class="about-avatar-label">RockstarPromoHub</p>
             </div>
           </div>
         </section>
-
-        <!-- Edit the names, roles, and descriptions here if the team changes. -->
         <section class="team-section">
           <div class="team-section-inner">
             <h2 class="team-heading">Meet The <span>Team</span></h2>
             <div class="team-grid">
-              <article class="team-card">
-                <div class="team-avatar">🕴️</div>
-                <h3 class="team-name">Wade</h3>
-                <p class="team-role">Site Builder &amp; Cataloguer</p>
-                <p class="team-desc">
-                  Handles all the website creation, item logging, and basically
-                  everything else that keeps this place running behind the scenes.
-                </p>
-              </article>
-              <article class="team-card">
-                <div class="team-avatar">🎙️</div>
-                <h3 class="team-name">The Editor</h3>
-                <p class="team-role">Advisor</p>
-                <p class="team-desc">
-                  Gives verbal advice and direction on where the site should go
-                  next — the voice in the room making sure things stay on track.
-                </p>
-              </article>
+              <article class="team-card"><div class="team-avatar">🕴️</div><h3 class="team-name">Wade</h3><p class="team-role">Site Builder &amp; Cataloguer</p><p class="team-desc">Handles all the website creation, item logging, and basically everything else that keeps this place running behind the scenes.</p></article>
+              <article class="team-card"><div class="team-avatar">🎙️</div><h3 class="team-name">The Editor</h3><p class="team-role">Advisor</p><p class="team-desc">Gives verbal advice and direction on where the site should go next — the voice in the room making sure things stay on track.</p></article>
             </div>
           </div>
         </section>
-
         <section class="about-content">
           <div class="about-section">
             <h2>What We Cover</h2>
-            <p>
-              This catalogue covers official promotional merchandise from all
-              Rockstar Games titles — past and present. Each item is logged with
-              its game, category, description, year of release, rarity, and
-              availability where possible.
-            </p>
+            <p>This catalogue covers official promotional merchandise from all Rockstar Games titles — past and present. Each item is logged with its game, category, description, year of release, rarity, and availability where possible.</p>
             <div class="games-list">
-              <span class="game-tag">GTA V</span>
-              <span class="game-tag">GTA VI</span>
-              <span class="game-tag">GTA Online</span>
-              <span class="game-tag">Red Dead Redemption</span>
-              <span class="game-tag">Red Dead 2</span>
-              <span class="game-tag">Bully</span>
-              <span class="game-tag">Max Payne</span>
-              <span class="game-tag">Midnight Club</span>
-              <span class="game-tag">L.A. Noire</span>
-              <span class="game-tag">+ More</span>
+              <span class="game-tag">GTA V</span><span class="game-tag">GTA VI</span><span class="game-tag">GTA Online</span>
+              <span class="game-tag">Red Dead Redemption</span><span class="game-tag">Red Dead 2</span><span class="game-tag">Bully</span>
+              <span class="game-tag">Max Payne</span><span class="game-tag">Midnight Club</span><span class="game-tag">L.A. Noire</span><span class="game-tag">+ More</span>
             </div>
           </div>
-
           <div class="about-section">
             <h2>How To Help</h2>
-            <p>
-              Spotted a piece of merch that isn't in the catalogue? Get in touch
-              via the Contact Us / Submissions page and we'll get it added.
-              High-quality photos, source links, and any details about the item
-              are all super helpful.
-            </p>
-            <br />
-            <p>
-              This site is not affiliated with Rockstar Games or Take-Two
-              Interactive. All trademarks belong to their respective owners.
-              This is a fan project built out of love for the games.
-            </p>
+            <p>Spotted a piece of merch that isn't in the catalogue? Get in touch via the Contact Us / Submissions page and we'll get it added. High-quality photos, source links, and any details about the item are all super helpful.</p>
+            <br /><p>This site is not affiliated with Rockstar Games or Take-Two Interactive. All trademarks belong to their respective owners. This is a fan project built out of love for the games.</p>
           </div>
         </section>
       </section>
 
-      <!-- ============================================================
-           15. CONTACT PAGE
-           ============================================================ -->
+      <!-- CONTACT -->
       <section class="page" id="page-contact">
         <div class="contact-wrap">
-          <div class="contact-intro">
-            <h1>Get In <span>Touch</span></h1>
-            <p>
-              Got a tip about some merch? Spotted something missing from the
-              catalogue? Fill in the form below and we'll get back to you.
-            </p>
-          </div>
-
-          <!--
-            To use a different form, replace the URL in the iframe's src
-            attribute. Keep the title and loading attributes if possible.
-          -->
+          <div class="contact-intro"><h1>Get In <span>Touch</span></h1><p>Got a tip about some merch? Spotted something missing from the catalogue? Fill in the form below and we'll get back to you.</p></div>
           <div class="contact-form-embed">
-            <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLSdhKhp1s9aOOpSQHgJoEfNrcz-2Pm8gGiEETikGLTqmCvsWYA/viewform?embedded=true"
-              title="Contact Form"
-              loading="lazy"
-            >
-              Loading form…
-            </iframe>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdhKhp1s9aOOpSQHgJoEfNrcz-2Pm8gGiEETikGLTqmCvsWYA/viewform?embedded=true" title="Contact Form" loading="lazy">Loading form…</iframe>
           </div>
         </div>
       </section>
 
-      <!-- ============================================================
-           16. ITEM DETAIL PAGE
-           ============================================================ -->
+      <!-- ITEM DETAIL (with zoom) -->
       <section class="page" id="page-item">
-        <!-- JavaScript fills this container when a card is opened. -->
         <div class="item-detail-wrap"></div>
       </section>
     </main>
 
-    <!-- ==============================================================
-         17. FOOTER
-         ============================================================== -->
+    <!-- FOOTER -->
     <footer>
       <div class="footer-links">
         <button onclick="showPage('home')">Home</button>
@@ -1866,84 +1416,53 @@ infringement.
         <button onclick="showPage('about')">About</button>
         <button onclick="showPage('contact')">Contact Us / Submissions</button>
       </div>
-      <p>
-        © 2024–2026 <span>RockstarPromoHub.com</span> — Fan-made. Not affiliated
-        with Rockstar Games.
-      </p>
+      <p>© 2024–2026 <span>RockstarPromoHub.com</span> — Fan-made. Not affiliated with Rockstar Games.</p>
     </footer>
 
-
-    <script src="catalog.js"></script>
-
-    
+    <!-- ================================================================
+         CATALOGUE DATA (sample)
+         ================================================================ -->
     <script>
-     
-      /* ==============================================================
-         19. SMALL HELPERS AND SHARED SETTINGS
-         ============================================================== */
+      // Sample catalogue data – replace with your own
+      const ITEMS = [
+        { id: "gta-v-snapback", name: "GTA V Snapback", game: "GTA V", category: "Hat", description: "Limited edition black snapback with embroidered V logo. Released for the GTA V launch event.", year: "2013", rarity: "Rare", availability: "Out of stock", image: "https://placehold.co/400x400/1a1a1a/c9a84c?text=GTA+V+Snapback", extraImages: ["https://placehold.co/400x400/222/c9a84c?text=Snapback+side", "https://placehold.co/400x400/111/c9a84c?text=Snapback+back"] },
+        { id: "rdr2-plushie", name: "RDR2 Horse Plushie", game: "Red Dead Redemption 2", category: "Plushie", description: "Soft plushie of the famous RDR2 horse. A giveaway at the 2018 E3 event.", year: "2018", rarity: "Uncommon", availability: "Available", image: "https://placehold.co/400x400/1a1a1a/c9a84c?text=RDR2+Plushie", extraImages: ["https://placehold.co/400x400/222/c9a84c?text=Plushie+side"] },
+        { id: "bully-tee", name: "Bully Tee", game: "Bully", category: "T-Shirt", description: "Vintage Bully t-shirt from the 2006 promo run. Classic logo on the front.", year: "2006", rarity: "Very Rare", availability: "Out of stock", image: "https://placehold.co/400x400/1a1a1a/c9a84c?text=Bully+Tee" },
+        { id: "gta-online-hoodie", name: "GTA Online Hoodie", game: "GTA Online", category: "Hoodie", description: "Black hoodie with GTA Online branding. Released as part of a seasonal giveaway.", year: "2020", rarity: "Common", availability: "In stock", image: "https://placehold.co/400x400/1a1a1a/c9a84c?text=GTA+Online+Hoodie" },
+        { id: "rdr-poster", name: "Red Dead Redemption Poster", game: "Red Dead Redemption", category: "Poster", description: "Fold-out poster from the 2010 pre-order campaign. Features the iconic western artwork.", year: "2010", rarity: "Rare", availability: "Limited stock", image: "https://placehold.co/400x400/1a1a1a/c9a84c?text=RDR+Poster" },
+        { id: "max-payne-keychain", name: "Max Payne Keychain", game: "Max Payne", category: "Keychain", description: "Bullet time keychain from the Max Payne 3 launch event. Metal finish.", year: "2012", rarity: "Uncommon", availability: "Available", image: "https://placehold.co/400x400/1a1a1a/c9a84c?text=Max+Payne+Keychain" },
+        { id: "la-noire-sticker", name: "L.A. Noire Sticker Set", game: "L.A. Noire", category: "Sticker", description: "Set of 4 L.A. Noire stickers. Given out at the 2011 press event.", year: "2011", rarity: "Common", availability: "In stock", image: "https://placehold.co/400x400/1a1a1a/c9a84c?text=LA+Noire+Stickers" },
+        { id: "midnight-club-collectible", name: "Midnight Club Collectible", game: "Midnight Club", category: "Collectible", description: "Die-cast car model from the Midnight Club LA launch. Limited to 500 pieces.", year: "2008", rarity: "Very Rare", availability: "Out of stock", image: "https://placehold.co/400x400/1a1a1a/c9a84c?text=Midnight+Club" }
+      ];
+    </script>
 
-      // Short helper for finding an element by its ID.
+    <script>
+      /* ================================================================
+         SITE LOGIC (including zoom)
+         ================================================================ */
       const byId = (id) => document.getElementById(id);
-
-      // Text shown when an item has no description yet.
       const PLACEHOLDER_DESCRIPTION = "No description has been added yet.";
+      const CATEGORY_EMOJI = { Hat: "🧢", Plushie: "🧸", "T-Shirt": "👕", Hoodie: "🥋", Poster: "🖼️", Collectible: "⭐", Keychain: "🔑", Sticker: "🏷️", Other: "📦" };
 
-      // The emoji used when an item does not have an image.
-      const CATEGORY_EMOJI = {
-        Hat: "🧢",
-        Plushie: "🧸",
-        "T-Shirt": "👕",
-        Hoodie: "🥋",
-        Poster: "🖼️",
-        Collectible: "⭐",
-        Keychain: "🔑",
-        Sticker: "🏷️",
-        Other: "📦",
-      };
-
-      // The current state of the site: menu, filters, and opened item.
       let mobileNavOpen = false;
       let currentTypeFilter = "all";
       let currentGameFilter = "all";
       let currentItemId = null;
+      // Zoom state
+      let zoomActive = false;
+      let zoomPosX = 0, zoomPosY = 0;
+      let isDraggingZoom = false;
+      let dragStartX = 0, dragStartY = 0, dragStartPosX = 0, dragStartPosY = 0;
 
-      // Turn a name into a safe URL fragment such as "gta-shirt-gta-v".
       function slugify(text) {
-        return (
-          String(text)
-            .toLowerCase()
-            .trim()
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "") || "item"
-        );
+        return String(text).toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") || "item";
       }
-
-      // Prevent catalogue text from being interpreted as HTML.
       function escapeHTML(value) {
-        return String(value ?? "").replace(
-          /[&<>"']/g,
-          (character) =>
-            ({
-              "&": "&amp;",
-              "<": "&lt;",
-              ">": "&gt;",
-              '"': "&quot;",
-              "'": "&#39;",
-            })[character],
-        );
+        return String(value ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
       }
-
-      // Only allow normal HTTP or HTTPS links to be opened.
       function safeExternalUrl(value) {
-        try {
-          const url = new URL(value);
-          return ["http:", "https:"].includes(url.protocol) ? url.href : "";
-        } catch {
-          return "";
-        }
+        try { const url = new URL(value); return ["http:", "https:"].includes(url.protocol) ? url.href : ""; } catch { return ""; }
       }
-
-      // Give every raw item a complete, predictable set of fields.
       function normaliseItem(item = {}, fallbackId = "") {
         return {
           id: String(item.id || fallbackId || "item"),
@@ -1955,354 +1474,180 @@ infringement.
           rarity: item.rarity || "Not specified",
           availability: item.availability || "Not specified",
           image: item.image || "",
-          extraImages: Array.isArray(item.extraImages)
-            ? item.extraImages.filter(Boolean)
-            : [],
+          extraImages: Array.isArray(item.extraImages) ? item.extraImages.filter(Boolean) : [],
           link: item.link || "",
         };
       }
-
-      // Add a unique ID to every item, even if two items have the same name.
       function getItems() {
         const usedIds = {};
-
-        return ITEMS.map((rawItem) => {
-          let id = slugify(`${rawItem.name}-${rawItem.game}`);
+        return ITEMS.map((raw) => {
+          let id = slugify(`${raw.name}-${raw.game}`);
           usedIds[id] = (usedIds[id] || 0) + 1;
-
-          if (usedIds[id] > 1) {
-            id = `${id}-${usedIds[id]}`;
-          }
-
-          return normaliseItem(rawItem, id);
+          if (usedIds[id] > 1) id = `${id}-${usedIds[id]}`;
+          return normaliseItem(raw, id);
         });
       }
 
-      // HTML used when an item's image is missing or fails to load.
-      function placeholderImageMarkup(
-        category,
-        label = "Image coming soon",
-        hidden = false,
-      ) {
-        return `
-          <div class="image-placeholder" ${hidden ? "hidden" : ""}>
-            <span class="placeholder-icon">${CATEGORY_EMOJI[category] || "★"}</span>
-            <span class="placeholder-label">${label}</span>
-          </div>
-        `;
+      function placeholderImageMarkup(category, label = "Image coming soon", hidden = false) {
+        return `<div class="image-placeholder" ${hidden ? "hidden" : ""}>
+          <span class="placeholder-icon">${CATEGORY_EMOJI[category] || "★"}</span>
+          <span class="placeholder-label">${label}</span>
+        </div>`;
       }
 
-      // Create image HTML plus a fallback placeholder for broken image links.
       function imageMarkup(source, altText, category, eager = false) {
-        if (!source) {
-          return placeholderImageMarkup(category);
-        }
-
-        return `
-          <img
-            src="${escapeHTML(source)}"
-            alt="${escapeHTML(altText)}"
-            loading="${eager ? "eager" : "lazy"}"
-            decoding="async"
-            referrerpolicy="no-referrer"
-            onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
-          />
-          ${placeholderImageMarkup(category, "Image coming soon", true)}
-        `;
+        if (!source) return placeholderImageMarkup(category);
+        return `<img src="${escapeHTML(source)}" alt="${escapeHTML(altText)}" loading="${eager ? "eager" : "lazy"}" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden = true; this.nextElementSibling.hidden = false;" />
+          ${placeholderImageMarkup(category, "Image coming soon", true)}`;
       }
 
-      /* ==============================================================
-         20. NAVIGATION
-         ============================================================== */
-
-      // Open or close the mobile navigation drawer.
+      // ---- NAVIGATION ----
       function toggleMobileNav() {
         mobileNavOpen = !mobileNavOpen;
         byId("mobileNav").classList.toggle("open", mobileNavOpen);
         byId("hamburger").classList.toggle("open", mobileNavOpen);
         byId("hamburger").setAttribute("aria-expanded", String(mobileNavOpen));
       }
-
-      // Close the mobile menu after selecting a page.
-      function goToMobilePage(pageName) {
-        showPage(pageName);
-        if (mobileNavOpen) {
-          toggleMobileNav();
-        }
-      }
-
-      // Show one page and mark its navigation button as active.
+      function goToMobilePage(pageName) { showPage(pageName); if (mobileNavOpen) toggleMobileNav(); }
       function showPage(pageName) {
-        document.querySelectorAll(".page").forEach((page) => {
-          page.classList.toggle("active", page.id === `page-${pageName}`);
-        });
-
-        document.querySelectorAll(".nav-link, .mobile-nav-link").forEach((link) => {
-          link.classList.remove("active");
-        });
-
+        document.querySelectorAll(".page").forEach(p => p.classList.toggle("active", p.id === `page-${pageName}`));
+        document.querySelectorAll(".nav-link, .mobile-nav-link").forEach(l => l.classList.remove("active"));
         byId(`nav-${pageName}`)?.classList.add("active");
         byId(`mnav-${pageName}`)?.classList.add("active");
         window.scrollTo(0, 0);
-
-        if (pageName === "catalogue") {
-          renderCatalogue();
-        }
-
-        if (pageName === "home") {
-          renderHome();
-        }
-
-        // Keep the browser address linked to the visible page.
-        if (pageName !== "item") {
-          const newHash = pageName === "home" ? "" : `#${pageName}`;
-          history.replaceState(null, "", `${location.pathname}${newHash}`);
-        }
+        if (pageName === "catalogue") renderCatalogue();
+        if (pageName === "home") renderHome();
+        if (pageName !== "item") history.replaceState(null, "", `${location.pathname}${pageName === "home" ? "" : `#${pageName}`}`);
       }
 
-      /* ==============================================================
-         21. HOME PAGE RENDERING
-         ============================================================== */
-
-      // Fill the home page's numbers and latest-items grid.
+      // ---- HOME ----
       function renderHome() {
         const items = getItems();
-        const uniqueGames = new Set(items.map((item) => item.game));
-        const latestItems = [...items].reverse().slice(0, 4);
-
+        const uniqueGames = new Set(items.map(i => i.game));
+        const latest = [...items].reverse().slice(0, 4);
         byId("homeStatItems").textContent = items.length;
         byId("homeStatGames").textContent = uniqueGames.size;
-        byId("itemCount").textContent = `${items.length} item${
-          items.length === 1 ? "" : "s"
-        }`;
-        byId("homeGrid").innerHTML = latestItems.map(cardHTML).join("");
+        byId("itemCount").textContent = `${items.length} item${items.length === 1 ? "" : "s"}`;
+        byId("homeGrid").innerHTML = latest.map(cardHTML).join("");
       }
 
-      // Build one catalogue card.
       function cardHTML(rawItem) {
         const item = normaliseItem(rawItem);
-
-        return `
-          <article class="merch-card">
-            <a class="card-image" href="#item/${item.id}" aria-label="View ${escapeHTML(
-              item.name,
-            )}">
-              ${imageMarkup(item.image, item.name, item.category)}
-            </a>
-            <a class="card-body" href="#item/${item.id}">
-              <div class="card-game">${escapeHTML(item.game)}</div>
-              <div class="card-name">${escapeHTML(item.name)}</div>
-              <div class="card-description">
-                ${escapeHTML(item.description || PLACEHOLDER_DESCRIPTION)}
-              </div>
-              <div class="card-footer">
-                <span class="card-category">${escapeHTML(item.category)}</span>
-              </div>
-            </a>
-          </article>
-        `;
+        return `<article class="merch-card">
+          <a class="card-image" href="#item/${item.id}" aria-label="View ${escapeHTML(item.name)}">
+            ${imageMarkup(item.image, item.name, item.category)}
+          </a>
+          <a class="card-body" href="#item/${item.id}">
+            <div class="card-game">${escapeHTML(item.game)}</div>
+            <div class="card-name">${escapeHTML(item.name)}</div>
+            <div class="card-description">${escapeHTML(item.description || PLACEHOLDER_DESCRIPTION)}</div>
+            <div class="card-footer"><span class="card-category">${escapeHTML(item.category)}</span></div>
+          </a>
+        </article>`;
       }
 
-      /* ==============================================================
-         22. CATALOGUE FILTERING AND SEARCH
-         ============================================================== */
-
-      // Change the selected item-type filter.
-      function setTypeFilter(value, clickedButton) {
+      // ---- CATALOGUE FILTERS ----
+      function setTypeFilter(value, btn) {
         currentTypeFilter = value;
-        document
-          .querySelectorAll(".filter-bar:not(#gameFilterBar) .filter-pill")
-          .forEach((button) => button.classList.remove("active"));
-        clickedButton.classList.add("active");
+        document.querySelectorAll(".filter-bar:not(#gameFilterBar) .filter-pill").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
         renderCatalogue();
       }
-
-      // Change the selected game filter.
-      function setGameFilter(value, clickedButton) {
+      function setGameFilter(value, btn) {
         currentGameFilter = value;
-        document
-          .querySelectorAll("#gameFilterBar .filter-pill")
-          .forEach((button) => button.classList.remove("active"));
-        clickedButton.classList.add("active");
+        document.querySelectorAll("#gameFilterBar .filter-pill").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
         renderCatalogue();
       }
-
-      // Create one game filter button for each game in the catalogue data.
       function populateGameFilters(items) {
-        const filterBar = byId("gameFilterBar");
-        const games = [...new Set(items.map((item) => item.game).filter(Boolean))].sort(
-          (a, b) => a.localeCompare(b),
-        );
-
-        if (!games.includes(currentGameFilter)) {
-          currentGameFilter = "all";
-        }
-
-        filterBar
-          .querySelectorAll('[data-generated-game-filter="true"]')
-          .forEach((button) => button.remove());
-
-        games.forEach((game) => {
-          const button = document.createElement("button");
-          button.className = `filter-pill${
-            currentGameFilter === game ? " active" : ""
-          }`;
-          button.dataset.generatedGameFilter = "true";
-          button.textContent = game;
-          button.onclick = () => setGameFilter(game, button);
-          filterBar.appendChild(button);
+        const bar = byId("gameFilterBar");
+        const games = [...new Set(items.map(i => i.game).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+        if (!games.includes(currentGameFilter)) currentGameFilter = "all";
+        bar.querySelectorAll('[data-generated-game-filter="true"]').forEach(b => b.remove());
+        games.forEach(game => {
+          const btn = document.createElement("button");
+          btn.className = `filter-pill${currentGameFilter === game ? " active" : ""}`;
+          btn.dataset.generatedGameFilter = "true";
+          btn.textContent = game;
+          btn.onclick = () => setGameFilter(game, btn);
+          bar.appendChild(btn);
         });
-
-        filterBar
-          .querySelector(".filter-pill")
-          ?.classList.toggle("active", currentGameFilter === "all");
+        bar.querySelector(".filter-pill")?.classList.toggle("active", currentGameFilter === "all");
       }
-
-      // Render cards that match the current filters and search text.
       function renderCatalogue() {
         const items = getItems();
-        const searchTerm = byId("searchInput").value.toLowerCase().trim();
-
+        const term = byId("searchInput").value.toLowerCase().trim();
         populateGameFilters(items);
-        byId("itemCount").textContent = `${items.length} item${
-          items.length === 1 ? "" : "s"
-        }`;
-
-        const filteredItems = items.filter((item) => {
-          const matchesType =
-            currentTypeFilter === "all" || item.category === currentTypeFilter;
-          const matchesGame =
-            currentGameFilter === "all" || item.game === currentGameFilter;
-          const searchableText = [
-            item.name,
-            item.game,
-            item.category,
-            item.description,
-          ]
-            .join(" ")
-            .toLowerCase();
-          const matchesSearch = !searchTerm || searchableText.includes(searchTerm);
-
-          return matchesType && matchesGame && matchesSearch;
+        byId("itemCount").textContent = `${items.length} item${items.length === 1 ? "" : "s"}`;
+        const filtered = items.filter(item => {
+          const matchType = currentTypeFilter === "all" || item.category === currentTypeFilter;
+          const matchGame = currentGameFilter === "all" || item.game === currentGameFilter;
+          const searchText = [item.name, item.game, item.category, item.description].join(" ").toLowerCase();
+          return matchType && matchGame && (!term || searchText.includes(term));
         });
-
-        if (filteredItems.length === 0) {
-          byId("catalogue").innerHTML = `
-            <div class="empty-state">
-              <span class="big-star">★</span>
-              <h3>No Items Found</h3>
-              <p>Try a different filter or search term.</p>
-            </div>
-          `;
+        if (filtered.length === 0) {
+          byId("catalogue").innerHTML = `<div class="empty-state"><span class="big-star">★</span><h3>No Items Found</h3><p>Try a different filter or search term.</p></div>`;
           return;
         }
-
-        byId("catalogue").innerHTML = filteredItems.map(cardHTML).join("");
+        byId("catalogue").innerHTML = filtered.map(cardHTML).join("");
       }
 
-      /* ==============================================================
-         23. ITEM DETAIL PAGE
-         ============================================================== */
-
-      // Create the expanded detail view for one item.
+      // ---- ITEM DETAIL with ZOOM ----
       function renderItemPage(itemId) {
-        const item = normaliseItem(
-          getItems().find((entry) => entry.id === itemId),
-          itemId,
-        );
+        const items = getItems();
+        const raw = items.find(i => i.id === itemId);
+        const item = normaliseItem(raw, itemId);
         const allImages = [item.image, ...item.extraImages].filter(Boolean);
-        const detailWrap = document.querySelector(".item-detail-wrap");
-
+        const wrap = document.querySelector(".item-detail-wrap");
         currentItemId = item.id;
+        zoomActive = false;
 
-        detailWrap.innerHTML = `
-          <button class="btn-back" onclick="showPage('catalogue')">
-            ← Back to Catalogue
-          </button>
-
+        wrap.innerHTML = `
+          <button class="btn-back" onclick="showPage('catalogue')">← Back to Catalogue</button>
           <div class="item-hero" id="itemPageHero">
-            ${imageMarkup(allImages[0], item.name, item.category, true)}
+            <div class="zoom-wrapper" id="zoomWrapper">
+              ${imageMarkup(allImages[0], item.name, item.category, true)}
+            </div>
           </div>
-
-          <div
-            class="view-thumbs"
-            id="itemPageThumbs"
-            style="${allImages.length > 1 ? "" : "display: none"}"
-          ></div>
-
+          <div class="view-thumbs" id="itemPageThumbs" style="${allImages.length > 1 ? "" : "display:none"}"></div>
           <div class="item-detail-body">
             <div class="item-detail-main">
               <div class="item-game-label">${escapeHTML(item.game)}</div>
               <h1 class="item-detail-name">${escapeHTML(item.name)}</h1>
-
               <span class="item-detail-section-label">Description</span>
-              <p class="item-detail-description">
-                ${escapeHTML(item.description || PLACEHOLDER_DESCRIPTION)}
-              </p>
-
+              <p class="item-detail-description">${escapeHTML(item.description || PLACEHOLDER_DESCRIPTION)}</p>
               <div class="item-detail-share">
                 <span class="item-detail-share-label">Share this item:</span>
-                <button class="btn-copy-link" id="btnCopyLink" onclick="copyItemLink()">
-                  Copy Link
-                </button>
+                <button class="btn-copy-link" id="btnCopyLink" onclick="copyItemLink()">Copy Link</button>
               </div>
             </div>
-
-            <aside class="item-detail-sidebar" id="itemPageSidebar">
-              <!-- Labels are inserted below. -->
-            </aside>
+            <aside class="item-detail-sidebar" id="itemPageSidebar"></aside>
           </div>
         `;
 
         const labels = [
-          { key: "Associated Game", value: item.game, className: "gold" },
-          { key: "Year of Release", value: item.year, className: "" },
-          { key: "Category", value: item.category, className: "gold" },
-          { key: "Rarity", value: item.rarity, className: "" },
-          { key: "Availability", value: item.availability, className: "pill" },
+          { key: "Associated Game", value: item.game, cls: "gold" },
+          { key: "Year of Release", value: item.year, cls: "" },
+          { key: "Category", value: item.category, cls: "gold" },
+          { key: "Rarity", value: item.rarity, cls: "" },
+          { key: "Availability", value: item.availability, cls: "pill" },
         ];
-
-        byId("itemPageSidebar").innerHTML = labels
-          .map(
-            (label) => `
-              <div class="item-label-block">
-                <span class="item-label-key">${label.key}</span>
-                <div class="item-label-value ${label.className}">
-                  ${escapeHTML(label.value)}
-                </div>
-              </div>
-            `,
-          )
-          .join("");
-
+        byId("itemPageSidebar").innerHTML = labels.map(l =>
+          `<div class="item-label-block"><span class="item-label-key">${l.key}</span><div class="item-label-value ${l.cls}">${escapeHTML(l.value)}</div></div>`
+        ).join("");
         addSourceLink(item);
-        setupThumbnailButtons(item, allImages);
+        setupThumbnails(item, allImages);
+        setupZoom(item, allImages);
       }
 
-      // Add the optional source/buy link beneath the item details.
       function addSourceLink(item) {
         const link = safeExternalUrl(item.link);
-
-        if (!link) {
-          return;
-        }
-
+        if (!link) return;
         const sidebar = byId("itemPageSidebar");
-        const sourceBlock = document.createElement("div");
-        sourceBlock.className = "item-label-block";
-        sourceBlock.innerHTML = `
-          <span class="item-label-key">Source</span>
-          <a
-            href="${escapeHTML(link)}"
-            target="_blank"
-            rel="noopener noreferrer"
-            style="color: var(--gold); word-break: break-all; font-size: 0.8rem;"
-          >
-            ${escapeHTML(link)}
-          </a>
-        `;
-        sidebar.appendChild(sourceBlock);
-
+        const block = document.createElement("div");
+        block.className = "item-label-block";
+        block.innerHTML = `<span class="item-label-key">Source</span><a href="${escapeHTML(link)}" target="_blank" rel="noopener noreferrer" style="color:var(--gold);word-break:break-all;font-size:0.8rem;">${escapeHTML(link)}</a>`;
+        sidebar.appendChild(block);
         const viewLink = document.createElement("a");
         viewLink.className = "view-link";
         viewLink.href = link;
@@ -2312,128 +1657,138 @@ infringement.
         sidebar.appendChild(viewLink);
       }
 
-      // Make extra item images clickable thumbnails.
-      function setupThumbnailButtons(item, allImages) {
-        if (allImages.length <= 1) {
-          return;
-        }
-
-        const thumbnails = byId("itemPageThumbs");
+      function setupThumbnails(item, allImages) {
+        if (allImages.length <= 1) return;
+        const thumbs = byId("itemPageThumbs");
         const hero = byId("itemPageHero");
-
-        thumbnails.innerHTML = allImages
-          .map(
-            (source, index) => `
-              <button
-                class="view-thumb ${index === 0 ? "active" : ""}"
-                data-source="${escapeHTML(source)}"
-                aria-label="Show image ${index + 1}"
-              >
-                <img
-                  src="${escapeHTML(source)}"
-                  alt="${escapeHTML(item.name)} thumbnail ${index + 1}"
-                  loading="lazy"
-                  decoding="async"
-                  referrerpolicy="no-referrer"
-                />
-              </button>
-            `,
-          )
-          .join("");
-
-        thumbnails.querySelectorAll(".view-thumb").forEach((thumbnail) => {
-          thumbnail.addEventListener("click", () => {
-            thumbnails
-              .querySelectorAll(".view-thumb")
-              .forEach((button) => button.classList.remove("active"));
-            thumbnail.classList.add("active");
-            hero.innerHTML = imageMarkup(
-              thumbnail.dataset.source,
-              item.name,
-              item.category,
-              true,
-            );
+        thumbs.innerHTML = allImages.map((src, i) =>
+          `<button class="view-thumb ${i===0?"active":""}" data-source="${escapeHTML(src)}" aria-label="Show image ${i+1}">
+            <img src="${escapeHTML(src)}" alt="${escapeHTML(item.name)} thumbnail ${i+1}" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+          </button>`
+        ).join("");
+        thumbs.querySelectorAll(".view-thumb").forEach(btn => {
+          btn.addEventListener("click", () => {
+            thumbs.querySelectorAll(".view-thumb").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            const wrapper = hero.querySelector(".zoom-wrapper");
+            wrapper.innerHTML = imageMarkup(btn.dataset.source, item.name, item.category, true);
+            // reset zoom if active
+            if (zoomActive) toggleZoom(hero, false);
           });
         });
       }
 
-      // Copy a shareable item URL to the clipboard.
-      function copyItemLink() {
-        const url = `${location.origin}${location.pathname}#item/${currentItemId}`;
-        const button = byId("btnCopyLink");
+      // ---- ZOOM LOGIC ----
+      function setupZoom(item, allImages) {
+        const hero = byId("itemPageHero");
+        const wrapper = byId("zoomWrapper");
+        if (!wrapper) return;
+        const img = wrapper.querySelector("img");
+        if (!img) return;
 
-        navigator.clipboard
-          .writeText(url)
-          .then(() => {
-            button.textContent = "Copied!";
-            button.classList.add("copied");
-            setTimeout(() => {
-              button.textContent = "Copy Link";
-              button.classList.remove("copied");
-            }, 1800);
-          })
-          .catch(() => {
-            // Older browsers may not support the Clipboard API.
-            window.prompt("Copy this link:", url);
-          });
+        // Click to toggle zoom
+        hero.addEventListener("click", (e) => {
+          // ignore if click on thumbnail or button
+          if (e.target.closest(".view-thumb") || e.target.closest(".view-link") || e.target.closest(".btn-back")) return;
+          toggleZoom(hero, !zoomActive);
+        });
+
+        // Mouse move for panning when zoomed
+        hero.addEventListener("mousemove", (e) => {
+          if (!zoomActive) return;
+          const rect = hero.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width;
+          const y = (e.clientY - rect.top) / rect.height;
+          const imgEl = wrapper.querySelector("img");
+          if (imgEl) {
+            imgEl.style.transform = `translate(${-x * 50}%, ${-y * 50}%) scale(2)`;
+          }
+        });
+
+        // Touch events for mobile pan
+        hero.addEventListener("touchstart", (e) => {
+          if (!zoomActive) return;
+          const touch = e.touches[0];
+          if (!touch) return;
+          const rect = hero.getBoundingClientRect();
+          const x = (touch.clientX - rect.left) / rect.width;
+          const y = (touch.clientY - rect.top) / rect.height;
+          const imgEl = wrapper.querySelector("img");
+          if (imgEl) {
+            imgEl.style.transform = `translate(${-x * 50}%, ${-y * 50}%) scale(2)`;
+          }
+        }, { passive: true });
+
+        hero.addEventListener("touchmove", (e) => {
+          if (!zoomActive) return;
+          const touch = e.touches[0];
+          if (!touch) return;
+          const rect = hero.getBoundingClientRect();
+          const x = (touch.clientX - rect.left) / rect.width;
+          const y = (touch.clientY - rect.top) / rect.height;
+          const imgEl = wrapper.querySelector("img");
+          if (imgEl) {
+            imgEl.style.transform = `translate(${-x * 50}%, ${-y * 50}%) scale(2)`;
+          }
+        }, { passive: true });
+
+        // Reset zoom on scroll or when leaving
+        document.addEventListener("scroll", () => { if (zoomActive) toggleZoom(hero, false); }, { passive: true });
       }
 
-      /* ==============================================================
-         24. URL ROUTING AND STARTUP
-         ============================================================== */
+      function toggleZoom(hero, active) {
+        zoomActive = active;
+        hero.classList.toggle("zoomed", active);
+        const wrapper = hero.querySelector(".zoom-wrapper");
+        const img = wrapper?.querySelector("img");
+        if (!img) return;
+        if (!active) {
+          img.style.transform = "scale(1) translate(0,0)";
+        } else {
+          // center the image initially
+          img.style.transform = "scale(2) translate(0,0)";
+        }
+      }
 
-      // Display the correct page when a visitor opens a saved item link.
+      // ---- COPY LINK ----
+      function copyItemLink() {
+        const url = `${location.origin}${location.pathname}#item/${currentItemId}`;
+        const btn = byId("btnCopyLink");
+        navigator.clipboard.writeText(url).then(() => {
+          btn.textContent = "Copied!";
+          btn.classList.add("copied");
+          setTimeout(() => { btn.textContent = "Copy Link"; btn.classList.remove("copied"); }, 1800);
+        }).catch(() => { window.prompt("Copy this link:", url); });
+      }
+
+      // ---- ROUTING ----
       function handleRoute() {
         const hash = location.hash;
-
         if (hash.startsWith("#item/")) {
-          document.querySelectorAll(".page").forEach((page) => {
-            page.classList.remove("active");
-          });
-          document
-            .querySelectorAll(".nav-link, .mobile-nav-link")
-            .forEach((link) => link.classList.remove("active"));
+          document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+          document.querySelectorAll(".nav-link, .mobile-nav-link").forEach(l => l.classList.remove("active"));
           byId("page-item").classList.add("active");
           renderItemPage(hash.slice(6));
           window.scrollTo(0, 0);
           return;
         }
-
-        if (["#catalogue", "#about", "#contact"].includes(hash)) {
-          showPage(hash.slice(1));
-          return;
-        }
-
+        if (["#catalogue", "#about", "#contact"].includes(hash)) { showPage(hash.slice(1)); return; }
         showPage("home");
       }
 
-      // Update the cache version in local storage and reload once if needed.
       function applyVersionStrategy() {
-        const appVersion = document.querySelector(
-          'meta[name="rph-version"]',
-        ).content;
-        const storageKey = "rph_app_version";
-        const previousVersion = localStorage.getItem(storageKey);
-
-        localStorage.setItem(storageKey, appVersion);
-
-        if (
-          previousVersion &&
-          previousVersion !== appVersion &&
-          !location.search.includes(`v=${appVersion}`)
-        ) {
-          const query = `?v=${encodeURIComponent(appVersion)}`;
-          location.replace(`${location.pathname}${query}${location.hash}`);
+        const ver = document.querySelector('meta[name="rph-version"]').content;
+        const key = "rph_app_version";
+        const prev = localStorage.getItem(key);
+        localStorage.setItem(key, ver);
+        if (prev && prev !== ver && !location.search.includes(`v=${ver}`)) {
+          location.replace(`${location.pathname}?v=${encodeURIComponent(ver)}${location.hash}`);
           return true;
         }
-
         return false;
       }
 
-      // Listen for browser back/forward navigation between hash routes.
       window.addEventListener("hashchange", handleRoute);
-
-      // Start the site after the page HTML has loaded.
       if (!applyVersionStrategy()) {
         renderHome();
         renderCatalogue();
