@@ -1258,7 +1258,7 @@
         }
       }
 
-      /* ================================================================
+            /* ================================================================
          ZOOM OVERLAY STYLES
          ================================================================ */
       #zoomOverlay {
@@ -1277,26 +1277,46 @@
       }
 
       #zoomImage {
-        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: transform;
+        transform-origin: center center;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
       }
 
-      /* Style the range sliders - horizontal and zoom */
+      #zoomContainer {
+        cursor: grab;
+        touch-action: none;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+
+      #zoomContainer:active {
+        cursor: grabbing;
+      }
+
+      /* Style the range sliders */
       #zoomHorizontal::-webkit-slider-thumb,
       #zoomLevel::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
-        width: 16px;
-        height: 16px;
+        width: 18px;
+        height: 18px;
         border-radius: 50%;
         background: var(--gold);
         cursor: pointer;
         border: 2px solid var(--white);
+        transition: transform 0.15s;
+      }
+
+      #zoomHorizontal::-webkit-slider-thumb:hover,
+      #zoomLevel::-webkit-slider-thumb:hover {
+        transform: scale(1.15);
       }
 
       #zoomHorizontal::-moz-range-thumb,
       #zoomLevel::-moz-range-thumb {
-        width: 16px;
-        height: 16px;
+        width: 18px;
+        height: 18px;
         border-radius: 50%;
         background: var(--gold);
         cursor: pointer;
@@ -1308,23 +1328,31 @@
         -webkit-appearance: slider-vertical;
         appearance: slider-vertical;
         height: 120px;
-        width: 6px;
+        width: 8px;
+        background: var(--border);
+        border-radius: 4px;
+        outline: none;
       }
       
       #zoomVertical::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
-        width: 16px;
-        height: 16px;
+        width: 18px;
+        height: 18px;
         border-radius: 50%;
         background: var(--gold);
         cursor: pointer;
         border: 2px solid var(--white);
+        transition: transform 0.15s;
+      }
+      
+      #zoomVertical::-webkit-slider-thumb:hover {
+        transform: scale(1.15);
       }
       
       #zoomVertical::-moz-range-thumb {
-        width: 16px;
-        height: 16px;
+        width: 18px;
+        height: 18px;
         border-radius: 50%;
         background: var(--gold);
         cursor: pointer;
@@ -1480,35 +1508,35 @@
         <div class="item-detail-wrap"></div>
       </section>
     </main>
-    <!-- ZOOM OVERLAY -->
+        <!-- ZOOM OVERLAY -->
     <div id="zoomOverlay" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:9999; background:rgba(0,0,0,0.92); backdrop-filter:blur(8px); justify-content:center; align-items:center; flex-direction:column; padding:2rem;">
       <button id="closeZoom" style="position:absolute; top:20px; right:30px; background:transparent; border:none; color:white; font-size:2.5rem; cursor:pointer; font-family:var(--font-heading); z-index:10000; transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">✕</button>
       
-      <!-- Image container -->
-      <div style="width:100%; max-width:1200px; max-height:70vh; overflow:hidden; position:relative; background:#0a0a0a; border:1px solid var(--gold); border-radius:4px;">
-        <img id="zoomImage" src="" alt="Zoomed view" style="width:100%; height:100%; object-fit:contain; max-height:70vh; transition:transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+      <!-- Image container with transform origin center -->
+      <div style="width:100%; max-width:1200px; max-height:70vh; overflow:hidden; position:relative; background:#0a0a0a; border:1px solid var(--gold); border-radius:4px; cursor:grab; touch-action:none;" id="zoomContainer">
+        <img id="zoomImage" src="" alt="Zoomed view" style="width:100%; height:100%; object-fit:contain; max-height:70vh; transform: translate3d(0px, 0px, 0px) scale(1); transform-origin: center center; will-change: transform; pointer-events:none; user-select:none; -webkit-user-select:none;">
       </div>
       
       <!-- Controls -->
       <div style="width:100%; max-width:1200px; margin-top:1.5rem; display:flex; gap:2rem; align-items:center; justify-content:center; padding:0 0.5rem; flex-wrap:wrap;">
         
         <!-- Horizontal Slider -->
-        <div style="display:flex; align-items:center; gap:1rem; flex:1; min-width:200px;">
-          <span style="color:var(--muted); font-size:0.7rem; letter-spacing:1px; min-width:70px; text-transform:uppercase;">← H →</span>
+        <div style="display:flex; align-items:center; gap:1rem; flex:1; min-width:150px;">
+          <span style="color:var(--muted); font-size:0.7rem; letter-spacing:1px; min-width:50px; text-transform:uppercase;">← →</span>
           <input type="range" id="zoomHorizontal" min="-100" max="100" value="0" style="flex:1; height:6px; -webkit-appearance:none; appearance:none; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
         </div>
         
-        <!-- Vertical Slider - NOW ACTUALLY VERTICAL! -->
-        <div style="display:flex; align-items:center; gap:0.5rem; height:120px;">
-          <span style="color:var(--muted); font-size:0.7rem; letter-spacing:1px; writing-mode:vertical-lr; text-orientation:mixed; min-width:20px; text-transform:uppercase;">↑ V ↓</span>
-          <input type="range" id="zoomVertical" min="-100" max="100" value="0" style="height:120px; width:6px; -webkit-appearance:slider-vertical; appearance:slider-vertical; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
+        <!-- Zoom Level Slider -->
+        <div style="display:flex; align-items:center; gap:1rem; flex:1; min-width:150px;">
+          <span style="color:var(--muted); font-size:0.7rem; letter-spacing:1px; min-width:40px; text-transform:uppercase;">🔍</span>
+          <input type="range" id="zoomLevel" min="1" max="4" step="0.05" value="1.5" style="flex:1; height:6px; -webkit-appearance:none; appearance:none; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
+          <span id="zoomLevelDisplay" style="color:var(--gold); font-size:0.8rem; min-width:40px; text-align:center; font-family:var(--font-body);">1.5×</span>
         </div>
         
-        <!-- Zoom Level Slider -->
-        <div style="display:flex; align-items:center; gap:1rem; flex:1; min-width:200px;">
-          <span style="color:var(--muted); font-size:0.7rem; letter-spacing:1px; min-width:50px; text-transform:uppercase;">🔍</span>
-          <input type="range" id="zoomLevel" min="1" max="3" step="0.1" value="1.8" style="flex:1; height:6px; -webkit-appearance:none; appearance:none; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
-          <span id="zoomLevelDisplay" style="color:var(--gold); font-size:0.8rem; min-width:40px; text-align:center;">1.8×</span>
+        <!-- Vertical Slider - RIGHT SIDE -->
+        <div style="display:flex; align-items:center; gap:0.5rem; height:120px;">
+          <span style="color:var(--muted); font-size:0.7rem; letter-spacing:1px; writing-mode:vertical-lr; text-orientation:mixed; min-width:20px; text-transform:uppercase;">↑ ↓</span>
+          <input type="range" id="zoomVertical" min="-100" max="100" value="0" style="height:120px; width:6px; -webkit-appearance:slider-vertical; appearance:slider-vertical; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
         </div>
       </div>
     </div>
@@ -1762,9 +1790,10 @@
         });
       }
 
-      function setupZoom(item, allImages) {
+            function setupZoom(item, allImages) {
         const hero = byId("itemPageHero");
         const overlay = byId("zoomOverlay");
+        const container = byId("zoomContainer");
         const zoomImg = byId("zoomImage");
         const closeBtn = byId("closeZoom");
         const hSlider = byId("zoomHorizontal");
@@ -1773,7 +1802,22 @@
         const zoomDisplay = byId("zoomLevelDisplay");
         
         let currentImage = allImages[0] || item.image;
-        let currentScale = 1.8;
+        
+        // Transform state using translate3d and scale
+        let state = {
+          scale: 1.5,
+          translateX: 0,
+          translateY: 0,
+          minScale: 1,
+          maxScale: 4
+        };
+        
+        // Drag state
+        let isDragging = false;
+        let dragStartX = 0;
+        let dragStartY = 0;
+        let dragStartTranslateX = 0;
+        let dragStartTranslateY = 0;
 
         // Click on hero to open zoom
         hero.addEventListener("click", (e) => {
@@ -1790,16 +1834,220 @@
         });
         observer.observe(hero, { childList: true, subtree: true });
 
-        // Close zoom
+        // ---- BOUNDS CALCULATION ----
+        function getBounds() {
+          const containerRect = container.getBoundingClientRect();
+          const imgRect = zoomImg.getBoundingClientRect();
+          // Calculate how much the image can move in each direction
+          const containerWidth = containerRect.width;
+          const containerHeight = containerRect.height;
+          const imgWidth = imgRect.width;
+          const imgHeight = imgRect.height;
+          
+          // When zoomed, the image is larger than container
+          const maxX = Math.max(0, (imgWidth * state.scale - containerWidth) / 2);
+          const maxY = Math.max(0, (imgHeight * state.scale - containerHeight) / 2);
+          
+          return { maxX, maxY };
+        }
+
+        // ---- APPLY TRANSFORM ----
+        function applyTransform(animate = false) {
+          const { scale, translateX, translateY } = state;
+          // Use translate3d for hardware acceleration
+          zoomImg.style.transition = animate ? 'transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
+          zoomImg.style.transform = `translate3d(${translateX}px, ${translateY}px, 0px) scale(${scale})`;
+          
+          // Update slider positions to match
+          const bounds = getBounds();
+          if (bounds.maxX > 0) {
+            hSlider.value = (translateX / bounds.maxX) * 100;
+          } else {
+            hSlider.value = 0;
+          }
+          if (bounds.maxY > 0) {
+            vSlider.value = (translateY / bounds.maxY) * 100;
+          } else {
+            vSlider.value = 0;
+          }
+          
+          zoomDisplay.textContent = scale.toFixed(1) + '×';
+        }
+
+        // ---- CLAMP POSITION ----
+        function clampPosition() {
+          const bounds = getBounds();
+          state.translateX = Math.max(-bounds.maxX, Math.min(bounds.maxX, state.translateX));
+          state.translateY = Math.max(-bounds.maxY, Math.min(bounds.maxY, state.translateY));
+        }
+
+        // ---- DRAG EVENTS ----
+        function onDragStart(e) {
+          if (state.scale <= 1) return;
+          isDragging = true;
+          const pos = getEventPos(e);
+          dragStartX = pos.x;
+          dragStartY = pos.y;
+          dragStartTranslateX = state.translateX;
+          dragStartTranslateY = state.translateY;
+          container.style.cursor = 'grabbing';
+          e.preventDefault();
+        }
+
+        function onDragMove(e) {
+          if (!isDragging) return;
+          const pos = getEventPos(e);
+          const dx = pos.x - dragStartX;
+          const dy = pos.y - dragStartY;
+          
+          // Calculate new position
+          state.translateX = dragStartTranslateX + dx;
+          state.translateY = dragStartTranslateY + dy;
+          
+          // Clamp to bounds
+          clampPosition();
+          applyTransform(false);
+          e.preventDefault();
+        }
+
+        function onDragEnd(e) {
+          if (isDragging) {
+            isDragging = false;
+            container.style.cursor = 'grab';
+          }
+        }
+
+        function getEventPos(e) {
+          if (e.touches) {
+            return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+          }
+          return { x: e.clientX, y: e.clientY };
+        }
+
+        // ---- MOUSE EVENTS ----
+        container.addEventListener('mousedown', onDragStart);
+        document.addEventListener('mousemove', onDragMove);
+        document.addEventListener('mouseup', onDragEnd);
+
+        // ---- TOUCH EVENTS ----
+        let lastTouchDist = 0;
+        let touchStartScale = 1;
+
+        container.addEventListener('touchstart', (e) => {
+          if (e.touches.length === 1) {
+            onDragStart(e);
+          } else if (e.touches.length === 2) {
+            // Pinch zoom
+            const touch1 = e.touches[0];
+            const touch2 = e.touches[1];
+            lastTouchDist = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
+            touchStartScale = state.scale;
+          }
+        }, { passive: false });
+
+        container.addEventListener('touchmove', (e) => {
+          if (e.touches.length === 1 && isDragging) {
+            onDragMove(e);
+          } else if (e.touches.length === 2) {
+            // Handle pinch
+            const touch1 = e.touches[0];
+            const touch2 = e.touches[1];
+            const dist = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
+            const scaleChange = dist / lastTouchDist;
+            const newScale = Math.min(state.maxScale, Math.max(state.minScale, touchStartScale * scaleChange));
+            state.scale = newScale;
+            zSlider.value = newScale;
+            clampPosition();
+            applyTransform(false);
+          }
+          e.preventDefault();
+        }, { passive: false });
+
+        container.addEventListener('touchend', (e) => {
+          onDragEnd(e);
+        }, { passive: false });
+
+        // ---- MOUSE WHEEL ZOOM ----
+        container.addEventListener('wheel', (e) => {
+          e.preventDefault();
+          const delta = e.deltaY > 0 ? -0.1 : 0.1;
+          let newScale = Math.min(state.maxScale, Math.max(state.minScale, state.scale + delta));
+          newScale = Math.round(newScale * 100) / 100;
+          state.scale = newScale;
+          zSlider.value = newScale;
+          clampPosition();
+          applyTransform(true);
+        }, { passive: false });
+
+        // ---- DOUBLE CLICK TO TOGGLE ----
+        container.addEventListener('dblclick', (e) => {
+          e.preventDefault();
+          if (state.scale > 1.5) {
+            // Zoom out to 1x
+            state.scale = 1;
+            state.translateX = 0;
+            state.translateY = 0;
+            zSlider.value = 1;
+          } else {
+            // Zoom in to 2.5x at cursor position
+            const rect = container.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            state.scale = 2.5;
+            zSlider.value = 2.5;
+            // Center the zoom on cursor position
+            const bounds = getBounds();
+            state.translateX = -(x / 100) * bounds.maxX * 2;
+            state.translateY = -(y / 100) * bounds.maxY * 2;
+            clampPosition();
+          }
+          applyTransform(true);
+        });
+
+        // ---- SLIDER CONTROLS ----
+        function updateFromSliders() {
+          const scale = parseFloat(zSlider.value);
+          state.scale = scale;
+          
+          const bounds = getBounds();
+          const hVal = parseFloat(hSlider.value);
+          const vVal = parseFloat(vSlider.value);
+          
+          if (bounds.maxX > 0) {
+            state.translateX = (hVal / 100) * bounds.maxX;
+          } else {
+            state.translateX = 0;
+          }
+          if (bounds.maxY > 0) {
+            state.translateY = (vVal / 100) * bounds.maxY;
+          } else {
+            state.translateY = 0;
+          }
+          
+          clampPosition();
+          applyTransform(true);
+        }
+
+        hSlider.addEventListener('input', updateFromSliders);
+        vSlider.addEventListener('input', updateFromSliders);
+        zSlider.addEventListener('input', () => {
+          state.scale = parseFloat(zSlider.value);
+          clampPosition();
+          applyTransform(true);
+        });
+
+        // ---- CLOSE ZOOM ----
         function closeZoom() {
           overlay.style.display = "none";
           document.body.style.overflow = "auto";
+          // Reset state
+          state.scale = 1.5;
+          state.translateX = 0;
+          state.translateY = 0;
           hSlider.value = 0;
           vSlider.value = 0;
-          zSlider.value = 1.8;
-          currentScale = 1.8;
-          zoomDisplay.textContent = "1.8×";
-          zoomImg.style.transform = "scale(1.8) translate(0px, 0px)";
+          zSlider.value = 1.5;
+          applyTransform(false);
         }
 
         closeBtn.addEventListener("click", closeZoom);
@@ -1811,47 +2059,31 @@
           if (e.key === "Escape") closeZoom();
         });
 
-        // Scroll wheel zoom support
-        overlay.addEventListener("wheel", (e) => {
-          e.preventDefault();
-          // Calculate new scale
-          const delta = e.deltaY > 0 ? -0.1 : 0.1;
-          let newScale = Math.min(3, Math.max(1, currentScale + delta));
-          // Round to 1 decimal place
-          newScale = Math.round(newScale * 10) / 10;
-          currentScale = newScale;
-          zSlider.value = newScale;
-          zoomDisplay.textContent = newScale + "×";
-          updateZoom();
-        }, { passive: false });
-
+        // ---- OPEN ZOOM ----
         function openZoom(imageSrc) {
           if (!imageSrc) return;
           zoomImg.src = imageSrc;
           overlay.style.display = "flex";
           document.body.style.overflow = "hidden";
+          // Reset state
+          state.scale = 1.5;
+          state.translateX = 0;
+          state.translateY = 0;
           hSlider.value = 0;
           vSlider.value = 0;
-          zSlider.value = 1.8;
-          currentScale = 1.8;
-          zoomDisplay.textContent = "1.8×";
-          zoomImg.style.transform = "scale(1.8) translate(0px, 0px)";
+          zSlider.value = 1.5;
+          applyTransform(false);
+          // Set initial cursor
+          container.style.cursor = 'grab';
         }
 
-        function updateZoom() {
-          const scale = parseFloat(zSlider.value);
-          currentScale = scale;
-          zoomDisplay.textContent = scale + "×";
-          const hPos = parseFloat(hSlider.value);
-          const vPos = parseFloat(vSlider.value);
-          const hTranslate = (hPos / 100) * 30;
-          const vTranslate = (vPos / 100) * 30;
-          zoomImg.style.transform = `scale(${scale}) translate(${hTranslate}%, ${vTranslate}%)`;
-        }
-
-        hSlider.addEventListener("input", updateZoom);
-        vSlider.addEventListener("input", updateZoom);
-        zSlider.addEventListener("input", updateZoom);
+        // ---- WINDOW RESIZE HANDLER ----
+        window.addEventListener('resize', () => {
+          if (overlay.style.display === 'flex') {
+            clampPosition();
+            applyTransform(false);
+          }
+        });
 
         window.openZoom = openZoom;
       }
