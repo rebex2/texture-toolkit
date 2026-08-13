@@ -26,1541 +26,88 @@ infringement.
 
 ===============================================================================
 -->
-    <meta name="rph-version" content="2026.07.25.2" />
+
+    <meta name="rph-version" content="2026.08.13.1" />
     <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
 
     <title>R★ Games Promo Hub — Official Merch Catalogue</title>
 
-    <!-- Fonts used by the website. These can be replaced with other Google Fonts. -->
+    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <style>
-      /* ================================================================
-         1. SITE-WIDE SETTINGS
-         ================================================================ */
-
-      :root {
-        --black: #0d0d0d;
-        --charcoal: #1a1a1a;
-        --panel: #222222;
-        --border: #333333;
-        --accent: #f2f2f2;
-        --gold: #c9a84c;
-        --white: #e8e8e8;
-        --muted: #888888;
-        --red: #c0392b;
-        --green: #27ae60;
-
-        /* The two fonts used by the site. */
-        --font-heading: "Bebas Neue", sans-serif;
-        --font-body: "Inter", sans-serif;
-      }
-
-      /* Make sizing predictable for every element. */
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      /* Basic page appearance. */
-      body {
-        min-height: 100vh;
-        background: var(--black);
-        color: var(--white);
-        font-family: var(--font-body);
-      }
-
-      /* Keep links from showing the browser's default underline/colour. */
-      a {
-        color: inherit;
-      }
-
-      /* ================================================================
-         2. SHARED HEADER AND NAVIGATION
-         ================================================================ */
-
-      header {
-        position: sticky;
-        top: 0;
-        z-index: 200;
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        height: 64px;
-        padding: 0 2rem;
-        background: var(--charcoal);
-        border-bottom: 1px solid var(--border);
-      }
-
-      /* Clicking the logo always takes the visitor back to Home. */
-      .logo {
-        display: flex;
-        flex-shrink: 0;
-        align-items: baseline;
-        gap: 4px;
-        cursor: pointer;
-        text-decoration: none;
-      }
-
-      .logo-word {
-        color: var(--white);
-        font-family: var(--font-heading);
-        font-size: 1.55rem;
-        letter-spacing: 3px;
-        line-height: 1;
-      }
-
-      /* This is the gold star in the header logo. */
-      .logo-star {
-        color: var(--gold);
-      }
-
-      .logo-divider {
-        align-self: center;
-        width: 1px;
-        height: 22px;
-        margin: 0 8px;
-        background: var(--border);
-      }
-
-      .logo-subtitle {
-        align-self: center;
-        color: var(--muted);
-        font-size: 0.6rem;
-        font-weight: 500;
-        letter-spacing: 3px;
-        line-height: 1;
-        text-transform: uppercase;
-      }
-
-      /* Desktop navigation items. */
-      .desktop-nav {
-        display: flex;
-        gap: 2px;
-      }
-
-      .nav-link {
-        padding: 6px 14px;
-        background: transparent;
-        border: none;
-        border-radius: 4px;
-        color: var(--muted);
-        font-family: var(--font-body);
-        font-size: 0.85rem;
-        font-weight: 500;
-        cursor: pointer;
-        transition: color 0.15s, background 0.15s;
-      }
-
-      .nav-link:hover {
-        background: var(--panel);
-        color: var(--white);
-      }
-
-      .nav-link.active {
-        background: var(--panel);
-        color: var(--white);
-        font-weight: 600;
-      }
-
-      .header-right {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-left: auto;
-      }
-
-      /* Displays the total item count in the top right. */
-      .item-count {
-        padding: 4px 10px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        color: var(--muted);
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-      }
-
-      /* Mobile navigation menu button. Hidden on widescreen displays. */
-      .hamburger {
-        display: none;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 36px;
-        height: 36px;
-        padding: 7px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 4px;
-        cursor: pointer;
-      }
-
-      .hamburger span {
-        width: 100%;
-        height: 2px;
-        background: var(--white);
-        border-radius: 2px;
-        transition: transform 0.2s, opacity 0.2s;
-      }
-
-      .hamburger.open span:nth-child(1) {
-        transform: translateY(6px) rotate(45deg);
-      }
-
-      .hamburger.open span:nth-child(2) {
-        opacity: 0;
-      }
-
-      .hamburger.open span:nth-child(3) {
-        transform: translateY(-6px) rotate(-45deg);
-      }
-
-      /* Mobile drawer navigation container. */
-      .mobile-nav {
-        position: fixed;
-        top: 64px;
-        left: 0;
-        z-index: 199;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding: 1rem;
-        background: var(--charcoal);
-        border-bottom: 1px solid var(--border);
-
-        /* Hides the mobile menu until the hamburger is tapped. */
-        transform: translateY(-100%);
-        opacity: 0;
-        pointer-events: none;
-        transition: transform 0.25s ease, opacity 0.25s ease;
-      }
-
-      .mobile-nav.open {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: all;
-      }
-
-      .mobile-nav-link {
-        padding: 12px 16px;
-        background: transparent;
-        border: none;
-        border-radius: 4px;
-        color: var(--muted);
-        font-family: var(--font-body);
-        font-size: 0.95rem;
-        font-weight: 500;
-        text-align: left;
-        cursor: pointer;
-      }
-
-      .mobile-nav-link:hover,
-      .mobile-nav-link.active {
-        background: var(--panel);
-        color: var(--white);
-      }
-
-      /* ================================================================
-         3. PAGE VISIBILITY CONTROL
-         ================================================================ */
-
-      /* Only the section marked active is shown on screen. */
-      .page {
-        display: none;
-      }
-
-      .page.active {
-        display: block;
-      }
-
-      /* ================================================================
-         4. HOME PAGE LAYOUT
-         ================================================================ */
-
-      /* The main banner at the top of the home page. */
-      .home-hero {
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        min-height: 520px;
-        padding: 4rem 2rem;
-        background: linear-gradient(
-          135deg,
-          #161616 0%,
-          #0d0d0d 60%,
-          #12100b 100%
-        );
-        border-bottom: 1px solid var(--border);
-      }
-
-      /* Large faint star shown behind the main banner text. */
-      .home-hero-background {
-        position: absolute;
-        top: 50%;
-        right: 5%;
-        z-index: 1;
-        pointer-events: none;
-        transform: translateY(-50%);
-        user-select: none;
-      }
-
-      .home-background-star {
-        color: rgba(201, 168, 76, 0.05);
-        font-size: clamp(20rem, 35vw, 38rem);
-        line-height: 1;
-      }
-
-      .home-hero-content {
-        position: relative;
-        z-index: 2;
-        max-width: 640px;
-      }
-
-      .home-eyebrow {
-        margin-bottom: 0.75rem;
-        color: var(--gold);
-        font-size: 0.8rem;
-        font-weight: 600;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-      }
-
-      .home-title {
-        color: var(--white);
-        font-family: var(--font-heading);
-        font-size: clamp(3.5rem, 8vw, 6.5rem);
-        letter-spacing: 2px;
-        line-height: 0.95;
-      }
-
-      .home-title .brand-star {
-        color: var(--gold);
-      }
-
-      .home-title em {
-        color: var(--gold);
-        font-style: normal;
-      }
-
-      .home-hero-description {
-        margin-top: 1.25rem;
-        color: var(--muted);
-        font-size: 1.05rem;
-        line-height: 1.6;
-      }
-
-      .home-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-top: 2rem;
-      }
-
-      .btn-primary {
-        padding: 14px 28px;
-        background: var(--gold);
-        border: none;
-        border-radius: 4px;
-        color: var(--black);
-        font-family: var(--font-body);
-        font-size: 0.9rem;
-        font-weight: 700;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: background 0.15s, transform 0.15s;
-      }
-
-      .btn-primary:hover {
-        background: #dbc068;
-        transform: translateY(-1px);
-      }
-
-      .btn-secondary {
-        padding: 14px 28px;
-        background: transparent;
-        border: 1px solid var(--border);
-        border-radius: 4px;
-        color: var(--white);
-        font-family: var(--font-body);
-        font-size: 0.9rem;
-        font-weight: 600;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: border-color 0.15s, background 0.15s;
-      }
-
-      .btn-secondary:hover {
-        background: var(--panel);
-        border-color: #555;
-      }
-
-      /* Statistics section (Items Catalogued, Games Covered, Categories). */
-      .home-stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        background: var(--charcoal);
-        border-bottom: 1px solid var(--border);
-      }
-
-      .stat-block {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem 1rem;
-        border-right: 1px solid var(--border);
-        text-align: center;
-      }
-
-      .stat-block:last-child {
-        border-right: none;
-      }
-
-      .stat-number {
-        color: var(--white);
-        font-family: var(--font-heading);
-        font-size: 3.2rem;
-        letter-spacing: 1px;
-        line-height: 1;
-      }
-
-      .stat-label {
-        margin-top: 4px;
-        color: var(--gold);
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-      }
-
-      /* Feature blocks on the home page. */
-      .home-features {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        padding: 3rem 2rem;
-        background: var(--black);
-        border-bottom: 1px solid var(--border);
-      }
-
-      .feature-block {
-        padding: 1.5rem;
-        border-right: 1px solid var(--border);
-      }
-
-      .feature-block:last-child {
-        border-right: none;
-      }
-
-      .feature-icon {
-        display: block;
-        margin-bottom: 0.75rem;
-        font-size: 1.8rem;
-      }
-
-      .feature-block h3 {
-        margin-bottom: 0.5rem;
-        color: var(--white);
-        font-size: 1rem;
-        font-weight: 600;
-      }
-
-      .feature-block p {
-        color: var(--muted);
-        font-size: 0.88rem;
-        line-height: 1.5;
-      }
-
-      .home-section {
-        padding: 3rem 2rem;
-      }
-
-      .section-header {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        margin-bottom: 1.5rem;
-      }
-
-      .section-header h2 {
-        color: var(--white);
-        font-family: var(--font-heading);
-        font-size: 2rem;
-        letter-spacing: 2px;
-      }
-
-      .section-header h2 span {
-        color: var(--gold);
-      }
-
-      .btn-see-all {
-        background: transparent;
-        border: none;
-        color: var(--gold);
-        font-size: 0.85rem;
-        font-weight: 600;
-        cursor: pointer;
-      }
-
-      .btn-see-all:hover {
-        text-decoration: underline;
-      }
-
-      .home-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 1.5rem;
-      }
-
-      /* ================================================================
-         5. CATALOGUE PAGE LAYOUT
-         ================================================================ */
-
-      .page-hero {
-        padding: 2.5rem 2rem 1.5rem;
-        background: var(--charcoal);
-        border-bottom: 1px solid var(--border);
-      }
-
-      .page-hero h1 {
-        color: var(--white);
-        font-family: var(--font-heading);
-        font-size: 3rem;
-        letter-spacing: 3px;
-        line-height: 1;
-      }
-
-      .page-hero p {
-        margin-top: 6px;
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      /* ================================================================
-         6. FILTER BARS AND SEARCH INPUT
-         ================================================================ */
-
-      .filter-bar {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 1rem 2rem;
-        background: var(--charcoal);
-        border-bottom: 1px solid var(--border);
-      }
-
-      .filter-label {
-        margin-right: 0.25rem;
-        color: var(--muted);
-        font-size: 0.75rem;
-        font-weight: 600;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-      }
-
-      .filter-pill {
-        padding: 5px 12px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        color: var(--white);
-        font-family: var(--font-body);
-        font-size: 0.78rem;
-        font-weight: 500;
-        cursor: pointer;
-        transition: background 0.15s, border-color 0.15s, color 0.15s;
-      }
-
-      .filter-pill:hover {
-        background: #2d2d2d;
-        border-color: #555;
-      }
-
-      .filter-pill.active {
-        background: var(--gold);
-        border-color: var(--gold);
-        color: var(--black);
-        font-weight: 600;
-      }
-
-      .search-wrap {
-        padding: 1rem 2rem;
-        background: var(--black);
-        border-bottom: 1px solid var(--border);
-      }
-
-      .search-input {
-        width: 100%;
-        max-width: 480px;
-        padding: 10px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 4px;
-        color: var(--white);
-        font-family: var(--font-body);
-        font-size: 0.9rem;
-        outline: none;
-        transition: border-color 0.15s;
-      }
-
-      .search-input:focus {
-        border-color: var(--gold);
-      }
-
-      .search-input::placeholder {
-        color: var(--muted);
-      }
-
-      /* ================================================================
-         7. CATALOGUE ITEM CARDS
-         ================================================================ */
-
-      .catalogue-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-        gap: 1.5rem;
-        padding: 2rem;
-      }
-
-      .merch-card {
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        transition: border-color 0.15s, transform 0.15s;
-      }
-
-      .merch-card:hover {
-        border-color: #555;
-        transform: translateY(-2px);
-      }
-
-      .card-image {
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        aspect-ratio: 4 / 3;
-        background: #181818;
-      }
-
-      .card-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-
-        /* Standardises image rendering across browsers. */
-        image-rendering: -webkit-optimize-contrast;
-      }
-
-      /* Displayed when an item has no image or the link fails to load. */
-      .image-placeholder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        width: 100%;
-        height: 100%;
-        padding: 1rem;
-        background: #181818;
-        color: var(--muted);
-        text-align: center;
-      }
-
-      .placeholder-icon {
-        font-size: 2rem;
-      }
-
-      .placeholder-label {
-        font-size: 0.72rem;
-        font-weight: 500;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-      }
-
-      .card-body {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        padding: 1rem;
-        text-decoration: none;
-      }
-
-      .card-game {
-        margin-bottom: 4px;
-        color: var(--gold);
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-      }
-
-      .card-name {
-        color: var(--white);
-        font-size: 0.95rem;
-        font-weight: 600;
-        line-height: 1.3;
-      }
-
-      .card-description {
-        display: -webkit-box;
-        overflow: hidden;
-
-        /* Show up to three lines of description text. */
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        margin-top: 0.5rem;
-        color: var(--muted);
-        font-size: 0.8rem;
-        line-height: 1.4;
-      }
-
-      .card-footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: auto;
-        padding-top: 0.75rem;
-      }
-
-      .card-category {
-        color: var(--muted);
-        font-size: 0.72rem;
-        font-weight: 500;
-      }
-
-      /* Displayed when search returns no matching items. */
-      .empty-state {
-        grid-column: 1 / -1;
-        padding: 4rem 2rem;
-        color: var(--muted);
-        text-align: center;
-      }
-
-      .empty-state .big-star {
-        display: block;
-        margin-bottom: 1rem;
-        color: var(--border);
-        font-size: 3rem;
-      }
-
-      .empty-state h3 {
-        color: var(--white);
-        font-size: 1.2rem;
-      }
-
-      .empty-state p {
-        margin-top: 0.5rem;
-        font-size: 0.9rem;
-      }
-
-      /* ================================================================
-         8. ABOUT PAGE LAYOUT
-         ================================================================ */
-
-      .about-hero {
-        padding: 3.5rem 2rem;
-        background: var(--charcoal);
-        border-bottom: 1px solid var(--border);
-      }
-
-      .about-hero-inner {
-        display: grid;
-        grid-template-columns: 1fr 280px;
-        gap: 3rem;
-        align-items: center;
-        max-width: 960px;
-        margin: 0 auto;
-      }
-
-      .about-eyebrow {
-        margin-bottom: 0.5rem;
-        color: var(--gold);
-        font-size: 0.8rem;
-        font-weight: 600;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-      }
-
-      .about-hero-text h1 {
-        color: var(--white);
-        font-family: var(--font-heading);
-        font-size: 3.5rem;
-        letter-spacing: 2px;
-        line-height: 1;
-      }
-
-      .about-hero-text h1 span {
-        color: var(--gold);
-      }
-
-      .about-hero-text p {
-        margin-top: 1rem;
-        color: var(--muted);
-        font-size: 0.95rem;
-        line-height: 1.6;
-      }
-
-      .about-avatar-wrap {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .about-avatar {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 160px;
-        height: 160px;
-        background: var(--panel);
-        border: 2px solid var(--gold);
-        border-radius: 50%;
-        font-size: 4rem;
-      }
-
-      .about-avatar-label {
-        margin-top: 1rem;
-        color: var(--white);
-        font-size: 0.85rem;
-        font-weight: 600;
-        letter-spacing: 1px;
-      }
-
-      .team-section {
-        padding: 3rem 2rem;
-        background: var(--black);
-        border-bottom: 1px solid var(--border);
-      }
-
-      .team-section-inner {
-        max-width: 960px;
-        margin: 0 auto;
-      }
-
-      .team-heading {
-        margin-bottom: 2rem;
-        color: var(--white);
-        font-family: var(--font-heading);
-        font-size: 2.2rem;
-        letter-spacing: 2px;
-      }
-
-      .team-heading span {
-        color: var(--gold);
-      }
-
-      .team-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 1.5rem;
-      }
-
-      .team-card {
-        padding: 1.5rem;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 6px;
-      }
-
-      .team-avatar {
-        margin-bottom: 1rem;
-        font-size: 2.5rem;
-      }
-
-      .team-name {
-        color: var(--white);
-        font-size: 1.1rem;
-        font-weight: 600;
-      }
-
-      .team-role {
-        margin-bottom: 0.75rem;
-        color: var(--gold);
-        font-size: 0.78rem;
-        font-weight: 600;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-      }
-
-      .team-desc {
-        color: var(--muted);
-        font-size: 0.85rem;
-        line-height: 1.5;
-      }
-
-      .about-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 3rem 2rem;
-      }
-
-      .about-section h2 {
-        margin-bottom: 1rem;
-        color: var(--white);
-        font-family: var(--font-heading);
-        font-size: 1.8rem;
-        letter-spacing: 1px;
-      }
-
-      .about-section p {
-        color: var(--muted);
-        font-size: 0.9rem;
-        line-height: 1.6;
-      }
-
-      .games-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-top: 1rem;
-      }
-
-      .game-tag {
-        padding: 4px 10px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 4px;
-        color: var(--white);
-        font-size: 0.78rem;
-
-        /* Displays the tag in gold when hovered. */
-        transition: border-color 0.15s;
-      }
-
-      .game-tag:hover {
-        border-color: var(--gold);
-      }
-
-      /* ================================================================
-         9. CONTACT PAGE LAYOUT
-         ================================================================ */
-
-      .contact-wrap {
-        max-width: 760px;
-        margin: 0 auto;
-        padding: 3rem 2rem;
-      }
-
-      .contact-intro {
-        margin-bottom: 2rem;
-        text-align: center;
-      }
-
-      .contact-intro h1 {
-        color: var(--white);
-        font-family: var(--font-heading);
-        font-size: 3rem;
-        letter-spacing: 2px;
-      }
-
-      .contact-intro h1 span {
-        color: var(--gold);
-      }
-
-      .contact-intro p {
-        margin-top: 0.5rem;
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-
-      /* Embed container for the Google Form. */
-      .contact-form-embed {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-      }
-
-      .contact-form-embed iframe {
-        width: 100%;
-        height: 700px;
-        border: none;
-
-        /* Matches the site's dark mode background. */
-        background: #ffffff;
-      }
-
-      /* ================================================================
-         10. ITEM DETAIL PAGE LAYOUT
-         ================================================================ */
-
-      .item-detail-wrap {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 2rem 2rem 4rem;
-      }
-
-      .btn-back {
-        margin-bottom: 1.5rem;
-        padding: 8px 16px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 4px;
-        color: var(--white);
-        font-family: var(--font-body);
-        font-size: 0.85rem;
-        font-weight: 500;
-        cursor: pointer;
-        transition: border-color 0.15s;
-      }
-
-      .btn-back:hover {
-        border-color: var(--gold);
-      }
-
-      .item-hero {
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        max-height: 480px;
-        background: #141414;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        aspect-ratio: 16 / 9;
-      }
-
-      .item-hero img {
-        max-width: 100%;
-        max-height: 480px;
-        object-fit: contain;
-      }
-
-      .view-thumbs {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        margin-top: 1rem;
-      }
-
-      .view-thumb {
-        width: 72px;
-        height: 54px;
-        padding: 0;
-        overflow: hidden;
-        background: #141414;
-        border: 2px solid var(--border);
-        border-radius: 4px;
-        cursor: pointer;
-        transition: border-color 0.15s;
-      }
-
-      .view-thumb img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .view-thumb.active,
-      .view-thumb:hover {
-        border-color: var(--gold);
-      }
-
-      .item-detail-body {
-        display: grid;
-        grid-template-columns: 1fr 300px;
-        gap: 2.5rem;
-        margin-top: 2rem;
-      }
-
-      .item-detail-main {
-        padding: 2rem;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-      }
-
-      .item-game-label {
-        margin-bottom: 0.5rem;
-        color: var(--gold);
-        font-size: 0.8rem;
-        font-weight: 600;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-      }
-
-      .item-detail-name {
-        color: var(--white);
-        font-family: var(--font-heading);
-        font-size: clamp(2rem, 4vw, 3rem);
-        letter-spacing: 1px;
-        line-height: 1.1;
-      }
-
-      .item-detail-section-label {
-        display: block;
-        margin-top: 1.5rem;
-        margin-bottom: 0.5rem;
-        color: var(--muted);
-        font-size: 0.75rem;
-        font-weight: 600;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-      }
-
-      .item-detail-description {
-        color: var(--white);
-        font-size: 0.95rem;
-
-        /* Renders multiline catalogue descriptions cleanly. */
-        white-space: pre-line;
-        line-height: 1.6;
-      }
-
-      .item-detail-share {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-top: 2rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid var(--border);
-      }
-
-      .item-detail-share-label {
-        color: var(--muted);
-        font-size: 0.8rem;
-      }
-
-      .btn-copy-link {
-        padding: 6px 14px;
-        background: var(--charcoal);
-        border: 1px solid var(--border);
-        border-radius: 4px;
-        color: var(--white);
-        font-family: var(--font-body);
-        font-size: 0.8rem;
-        font-weight: 500;
-        cursor: pointer;
-        transition: border-color 0.15s, background 0.15s;
-      }
-
-      .btn-copy-link:hover {
-        border-color: var(--gold);
-      }
-
-      .btn-copy-link.copied {
-        background: var(--green);
-        border-color: var(--green);
-      }
-
-      .item-detail-sidebar {
-        position: sticky;
-        top: 84px;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        align-self: start;
-      }
-
-      .item-label-block {
-        padding: 1rem 1.25rem;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 6px;
-      }
-
-      .item-label-key {
-        display: block;
-        margin-bottom: 4px;
-        color: var(--muted);
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-      }
-
-      .item-label-value {
-        color: var(--white);
-        font-size: 0.95rem;
-        font-weight: 600;
-      }
-
-      .item-label-value.gold {
-        color: var(--gold);
-      }
-
-      .item-label-value.pill {
-        display: inline-block;
-        padding: 2px 10px;
-        background: var(--charcoal);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        font-size: 0.8rem;
-      }
-
-      .view-link {
-        display: block;
-        padding: 12px;
-        background: var(--gold);
-        border-radius: 6px;
-        color: var(--black);
-        font-weight: 700;
-        letter-spacing: 1px;
-        text-align: center;
-        text-decoration: none;
-        text-transform: uppercase;
-        transition: background 0.15s;
-      }
-
-      .view-link:hover {
-        background: #dbc068;
-      }
-
-      /* Shared footer across all pages. */
-      footer {
-        padding: 2rem;
-        background: var(--charcoal);
-        border-top: 1px solid var(--border);
-        color: var(--muted);
-        font-size: 0.8rem;
-        text-align: center;
-      }
-
-      .footer-links {
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-        margin-bottom: 1rem;
-      }
-
-      .footer-links button {
-        background: transparent;
-        border: none;
-        color: var(--muted);
-        font-family: var(--font-body);
-        font-size: 0.8rem;
-        cursor: pointer;
-      }
-
-      .footer-links button:hover {
-        color: var(--white);
-      }
-
-      /* Mobile layout adjustments. */
-      @media (max-width: 768px) {
-        header {
-          padding: 0 1rem;
-        }
-
-        .desktop-nav {
-          display: none;
-        }
-
-        .hamburger {
-          display: flex;
-        }
-
-        .item-count {
-          display: none;
-        }
-
-        .home-stats {
-          grid-template-columns: 1fr;
-        }
-
-        .stat-block {
-          border-bottom: 1px solid var(--border);
-          border-right: 0;
-        }
-
-        .stat-block:last-child {
-          border-bottom: 0;
-        }
-
-        .home-features {
-          grid-template-columns: 1fr;
-        }
-
-        .feature-block {
-          border-bottom: 1px solid var(--border);
-          border-right: 0;
-        }
-
-        .feature-block:last-child {
-          border-bottom: 0;
-        }
-
-        .catalogue-grid {
-          grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
-          gap: 1rem;
-          padding: 1rem;
-        }
-
-        .filter-bar,
-        .search-wrap {
-          padding: 0.75rem 1rem;
-        }
-
-        .about-hero-inner {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-          padding: 2rem 1rem;
-        }
-
-        .about-avatar-wrap {
-          order: -1;
-        }
-
-        .about-content {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-          padding: 2rem 1rem;
-        }
-
-        .item-detail-wrap {
-          padding: 1.5rem 1rem 3rem;
-        }
-
-        .item-detail-body {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-
-        .item-detail-sidebar {
-          position: static;
-        }
-
-        .item-detail-main {
-          padding: 1.25rem;
-        }
-
-        .contact-wrap {
-          padding: 2rem 1rem;
-        }
-      }
-
-      /* ================================================================
-         LIGHTBOX MODAL & ZOOM STYLES
-         ================================================================ */
-      .lightbox-modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(10, 10, 10, 0.94);
-        backdrop-filter: blur(8px);
-        opacity: 0;
-        transition: opacity 0.25s ease, visibility 0.25s ease;
-        visibility: hidden;
-      }
-
-      .lightbox-modal.active {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      .lightbox-close {
-        position: absolute;
-        top: 20px;
-        right: 25px;
-        z-index: 1010;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 44px;
-        height: 44px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-        color: var(--white);
-        font-size: 1.8rem;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-
-      .lightbox-close:hover {
-        background: var(--gold);
-        border-color: var(--gold);
-        color: var(--black);
-        transform: scale(1.05);
-      }
-
-      .lightbox-nav-btn {
-        position: absolute;
-        top: 50%;
-        z-index: 1010;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 48px;
-        height: 48px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-        color: var(--white);
-        font-size: 1.6rem;
-        cursor: pointer;
-        transform: translateY(-50%);
-        transition: all 0.2s ease;
-      }
-
-      .lightbox-nav-btn:hover {
-        background: var(--gold);
-        border-color: var(--gold);
-        color: var(--black);
-      }
-
-      .lightbox-prev {
-        left: 20px;
-      }
-
-      .lightbox-next {
-        right: 20px;
-      }
-
-      .lightbox-content {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        max-width: 90vw;
-        max-height: 85vh;
-      }
-
-      .lightbox-img-wrap {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        max-width: 100%;
-        max-height: 80vh;
-        border-radius: 8px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-        cursor: zoom-in;
-      }
-
-      .lightbox-img-wrap.zoomed {
-        overflow: auto;
-        cursor: zoom-out;
-      }
-
-      .lightbox-img {
-        max-width: 85vw;
-        max-height: 75vh;
-        object-fit: contain;
-        transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1);
-        user-select: none;
-      }
-
-      .lightbox-img-wrap.zoomed .lightbox-img {
-        max-width: none;
-        max-height: none;
-        transform: scale(2.2);
-      }
-
-      .lightbox-counter {
-        margin-top: 15px;
-        padding: 6px 16px;
-        background: rgba(0, 0, 0, 0.6);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        color: var(--muted);
-        font-size: 0.9rem;
-        letter-spacing: 1px;
-      }
-
-      .lightbox-zoom-hint {
-        position: absolute;
-        bottom: 12px;
-        padding: 4px 10px;
-        background: rgba(0, 0, 0, 0.75);
-        border: 1px solid rgba(201, 168, 76, 0.4);
-        border-radius: 4px;
-        color: var(--gold);
-        font-size: 0.75rem;
-        letter-spacing: 0.5px;
-        pointer-events: none;
-      }
-
-      .item-hero {
-        position: relative;
-        cursor: pointer;
-      }
-
-      .item-hero::after {
-        content: "🔍 Click to expand & zoom";
-        position: absolute;
-        right: 12px;
-        bottom: 12px;
-        padding: 5px 12px;
-        background: rgba(0, 0, 0, 0.8);
-        border: 1px solid var(--gold);
-        border-radius: 4px;
-        color: var(--gold);
-        font-size: 0.75rem;
-        opacity: 0.9;
-        pointer-events: none;
-        transition: opacity 0.2s ease;
-      }
-
-      .item-hero:hover::after {
-        opacity: 1;
-      }
-    </style>
+    <!-- Main site stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
+
     <!-- ==============================================================
-         11. SITE HEADER
+         SITE HEADER
          ============================================================== -->
+
     <header>
-      <!-- Logo: click it to return to the Home page. -->
+      <!-- Logo -->
       <a class="logo" href="#home" onclick="showPage('home')">
         <div class="logo-word">
           R<span class="logo-star">★</span> GAMES
           <span class="logo-star">PROMO</span> HUB
         </div>
+
         <div class="logo-divider"></div>
-        <div class="logo-subtitle">Merch<br />Catalogue</div>
+
+        <div class="logo-subtitle">
+          Merch<br />
+          Catalogue
+        </div>
       </a>
 
-      <!-- Desktop navigation links. -->
+      <!-- Desktop navigation -->
       <nav class="desktop-nav" aria-label="Main navigation">
-        <button class="nav-link active" id="nav-home" onclick="showPage('home')">
+
+        <button
+          class="nav-link active"
+          id="nav-home"
+          onclick="showPage('home')"
+        >
           Home
         </button>
-        <button class="nav-link" id="nav-catalogue" onclick="showPage('catalogue')">
+
+        <button
+          class="nav-link"
+          id="nav-catalogue"
+          onclick="showPage('catalogue')"
+        >
           Catalogue
         </button>
-        <button class="nav-link" id="nav-about" onclick="showPage('about')">
+
+        <button
+          class="nav-link"
+          id="nav-about"
+          onclick="showPage('about')"
+        >
           About
         </button>
-        <button class="nav-link" id="nav-contact" onclick="showPage('contact')">
+
+        <button
+          class="nav-link"
+          id="nav-contact"
+          onclick="showPage('contact')"
+        >
           Contact Us / Submissions
         </button>
+
       </nav>
 
-      <!-- Item count and mobile menu button. -->
+      <!-- Header right side -->
       <div class="header-right">
-        <span class="item-count" id="itemCount">0 items</span>
+
+        <span class="item-count" id="itemCount">
+          0 items
+        </span>
+
         <button
           class="hamburger"
           id="hamburger"
@@ -1572,40 +119,79 @@ infringement.
           <span></span>
           <span></span>
         </button>
+
       </div>
     </header>
 
-    <!-- Mobile navigation drawer. Hidden until the hamburger is clicked. -->
-    <div class="mobile-nav" id="mobileNav">
-      <button class="mobile-nav-link active" id="mnav-home" onclick="goToMobilePage('home')">
-        Home
-      </button>
-      <button class="mobile-nav-link" id="mnav-catalogue" onclick="goToMobilePage('catalogue')">
-        Catalogue
-      </button>
-      <button class="mobile-nav-link" id="mnav-about" onclick="goToMobilePage('about')">
-        About
-      </button>
-      <button class="mobile-nav-link" id="mnav-contact" onclick="goToMobilePage('contact')">
-        Contact Us / Submissions
-      </button>
-    </div>
 
     <!-- ==============================================================
-         12. HOME PAGE
+         MOBILE NAVIGATION
          ============================================================== -->
+
+    <div class="mobile-nav" id="mobileNav">
+
+      <button
+        class="mobile-nav-link active"
+        id="mnav-home"
+        onclick="goToMobilePage('home')"
+      >
+        Home
+      </button>
+
+      <button
+        class="mobile-nav-link"
+        id="mnav-catalogue"
+        onclick="goToMobilePage('catalogue')"
+      >
+        Catalogue
+      </button>
+
+      <button
+        class="mobile-nav-link"
+        id="mnav-about"
+        onclick="goToMobilePage('about')"
+      >
+        About
+      </button>
+
+      <button
+        class="mobile-nav-link"
+        id="mnav-contact"
+        onclick="goToMobilePage('contact')"
+      >
+        Contact Us / Submissions
+      </button>
+
+    </div>
+
+
+    <!-- ==============================================================
+         MAIN CONTENT
+         ============================================================== -->
+
     <main>
+
+      <!-- ============================================================
+           HOME PAGE
+           ============================================================ -->
+
       <section class="page active" id="page-home">
+
         <section class="home-hero">
-          <!-- Decorative background star. It does not affect page content. -->
-          <div class="home-hero-background" aria-hidden="true">
+
+          <div
+            class="home-hero-background"
+            aria-hidden="true"
+          >
             <span class="home-background-star">★</span>
           </div>
 
           <div class="home-hero-content">
-            <p class="home-eyebrow">The #1 Fan Resource For</p>
 
-            <!-- The brand star here is gold through .home-title .brand-star. -->
+            <p class="home-eyebrow">
+              The #1 Fan Resource For
+            </p>
+
             <h1 class="home-title">
               R<span class="brand-star">★</span> Games<br />
               <em>Promo</em><br />
@@ -1619,99 +205,233 @@ infringement.
             </p>
 
             <div class="home-actions">
-              <button class="btn-primary" onclick="showPage('catalogue')">
+
+              <button
+                class="btn-primary"
+                onclick="showPage('catalogue')"
+              >
                 Browse Catalogue →
               </button>
-              <button class="btn-secondary" onclick="showPage('about')">
+
+              <button
+                class="btn-secondary"
+                onclick="showPage('about')"
+              >
                 About This Site
               </button>
+
             </div>
+
           </div>
+
         </section>
 
-        <!-- These numbers are filled in automatically by JavaScript. -->
-        <section class="home-stats" aria-label="Catalogue statistics">
+
+        <!-- Catalogue statistics -->
+
+        <section
+          class="home-stats"
+          aria-label="Catalogue statistics"
+        >
+
           <div class="stat-block">
-            <span class="stat-number" id="homeStatItems">0</span>
-            <span class="stat-label">Items Catalogued</span>
+            <span
+              class="stat-number"
+              id="homeStatItems"
+            >
+              0
+            </span>
+
+            <span class="stat-label">
+              Items Catalogued
+            </span>
           </div>
+
+
           <div class="stat-block">
-            <span class="stat-number" id="homeStatGames">0</span>
-            <span class="stat-label">Games Covered</span>
+            <span
+              class="stat-number"
+              id="homeStatGames"
+            >
+              0
+            </span>
+
+            <span class="stat-label">
+              Games Covered
+            </span>
           </div>
+
+
           <div class="stat-block">
-            <span class="stat-number" id="homeStatCats">9</span>
-            <span class="stat-label">Categories</span>
+            <span
+              class="stat-number"
+              id="homeStatCats"
+            >
+              0
+            </span>
+
+            <span class="stat-label">
+              Categories
+            </span>
           </div>
+
         </section>
 
-        <!-- Edit these three blocks if you want to change the home page features. -->
+
+        <!-- Home features -->
+
         <section class="home-features">
+
           <article class="feature-block">
+
             <span class="feature-icon">🧢</span>
-            <h3>Every Category</h3>
+
+            <h3>
+              Every Category
+            </h3>
+
             <p>
-              Hats, plushies, tees, hoodies, posters, collectibles, keychains,
-              stickers, and more — all in one place with category filters.
+              Hats, plushies, tees, hoodies, posters, collectibles,
+              keychains, stickers, and more — all in one place with
+              category filters.
             </p>
+
           </article>
+
+
           <article class="feature-block">
+
             <span class="feature-icon">🎮</span>
-            <h3>All Rockstar Titles</h3>
+
+            <h3>
+              All Rockstar Titles
+            </h3>
+
             <p>
-              GTA, Red Dead Redemption, Bully, Midnight Club, Max Payne — promo
-              merch from the full Rockstar library.
+              GTA, Red Dead Redemption, Bully, Midnight Club, Max Payne —
+              promo merch from the full Rockstar library.
             </p>
+
           </article>
+
+
           <article class="feature-block">
+
             <span class="feature-icon">⭐</span>
-            <h3>Rare &amp; Limited Finds</h3>
+
+            <h3>
+              Rare &amp; Limited Finds
+            </h3>
+
             <p>
-              From E3 giveaways to launch-day exclusives, we track down the
-              hard-to-find pieces that collectors care about.
+              From E3 giveaways to launch-day exclusives, we track down
+              the hard-to-find pieces that collectors care about.
             </p>
+
           </article>
+
         </section>
 
-        <!-- The four most recently added items appear here automatically. -->
+
+        <!-- Latest additions -->
+
         <section class="home-section">
+
           <div class="section-header">
-            <h2>Latest <span>Additions</span></h2>
-            <button class="btn-see-all" onclick="showPage('catalogue')">
+
+            <h2>
+              Latest <span>Additions</span>
+            </h2>
+
+            <button
+              class="btn-see-all"
+              onclick="showPage('catalogue')"
+            >
               See All →
             </button>
+
           </div>
-          <div class="home-grid" id="homeGrid"></div>
+
+          <div
+            class="home-grid"
+            id="homeGrid"
+          ></div>
+
         </section>
+
       </section>
 
+
       <!-- ============================================================
-           13. CATALOGUE PAGE
+           CATALOGUE PAGE
            ============================================================ -->
-      <section class="page" id="page-catalogue">
+
+      <section
+        class="page"
+        id="page-catalogue"
+      >
+
         <section class="page-hero">
-          <h1>Merch Catalogue</h1>
-          <p>Every piece of promo gear — from GTA to Red Dead &amp; beyond</p>
+
+          <h1>
+            Merch Catalogue
+          </h1>
+
+          <p>
+            Every piece of promo gear — from GTA to Red Dead &amp; beyond
+          </p>
+
         </section>
 
-        <!-- Dynamic Type Filter pills are populated automatically from catalog.js items -->
-        <div class="filter-bar" id="typeFilterBar" aria-label="Filter by item type">
-          <span class="filter-label">Type:</span>
-          <button class="filter-pill active" onclick="setTypeFilter('all', this)">
+
+        <!-- Type filters -->
+
+        <div
+          class="filter-bar"
+          id="typeFilterBar"
+          aria-label="Filter by item type"
+        >
+
+          <span class="filter-label">
+            Type:
+          </span>
+
+          <button
+            class="filter-pill active"
+            onclick="setTypeFilter('all', this)"
+          >
             All
           </button>
+
         </div>
 
-        <!-- Game filters are filled in from the games used in CATALOGUE DATA. -->
-        <div class="filter-bar" id="gameFilterBar" aria-label="Filter by game">
-          <span class="filter-label">Game:</span>
-          <button class="filter-pill active" onclick="setGameFilter('all', this)">
+
+        <!-- Game filters -->
+
+        <div
+          class="filter-bar"
+          id="gameFilterBar"
+          aria-label="Filter by game"
+        >
+
+          <span class="filter-label">
+            Game:
+          </span>
+
+          <button
+            class="filter-pill active"
+            onclick="setGameFilter('all', this)"
+          >
             All Games
           </button>
+
         </div>
 
-        <!-- Search checks the item name, game, category, and description. -->
+
+        <!-- Search -->
+
         <div class="search-wrap">
+
           <input
             class="search-input"
             id="searchInput"
@@ -1720,81 +440,160 @@ infringement.
             oninput="renderCatalogue()"
             aria-label="Search catalogue"
           />
+
         </div>
 
-        <!-- Cards are generated here by JavaScript. -->
-        <div class="catalogue-grid" id="catalogue"></div>
+
+        <!-- Catalogue cards are generated by script.js -->
+
+        <div
+          class="catalogue-grid"
+          id="catalogue"
+        ></div>
+
       </section>
 
+
       <!-- ============================================================
-           14. ABOUT PAGE
+           ABOUT PAGE
            ============================================================ -->
-      <section class="page" id="page-about">
+
+      <section
+        class="page"
+        id="page-about"
+      >
+
         <section class="about-hero">
+
           <div class="about-hero-inner">
+
             <div class="about-hero-text">
-              <p class="about-eyebrow">Fan-made &amp; community-driven</p>
-              <h1>About <span>This</span><br />Site</h1>
+
+              <p class="about-eyebrow">
+                Fan-made &amp; community-driven
+              </p>
+
+              <h1>
+                About <span>This</span><br />
+                Site
+              </h1>
+
               <p>
                 Hey! We're two massive Rockstar Games fans who got tired of
-                hunting across the internet for promo merch photos. So we built
-                RockstarPromoHub — a single, searchable home for every piece of
-                Rockstar promotional merchandise we can track down.
+                hunting across the internet for promo merch photos. So we
+                built RockstarPromoHub — a single, searchable home for every
+                piece of Rockstar promotional merchandise we can track down.
               </p>
+
               <p>
                 Whether it's a snapback handed out at E3, a Red Dead plushie
-                from a launch event, or a GTA hoodie from an online store — if
-                Rockstar made it, we want it catalogued here.
+                from a launch event, or a GTA hoodie from an online store —
+                if Rockstar made it, we want it catalogued here.
               </p>
+
             </div>
 
+
             <div class="about-avatar-wrap">
-              <!-- Replace the star with an image by adding an <img> here. -->
+
               <div class="about-avatar">
                 <span>⭐</span>
               </div>
-              <p class="about-avatar-label">RockstarPromoHub</p>
+
+              <p class="about-avatar-label">
+                RockstarPromoHub
+              </p>
+
             </div>
+
           </div>
+
         </section>
 
-        <!-- Edit the names, roles, and descriptions here if the team changes. -->
+
+        <!-- Team -->
+
         <section class="team-section">
+
           <div class="team-section-inner">
-            <h2 class="team-heading">Meet The <span>Team</span></h2>
+
+            <h2 class="team-heading">
+              Meet The <span>Team</span>
+            </h2>
+
             <div class="team-grid">
+
               <article class="team-card">
-                <div class="team-avatar">🕴️</div>
-                <h3 class="team-name">Wade</h3>
-                <p class="team-role">Site Builder &amp; Cataloguer</p>
-                <p class="team-desc">
-                  Handles all the website creation, item logging, and basically
-                  everything else that keeps this place running behind the scenes.
+
+                <div class="team-avatar">
+                  🕴️
+                </div>
+
+                <h3 class="team-name">
+                  Wade
+                </h3>
+
+                <p class="team-role">
+                  Site Builder &amp; Cataloguer
                 </p>
+
+                <p class="team-desc">
+                  Handles all the website creation, item logging, and
+                  basically everything else that keeps this place running
+                  behind the scenes.
+                </p>
+
               </article>
+
+
               <article class="team-card">
-                <div class="team-avatar">🎙️</div>
-                <h3 class="team-name">The Editor</h3>
-                <p class="team-role">Advisor</p>
-                <p class="team-desc">
-                  Gives verbal advice and direction on where the site should go
-                  next — the voice in the room making sure things stay on track.
+
+                <div class="team-avatar">
+                  🎙️
+                </div>
+
+                <h3 class="team-name">
+                  The Editor
+                </h3>
+
+                <p class="team-role">
+                  Advisor
                 </p>
+
+                <p class="team-desc">
+                  Gives verbal advice and direction on where the site should
+                  go next — the voice in the room making sure things stay
+                  on track.
+                </p>
+
               </article>
+
             </div>
+
           </div>
+
         </section>
+
+
+        <!-- About content -->
 
         <section class="about-content">
+
           <div class="about-section">
-            <h2>What We Cover</h2>
+
+            <h2>
+              What We Cover
+            </h2>
+
             <p>
-              This catalogue covers official promotional merchandise from all
-              Rockstar Games titles — past and present. Each item is logged with
-              its game, category, description, year of release, rarity, and
-              availability where possible.
+              This catalogue covers official promotional merchandise from
+              all Rockstar Games titles — past and present. Each item is
+              logged with its game, category, description, year of release,
+              rarity, and availability where possible.
             </p>
+
             <div class="games-list">
+
               <span class="game-tag">GTA V</span>
               <span class="game-tag">GTA VI</span>
               <span class="game-tag">GTA Online</span>
@@ -1805,45 +604,68 @@ infringement.
               <span class="game-tag">Midnight Club</span>
               <span class="game-tag">L.A. Noire</span>
               <span class="game-tag">+ More</span>
+
             </div>
+
           </div>
 
+
           <div class="about-section">
-            <h2>How To Help</h2>
+
+            <h2>
+              How To Help
+            </h2>
+
             <p>
-              Spotted a piece of merch that isn't in the catalogue? Get in touch
-              via the Contact Us / Submissions page and we'll get it added.
-              High-quality photos, source links, and any details about the item
-              are all super helpful.
+              Spotted a piece of merch that isn't in the catalogue? Get in
+              touch via the Contact Us / Submissions page and we'll get it
+              added. High-quality photos, source links, and any details about
+              the item are all super helpful.
             </p>
+
             <br />
+
             <p>
               This site is not affiliated with Rockstar Games or Take-Two
               Interactive. All trademarks belong to their respective owners.
               This is a fan project built out of love for the games.
             </p>
+
           </div>
+
         </section>
+
       </section>
 
+
       <!-- ============================================================
-           15. CONTACT PAGE
+           CONTACT PAGE
            ============================================================ -->
-      <section class="page" id="page-contact">
+
+      <section
+        class="page"
+        id="page-contact"
+      >
+
         <div class="contact-wrap">
+
           <div class="contact-intro">
-            <h1>Get In <span>Touch</span></h1>
+
+            <h1>
+              Get In <span>Touch</span>
+            </h1>
+
             <p>
-              Got a tip about some merch? Spotted something missing from the
-              catalogue? Fill in the form below and we'll get back to you.
+              Got a tip about some merch? Spotted something missing from
+              the catalogue? Fill in the form below and we'll get back to
+              you.
             </p>
+
           </div>
 
-          <!--
-            To use a different form, replace the URL in the iframe's src
-            attribute. Keep the title and loading attributes if possible.
-          -->
+
           <div class="contact-form-embed">
+
             <iframe
               src="https://docs.google.com/forms/d/e/1FAIpQLSdhKhp1s9aOOpSQHgJoEfNrcz-2Pm8gGiEETikGLTqmCvsWYA/viewform?embedded=true"
               title="Contact Form"
@@ -1851,50 +673,148 @@ infringement.
             >
               Loading form…
             </iframe>
+
           </div>
+
         </div>
+
       </section>
+
 
       <!-- ============================================================
-           16. ITEM DETAIL PAGE
+           ITEM DETAIL PAGE
            ============================================================ -->
-      <section class="page" id="page-item">
-        <!-- JavaScript fills this container when a card is opened. -->
+
+      <section
+        class="page"
+        id="page-item"
+      >
+
         <div class="item-detail-wrap"></div>
+
       </section>
+
     </main>
 
+
     <!-- ==============================================================
-         17. FOOTER
+         FOOTER
          ============================================================== -->
+
     <footer>
+
       <div class="footer-links">
-        <button onclick="showPage('home')">Home</button>
-        <button onclick="showPage('catalogue')">Catalogue</button>
-        <button onclick="showPage('about')">About</button>
-        <button onclick="showPage('contact')">Contact Us / Submissions</button>
+
+        <button onclick="showPage('home')">
+          Home
+        </button>
+
+        <button onclick="showPage('catalogue')">
+          Catalogue
+        </button>
+
+        <button onclick="showPage('about')">
+          About
+        </button>
+
+        <button onclick="showPage('contact')">
+          Contact Us / Submissions
+        </button>
+
       </div>
+
       <p>
-        © 2024–2026 <span>RockstarPromoHub.com</span> — Fan-made. Not affiliated
-        with Rockstar Games.
+        © 2024–2026
+        <span>RockstarPromoHub.com</span>
+        — Fan-made. Not affiliated with Rockstar Games.
       </p>
+
     </footer>
 
-    <!-- Lightbox Modal -->
-    <div class="lightbox-modal" id="lightboxModal" aria-hidden="true">
-      <button class="lightbox-close" id="lightboxClose" aria-label="Close image view">✕</button>
-      <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+
+    <!-- ==============================================================
+         LIGHTBOX
+         ============================================================== -->
+
+    <div
+      class="lightbox-modal"
+      id="lightboxModal"
+      aria-hidden="true"
+    >
+
+      <button
+        class="lightbox-close"
+        id="lightboxClose"
+        aria-label="Close image view"
+      >
+        ✕
+      </button>
+
+
+      <button
+        class="lightbox-nav-btn lightbox-prev"
+        id="lightboxPrev"
+        aria-label="Previous image"
+      >
+        ‹
+      </button>
+
+
       <div class="lightbox-content">
-        <div class="lightbox-img-wrap" id="lightboxImgWrap">
-          <img class="lightbox-img" id="lightboxImg" src="" alt="Expanded View" />
-          <span class="lightbox-zoom-hint" id="lightboxHint">Click image to zoom</span>
+
+        <div
+          class="lightbox-img-wrap"
+          id="lightboxImgWrap"
+        >
+
+          <img
+            class="lightbox-img"
+            id="lightboxImg"
+            src=""
+            alt="Expanded View"
+          />
+
+          <span
+            class="lightbox-zoom-hint"
+            id="lightboxHint"
+          >
+            Click image to zoom
+          </span>
+
         </div>
-        <div class="lightbox-counter" id="lightboxCounter">1 / 1</div>
+
+
+        <div
+          class="lightbox-counter"
+          id="lightboxCounter"
+        >
+          1 / 1
+        </div>
+
       </div>
-      <button class="lightbox-nav-btn lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
+
+
+      <button
+        class="lightbox-nav-btn lightbox-next"
+        id="lightboxNext"
+        aria-label="Next image"
+      >
+        ›
+      </button>
+
     </div>
 
 
-<script src="script.js"></script>
+    <!-- ==============================================================
+         JAVASCRIPT
+         
+         IMPORTANT:
+         catalog.js MUST load before script.js because script.js uses
+         the ITEMS array defined by catalog.js.
+         ============================================================== -->
+
+    <script src="catalog.js"></script>
+    <script src="js/script.js"></script>
+
   </body>
 </html>
