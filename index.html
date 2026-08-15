@@ -2,20 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- RPH Version -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="rph-version" content="2026.07.25.3" />
     <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
     <title>R★ Games Promo Hub — Official Merch Catalogue</title>
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <style>
-      /* ================================================================
-         GLOBAL & VARIABLES
-         ================================================================ */
+      /* ===== GLOBAL & VARIABLES ===== */
       :root {
         --black: #0d0d0d;
         --charcoal: #1a1a1a;
@@ -29,27 +22,19 @@
         --green: #27ae60;
         --font-heading: "Bebas Neue", sans-serif;
         --font-body: "Inter", sans-serif;
+        --safe-bottom: env(safe-area-inset-bottom, 0px);
       }
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       body {
         min-height: 100vh;
         background: var(--black);
         color: var(--white);
         font-family: var(--font-body);
+        overflow-x: hidden;
       }
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-      /* ================================================================
-         HEADER & NAV
-         ================================================================ */
+      a { color: inherit; text-decoration: none; }
+
+      /* ===== HEADER & NAV ===== */
       header {
         position: sticky;
         top: 0;
@@ -76,9 +61,7 @@
         letter-spacing: 3px;
         line-height: 1;
       }
-      .logo-star {
-        color: var(--gold);
-      }
+      .logo-star { color: var(--gold); }
       .logo-divider {
         align-self: center;
         width: 1px;
@@ -100,8 +83,7 @@
         align-items: center;
         justify-content: center;
       }
-      .nav-link,
-      .mobile-nav-link {
+      .nav-link, .mobile-nav-link {
         border: 0;
         background: transparent;
         color: var(--muted);
@@ -128,13 +110,8 @@
         transform-origin: left;
         transition: transform 0.2s;
       }
-      .nav-link:hover,
-      .nav-link.active {
-        color: var(--white);
-      }
-      .nav-link.active::after {
-        transform: scaleX(1);
-      }
+      .nav-link:hover, .nav-link.active { color: var(--white); }
+      .nav-link.active::after { transform: scaleX(1); }
       .header-right {
         display: flex;
         flex-shrink: 0;
@@ -166,16 +143,9 @@
         background: var(--white);
         transition: all 0.25s;
       }
-      .hamburger.open span:first-child {
-        transform: translateY(7px) rotate(45deg);
-      }
-      .hamburger.open span:nth-child(2) {
-        opacity: 0;
-        transform: scaleX(0);
-      }
-      .hamburger.open span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
-      }
+      .hamburger.open span:first-child { transform: translateY(7px) rotate(45deg); }
+      .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
       .mobile-nav {
         position: fixed;
         top: 64px;
@@ -188,9 +158,7 @@
         background: var(--charcoal);
         border-bottom: 1px solid var(--border);
       }
-      .mobile-nav.open {
-        display: flex;
-      }
+      .mobile-nav.open { display: flex; }
       .mobile-nav-link {
         width: 100%;
         padding: 14px 2rem;
@@ -198,38 +166,20 @@
         font-size: 1.2rem;
         text-align: left;
       }
-      .mobile-nav-link.active,
-      .mobile-nav-link:hover {
+      .mobile-nav-link.active, .mobile-nav-link:hover {
         color: var(--white);
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(255,255,255,0.03);
         border-left-color: var(--gold);
       }
 
-      /* ================================================================
-         PAGES & BUTTONS
-         ================================================================ */
-      .page {
-        display: none;
-        animation: fade-in 0.25s ease-out;
-      }
-      .page.active {
-        display: block;
-      }
+      /* ===== PAGES & BUTTONS ===== */
+      .page { display: none; animation: fade-in 0.25s ease-out; }
+      .page.active { display: block; }
       @keyframes fade-in {
-        from {
-          opacity: 0;
-          transform: translateY(6px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
       }
-      .btn-primary,
-      .btn-secondary,
-      .btn-see-all,
-      .btn-back,
-      .btn-copy-link {
+      .btn-primary, .btn-secondary, .btn-see-all, .btn-back, .btn-copy-link {
         cursor: pointer;
         font-family: var(--font-heading);
         letter-spacing: 2px;
@@ -244,10 +194,7 @@
         letter-spacing: 3px;
         transition: opacity 0.2s, transform 0.2s;
       }
-      .btn-primary:hover {
-        opacity: 0.85;
-        transform: translateY(-2px);
-      }
+      .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
       .btn-secondary {
         padding: 12px 32px;
         border: 1px solid var(--border);
@@ -258,13 +205,9 @@
         letter-spacing: 3px;
         transition: border-color 0.2s;
       }
-      .btn-secondary:hover {
-        border-color: var(--white);
-      }
+      .btn-secondary:hover { border-color: var(--white); }
 
-      /* ================================================================
-         HOME PAGE
-         ================================================================ */
+      /* ===== HOME PAGE ===== */
       .home-hero {
         position: relative;
         display: flex;
@@ -287,34 +230,27 @@
         pointer-events: none;
       }
       .home-background-star {
-        color: rgba(255, 255, 255, 0.02);
+        color: rgba(255,255,255,0.02);
         font-size: 60vw;
         line-height: 1;
         animation: slow-spin 80s linear infinite;
       }
       @keyframes slow-spin {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
       }
       .home-hero-content {
         position: relative;
         z-index: 1;
       }
-      .home-eyebrow,
-      .about-eyebrow {
+      .home-eyebrow, .about-eyebrow {
         color: var(--gold);
         font-size: 0.68rem;
         font-weight: 600;
         letter-spacing: 4px;
         text-transform: uppercase;
       }
-      .home-eyebrow {
-        margin-bottom: 1.25rem;
-      }
+      .home-eyebrow { margin-bottom: 1.25rem; }
       .home-title {
         margin-bottom: 0.5rem;
         color: var(--white);
@@ -323,13 +259,8 @@
         letter-spacing: 6px;
         line-height: 0.9;
       }
-      .home-title .brand-star {
-        color: var(--gold);
-      }
-      .home-title em {
-        color: var(--gold);
-        font-style: normal;
-      }
+      .home-title .brand-star { color: var(--gold); }
+      .home-title em { color: var(--gold); font-style: normal; }
       .home-hero-description {
         max-width: 520px;
         margin: 1.5rem auto 2.5rem;
@@ -353,9 +284,7 @@
         border-right: 1px solid var(--border);
         text-align: center;
       }
-      .stat-block:last-child {
-        border-right: 0;
-      }
+      .stat-block:last-child { border-right: 0; }
       .stat-number {
         display: block;
         color: var(--gold);
@@ -381,9 +310,7 @@
         padding: 2.5rem 2rem;
         border-right: 1px solid var(--border);
       }
-      .feature-block:last-child {
-        border-right: 0;
-      }
+      .feature-block:last-child { border-right: 0; }
       .feature-icon {
         display: block;
         margin-bottom: 1rem;
@@ -418,9 +345,7 @@
         font-size: 1.8rem;
         letter-spacing: 3px;
       }
-      .section-header h2 span {
-        color: var(--gold);
-      }
+      .section-header h2 span { color: var(--gold); }
       .btn-see-all {
         padding: 5px 14px;
         border: 1px solid var(--border);
@@ -431,14 +356,9 @@
         white-space: nowrap;
         transition: all 0.15s;
       }
-      .btn-see-all:hover {
-        color: var(--accent);
-        border-color: var(--accent);
-      }
+      .btn-see-all:hover { color: var(--accent); border-color: var(--accent); }
 
-      /* ================================================================
-         CATALOGUE
-         ================================================================ */
+      /* ===== CATALOGUE ===== */
       .page-hero {
         position: relative;
         overflow: hidden;
@@ -451,7 +371,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        color: rgba(255, 255, 255, 0.02);
+        color: rgba(255,255,255,0.02);
         content: "★";
         font-size: 18rem;
         line-height: 1;
@@ -506,10 +426,7 @@
         transition: all 0.15s;
         white-space: nowrap;
       }
-      .filter-pill:hover {
-        color: var(--gold);
-        border-color: var(--gold);
-      }
+      .filter-pill:hover { color: var(--gold); border-color: var(--gold); }
       .filter-pill.active {
         background: var(--accent);
         color: var(--black);
@@ -533,14 +450,9 @@
         font-size: 0.85rem;
         transition: border-color 0.2s;
       }
-      .search-input:focus {
-        border-color: var(--accent);
-      }
-      .search-input::placeholder {
-        color: var(--muted);
-      }
-      .catalogue-grid,
-      .home-grid {
+      .search-input:focus { border-color: var(--accent); }
+      .search-input::placeholder { color: var(--muted); }
+      .catalogue-grid, .home-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 1.25rem;
@@ -558,23 +470,12 @@
         transition: transform 0.2s, border-color 0.2s;
       }
       @keyframes card-in {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
       @media (hover: hover) {
-        .merch-card:hover {
-          border-color: var(--gold);
-          transform: translateY(-4px);
-        }
-        .merch-card:hover .card-image img {
-          transform: scale(1.05);
-        }
+        .merch-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+        .merch-card:hover .card-image img { transform: scale(1.05); }
       }
       .card-image {
         position: relative;
@@ -601,24 +502,13 @@
         align-items: center;
         justify-content: center;
         gap: 0.55rem;
-        background: radial-gradient(
-            circle at 50% 35%,
-            rgba(201, 168, 76, 0.15),
-            transparent 42%
-          ),
-          #111111;
+        background: radial-gradient(circle at 50% 35%, rgba(201,168,76,0.15), transparent 42%), #111111;
         color: var(--gold);
         text-align: center;
         user-select: none;
       }
-      .image-placeholder[hidden] {
-        display: none;
-      }
-      .placeholder-icon {
-        font-size: 3.3rem;
-        line-height: 1;
-        opacity: 0.72;
-      }
+      .image-placeholder[hidden] { display: none; }
+      .placeholder-icon { font-size: 3.3rem; line-height: 1; opacity: 0.72; }
       .placeholder-label {
         color: var(--muted);
         font-family: var(--font-body);
@@ -693,9 +583,7 @@
         letter-spacing: 2px;
       }
 
-      /* ================================================================
-         ABOUT
-         ================================================================ */
+      /* ===== ABOUT ===== */
       .about-hero {
         background: var(--charcoal);
         border-bottom: 1px solid var(--border);
@@ -709,9 +597,7 @@
         margin: 0 auto;
         padding: 4rem 2rem;
       }
-      .about-eyebrow {
-        margin-bottom: 1rem;
-      }
+      .about-eyebrow { margin-bottom: 1rem; }
       .about-hero-text h1 {
         margin-bottom: 1.5rem;
         color: var(--white);
@@ -720,18 +606,13 @@
         letter-spacing: 3px;
         line-height: 1;
       }
-      .about-hero-text h1 span {
-        color: var(--gold);
-      }
-      .about-hero-text p,
-      .about-section p {
+      .about-hero-text h1 span { color: var(--gold); }
+      .about-hero-text p, .about-section p {
         color: var(--muted);
         font-size: 0.88rem;
         line-height: 1.75;
       }
-      .about-hero-text p {
-        margin-bottom: 1rem;
-      }
+      .about-hero-text p { margin-bottom: 1rem; }
       .about-avatar-wrap {
         display: flex;
         flex-direction: column;
@@ -778,9 +659,7 @@
         letter-spacing: 3px;
         text-align: center;
       }
-      .team-heading span {
-        color: var(--gold);
-      }
+      .team-heading span { color: var(--gold); }
       .team-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -793,9 +672,7 @@
         text-align: center;
         transition: border-color 0.2s;
       }
-      .team-card:hover {
-        border-color: var(--gold);
-      }
+      .team-card:hover { border-color: var(--gold); }
       .team-avatar {
         display: flex;
         width: 70px;
@@ -860,9 +737,7 @@
         text-transform: uppercase;
       }
 
-      /* ================================================================
-         CONTACT
-         ================================================================ */
+      /* ===== CONTACT ===== */
       .contact-wrap {
         max-width: 860px;
         margin: 0 auto;
@@ -879,9 +754,7 @@
         letter-spacing: 3px;
         line-height: 1;
       }
-      .contact-intro h1 span {
-        color: var(--gold);
-      }
+      .contact-intro h1 span { color: var(--gold); }
       .contact-intro p {
         max-width: 540px;
         color: var(--muted);
@@ -902,9 +775,7 @@
         background: transparent;
       }
 
-      /* ================================================================
-         ITEM DETAIL PAGE (with zoom)
-         ================================================================ */
+      /* ===== ITEM DETAIL PAGE ===== */
       .item-detail-wrap {
         max-width: 1100px;
         margin: 0 auto;
@@ -923,12 +794,8 @@
         font-size: 0.85rem;
         transition: all 0.15s;
       }
-      .btn-back:hover {
-        color: var(--accent);
-        border-color: var(--accent);
-      }
+      .btn-back:hover { color: var(--accent); border-color: var(--accent); }
 
-      /* hero container — click to zoom */
       .item-hero {
         position: relative;
         width: 100%;
@@ -938,10 +805,6 @@
         border: 1px solid var(--border);
         cursor: zoom-in;
         transition: border-color 0.2s;
-      }
-      .item-hero.zoomed {
-        cursor: zoom-out;
-        border-color: var(--gold);
       }
       .item-hero .zoom-wrapper {
         width: 100%;
@@ -959,15 +822,6 @@
       }
       .item-hero .image-placeholder {
         min-height: 100%;
-      }
-      .item-hero.zoomed .zoom-wrapper img {
-        object-fit: none;
-        width: 200%;
-        height: 200%;
-        cursor: grab;
-      }
-      .item-hero.zoomed .zoom-wrapper img:active {
-        cursor: grabbing;
       }
 
       .view-thumbs {
@@ -995,13 +849,8 @@
         height: 100%;
         object-fit: cover;
       }
-      .view-thumb:hover {
-        opacity: 0.85;
-      }
-      .view-thumb.active {
-        border-color: var(--gold);
-        opacity: 1;
-      }
+      .view-thumb:hover { opacity: 0.85; }
+      .view-thumb.active { border-color: var(--gold); opacity: 1; }
 
       .item-detail-body {
         display: grid;
@@ -1011,11 +860,7 @@
       }
       .item-detail-main {
         padding: 1.75rem;
-        background: linear-gradient(
-          145deg,
-          rgba(34, 34, 34, 0.9),
-          rgba(13, 13, 13, 0.9)
-        );
+        background: linear-gradient(145deg, rgba(34,34,34,0.9), rgba(13,13,13,0.9));
         border: 1px solid var(--border);
       }
       .item-game-label {
@@ -1065,9 +910,7 @@
         border: 1px solid var(--border);
         border-bottom: 0;
       }
-      .item-label-block:last-child {
-        border-bottom: 1px solid var(--border);
-      }
+      .item-label-block:last-child { border-bottom: 1px solid var(--border); }
       .item-label-key {
         display: block;
         margin-bottom: 5px;
@@ -1083,9 +926,7 @@
         font-size: 1rem;
         letter-spacing: 1px;
       }
-      .item-label-value.gold {
-        color: var(--gold);
-      }
+      .item-label-value.gold { color: var(--gold); }
       .item-label-value.pill {
         display: inline-block;
         padding: 3px 10px;
@@ -1108,9 +949,7 @@
         text-decoration: none;
         transition: opacity 0.2s;
       }
-      .view-link:hover {
-        opacity: 0.85;
-      }
+      .view-link:hover { opacity: 0.85; }
       .item-detail-share {
         display: flex;
         align-items: center;
@@ -1136,18 +975,251 @@
         font-weight: 500;
         transition: all 0.15s;
       }
-      .btn-copy-link:hover {
-        color: var(--accent);
-        border-color: var(--accent);
+      .btn-copy-link:hover { color: var(--accent); border-color: var(--accent); }
+      .btn-copy-link.copied { color: var(--green); border-color: var(--green); }
+
+      /* ===== ZOOM OVERLAY - ENHANCED ===== */
+      #zoomOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9999;
+        background: rgba(0,0,0,0.92);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        display: none;
+        flex-direction: column;
+        padding: 0.75rem;
+        padding-bottom: calc(0.75rem + var(--safe-bottom));
+        animation: zoomFadeIn 0.25s ease-out;
       }
-      .btn-copy-link.copied {
-        color: var(--green);
-        border-color: var(--green);
+      @keyframes zoomFadeIn {
+        from { opacity: 0; transform: scale(0.96); }
+        to { opacity: 1; transform: scale(1); }
       }
 
-      /* ================================================================
-         FOOTER
-         ================================================================ */
+      #zoomOverlay .zoom-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.25rem 0.5rem 0.5rem;
+        flex-shrink: 0;
+        z-index: 10;
+      }
+      #zoomOverlay .zoom-header .zoom-counter {
+        color: var(--muted);
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        font-weight: 500;
+      }
+      #closeZoom {
+        background: transparent;
+        border: none;
+        color: var(--white);
+        font-size: 1.75rem;
+        cursor: pointer;
+        padding: 0.25rem 0.75rem;
+        transition: transform 0.2s, color 0.2s;
+        font-family: var(--font-heading);
+        line-height: 1;
+      }
+      #closeZoom:hover { transform: scale(1.2); color: var(--gold); }
+
+      /* Main zoom container with image + vertical slider side by side */
+      .zoom-main-layout {
+        flex: 1 1 auto;
+        display: flex;
+        gap: 0.75rem;
+        min-height: 0;
+        position: relative;
+      }
+
+      .zoom-image-wrapper {
+        flex: 1 1 auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0a0a0a;
+        border-radius: 4px;
+        overflow: hidden;
+        border: 1px solid rgba(201,168,76,0.25);
+        touch-action: none;
+        cursor: grab;
+        min-height: 0;
+      }
+      .zoom-image-wrapper:active { cursor: grabbing; }
+      .zoom-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transform: translate3d(0, 0, 0) scale(1);
+        transform-origin: center center;
+        will-change: transform;
+        user-select: none;
+        -webkit-user-select: none;
+        pointer-events: none;
+        max-height: 100%;
+      }
+
+      /* Vertical slider - right side of image */
+      .zoom-vertical-slider-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 44px;
+        background: rgba(0,0,0,0.3);
+        border-radius: 4px;
+        padding: 0.5rem 0;
+      }
+      .zoom-vertical-slider-wrap .slider-label {
+        color: var(--muted);
+        font-size: 0.55rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        writing-mode: vertical-lr;
+        text-orientation: mixed;
+        margin-bottom: 0.5rem;
+      }
+      #zoomVertical {
+        -webkit-appearance: slider-vertical;
+        appearance: slider-vertical;
+        height: 100%;
+        min-height: 80px;
+        width: 6px;
+        background: var(--border);
+        border-radius: 3px;
+        outline: none;
+        cursor: pointer;
+        flex: 1;
+      }
+      #zoomVertical::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--gold);
+        cursor: pointer;
+        border: 2px solid var(--white);
+        transition: transform 0.15s;
+      }
+      #zoomVertical::-webkit-slider-thumb:hover { transform: scale(1.15); }
+      #zoomVertical::-moz-range-thumb {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--gold);
+        cursor: pointer;
+        border: 2px solid var(--white);
+      }
+
+      /* Bottom controls: horizontal + zoom level */
+      .zoom-bottom-controls {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 0.75rem 0.5rem 0;
+        flex-shrink: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .zoom-bottom-controls .control-group {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        flex: 1;
+        min-width: 120px;
+      }
+      .zoom-bottom-controls .control-group .ctrl-label {
+        color: var(--muted);
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        white-space: nowrap;
+        min-width: 24px;
+      }
+      .zoom-bottom-controls input[type="range"] {
+        flex: 1;
+        height: 5px;
+        -webkit-appearance: none;
+        appearance: none;
+        background: var(--border);
+        border-radius: 3px;
+        outline: none;
+        cursor: pointer;
+        min-width: 60px;
+      }
+      .zoom-bottom-controls input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--gold);
+        cursor: pointer;
+        border: 2px solid var(--white);
+        transition: transform 0.15s;
+      }
+      .zoom-bottom-controls input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+      .zoom-bottom-controls input[type="range"]::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--gold);
+        cursor: pointer;
+        border: 2px solid var(--white);
+      }
+      #zoomLevelDisplay {
+        color: var(--gold);
+        font-size: 0.75rem;
+        min-width: 40px;
+        text-align: center;
+        font-family: var(--font-body);
+        font-weight: 600;
+      }
+
+      /* Reset button */
+      .zoom-reset-btn {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        color: var(--muted);
+        padding: 4px 12px;
+        cursor: pointer;
+        font-size: 0.65rem;
+        letter-spacing: 1px;
+        font-family: var(--font-body);
+        transition: all 0.15s;
+        white-space: nowrap;
+      }
+      .zoom-reset-btn:hover { color: var(--white); border-color: var(--gold); }
+
+      /* ===== LOADING ===== */
+      .loading-state {
+        text-align: center;
+        padding: 4rem 2rem;
+        color: var(--muted);
+      }
+      .loading-state .loader {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border: 3px solid var(--border);
+        border-top: 3px solid var(--gold);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        margin-bottom: 1rem;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+
+      /* ===== FOOTER ===== */
       footer {
         padding: 2rem;
         border-top: 1px solid var(--border);
@@ -1175,188 +1247,65 @@
         text-transform: uppercase;
         transition: color 0.15s;
       }
-      .footer-links button:hover {
-        color: var(--accent);
-      }
-      footer span {
-        color: var(--gold);
-      }
+      .footer-links button:hover { color: var(--accent); }
+      footer span { color: var(--gold); }
 
-      /* ================================================================
-         MOBILE
-         ================================================================ */
+      /* ===== MOBILE ===== */
       @media (max-width: 768px) {
-        header {
-          padding: 0 1rem;
-        }
-        .desktop-nav {
-          display: none;
-        }
-        .hamburger {
-          display: flex;
-        }
-        .item-count {
-          display: none;
-        }
-        .home-stats {
-          grid-template-columns: 1fr;
-        }
-        .stat-block {
-          border-right: 0;
-          border-bottom: 1px solid var(--border);
-        }
-        .stat-block:last-child {
-          border-bottom: 0;
-        }
-        .home-features {
-          grid-template-columns: 1fr;
-        }
-        .feature-block {
-          border-right: 0;
-          border-bottom: 1px solid var(--border);
-        }
-        .feature-block:last-child {
-          border-bottom: 0;
-        }
+        header { padding: 0 1rem; }
+        .desktop-nav { display: none; }
+        .hamburger { display: flex; }
+        .item-count { display: none; }
+        .home-stats { grid-template-columns: 1fr; }
+        .stat-block { border-right: 0; border-bottom: 1px solid var(--border); }
+        .stat-block:last-child { border-bottom: 0; }
+        .home-features { grid-template-columns: 1fr; }
+        .feature-block { border-right: 0; border-bottom: 1px solid var(--border); }
+        .feature-block:last-child { border-bottom: 0; }
         .catalogue-grid {
           grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
           gap: 1rem;
           padding: 1rem;
         }
-        .filter-bar,
-        .search-wrap {
-          padding: 0.75rem 1rem;
-        }
+        .filter-bar, .search-wrap { padding: 0.75rem 1rem; }
         .about-hero-inner {
           grid-template-columns: 1fr;
           gap: 2rem;
           padding: 2rem 1rem;
         }
-        .about-avatar-wrap {
-          order: -1;
-        }
+        .about-avatar-wrap { order: -1; }
         .about-content {
           grid-template-columns: 1fr;
           gap: 2rem;
           padding: 2rem 1rem;
         }
-        .item-detail-wrap {
-          padding: 1.5rem 1rem 3rem;
-        }
+        .item-detail-wrap { padding: 1.5rem 1rem 3rem; }
         .item-detail-body {
           grid-template-columns: 1fr;
           gap: 2rem;
         }
-        .item-detail-sidebar {
-          position: static;
-        }
-        .item-detail-main {
-          padding: 1.25rem;
-        }
-        .contact-wrap {
-          padding: 2rem 1rem;
-        }
+        .item-detail-sidebar { position: static; }
+        .item-detail-main { padding: 1.25rem; }
+        .contact-wrap { padding: 2rem 1rem; }
+
+        /* Zoom mobile */
+        #zoomOverlay { padding: 0.5rem; }
+        .zoom-vertical-slider-wrap { width: 36px; padding: 0.25rem 0; }
+        #zoomVertical { min-height: 60px; }
+        .zoom-bottom-controls { gap: 0.75rem; padding: 0.5rem 0.25rem 0; }
+        .zoom-bottom-controls .control-group { min-width: 80px; gap: 0.4rem; }
+        .zoom-bottom-controls .control-group .ctrl-label { font-size: 0.5rem; min-width: 18px; }
+        #zoomLevelDisplay { font-size: 0.65rem; min-width: 32px; }
+        .zoom-reset-btn { font-size: 0.55rem; padding: 3px 8px; }
+        #closeZoom { font-size: 1.5rem; padding: 0.25rem 0.5rem; }
       }
 
-            /* ================================================================
-         ZOOM OVERLAY STYLES
-         ================================================================ */
-      #zoomOverlay {
-        animation: zoomFadeIn 0.3s ease-out;
-      }
-
-      @keyframes zoomFadeIn {
-        from {
-          opacity: 0;
-          transform: scale(0.95);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-
-      #zoomImage {
-        will-change: transform;
-        transform-origin: center center;
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
-      }
-
-      #zoomContainer {
-        cursor: grab;
-        touch-action: none;
-        user-select: none;
-        -webkit-user-select: none;
-      }
-
-      #zoomContainer:active {
-        cursor: grabbing;
-      }
-
-      /* Style the range sliders */
-      #zoomHorizontal::-webkit-slider-thumb,
-      #zoomLevel::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: var(--gold);
-        cursor: pointer;
-        border: 2px solid var(--white);
-        transition: transform 0.15s;
-      }
-
-      #zoomHorizontal::-webkit-slider-thumb:hover,
-      #zoomLevel::-webkit-slider-thumb:hover {
-        transform: scale(1.15);
-      }
-
-      #zoomHorizontal::-moz-range-thumb,
-      #zoomLevel::-moz-range-thumb {
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: var(--gold);
-        cursor: pointer;
-        border: 2px solid var(--white);
-      }
-
-      /* Vertical slider support */
-      #zoomVertical {
-        -webkit-appearance: slider-vertical;
-        appearance: slider-vertical;
-        height: 120px;
-        width: 8px;
-        background: var(--border);
-        border-radius: 4px;
-        outline: none;
-      }
-      
-      #zoomVertical::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: var(--gold);
-        cursor: pointer;
-        border: 2px solid var(--white);
-        transition: transform 0.15s;
-      }
-      
-      #zoomVertical::-webkit-slider-thumb:hover {
-        transform: scale(1.15);
-      }
-      
-      #zoomVertical::-moz-range-thumb {
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: var(--gold);
-        cursor: pointer;
-        border: 2px solid var(--white);
+      @media (max-width: 400px) {
+        .zoom-bottom-controls .control-group { min-width: 60px; }
+        .zoom-vertical-slider-wrap { width: 30px; }
+        #zoomVertical { width: 4px; min-height: 40px; }
+        #zoomVertical::-webkit-slider-thumb { width: 14px; height: 14px; }
+        .zoom-bottom-controls input[type="range"]::-webkit-slider-thumb { width: 14px; height: 14px; }
       }
     </style>
   </head>
@@ -1447,7 +1396,12 @@
         <div class="search-wrap">
           <input class="search-input" id="searchInput" type="search" placeholder="Search by name, game, or keyword…" oninput="renderCatalogue()" aria-label="Search catalogue" />
         </div>
-        <div class="catalogue-grid" id="catalogue"></div>
+        <div class="catalogue-grid" id="catalogue">
+          <div class="loading-state">
+            <div class="loader"></div>
+            <p>Loading catalogue data...</p>
+          </div>
+        </div>
       </section>
 
       <!-- ABOUT -->
@@ -1508,38 +1462,38 @@
         <div class="item-detail-wrap"></div>
       </section>
     </main>
-        <!-- ZOOM OVERLAY -->
-    <div id="zoomOverlay" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:9999; background:rgba(0,0,0,0.92); backdrop-filter:blur(8px); justify-content:center; align-items:center; flex-direction:column; padding:2rem;">
-      <button id="closeZoom" style="position:absolute; top:20px; right:30px; background:transparent; border:none; color:white; font-size:2.5rem; cursor:pointer; font-family:var(--font-heading); z-index:10000; transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">✕</button>
-      
-      <!-- Image container with transform origin center -->
-      <div style="width:100%; max-width:1200px; max-height:70vh; overflow:hidden; position:relative; background:#0a0a0a; border:1px solid var(--gold); border-radius:4px; cursor:grab; touch-action:none;" id="zoomContainer">
-        <img id="zoomImage" src="" alt="Zoomed view" style="width:100%; height:100%; object-fit:contain; max-height:70vh; transform: translate3d(0px, 0px, 0px) scale(1); transform-origin: center center; will-change: transform; pointer-events:none; user-select:none; -webkit-user-select:none;">
+
+    <!-- ZOOM OVERLAY -->
+    <div id="zoomOverlay">
+      <div class="zoom-header">
+        <span class="zoom-counter" id="zoomCounter">1 / 1</span>
+        <button id="closeZoom" aria-label="Close zoom">✕</button>
       </div>
       
-      <!-- Controls -->
-      <div style="width:100%; max-width:1200px; margin-top:1.5rem; display:flex; gap:2rem; align-items:center; justify-content:center; padding:0 0.5rem; flex-wrap:wrap;">
-        
-        <!-- Horizontal Slider -->
-        <div style="display:flex; align-items:center; gap:1rem; flex:1; min-width:150px;">
-          <span style="color:var(--muted); font-size:0.7rem; letter-spacing:1px; min-width:50px; text-transform:uppercase;">← →</span>
-          <input type="range" id="zoomHorizontal" min="-100" max="100" value="0" style="flex:1; height:6px; -webkit-appearance:none; appearance:none; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
+      <div class="zoom-main-layout">
+        <div class="zoom-image-wrapper" id="zoomContainer">
+          <img id="zoomImage" src="" alt="Zoomed view" />
         </div>
-        
-        <!-- Zoom Level Slider -->
-        <div style="display:flex; align-items:center; gap:1rem; flex:1; min-width:150px;">
-          <span style="color:var(--muted); font-size:0.7rem; letter-spacing:1px; min-width:40px; text-transform:uppercase;">🔍</span>
-          <input type="range" id="zoomLevel" min="1" max="4" step="0.05" value="1.5" style="flex:1; height:6px; -webkit-appearance:none; appearance:none; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
-          <span id="zoomLevelDisplay" style="color:var(--gold); font-size:0.8rem; min-width:40px; text-align:center; font-family:var(--font-body);">1.5×</span>
+        <div class="zoom-vertical-slider-wrap">
+          <span class="slider-label">↑↓</span>
+          <input type="range" id="zoomVertical" min="-100" max="100" value="0" aria-label="Vertical pan" />
         </div>
-        
-        <!-- Vertical Slider - RIGHT SIDE -->
-        <div style="display:flex; align-items:center; gap:0.5rem; height:120px;">
-          <span style="color:var(--muted); font-size:0.7rem; letter-spacing:1px; writing-mode:vertical-lr; text-orientation:mixed; min-width:20px; text-transform:uppercase;">↑ ↓</span>
-          <input type="range" id="zoomVertical" min="-100" max="100" value="0" style="height:120px; width:6px; -webkit-appearance:slider-vertical; appearance:slider-vertical; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
+      </div>
+      
+      <div class="zoom-bottom-controls">
+        <div class="control-group">
+          <span class="ctrl-label">←→</span>
+          <input type="range" id="zoomHorizontal" min="-100" max="100" value="0" aria-label="Horizontal pan" />
         </div>
+        <div class="control-group" style="flex:0.7; min-width:100px;">
+          <span class="ctrl-label">🔍</span>
+          <input type="range" id="zoomLevel" min="1" max="4" step="0.05" value="1.5" aria-label="Zoom level" />
+          <span id="zoomLevelDisplay">1.5×</span>
+        </div>
+        <button class="zoom-reset-btn" id="zoomResetBtn" aria-label="Reset zoom">Reset</button>
       </div>
     </div>
+
     <!-- FOOTER -->
     <footer>
       <div class="footer-links">
@@ -1551,13 +1505,9 @@
       <p>© 2024–2026 <span>RockstarPromoHub.com</span> — Fan-made. Not affiliated with Rockstar Games.</p>
     </footer>
 
-  
-    <script src="catalog.js"></script>
-
-
     <script>
       /* ================================================================
-         SITE LOGIC (including zoom)
+         SITE LOGIC - Loads data from GitHub-hosted catalog.js
          ================================================================ */
       const byId = (id) => document.getElementById(id);
       const PLACEHOLDER_DESCRIPTION = "No description has been added yet.";
@@ -1567,7 +1517,79 @@
       let currentTypeFilter = "all";
       let currentGameFilter = "all";
       let currentItemId = null;
-    
+      let ITEMS = [];
+      let dataLoaded = false;
+
+      // ---- Load catalog data from GitHub ----
+      function loadCatalogData() {
+        // Try loading from catalog.js (should be in same directory)
+        // This works with GitHub Pages - it loads the file from the same repo
+        const script = document.createElement('script');
+        script.src = 'catalog.js';
+        script.onload = function() {
+          // Check if ITEMS was defined in catalog.js
+          if (typeof window.ITEMS !== 'undefined' && Array.isArray(window.ITEMS)) {
+            ITEMS = window.ITEMS;
+            dataLoaded = true;
+            console.log(`✅ Loaded ${ITEMS.length} items from catalog.js`);
+            initializeSite();
+          } else {
+            console.warn('⚠️ ITEMS not found in catalog.js, trying fallback...');
+            loadFallbackData();
+          }
+        };
+        script.onerror = function() {
+          console.warn('⚠️ Failed to load catalog.js, trying fallback...');
+          loadFallbackData();
+        };
+        document.head.appendChild(script);
+      }
+
+      function loadFallbackData() {
+        // Try loading from a JSON file (alternative method)
+        fetch('catalog.json')
+          .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+          })
+          .then(data => {
+            if (Array.isArray(data)) {
+              ITEMS = data;
+              dataLoaded = true;
+              console.log(`✅ Loaded ${ITEMS.length} items from catalog.json`);
+              initializeSite();
+            } else {
+              throw new Error('Invalid data format');
+            }
+          })
+          .catch(err => {
+            console.warn('⚠️ Failed to load catalog.json, using sample data:', err);
+            // Use sample data as last resort
+            ITEMS = [
+              { name: "GTA V Logo Snapback", game: "GTA V", category: "Hat", description: "Classic black snapback with gold GTA V logo embroidery.", year: "2013", rarity: "Common", availability: "Available", image: "", link: "" },
+              { name: "Red Dead Redemption 2 Plushie", game: "Red Dead Redemption 2", category: "Plushie", description: "Detailed Arthur Morgan plushie from the RDR2 launch event.", year: "2018", rarity: "Rare", availability: "Limited", image: "", link: "" },
+              { name: "Bully T-Shirt", game: "Bully", category: "T-Shirt", description: "Vintage-style Bullworth Academy t-shirt.", year: "2006", rarity: "Uncommon", availability: "Discontinued", image: "", link: "" },
+              { name: "GTA VI Hoodie", game: "GTA VI", category: "Hoodie", description: "Official GTA VI promotional hoodie from the reveal event.", year: "2023", rarity: "Very Rare", availability: "Limited", image: "", link: "" },
+              { name: "Max Payne Poster", game: "Max Payne", category: "Poster", description: "Limited edition Max Payne 3 promotional poster.", year: "2012", rarity: "Rare", availability: "Discontinued", image: "", link: "" }
+            ];
+            dataLoaded = true;
+            console.log(`ℹ️ Using ${ITEMS.length} sample items (no catalog data found)`);
+            initializeSite();
+          });
+      }
+
+      function initializeSite() {
+        renderHome();
+        renderCatalogue();
+        handleRoute();
+        // Remove loading state
+        const catalogue = byId('catalogue');
+        if (catalogue) {
+          const loading = catalogue.querySelector('.loading-state');
+          if (loading) loading.remove();
+        }
+      }
+
       function slugify(text) {
         return String(text).toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") || "item";
       }
@@ -1689,6 +1711,7 @@
         bar.querySelector(".filter-pill")?.classList.toggle("active", currentGameFilter === "all");
       }
       function renderCatalogue() {
+        if (!dataLoaded) return; // Wait for data to load
         const items = getItems();
         const term = byId("searchInput").value.toLowerCase().trim();
         populateGameFilters(items);
@@ -1708,19 +1731,21 @@
 
       // ---- ITEM DETAIL with ZOOM ----
       function renderItemPage(itemId) {
+        if (!dataLoaded) return;
         const items = getItems();
         const raw = items.find(i => i.id === itemId);
         const item = normaliseItem(raw, itemId);
         const allImages = [item.image, ...item.extraImages].filter(Boolean);
         const wrap = document.querySelector(".item-detail-wrap");
         currentItemId = item.id;
-        zoomActive = false;
+
+        const mainImage = allImages[0] || "";
 
         wrap.innerHTML = `
           <button class="btn-back" onclick="showPage('catalogue')">← Back to Catalogue</button>
           <div class="item-hero" id="itemPageHero">
             <div class="zoom-wrapper" id="zoomWrapper">
-              ${imageMarkup(allImages[0], item.name, item.category, true)}
+              ${imageMarkup(mainImage, item.name, item.category, true)}
             </div>
           </div>
           <div class="view-thumbs" id="itemPageThumbs" style="${allImages.length > 1 ? "" : "display:none"}"></div>
@@ -1771,7 +1796,7 @@
         sidebar.appendChild(viewLink);
       }
 
-        function setupThumbnails(item, allImages) {
+      function setupThumbnails(item, allImages) {
         if (allImages.length <= 1) return;
         const thumbs = byId("itemPageThumbs");
         const hero = byId("itemPageHero");
@@ -1786,11 +1811,30 @@
             btn.classList.add("active");
             const wrapper = hero.querySelector(".zoom-wrapper");
             wrapper.innerHTML = imageMarkup(btn.dataset.source, item.name, item.category, true);
+            const img = wrapper.querySelector("img");
+            if (img && img.src) {
+              currentZoomImage = img.src;
+            }
           });
         });
       }
 
-            function setupZoom(item, allImages) {
+      // ---- ZOOM STATE ----
+      let currentZoomImage = "";
+      let zoomState = {
+        scale: 1.5,
+        translateX: 0,
+        translateY: 0,
+        minScale: 1,
+        maxScale: 4
+      };
+      let isDragging = false;
+      let dragStartX = 0, dragStartY = 0;
+      let dragStartTX = 0, dragStartTY = 0;
+      let lastTouchDist = 0;
+      let touchStartScale = 1;
+
+      function setupZoom(item, allImages) {
         const hero = byId("itemPageHero");
         const overlay = byId("zoomOverlay");
         const container = byId("zoomContainer");
@@ -1800,96 +1844,72 @@
         const vSlider = byId("zoomVertical");
         const zSlider = byId("zoomLevel");
         const zoomDisplay = byId("zoomLevelDisplay");
-        
-        let currentImage = allImages[0] || item.image;
-        
-        // Transform state using translate3d and scale
-        let state = {
-          scale: 1.5,
-          translateX: 0,
-          translateY: 0,
-          minScale: 1,
-          maxScale: 4
-        };
-        
-        // Drag state
-        let isDragging = false;
-        let dragStartX = 0;
-        let dragStartY = 0;
-        let dragStartTranslateX = 0;
-        let dragStartTranslateY = 0;
+        const resetBtn = byId("zoomResetBtn");
+        const counter = byId("zoomCounter");
 
-        // Click on hero to open zoom
+        currentZoomImage = allImages[0] || item.image || "";
+        counter.textContent = `${allImages.length > 0 ? "1" : "0"} / ${allImages.length || 1}`;
+
         hero.addEventListener("click", (e) => {
           if (e.target.closest(".view-thumb") || e.target.closest(".view-link") || e.target.closest(".btn-back")) return;
-          openZoom(currentImage);
+          const img = hero.querySelector("img");
+          if (img && img.src) {
+            currentZoomImage = img.src;
+            openZoom(currentZoomImage);
+          } else {
+            openZoom("");
+          }
         });
 
-        // Update zoom image when thumbnails change
         const observer = new MutationObserver(() => {
           const img = hero.querySelector("img");
           if (img && img.src) {
-            currentImage = img.src;
+            currentZoomImage = img.src;
           }
         });
         observer.observe(hero, { childList: true, subtree: true });
 
-        // ---- BOUNDS CALCULATION ----
         function getBounds() {
           const containerRect = container.getBoundingClientRect();
           const imgRect = zoomImg.getBoundingClientRect();
-          // Calculate how much the image can move in each direction
-          const containerWidth = containerRect.width;
-          const containerHeight = containerRect.height;
-          const imgWidth = imgRect.width;
-          const imgHeight = imgRect.height;
-          
-          // When zoomed, the image is larger than container
-          const maxX = Math.max(0, (imgWidth * state.scale - containerWidth) / 2);
-          const maxY = Math.max(0, (imgHeight * state.scale - containerHeight) / 2);
-          
+          const cw = containerRect.width;
+          const ch = containerRect.height;
+          const iw = imgRect.width || 1;
+          const ih = imgRect.height || 1;
+          const maxX = Math.max(0, (iw * zoomState.scale - cw) / 2);
+          const maxY = Math.max(0, (ih * zoomState.scale - ch) / 2);
           return { maxX, maxY };
         }
 
-        // ---- APPLY TRANSFORM ----
         function applyTransform(animate = false) {
-          const { scale, translateX, translateY } = state;
-          // Use translate3d for hardware acceleration
+          const { scale, translateX, translateY } = zoomState;
           zoomImg.style.transition = animate ? 'transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
           zoomImg.style.transform = `translate3d(${translateX}px, ${translateY}px, 0px) scale(${scale})`;
           
-          // Update slider positions to match
           const bounds = getBounds();
           if (bounds.maxX > 0) {
             hSlider.value = (translateX / bounds.maxX) * 100;
-          } else {
-            hSlider.value = 0;
-          }
+          } else { hSlider.value = 0; }
           if (bounds.maxY > 0) {
             vSlider.value = (translateY / bounds.maxY) * 100;
-          } else {
-            vSlider.value = 0;
-          }
-          
+          } else { vSlider.value = 0; }
           zoomDisplay.textContent = scale.toFixed(1) + '×';
         }
 
-        // ---- CLAMP POSITION ----
         function clampPosition() {
           const bounds = getBounds();
-          state.translateX = Math.max(-bounds.maxX, Math.min(bounds.maxX, state.translateX));
-          state.translateY = Math.max(-bounds.maxY, Math.min(bounds.maxY, state.translateY));
+          zoomState.translateX = Math.max(-bounds.maxX, Math.min(bounds.maxX, zoomState.translateX));
+          zoomState.translateY = Math.max(-bounds.maxY, Math.min(bounds.maxY, zoomState.translateY));
         }
 
-        // ---- DRAG EVENTS ----
         function onDragStart(e) {
-          if (state.scale <= 1) return;
+          if (zoomState.scale <= 1) return;
           isDragging = true;
           const pos = getEventPos(e);
           dragStartX = pos.x;
           dragStartY = pos.y;
-          dragStartTranslateX = state.translateX;
-          dragStartTranslateY = state.translateY;
+          dragStartTX = zoomState.translateX;
+          dragStartTY = zoomState.translateY;
           container.style.cursor = 'grabbing';
           e.preventDefault();
         }
@@ -1899,12 +1919,8 @@
           const pos = getEventPos(e);
           const dx = pos.x - dragStartX;
           const dy = pos.y - dragStartY;
-          
-          // Calculate new position
-          state.translateX = dragStartTranslateX + dx;
-          state.translateY = dragStartTranslateY + dy;
-          
-          // Clamp to bounds
+          zoomState.translateX = dragStartTX + dx;
+          zoomState.translateY = dragStartTY + dy;
           clampPosition();
           applyTransform(false);
           e.preventDefault();
@@ -1924,24 +1940,17 @@
           return { x: e.clientX, y: e.clientY };
         }
 
-        // ---- MOUSE EVENTS ----
         container.addEventListener('mousedown', onDragStart);
         document.addEventListener('mousemove', onDragMove);
         document.addEventListener('mouseup', onDragEnd);
-
-        // ---- TOUCH EVENTS ----
-        let lastTouchDist = 0;
-        let touchStartScale = 1;
 
         container.addEventListener('touchstart', (e) => {
           if (e.touches.length === 1) {
             onDragStart(e);
           } else if (e.touches.length === 2) {
-            // Pinch zoom
-            const touch1 = e.touches[0];
-            const touch2 = e.touches[1];
-            lastTouchDist = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
-            touchStartScale = state.scale;
+            const t1 = e.touches[0], t2 = e.touches[1];
+            lastTouchDist = Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
+            touchStartScale = zoomState.scale;
           }
         }, { passive: false });
 
@@ -1949,13 +1958,11 @@
           if (e.touches.length === 1 && isDragging) {
             onDragMove(e);
           } else if (e.touches.length === 2) {
-            // Handle pinch
-            const touch1 = e.touches[0];
-            const touch2 = e.touches[1];
-            const dist = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
+            const t1 = e.touches[0], t2 = e.touches[1];
+            const dist = Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
             const scaleChange = dist / lastTouchDist;
-            const newScale = Math.min(state.maxScale, Math.max(state.minScale, touchStartScale * scaleChange));
-            state.scale = newScale;
+            const newScale = Math.min(zoomState.maxScale, Math.max(zoomState.minScale, touchStartScale * scaleChange));
+            zoomState.scale = newScale;
             zSlider.value = newScale;
             clampPosition();
             applyTransform(false);
@@ -1967,63 +1974,46 @@
           onDragEnd(e);
         }, { passive: false });
 
-        // ---- MOUSE WHEEL ZOOM ----
         container.addEventListener('wheel', (e) => {
           e.preventDefault();
           const delta = e.deltaY > 0 ? -0.1 : 0.1;
-          let newScale = Math.min(state.maxScale, Math.max(state.minScale, state.scale + delta));
+          let newScale = Math.min(zoomState.maxScale, Math.max(zoomState.minScale, zoomState.scale + delta));
           newScale = Math.round(newScale * 100) / 100;
-          state.scale = newScale;
+          zoomState.scale = newScale;
           zSlider.value = newScale;
           clampPosition();
           applyTransform(true);
         }, { passive: false });
 
-        // ---- DOUBLE CLICK TO TOGGLE ----
         container.addEventListener('dblclick', (e) => {
           e.preventDefault();
-          if (state.scale > 1.5) {
-            // Zoom out to 1x
-            state.scale = 1;
-            state.translateX = 0;
-            state.translateY = 0;
+          if (zoomState.scale > 1.5) {
+            zoomState.scale = 1;
+            zoomState.translateX = 0;
+            zoomState.translateY = 0;
             zSlider.value = 1;
           } else {
-            // Zoom in to 2.5x at cursor position
             const rect = container.getBoundingClientRect();
             const x = ((e.clientX - rect.left) / rect.width) * 100;
             const y = ((e.clientY - rect.top) / rect.height) * 100;
-            state.scale = 2.5;
+            zoomState.scale = 2.5;
             zSlider.value = 2.5;
-            // Center the zoom on cursor position
             const bounds = getBounds();
-            state.translateX = -(x / 100) * bounds.maxX * 2;
-            state.translateY = -(y / 100) * bounds.maxY * 2;
+            zoomState.translateX = -(x / 100) * bounds.maxX * 2;
+            zoomState.translateY = -(y / 100) * bounds.maxY * 2;
             clampPosition();
           }
           applyTransform(true);
         });
 
-        // ---- SLIDER CONTROLS ----
         function updateFromSliders() {
           const scale = parseFloat(zSlider.value);
-          state.scale = scale;
-          
+          zoomState.scale = scale;
           const bounds = getBounds();
           const hVal = parseFloat(hSlider.value);
           const vVal = parseFloat(vSlider.value);
-          
-          if (bounds.maxX > 0) {
-            state.translateX = (hVal / 100) * bounds.maxX;
-          } else {
-            state.translateX = 0;
-          }
-          if (bounds.maxY > 0) {
-            state.translateY = (vVal / 100) * bounds.maxY;
-          } else {
-            state.translateY = 0;
-          }
-          
+          zoomState.translateX = bounds.maxX > 0 ? (hVal / 100) * bounds.maxX : 0;
+          zoomState.translateY = bounds.maxY > 0 ? (vVal / 100) * bounds.maxY : 0;
           clampPosition();
           applyTransform(true);
         }
@@ -2031,19 +2021,27 @@
         hSlider.addEventListener('input', updateFromSliders);
         vSlider.addEventListener('input', updateFromSliders);
         zSlider.addEventListener('input', () => {
-          state.scale = parseFloat(zSlider.value);
+          zoomState.scale = parseFloat(zSlider.value);
           clampPosition();
           applyTransform(true);
         });
 
-        // ---- CLOSE ZOOM ----
+        resetBtn.addEventListener('click', () => {
+          zoomState.scale = 1.5;
+          zoomState.translateX = 0;
+          zoomState.translateY = 0;
+          zSlider.value = 1.5;
+          hSlider.value = 0;
+          vSlider.value = 0;
+          applyTransform(true);
+        });
+
         function closeZoom() {
           overlay.style.display = "none";
           document.body.style.overflow = "auto";
-          // Reset state
-          state.scale = 1.5;
-          state.translateX = 0;
-          state.translateY = 0;
+          zoomState.scale = 1.5;
+          zoomState.translateX = 0;
+          zoomState.translateY = 0;
           hSlider.value = 0;
           vSlider.value = 0;
           zSlider.value = 1.5;
@@ -2059,35 +2057,35 @@
           if (e.key === "Escape") closeZoom();
         });
 
-        // ---- OPEN ZOOM ----
         function openZoom(imageSrc) {
-          if (!imageSrc) return;
-          zoomImg.src = imageSrc;
+          if (!imageSrc) {
+            zoomImg.src = "";
+            zoomImg.style.display = "none";
+          } else {
+            zoomImg.src = imageSrc;
+            zoomImg.style.display = "block";
+          }
           overlay.style.display = "flex";
           document.body.style.overflow = "hidden";
-          // Reset state
-          state.scale = 1.5;
-          state.translateX = 0;
-          state.translateY = 0;
+          zoomState.scale = 1.5;
+          zoomState.translateX = 0;
+          zoomState.translateY = 0;
           hSlider.value = 0;
           vSlider.value = 0;
           zSlider.value = 1.5;
           applyTransform(false);
-          // Set initial cursor
           container.style.cursor = 'grab';
         }
 
-        // ---- WINDOW RESIZE HANDLER ----
+        window.openZoom = openZoom;
+
         window.addEventListener('resize', () => {
           if (overlay.style.display === 'flex') {
             clampPosition();
             applyTransform(false);
           }
         });
-
-        window.openZoom = openZoom;
       }
-
 
       // ---- COPY LINK ----
       function copyItemLink() {
@@ -2128,10 +2126,13 @@
       }
 
       window.addEventListener("hashchange", handleRoute);
+      
+      // Start loading catalog data
+      loadCatalogData();
+
+      // Handle initial load
       if (!applyVersionStrategy()) {
-        renderHome();
-        renderCatalogue();
-        handleRoute();
+        // Data will be loaded asynchronously
       }
     </script>
   </body>
