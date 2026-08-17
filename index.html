@@ -1508,7 +1508,7 @@
         <div class="item-detail-wrap"></div>
       </section>
     </main>
-        <!-- ZOOM OVERLAY -->
+    <!-- ZOOM OVERLAY -->
     <div id="zoomOverlay" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:9999; background:rgba(0,0,0,0.92); backdrop-filter:blur(8px); justify-content:center; align-items:center; flex-direction:column; padding:2rem;">
       <button id="closeZoom" style="position:absolute; top:20px; right:30px; background:transparent; border:none; color:white; font-size:2.5rem; cursor:pointer; font-family:var(--font-heading); z-index:10000; transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">✕</button>
       
@@ -1595,9 +1595,9 @@
       function getItems() {
         const usedIds = {};
         return ITEMS.map((raw) => {
-          let id = slugify(`${raw.name}-${raw.game}`);
+          let id = slugify(raw.name + "-" + raw.game);
           usedIds[id] = (usedIds[id] || 0) + 1;
-          if (usedIds[id] > 1) id = `${id}-${usedIds[id]}`;
+          if (usedIds[id] > 1) id = id + "-" + usedIds[id];
           return normaliseItem(raw, id);
         });
       }
@@ -1624,14 +1624,14 @@
       }
       function goToMobilePage(pageName) { showPage(pageName); if (mobileNavOpen) toggleMobileNav(); }
       function showPage(pageName) {
-        document.querySelectorAll(".page").forEach(p => p.classList.toggle("active", p.id === `page-${pageName}`));
+        document.querySelectorAll(".page").forEach(p => p.classList.toggle("active", p.id === "page-" + pageName));
         document.querySelectorAll(".nav-link, .mobile-nav-link").forEach(l => l.classList.remove("active"));
-        byId(`nav-${pageName}`)?.classList.add("active");
-        byId(`mnav-${pageName}`)?.classList.add("active");
+        byId("nav-" + pageName)?.classList.add("active");
+        byId("mnav-" + pageName)?.classList.add("active");
         window.scrollTo(0, 0);
         if (pageName === "catalogue") renderCatalogue();
         if (pageName === "home") renderHome();
-        if (pageName !== "item") history.replaceState(null, "", `${location.pathname}${pageName === "home" ? "" : `#${pageName}`}`);
+        if (pageName !== "item") history.replaceState(null, "", location.pathname + (pageName === "home" ? "" : "#" + pageName));
       }
 
       // ---- HOME ----
@@ -1641,7 +1641,7 @@
         const latest = [...items].reverse().slice(0, 4);
         byId("homeStatItems").textContent = items.length;
         byId("homeStatGames").textContent = uniqueGames.size;
-        byId("itemCount").textContent = `${items.length} item${items.length === 1 ? "" : "s"}`;
+        byId("itemCount").textContent = items.length + " item" + (items.length === 1 ? "" : "s");
         byId("homeGrid").innerHTML = latest.map(cardHTML).join("");
       }
 
@@ -1680,10 +1680,10 @@
         bar.querySelectorAll('[data-generated-game-filter="true"]').forEach(b => b.remove());
         games.forEach(game => {
           const btn = document.createElement("button");
-          btn.className = `filter-pill${currentGameFilter === game ? " active" : ""}`;
+          btn.className = "filter-pill" + (currentGameFilter === game ? " active" : "");
           btn.dataset.generatedGameFilter = "true";
           btn.textContent = game;
-          btn.onclick = () => setGameFilter(game, btn);
+          btn.onclick = function() { setGameFilter(game, btn); };
           bar.appendChild(btn);
         });
         bar.querySelector(".filter-pill")?.classList.toggle("active", currentGameFilter === "all");
@@ -1692,15 +1692,15 @@
         const items = getItems();
         const term = byId("searchInput").value.toLowerCase().trim();
         populateGameFilters(items);
-        byId("itemCount").textContent = `${items.length} item${items.length === 1 ? "" : "s"}`;
-        const filtered = items.filter(item => {
-          const matchType = currentTypeFilter === "all" || item.category === currentTypeFilter;
-          const matchGame = currentGameFilter === "all" || item.game === currentGameFilter;
-          const searchText = [item.name, item.game, item.category, item.description].join(" ").toLowerCase();
+        byId("itemCount").textContent = items.length + " item" + (items.length === 1 ? "" : "s");
+        const filtered = items.filter(function(item) {
+          var matchType = currentTypeFilter === "all" || item.category === currentTypeFilter;
+          var matchGame = currentGameFilter === "all" || item.game === currentGameFilter;
+          var searchText = [item.name, item.game, item.category, item.description].join(" ").toLowerCase();
           return matchType && matchGame && (!term || searchText.includes(term));
         });
         if (filtered.length === 0) {
-          byId("catalogue").innerHTML = `<div class="empty-state"><span class="big-star">★</span><h3>No Items Found</h3><p>Try a different filter or search term.</p></div>`;
+          byId("catalogue").innerHTML = '<div class="empty-state"><span class="big-star">★</span><h3>No Items Found</h3><p>Try a different filter or search term.</p></div>';
           return;
         }
         byId("catalogue").innerHTML = filtered.map(cardHTML).join("");
@@ -1708,11 +1708,11 @@
 
       // ---- ITEM DETAIL with ZOOM ----
       function renderItemPage(itemId) {
-        const items = getItems();
-        const raw = items.find(i => i.id === itemId);
-        const item = normaliseItem(raw, itemId);
-        const allImages = [item.image, ...item.extraImages].filter(Boolean);
-        const wrap = document.querySelector(".item-detail-wrap");
+        var items = getItems();
+        var raw = items.find(function(i) { return i.id === itemId; });
+        var item = normaliseItem(raw, itemId);
+        var allImages = [item.image].concat(item.extraImages).filter(Boolean);
+        var wrap = document.querySelector(".item-detail-wrap");
         currentItemId = item.id;
 
         wrap.innerHTML = `
@@ -1738,30 +1738,30 @@
           </div>
         `;
 
-        const labels = [
+        var labels = [
           { key: "Associated Game", value: item.game, cls: "gold" },
           { key: "Year of Release", value: item.year, cls: "" },
           { key: "Category", value: item.category, cls: "gold" },
           { key: "Rarity", value: item.rarity, cls: "" },
           { key: "Availability", value: item.availability, cls: "pill" },
         ];
-        byId("itemPageSidebar").innerHTML = labels.map(l =>
-          `<div class="item-label-block"><span class="item-label-key">${l.key}</span><div class="item-label-value ${l.cls}">${escapeHTML(l.value)}</div></div>`
-        ).join("");
+        byId("itemPageSidebar").innerHTML = labels.map(function(l) {
+          return '<div class="item-label-block"><span class="item-label-key">' + l.key + '</span><div class="item-label-value ' + l.cls + '">' + escapeHTML(l.value) + '</div></div>';
+        }).join("");
         addSourceLink(item);
         setupThumbnails(item, allImages);
         setupZoom(item, allImages);
       }
 
       function addSourceLink(item) {
-        const link = safeExternalUrl(item.link);
+        var link = safeExternalUrl(item.link);
         if (!link) return;
-        const sidebar = byId("itemPageSidebar");
-        const block = document.createElement("div");
+        var sidebar = byId("itemPageSidebar");
+        var block = document.createElement("div");
         block.className = "item-label-block";
-        block.innerHTML = `<span class="item-label-key">Source</span><a href="${escapeHTML(link)}" target="_blank" rel="noopener noreferrer" style="color:var(--gold);word-break:break-all;font-size:0.8rem;">${escapeHTML(link)}</a>`;
+        block.innerHTML = '<span class="item-label-key">Source</span><a href="' + escapeHTML(link) + '" target="_blank" rel="noopener noreferrer" style="color:var(--gold);word-break:break-all;font-size:0.8rem;">' + escapeHTML(link) + '</a>';
         sidebar.appendChild(block);
-        const viewLink = document.createElement("a");
+        var viewLink = document.createElement("a");
         viewLink.className = "view-link";
         viewLink.href = link;
         viewLink.target = "_blank";
@@ -1770,40 +1770,38 @@
         sidebar.appendChild(viewLink);
       }
 
-        function setupThumbnails(item, allImages) {
+      function setupThumbnails(item, allImages) {
         if (allImages.length <= 1) return;
-        const thumbs = byId("itemPageThumbs");
-        const hero = byId("itemPageHero");
-        thumbs.innerHTML = allImages.map((src, i) =>
-          `<button class="view-thumb ${i===0?"active":""}" data-source="${escapeHTML(src)}" aria-label="Show image ${i+1}">
-            <img src="${escapeHTML(src)}" alt="${escapeHTML(item.name)} thumbnail ${i+1}" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
-          </button>`
-        ).join("");
-        thumbs.querySelectorAll(".view-thumb").forEach(btn => {
-          btn.addEventListener("click", () => {
-            thumbs.querySelectorAll(".view-thumb").forEach(b => b.classList.remove("active"));
+        var thumbs = byId("itemPageThumbs");
+        var hero = byId("itemPageHero");
+        thumbs.innerHTML = allImages.map(function(src, i) {
+          return '<button class="view-thumb ' + (i===0?"active":"") + '" data-source="' + escapeHTML(src) + '" aria-label="Show image ' + (i+1) + '">\n            <img src="' + escapeHTML(src) + '" alt="' + escapeHTML(item.name) + ' thumbnail ' + (i+1) + '" loading="lazy" decoding="async" referrerpolicy="no-referrer" />\n          </button>';
+        }).join("");
+        thumbs.querySelectorAll(".view-thumb").forEach(function(btn) {
+          btn.addEventListener("click", function() {
+            thumbs.querySelectorAll(".view-thumb").forEach(function(b) { b.classList.remove("active"); });
             btn.classList.add("active");
-            const wrapper = hero.querySelector(".zoom-wrapper");
+            var wrapper = hero.querySelector(".zoom-wrapper");
             wrapper.innerHTML = imageMarkup(btn.dataset.source, item.name, item.category, true);
           });
         });
       }
 
-            function setupZoom(item, allImages) {
-        const hero = byId("itemPageHero");
-        const overlay = byId("zoomOverlay");
-        const container = byId("zoomContainer");
-        const zoomImg = byId("zoomImage");
-        const closeBtn = byId("closeZoom");
-        const hSlider = byId("zoomHorizontal");
-        const vSlider = byId("zoomVertical");
-        const zSlider = byId("zoomLevel");
-        const zoomDisplay = byId("zoomLevelDisplay");
+      function setupZoom(item, allImages) {
+        var hero = byId("itemPageHero");
+        var overlay = byId("zoomOverlay");
+        var container = byId("zoomContainer");
+        var zoomImg = byId("zoomImage");
+        var closeBtn = byId("closeZoom");
+        var hSlider = byId("zoomHorizontal");
+        var vSlider = byId("zoomVertical");
+        var zSlider = byId("zoomLevel");
+        var zoomDisplay = byId("zoomLevelDisplay");
         
-        let currentImage = allImages[0] || item.image;
+        var currentImage = allImages[0] || item.image;
         
         // Transform state using translate3d and scale
-        let state = {
+        var state = {
           scale: 1.5,
           translateX: 0,
           translateY: 0,
@@ -1812,21 +1810,21 @@
         };
         
         // Drag state
-        let isDragging = false;
-        let dragStartX = 0;
-        let dragStartY = 0;
-        let dragStartTranslateX = 0;
-        let dragStartTranslateY = 0;
+        var isDragging = false;
+        var dragStartX = 0;
+        var dragStartY = 0;
+        var dragStartTranslateX = 0;
+        var dragStartTranslateY = 0;
 
         // Click on hero to open zoom
-        hero.addEventListener("click", (e) => {
+        hero.addEventListener("click", function(e) {
           if (e.target.closest(".view-thumb") || e.target.closest(".view-link") || e.target.closest(".btn-back")) return;
           openZoom(currentImage);
         });
 
         // Update zoom image when thumbnails change
-        const observer = new MutationObserver(() => {
-          const img = hero.querySelector("img");
+        var observer = new MutationObserver(function() {
+          var img = hero.querySelector("img");
           if (img && img.src) {
             currentImage = img.src;
           }
@@ -1835,30 +1833,29 @@
 
         // ---- BOUNDS CALCULATION ----
         function getBounds() {
-          const containerRect = container.getBoundingClientRect();
-          const imgRect = zoomImg.getBoundingClientRect();
-          // Calculate how much the image can move in each direction
-          const containerWidth = containerRect.width;
-          const containerHeight = containerRect.height;
-          const imgWidth = imgRect.width;
-          const imgHeight = imgRect.height;
+          var containerRect = container.getBoundingClientRect();
+          var imgRect = zoomImg.getBoundingClientRect();
+          var containerWidth = containerRect.width;
+          var containerHeight = containerRect.height;
+          var imgWidth = imgRect.width;
+          var imgHeight = imgRect.height;
           
-          // When zoomed, the image is larger than container
-          const maxX = Math.max(0, (imgWidth * state.scale - containerWidth) / 2);
-          const maxY = Math.max(0, (imgHeight * state.scale - containerHeight) / 2);
+          var maxX = Math.max(0, (imgWidth * state.scale - containerWidth) / 2);
+          var maxY = Math.max(0, (imgHeight * state.scale - containerHeight) / 2);
           
-          return { maxX, maxY };
+          return { maxX: maxX, maxY: maxY };
         }
 
         // ---- APPLY TRANSFORM ----
-        function applyTransform(animate = false) {
-          const { scale, translateX, translateY } = state;
-          // Use translate3d for hardware acceleration
+        function applyTransform(animate) {
+          if (animate === undefined) animate = false;
+          var scale = state.scale;
+          var translateX = state.translateX;
+          var translateY = state.translateY;
           zoomImg.style.transition = animate ? 'transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
-          zoomImg.style.transform = `translate3d(${translateX}px, ${translateY}px, 0px) scale(${scale})`;
+          zoomImg.style.transform = 'translate3d(' + translateX + 'px, ' + translateY + 'px, 0px) scale(' + scale + ')';
           
-          // Update slider positions to match
-          const bounds = getBounds();
+          var bounds = getBounds();
           if (bounds.maxX > 0) {
             hSlider.value = (translateX / bounds.maxX) * 100;
           } else {
@@ -1875,7 +1872,7 @@
 
         // ---- CLAMP POSITION ----
         function clampPosition() {
-          const bounds = getBounds();
+          var bounds = getBounds();
           state.translateX = Math.max(-bounds.maxX, Math.min(bounds.maxX, state.translateX));
           state.translateY = Math.max(-bounds.maxY, Math.min(bounds.maxY, state.translateY));
         }
@@ -1884,7 +1881,7 @@
         function onDragStart(e) {
           if (state.scale <= 1) return;
           isDragging = true;
-          const pos = getEventPos(e);
+          var pos = getEventPos(e);
           dragStartX = pos.x;
           dragStartY = pos.y;
           dragStartTranslateX = state.translateX;
@@ -1895,15 +1892,13 @@
 
         function onDragMove(e) {
           if (!isDragging) return;
-          const pos = getEventPos(e);
-          const dx = pos.x - dragStartX;
-          const dy = pos.y - dragStartY;
+          var pos = getEventPos(e);
+          var dx = pos.x - dragStartX;
+          var dy = pos.y - dragStartY;
           
-          // Calculate new position
           state.translateX = dragStartTranslateX + dx;
           state.translateY = dragStartTranslateY + dy;
           
-          // Clamp to bounds
           clampPosition();
           applyTransform(false);
           e.preventDefault();
@@ -1929,31 +1924,29 @@
         document.addEventListener('mouseup', onDragEnd);
 
         // ---- TOUCH EVENTS ----
-        let lastTouchDist = 0;
-        let touchStartScale = 1;
+        var lastTouchDist = 0;
+        var touchStartScale = 1;
 
-        container.addEventListener('touchstart', (e) => {
+        container.addEventListener('touchstart', function(e) {
           if (e.touches.length === 1) {
             onDragStart(e);
           } else if (e.touches.length === 2) {
-            // Pinch zoom
-            const touch1 = e.touches[0];
-            const touch2 = e.touches[1];
+            var touch1 = e.touches[0];
+            var touch2 = e.touches[1];
             lastTouchDist = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
             touchStartScale = state.scale;
           }
         }, { passive: false });
 
-        container.addEventListener('touchmove', (e) => {
+        container.addEventListener('touchmove', function(e) {
           if (e.touches.length === 1 && isDragging) {
             onDragMove(e);
           } else if (e.touches.length === 2) {
-            // Handle pinch
-            const touch1 = e.touches[0];
-            const touch2 = e.touches[1];
-            const dist = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
-            const scaleChange = dist / lastTouchDist;
-            const newScale = Math.min(state.maxScale, Math.max(state.minScale, touchStartScale * scaleChange));
+            var touch1 = e.touches[0];
+            var touch2 = e.touches[1];
+            var dist = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
+            var scaleChange = dist / lastTouchDist;
+            var newScale = Math.min(state.maxScale, Math.max(state.minScale, touchStartScale * scaleChange));
             state.scale = newScale;
             zSlider.value = newScale;
             clampPosition();
@@ -1962,15 +1955,15 @@
           e.preventDefault();
         }, { passive: false });
 
-        container.addEventListener('touchend', (e) => {
+        container.addEventListener('touchend', function(e) {
           onDragEnd(e);
         }, { passive: false });
 
         // ---- MOUSE WHEEL ZOOM ----
-        container.addEventListener('wheel', (e) => {
+        container.addEventListener('wheel', function(e) {
           e.preventDefault();
-          const delta = e.deltaY > 0 ? -0.1 : 0.1;
-          let newScale = Math.min(state.maxScale, Math.max(state.minScale, state.scale + delta));
+          var delta = e.deltaY > 0 ? -0.1 : 0.1;
+          var newScale = Math.min(state.maxScale, Math.max(state.minScale, state.scale + delta));
           newScale = Math.round(newScale * 100) / 100;
           state.scale = newScale;
           zSlider.value = newScale;
@@ -1979,23 +1972,20 @@
         }, { passive: false });
 
         // ---- DOUBLE CLICK TO TOGGLE ----
-        container.addEventListener('dblclick', (e) => {
+        container.addEventListener('dblclick', function(e) {
           e.preventDefault();
           if (state.scale > 1.5) {
-            // Zoom out to 1x
             state.scale = 1;
             state.translateX = 0;
             state.translateY = 0;
             zSlider.value = 1;
           } else {
-            // Zoom in to 2.5x at cursor position
-            const rect = container.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / rect.width) * 100;
-            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            var rect = container.getBoundingClientRect();
+            var x = ((e.clientX - rect.left) / rect.width) * 100;
+            var y = ((e.clientY - rect.top) / rect.height) * 100;
             state.scale = 2.5;
             zSlider.value = 2.5;
-            // Center the zoom on cursor position
-            const bounds = getBounds();
+            var bounds = getBounds();
             state.translateX = -(x / 100) * bounds.maxX * 2;
             state.translateY = -(y / 100) * bounds.maxY * 2;
             clampPosition();
@@ -2005,12 +1995,12 @@
 
         // ---- SLIDER CONTROLS ----
         function updateFromSliders() {
-          const scale = parseFloat(zSlider.value);
+          var scale = parseFloat(zSlider.value);
           state.scale = scale;
           
-          const bounds = getBounds();
-          const hVal = parseFloat(hSlider.value);
-          const vVal = parseFloat(vSlider.value);
+          var bounds = getBounds();
+          var hVal = parseFloat(hSlider.value);
+          var vVal = parseFloat(vSlider.value);
           
           if (bounds.maxX > 0) {
             state.translateX = (hVal / 100) * bounds.maxX;
@@ -2029,7 +2019,7 @@
 
         hSlider.addEventListener('input', updateFromSliders);
         vSlider.addEventListener('input', updateFromSliders);
-        zSlider.addEventListener('input', () => {
+        zSlider.addEventListener('input', function() {
           state.scale = parseFloat(zSlider.value);
           clampPosition();
           applyTransform(true);
@@ -2039,7 +2029,6 @@
         function closeZoom() {
           overlay.style.display = "none";
           document.body.style.overflow = "auto";
-          // Reset state
           state.scale = 1.5;
           state.translateX = 0;
           state.translateY = 0;
@@ -2050,11 +2039,11 @@
         }
 
         closeBtn.addEventListener("click", closeZoom);
-        overlay.addEventListener("click", (e) => {
+        overlay.addEventListener("click", function(e) {
           if (e.target === overlay) closeZoom();
         });
 
-        document.addEventListener("keydown", (e) => {
+        document.addEventListener("keydown", function(e) {
           if (e.key === "Escape") closeZoom();
         });
 
@@ -2064,7 +2053,6 @@
           zoomImg.src = imageSrc;
           overlay.style.display = "flex";
           document.body.style.overflow = "hidden";
-          // Reset state
           state.scale = 1.5;
           state.translateX = 0;
           state.translateY = 0;
@@ -2072,12 +2060,11 @@
           vSlider.value = 0;
           zSlider.value = 1.5;
           applyTransform(false);
-          // Set initial cursor
           container.style.cursor = 'grab';
         }
 
         // ---- WINDOW RESIZE HANDLER ----
-        window.addEventListener('resize', () => {
+        window.addEventListener('resize', function() {
           if (overlay.style.display === 'flex') {
             clampPosition();
             applyTransform(false);
@@ -2090,37 +2077,37 @@
 
       // ---- COPY LINK ----
       function copyItemLink() {
-        const url = `${location.origin}${location.pathname}#item/${currentItemId}`;
-        const btn = byId("btnCopyLink");
-        navigator.clipboard.writeText(url).then(() => {
+        var url = location.origin + location.pathname + '#item/' + currentItemId;
+        var btn = byId("btnCopyLink");
+        navigator.clipboard.writeText(url).then(function() {
           btn.textContent = "Copied!";
           btn.classList.add("copied");
-          setTimeout(() => { btn.textContent = "Copy Link"; btn.classList.remove("copied"); }, 1800);
-        }).catch(() => { window.prompt("Copy this link:", url); });
+          setTimeout(function() { btn.textContent = "Copy Link"; btn.classList.remove("copied"); }, 1800);
+        }).catch(function() { window.prompt("Copy this link:", url); });
       }
 
       // ---- ROUTING ----
       function handleRoute() {
-        const hash = location.hash;
+        var hash = location.hash;
         if (hash.startsWith("#item/")) {
-          document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-          document.querySelectorAll(".nav-link, .mobile-nav-link").forEach(l => l.classList.remove("active"));
+          document.querySelectorAll(".page").forEach(function(p) { p.classList.remove("active"); });
+          document.querySelectorAll(".nav-link, .mobile-nav-link").forEach(function(l) { l.classList.remove("active"); });
           byId("page-item").classList.add("active");
           renderItemPage(hash.slice(6));
           window.scrollTo(0, 0);
           return;
         }
-        if (["#catalogue", "#about", "#contact"].includes(hash)) { showPage(hash.slice(1)); return; }
+        if (["#catalogue", "#about", "#contact"].indexOf(hash) !== -1) { showPage(hash.slice(1)); return; }
         showPage("home");
       }
 
       function applyVersionStrategy() {
-        const ver = document.querySelector('meta[name="rph-version"]').content;
-        const key = "rph_app_version";
-        const prev = localStorage.getItem(key);
+        var ver = document.querySelector('meta[name="rph-version"]').content;
+        var key = "rph_app_version";
+        var prev = localStorage.getItem(key);
         localStorage.setItem(key, ver);
-        if (prev && prev !== ver && !location.search.includes(`v=${ver}`)) {
-          location.replace(`${location.pathname}?v=${encodeURIComponent(ver)}${location.hash}`);
+        if (prev && prev !== ver && location.search.indexOf("v=" + ver) === -1) {
+          location.replace(location.pathname + "?v=" + encodeURIComponent(ver) + location.hash);
           return true;
         }
         return false;
