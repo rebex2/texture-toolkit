@@ -304,23 +304,13 @@ button:disabled{
   <option value="Extremely Rare">
 </datalist>
 
-<label for="availability">Availability (Type to search)</label>
-<input list="availabilityOptions" id="availability" placeholder="Search or select availability...">
-<datalist id="availabilityOptions">
-  <option value="Pre-Order Bonus">
-  <option value="In Store Giveaway">
-  <option value="Sold on Rockstar Warehouse">
-  <option value="Sold in Physical Stores">
-  <option value="Sold in Select Stores">
-  <option value="Competition Prize">
-  <option value="Given to Fan Sites">
-  <option value="Given to The Media">
-  <option value="Given to Store Owners">
-  <option value="Given to Developers">
-  <option value="Rockstar Party Item">
-  <option value="Other">
-</datalist>
+<label for="availability">Publicly Available</label>
+<select id="availability">
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
 
+    
 <label for="image">Main Image Path / Filename</label>
 <div class="note">Subfolders supported, e.g. <code>images/gta4/chop.jpg</code> or <code>gta4/chop.jpg</code> (Leave blank if none).</div>
 <input id="image" placeholder="images/gta4/chop.jpg">
