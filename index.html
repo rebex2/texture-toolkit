@@ -1777,7 +1777,7 @@
           { key: "Year of Release", value: item.year, cls: "" },
           { key: "Category", value: item.category, cls: "gold" },
           { key: "Rarity", value: item.rarity, cls: "" },
-          { key: "Availability", value: "Available for purchase", cls: "availability-text" },
+          { key: "Availability", value: item.availability || "Not specified", cls: "availability-text" },
         ];
         var sidebarHTML = "";
         for (var k = 0; k < labels.length; k++) {
