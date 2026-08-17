@@ -30,9 +30,7 @@
         --font-heading: "Bebas Neue", sans-serif;
         --font-body: "Inter", sans-serif;
       }
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
@@ -100,8 +98,7 @@
         align-items: center;
         justify-content: center;
       }
-      .nav-link,
-      .mobile-nav-link {
+      .nav-link, .mobile-nav-link {
         border: 0;
         background: transparent;
         color: var(--muted);
@@ -128,8 +125,7 @@
         transform-origin: left;
         transition: transform 0.2s;
       }
-      .nav-link:hover,
-      .nav-link.active {
+      .nav-link:hover, .nav-link.active {
         color: var(--white);
       }
       .nav-link.active::after {
@@ -198,8 +194,7 @@
         font-size: 1.2rem;
         text-align: left;
       }
-      .mobile-nav-link.active,
-      .mobile-nav-link:hover {
+      .mobile-nav-link.active, .mobile-nav-link:hover {
         color: var(--white);
         background: rgba(255, 255, 255, 0.03);
         border-left-color: var(--gold);
@@ -216,20 +211,10 @@
         display: block;
       }
       @keyframes fade-in {
-        from {
-          opacity: 0;
-          transform: translateY(6px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
       }
-      .btn-primary,
-      .btn-secondary,
-      .btn-see-all,
-      .btn-back,
-      .btn-copy-link {
+      .btn-primary, .btn-secondary, .btn-see-all, .btn-back, .btn-copy-link {
         cursor: pointer;
         font-family: var(--font-heading);
         letter-spacing: 2px;
@@ -293,19 +278,14 @@
         animation: slow-spin 80s linear infinite;
       }
       @keyframes slow-spin {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
       }
       .home-hero-content {
         position: relative;
         z-index: 1;
       }
-      .home-eyebrow,
-      .about-eyebrow {
+      .home-eyebrow, .about-eyebrow {
         color: var(--gold);
         font-size: 0.68rem;
         font-weight: 600;
@@ -539,8 +519,7 @@
       .search-input::placeholder {
         color: var(--muted);
       }
-      .catalogue-grid,
-      .home-grid {
+      .catalogue-grid, .home-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 1.25rem;
@@ -558,14 +537,8 @@
         transition: transform 0.2s, border-color 0.2s;
       }
       @keyframes card-in {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
       @media (hover: hover) {
         .merch-card:hover {
@@ -601,12 +574,7 @@
         align-items: center;
         justify-content: center;
         gap: 0.55rem;
-        background: radial-gradient(
-            circle at 50% 35%,
-            rgba(201, 168, 76, 0.15),
-            transparent 42%
-          ),
-          #111111;
+        background: radial-gradient(circle at 50% 35%, rgba(201,168,76,0.15), transparent 42%), #111111;
         color: var(--gold);
         text-align: center;
         user-select: none;
@@ -723,8 +691,7 @@
       .about-hero-text h1 span {
         color: var(--gold);
       }
-      .about-hero-text p,
-      .about-section p {
+      .about-hero-text p, .about-section p {
         color: var(--muted);
         font-size: 0.88rem;
         line-height: 1.75;
@@ -928,7 +895,6 @@
         border-color: var(--accent);
       }
 
-      /* hero container — click to zoom */
       .item-hero {
         position: relative;
         width: 100%;
@@ -1011,11 +977,7 @@
       }
       .item-detail-main {
         padding: 1.75rem;
-        background: linear-gradient(
-          145deg,
-          rgba(34, 34, 34, 0.9),
-          rgba(13, 13, 13, 0.9)
-        );
+        background: linear-gradient(145deg, rgba(34,34,34,0.9), rgba(13,13,13,0.9));
         border: 1px solid var(--border);
       }
       .item-game-label {
@@ -1093,6 +1055,21 @@
         color: var(--black);
         font-size: 0.72rem;
         letter-spacing: 1px;
+      }
+      /* Availability text - more readable */
+      .item-label-value.availability-text {
+        color: var(--white);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 6px 14px;
+        border-radius: 2px;
+        border-left: 3px solid var(--gold);
+        display: inline-block;
+        width: 100%;
+        box-sizing: border-box;
       }
       .view-link {
         display: block;
@@ -1223,8 +1200,7 @@
           gap: 1rem;
           padding: 1rem;
         }
-        .filter-bar,
-        .search-wrap {
+        .filter-bar, .search-wrap {
           padding: 0.75rem 1rem;
         }
         .about-hero-inner {
@@ -1264,37 +1240,25 @@
       #zoomOverlay {
         animation: zoomFadeIn 0.3s ease-out;
       }
-
       @keyframes zoomFadeIn {
-        from {
-          opacity: 0;
-          transform: scale(0.95);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
       }
-
       #zoomImage {
         will-change: transform;
         transform-origin: center center;
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
       }
-
       #zoomContainer {
         cursor: grab;
         touch-action: none;
         user-select: none;
         -webkit-user-select: none;
       }
-
       #zoomContainer:active {
         cursor: grabbing;
       }
-
-      /* Style the range sliders */
       #zoomHorizontal::-webkit-slider-thumb,
       #zoomLevel::-webkit-slider-thumb {
         -webkit-appearance: none;
@@ -1307,12 +1271,10 @@
         border: 2px solid var(--white);
         transition: transform 0.15s;
       }
-
       #zoomHorizontal::-webkit-slider-thumb:hover,
       #zoomLevel::-webkit-slider-thumb:hover {
         transform: scale(1.15);
       }
-
       #zoomHorizontal::-moz-range-thumb,
       #zoomLevel::-moz-range-thumb {
         width: 18px;
@@ -1322,8 +1284,6 @@
         cursor: pointer;
         border: 2px solid var(--white);
       }
-
-      /* Vertical slider support */
       #zoomVertical {
         -webkit-appearance: slider-vertical;
         appearance: slider-vertical;
@@ -1333,7 +1293,6 @@
         border-radius: 4px;
         outline: none;
       }
-      
       #zoomVertical::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
@@ -1345,11 +1304,9 @@
         border: 2px solid var(--white);
         transition: transform 0.15s;
       }
-      
       #zoomVertical::-webkit-slider-thumb:hover {
         transform: scale(1.15);
       }
-      
       #zoomVertical::-moz-range-thumb {
         width: 18px;
         height: 18px;
@@ -1358,8 +1315,6 @@
         cursor: pointer;
         border: 2px solid var(--white);
       }
-      
-      /* Zoom overlay layout */
       #zoomOverlay .zoom-wrapper {
         display: flex;
         align-items: center;
@@ -1371,7 +1326,6 @@
         max-height: 70vh;
         position: relative;
       }
-      
       #zoomOverlay .zoom-image-container {
         flex: 1;
         height: 100%;
@@ -1381,7 +1335,6 @@
         border-radius: 4px;
         position: relative;
       }
-      
       #zoomOverlay .zoom-image-container img {
         width: 100%;
         height: 100%;
@@ -1392,7 +1345,6 @@
         user-select: none;
         -webkit-user-select: none;
       }
-      
       #zoomOverlay .vertical-slider-container {
         display: flex;
         flex-direction: column;
@@ -1402,7 +1354,6 @@
         padding: 0 12px;
         margin-left: 8px;
       }
-      
       #zoomOverlay .vertical-slider-container span {
         color: var(--muted);
         font-size: 0.7rem;
@@ -1410,7 +1361,6 @@
         text-transform: uppercase;
         margin-bottom: 8px;
       }
-      
       #zoomOverlay .horizontal-slider-container {
         width: 100%;
         max-width: 1200px;
@@ -1421,21 +1371,18 @@
         justify-content: center;
         gap: 12px;
       }
-      
       #zoomOverlay .horizontal-slider-container span {
         color: var(--muted);
         font-size: 0.7rem;
         letter-spacing: 1px;
         text-transform: uppercase;
       }
-      
       #zoomOverlay .zoom-level-container {
         display: flex;
         align-items: center;
         gap: 8px;
         padding: 0 12px;
       }
-      
       #zoomOverlay .zoom-level-container span {
         color: var(--gold);
         font-size: 0.8rem;
@@ -1443,7 +1390,6 @@
         text-align: center;
         font-family: var(--font-body);
       }
-      
       @media (max-width: 768px) {
         #zoomOverlay .zoom-wrapper {
           height: 50vh;
@@ -1625,26 +1571,21 @@
     <div id="zoomOverlay" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:9999; background:rgba(0,0,0,0.92); backdrop-filter:blur(8px); justify-content:center; align-items:center; flex-direction:column; padding:1.5rem;">
       <button id="closeZoom" style="position:absolute; top:20px; right:30px; background:transparent; border:none; color:white; font-size:2.5rem; cursor:pointer; font-family:var(--font-heading); z-index:10000; transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">✕</button>
       
-      <!-- Main layout: image + vertical slider -->
       <div class="zoom-wrapper">
-        <!-- Image container -->
         <div class="zoom-image-container" id="zoomContainer">
           <img id="zoomImage" src="" alt="Zoomed view" style="width:100%; height:100%; object-fit:contain; transform: translate3d(0px, 0px, 0px) scale(1); transform-origin: center center; will-change: transform; pointer-events:none; user-select:none; -webkit-user-select:none;">
         </div>
         
-        <!-- Vertical Slider - Right side of image -->
         <div class="vertical-slider-container">
           <span>↑↓</span>
           <input type="range" id="zoomVertical" min="-100" max="100" value="0" style="height:120px; width:6px; -webkit-appearance:slider-vertical; appearance:slider-vertical; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
         </div>
       </div>
       
-      <!-- Horizontal Slider - Below the image -->
       <div class="horizontal-slider-container">
         <span>← →</span>
         <input type="range" id="zoomHorizontal" min="-100" max="100" value="0" style="flex:1; height:6px; -webkit-appearance:none; appearance:none; background:var(--border); border-radius:3px; outline:none; cursor:pointer; max-width:800px;">
         
-        <!-- Zoom Level Control -->
         <div class="zoom-level-container">
           <span>🔍</span>
           <input type="range" id="zoomLevel" min="1" max="4" step="0.05" value="1.5" style="width:100px; height:6px; -webkit-appearance:none; appearance:none; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
@@ -1663,14 +1604,9 @@
       <p>© 2024–2026 <span>RockstarPromoHub.com</span> — Fan-made. Not affiliated with Rockstar Games.</p>
     </footer>
 
-  
     <script src="catalog.js"></script>
 
-
     <script>
-      /* ================================================================
-         SITE LOGIC (including zoom)
-         ================================================================ */
       var byId = function(id) { return document.getElementById(id); };
       var PLACEHOLDER_DESCRIPTION = "No description has been added yet.";
       var CATEGORY_EMOJI = { Hat: "🧢", Plushie: "🧸", "T-Shirt": "👕", Hoodie: "🥋", Poster: "🖼️", Collectible: "⭐", Keychain: "🔑", Sticker: "🏷️", Other: "📦" };
@@ -1730,7 +1666,6 @@
         return '<img src="' + escapeHTML(source) + '" alt="' + escapeHTML(altText) + '" loading="' + (eager ? "eager" : "lazy") + '" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden = true; this.nextElementSibling.hidden = false;" />\n          ' + placeholderImageMarkup(category, "Image coming soon", true);
       }
 
-      // ---- NAVIGATION ----
       function toggleMobileNav() {
         mobileNavOpen = !mobileNavOpen;
         byId("mobileNav").classList.toggle("open", mobileNavOpen);
@@ -1753,7 +1688,6 @@
         if (pageName !== "item") history.replaceState(null, "", location.pathname + (pageName === "home" ? "" : "#" + pageName));
       }
 
-      // ---- HOME ----
       function renderHome() {
         var items = getItems();
         var uniqueGames = new Set();
@@ -1770,7 +1704,6 @@
         return '<article class="merch-card">\n          <a class="card-image" href="#item/' + item.id + '" aria-label="View ' + escapeHTML(item.name) + '">\n            ' + imageMarkup(item.image, item.name, item.category) + '\n          </a>\n          <a class="card-body" href="#item/' + item.id + '">\n            <div class="card-game">' + escapeHTML(item.game) + '</div>\n            <div class="card-name">' + escapeHTML(item.name) + '</div>\n            <div class="card-description">' + escapeHTML(item.description || PLACEHOLDER_DESCRIPTION) + '</div>\n            <div class="card-footer"><span class="card-category">' + escapeHTML(item.category) + '</span></div>\n          </a>\n        </article>';
       }
 
-      // ---- CATALOGUE FILTERS ----
       function setTypeFilter(value, btn) {
         currentTypeFilter = value;
         document.querySelectorAll(".filter-bar:not(#gameFilterBar) .filter-pill").forEach(function(b) { b.classList.remove("active"); });
@@ -1822,7 +1755,6 @@
         byId("catalogue").innerHTML = filtered.map(cardHTML).join("");
       }
 
-      // ---- ITEM DETAIL with ZOOM ----
       function renderItemPage(itemId) {
         var items = getItems();
         var raw = null;
@@ -1839,12 +1771,13 @@
 
         wrap.innerHTML = '\n          <button class="btn-back" onclick="showPage(\'catalogue\')">← Back to Catalogue</button>\n          <div class="item-hero" id="itemPageHero">\n            <div class="zoom-wrapper" id="zoomWrapper">\n              ' + imageMarkup(allImages[0], item.name, item.category, true) + '\n            </div>\n          </div>\n          <div class="view-thumbs" id="itemPageThumbs" style="' + (allImages.length > 1 ? "" : "display:none") + '"></div>\n          <div class="item-detail-body">\n            <div class="item-detail-main">\n              <div class="item-game-label">' + escapeHTML(item.game) + '</div>\n              <h1 class="item-detail-name">' + escapeHTML(item.name) + '</h1>\n              <span class="item-detail-section-label">Description</span>\n              <p class="item-detail-description">' + escapeHTML(item.description || PLACEHOLDER_DESCRIPTION) + '</p>\n              <div class="item-detail-share">\n                <span class="item-detail-share-label">Share this item:</span>\n                <button class="btn-copy-link" id="btnCopyLink" onclick="copyItemLink()">Copy Link</button>\n              </div>\n            </div>\n            <aside class="item-detail-sidebar" id="itemPageSidebar"></aside>\n          </div>\n        ';
 
+        // Color scheme: white, gold, white, gold, white
         var labels = [
           { key: "Associated Game", value: item.game, cls: "gold" },
           { key: "Year of Release", value: item.year, cls: "" },
           { key: "Category", value: item.category, cls: "gold" },
           { key: "Rarity", value: item.rarity, cls: "" },
-          { key: "Availability", value: item.availability, cls: "pill" },
+          { key: "Availability", value: "Available for purchase", cls: "availability-text" },
         ];
         var sidebarHTML = "";
         for (var k = 0; k < labels.length; k++) {
@@ -2163,8 +2096,6 @@
         window.openZoom = openZoom;
       }
 
-
-      // ---- COPY LINK ----
       function copyItemLink() {
         var url = location.origin + location.pathname + '#item/' + currentItemId;
         var btn = byId("btnCopyLink");
@@ -2175,7 +2106,6 @@
         }).catch(function() { window.prompt("Copy this link:", url); });
       }
 
-      // ---- ROUTING ----
       function handleRoute() {
         var hash = location.hash;
         if (hash.indexOf("#item/") === 0) {
