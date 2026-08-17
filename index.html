@@ -1258,7 +1258,7 @@
         }
       }
 
-            /* ================================================================
+      /* ================================================================
          ZOOM OVERLAY STYLES
          ================================================================ */
       #zoomOverlay {
@@ -1357,6 +1357,119 @@
         background: var(--gold);
         cursor: pointer;
         border: 2px solid var(--white);
+      }
+      
+      /* Zoom overlay layout */
+      #zoomOverlay .zoom-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        width: 100%;
+        max-width: 1200px;
+        height: 70vh;
+        max-height: 70vh;
+        position: relative;
+      }
+      
+      #zoomOverlay .zoom-image-container {
+        flex: 1;
+        height: 100%;
+        overflow: hidden;
+        background: #0a0a0a;
+        border: 1px solid var(--gold);
+        border-radius: 4px;
+        position: relative;
+      }
+      
+      #zoomOverlay .zoom-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transform-origin: center center;
+        will-change: transform;
+        pointer-events: none;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      
+      #zoomOverlay .vertical-slider-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 0 12px;
+        margin-left: 8px;
+      }
+      
+      #zoomOverlay .vertical-slider-container span {
+        color: var(--muted);
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      
+      #zoomOverlay .horizontal-slider-container {
+        width: 100%;
+        max-width: 1200px;
+        padding: 12px 0 0 0;
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+      
+      #zoomOverlay .horizontal-slider-container span {
+        color: var(--muted);
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      
+      #zoomOverlay .zoom-level-container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 12px;
+      }
+      
+      #zoomOverlay .zoom-level-container span {
+        color: var(--gold);
+        font-size: 0.8rem;
+        min-width: 40px;
+        text-align: center;
+        font-family: var(--font-body);
+      }
+      
+      @media (max-width: 768px) {
+        #zoomOverlay .zoom-wrapper {
+          height: 50vh;
+          max-height: 50vh;
+          flex-direction: column;
+        }
+        #zoomOverlay .vertical-slider-container {
+          height: auto;
+          flex-direction: row;
+          padding: 8px 0;
+          margin-left: 0;
+        }
+        #zoomOverlay .vertical-slider-container span {
+          margin-bottom: 0;
+          margin-right: 8px;
+        }
+        #zoomVertical {
+          height: 40px;
+          width: 80px;
+          -webkit-appearance: slider-horizontal;
+          appearance: slider-horizontal;
+        }
+        #zoomOverlay .horizontal-slider-container {
+          flex-wrap: wrap;
+          padding: 8px 0;
+        }
       }
     </style>
   </head>
@@ -1509,34 +1622,33 @@
       </section>
     </main>
     <!-- ZOOM OVERLAY -->
-    <div id="zoomOverlay" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:9999; background:rgba(0,0,0,0.92); backdrop-filter:blur(8px); justify-content:center; align-items:center; flex-direction:column; padding:2rem;">
+    <div id="zoomOverlay" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:9999; background:rgba(0,0,0,0.92); backdrop-filter:blur(8px); justify-content:center; align-items:center; flex-direction:column; padding:1.5rem;">
       <button id="closeZoom" style="position:absolute; top:20px; right:30px; background:transparent; border:none; color:white; font-size:2.5rem; cursor:pointer; font-family:var(--font-heading); z-index:10000; transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">✕</button>
       
-      <!-- Image container with transform origin center -->
-      <div style="width:100%; max-width:1200px; max-height:70vh; overflow:hidden; position:relative; background:#0a0a0a; border:1px solid var(--gold); border-radius:4px; cursor:grab; touch-action:none;" id="zoomContainer">
-        <img id="zoomImage" src="" alt="Zoomed view" style="width:100%; height:100%; object-fit:contain; max-height:70vh; transform: translate3d(0px, 0px, 0px) scale(1); transform-origin: center center; will-change: transform; pointer-events:none; user-select:none; -webkit-user-select:none;">
+      <!-- Main layout: image + vertical slider -->
+      <div class="zoom-wrapper">
+        <!-- Image container -->
+        <div class="zoom-image-container" id="zoomContainer">
+          <img id="zoomImage" src="" alt="Zoomed view" style="width:100%; height:100%; object-fit:contain; transform: translate3d(0px, 0px, 0px) scale(1); transform-origin: center center; will-change: transform; pointer-events:none; user-select:none; -webkit-user-select:none;">
+        </div>
+        
+        <!-- Vertical Slider - Right side of image -->
+        <div class="vertical-slider-container">
+          <span>↑↓</span>
+          <input type="range" id="zoomVertical" min="-100" max="100" value="0" style="height:120px; width:6px; -webkit-appearance:slider-vertical; appearance:slider-vertical; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
+        </div>
       </div>
       
-      <!-- Controls -->
-      <div style="width:100%; max-width:1200px; margin-top:1.5rem; display:flex; gap:2rem; align-items:center; justify-content:center; padding:0 0.5rem; flex-wrap:wrap;">
+      <!-- Horizontal Slider - Below the image -->
+      <div class="horizontal-slider-container">
+        <span>← →</span>
+        <input type="range" id="zoomHorizontal" min="-100" max="100" value="0" style="flex:1; height:6px; -webkit-appearance:none; appearance:none; background:var(--border); border-radius:3px; outline:none; cursor:pointer; max-width:800px;">
         
-        <!-- Horizontal Slider -->
-        <div style="display:flex; align-items:center; gap:1rem; flex:1; min-width:150px;">
-          <span style="color:var(--muted); font-size:0.7rem; letter-spacing:1px; min-width:50px; text-transform:uppercase;">← →</span>
-          <input type="range" id="zoomHorizontal" min="-100" max="100" value="0" style="flex:1; height:6px; -webkit-appearance:none; appearance:none; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
-        </div>
-        
-        <!-- Zoom Level Slider -->
-        <div style="display:flex; align-items:center; gap:1rem; flex:1; min-width:150px;">
-          <span style="color:var(--muted); font-size:0.7rem; letter-spacing:1px; min-width:40px; text-transform:uppercase;">🔍</span>
-          <input type="range" id="zoomLevel" min="1" max="4" step="0.05" value="1.5" style="flex:1; height:6px; -webkit-appearance:none; appearance:none; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
+        <!-- Zoom Level Control -->
+        <div class="zoom-level-container">
+          <span>🔍</span>
+          <input type="range" id="zoomLevel" min="1" max="4" step="0.05" value="1.5" style="width:100px; height:6px; -webkit-appearance:none; appearance:none; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
           <span id="zoomLevelDisplay" style="color:var(--gold); font-size:0.8rem; min-width:40px; text-align:center; font-family:var(--font-body);">1.5×</span>
-        </div>
-        
-        <!-- Vertical Slider - RIGHT SIDE -->
-        <div style="display:flex; align-items:center; gap:0.5rem; height:120px;">
-          <span style="color:var(--muted); font-size:0.7rem; letter-spacing:1px; writing-mode:vertical-lr; text-orientation:mixed; min-width:20px; text-transform:uppercase;">↑ ↓</span>
-          <input type="range" id="zoomVertical" min="-100" max="100" value="0" style="height:120px; width:6px; -webkit-appearance:slider-vertical; appearance:slider-vertical; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
         </div>
       </div>
     </div>
@@ -1559,25 +1671,29 @@
       /* ================================================================
          SITE LOGIC (including zoom)
          ================================================================ */
-      const byId = (id) => document.getElementById(id);
-      const PLACEHOLDER_DESCRIPTION = "No description has been added yet.";
-      const CATEGORY_EMOJI = { Hat: "🧢", Plushie: "🧸", "T-Shirt": "👕", Hoodie: "🥋", Poster: "🖼️", Collectible: "⭐", Keychain: "🔑", Sticker: "🏷️", Other: "📦" };
+      var byId = function(id) { return document.getElementById(id); };
+      var PLACEHOLDER_DESCRIPTION = "No description has been added yet.";
+      var CATEGORY_EMOJI = { Hat: "🧢", Plushie: "🧸", "T-Shirt": "👕", Hoodie: "🥋", Poster: "🖼️", Collectible: "⭐", Keychain: "🔑", Sticker: "🏷️", Other: "📦" };
 
-      let mobileNavOpen = false;
-      let currentTypeFilter = "all";
-      let currentGameFilter = "all";
-      let currentItemId = null;
+      var mobileNavOpen = false;
+      var currentTypeFilter = "all";
+      var currentGameFilter = "all";
+      var currentItemId = null;
     
       function slugify(text) {
         return String(text).toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") || "item";
       }
       function escapeHTML(value) {
-        return String(value ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+        return String(value ?? "").replace(/[&<>"']/g, function(c) {
+          return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c];
+        });
       }
       function safeExternalUrl(value) {
-        try { const url = new URL(value); return ["http:", "https:"].includes(url.protocol) ? url.href : ""; } catch { return ""; }
+        try { var url = new URL(value); return ["http:", "https:"].includes(url.protocol) ? url.href : ""; } catch(e) { return ""; }
       }
-      function normaliseItem(item = {}, fallbackId = "") {
+      function normaliseItem(item, fallbackId) {
+        if (item === undefined) item = {};
+        if (fallbackId === undefined) fallbackId = "";
         return {
           id: String(item.id || fallbackId || "item"),
           name: item.name || "Untitled catalogue item",
@@ -1593,26 +1709,25 @@
         };
       }
       function getItems() {
-        const usedIds = {};
-        return ITEMS.map((raw) => {
-          let id = slugify(raw.name + "-" + raw.game);
+        var usedIds = {};
+        return ITEMS.map(function(raw) {
+          var id = slugify(raw.name + "-" + raw.game);
           usedIds[id] = (usedIds[id] || 0) + 1;
           if (usedIds[id] > 1) id = id + "-" + usedIds[id];
           return normaliseItem(raw, id);
         });
       }
 
-      function placeholderImageMarkup(category, label = "Image coming soon", hidden = false) {
-        return `<div class="image-placeholder" ${hidden ? "hidden" : ""}>
-          <span class="placeholder-icon">${CATEGORY_EMOJI[category] || "★"}</span>
-          <span class="placeholder-label">${label}</span>
-        </div>`;
+      function placeholderImageMarkup(category, label, hidden) {
+        if (label === undefined) label = "Image coming soon";
+        if (hidden === undefined) hidden = false;
+        return '<div class="image-placeholder"' + (hidden ? ' hidden' : '') + '>\n          <span class="placeholder-icon">' + (CATEGORY_EMOJI[category] || "★") + '</span>\n          <span class="placeholder-label">' + label + '</span>\n        </div>';
       }
 
-      function imageMarkup(source, altText, category, eager = false) {
+      function imageMarkup(source, altText, category, eager) {
+        if (eager === undefined) eager = false;
         if (!source) return placeholderImageMarkup(category);
-        return `<img src="${escapeHTML(source)}" alt="${escapeHTML(altText)}" loading="${eager ? "eager" : "lazy"}" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden = true; this.nextElementSibling.hidden = false;" />
-          ${placeholderImageMarkup(category, "Image coming soon", true)}`;
+        return '<img src="' + escapeHTML(source) + '" alt="' + escapeHTML(altText) + '" loading="' + (eager ? "eager" : "lazy") + '" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden = true; this.nextElementSibling.hidden = false;" />\n          ' + placeholderImageMarkup(category, "Image coming soon", true);
       }
 
       // ---- NAVIGATION ----
@@ -1624,10 +1739,14 @@
       }
       function goToMobilePage(pageName) { showPage(pageName); if (mobileNavOpen) toggleMobileNav(); }
       function showPage(pageName) {
-        document.querySelectorAll(".page").forEach(p => p.classList.toggle("active", p.id === "page-" + pageName));
-        document.querySelectorAll(".nav-link, .mobile-nav-link").forEach(l => l.classList.remove("active"));
-        byId("nav-" + pageName)?.classList.add("active");
-        byId("mnav-" + pageName)?.classList.add("active");
+        document.querySelectorAll(".page").forEach(function(p) {
+          p.classList.toggle("active", p.id === "page-" + pageName);
+        });
+        document.querySelectorAll(".nav-link, .mobile-nav-link").forEach(function(l) { l.classList.remove("active"); });
+        var navLink = byId("nav-" + pageName);
+        if (navLink) navLink.classList.add("active");
+        var mNavLink = byId("mnav-" + pageName);
+        if (mNavLink) mNavLink.classList.add("active");
         window.scrollTo(0, 0);
         if (pageName === "catalogue") renderCatalogue();
         if (pageName === "home") renderHome();
@@ -1636,9 +1755,10 @@
 
       // ---- HOME ----
       function renderHome() {
-        const items = getItems();
-        const uniqueGames = new Set(items.map(i => i.game));
-        const latest = [...items].reverse().slice(0, 4);
+        var items = getItems();
+        var uniqueGames = new Set();
+        items.forEach(function(i) { uniqueGames.add(i.game); });
+        var latest = items.slice().reverse().slice(0, 4);
         byId("homeStatItems").textContent = items.length;
         byId("homeStatGames").textContent = uniqueGames.size;
         byId("itemCount").textContent = items.length + " item" + (items.length === 1 ? "" : "s");
@@ -1646,58 +1766,54 @@
       }
 
       function cardHTML(rawItem) {
-        const item = normaliseItem(rawItem);
-        return `<article class="merch-card">
-          <a class="card-image" href="#item/${item.id}" aria-label="View ${escapeHTML(item.name)}">
-            ${imageMarkup(item.image, item.name, item.category)}
-          </a>
-          <a class="card-body" href="#item/${item.id}">
-            <div class="card-game">${escapeHTML(item.game)}</div>
-            <div class="card-name">${escapeHTML(item.name)}</div>
-            <div class="card-description">${escapeHTML(item.description || PLACEHOLDER_DESCRIPTION)}</div>
-            <div class="card-footer"><span class="card-category">${escapeHTML(item.category)}</span></div>
-          </a>
-        </article>`;
+        var item = normaliseItem(rawItem);
+        return '<article class="merch-card">\n          <a class="card-image" href="#item/' + item.id + '" aria-label="View ' + escapeHTML(item.name) + '">\n            ' + imageMarkup(item.image, item.name, item.category) + '\n          </a>\n          <a class="card-body" href="#item/' + item.id + '">\n            <div class="card-game">' + escapeHTML(item.game) + '</div>\n            <div class="card-name">' + escapeHTML(item.name) + '</div>\n            <div class="card-description">' + escapeHTML(item.description || PLACEHOLDER_DESCRIPTION) + '</div>\n            <div class="card-footer"><span class="card-category">' + escapeHTML(item.category) + '</span></div>\n          </a>\n        </article>';
       }
 
       // ---- CATALOGUE FILTERS ----
       function setTypeFilter(value, btn) {
         currentTypeFilter = value;
-        document.querySelectorAll(".filter-bar:not(#gameFilterBar) .filter-pill").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".filter-bar:not(#gameFilterBar) .filter-pill").forEach(function(b) { b.classList.remove("active"); });
         btn.classList.add("active");
         renderCatalogue();
       }
       function setGameFilter(value, btn) {
         currentGameFilter = value;
-        document.querySelectorAll("#gameFilterBar .filter-pill").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll("#gameFilterBar .filter-pill").forEach(function(b) { b.classList.remove("active"); });
         btn.classList.add("active");
         renderCatalogue();
       }
       function populateGameFilters(items) {
-        const bar = byId("gameFilterBar");
-        const games = [...new Set(items.map(i => i.game).filter(Boolean))].sort((a, b) => a.localeCompare(b));
-        if (!games.includes(currentGameFilter)) currentGameFilter = "all";
-        bar.querySelectorAll('[data-generated-game-filter="true"]').forEach(b => b.remove());
-        games.forEach(game => {
-          const btn = document.createElement("button");
+        var bar = byId("gameFilterBar");
+        var games = [];
+        var seen = {};
+        items.forEach(function(i) {
+          if (i.game && !seen[i.game]) { seen[i.game] = true; games.push(i.game); }
+        });
+        games.sort(function(a, b) { return a.localeCompare(b); });
+        if (games.indexOf(currentGameFilter) === -1) currentGameFilter = "all";
+        bar.querySelectorAll('[data-generated-game-filter="true"]').forEach(function(b) { b.remove(); });
+        games.forEach(function(game) {
+          var btn = document.createElement("button");
           btn.className = "filter-pill" + (currentGameFilter === game ? " active" : "");
           btn.dataset.generatedGameFilter = "true";
           btn.textContent = game;
           btn.onclick = function() { setGameFilter(game, btn); };
           bar.appendChild(btn);
         });
-        bar.querySelector(".filter-pill")?.classList.toggle("active", currentGameFilter === "all");
+        var firstPill = bar.querySelector(".filter-pill");
+        if (firstPill) firstPill.classList.toggle("active", currentGameFilter === "all");
       }
       function renderCatalogue() {
-        const items = getItems();
-        const term = byId("searchInput").value.toLowerCase().trim();
+        var items = getItems();
+        var term = byId("searchInput").value.toLowerCase().trim();
         populateGameFilters(items);
         byId("itemCount").textContent = items.length + " item" + (items.length === 1 ? "" : "s");
-        const filtered = items.filter(function(item) {
+        var filtered = items.filter(function(item) {
           var matchType = currentTypeFilter === "all" || item.category === currentTypeFilter;
           var matchGame = currentGameFilter === "all" || item.game === currentGameFilter;
           var searchText = [item.name, item.game, item.category, item.description].join(" ").toLowerCase();
-          return matchType && matchGame && (!term || searchText.includes(term));
+          return matchType && matchGame && (!term || searchText.indexOf(term) !== -1);
         });
         if (filtered.length === 0) {
           byId("catalogue").innerHTML = '<div class="empty-state"><span class="big-star">★</span><h3>No Items Found</h3><p>Try a different filter or search term.</p></div>';
@@ -1709,34 +1825,19 @@
       // ---- ITEM DETAIL with ZOOM ----
       function renderItemPage(itemId) {
         var items = getItems();
-        var raw = items.find(function(i) { return i.id === itemId; });
+        var raw = null;
+        for (var i = 0; i < items.length; i++) {
+          if (items[i].id === itemId) { raw = items[i]; break; }
+        }
         var item = normaliseItem(raw, itemId);
-        var allImages = [item.image].concat(item.extraImages).filter(Boolean);
+        var allImages = [item.image];
+        for (var j = 0; j < item.extraImages.length; j++) {
+          if (item.extraImages[j]) allImages.push(item.extraImages[j]);
+        }
         var wrap = document.querySelector(".item-detail-wrap");
         currentItemId = item.id;
 
-        wrap.innerHTML = `
-          <button class="btn-back" onclick="showPage('catalogue')">← Back to Catalogue</button>
-          <div class="item-hero" id="itemPageHero">
-            <div class="zoom-wrapper" id="zoomWrapper">
-              ${imageMarkup(allImages[0], item.name, item.category, true)}
-            </div>
-          </div>
-          <div class="view-thumbs" id="itemPageThumbs" style="${allImages.length > 1 ? "" : "display:none"}"></div>
-          <div class="item-detail-body">
-            <div class="item-detail-main">
-              <div class="item-game-label">${escapeHTML(item.game)}</div>
-              <h1 class="item-detail-name">${escapeHTML(item.name)}</h1>
-              <span class="item-detail-section-label">Description</span>
-              <p class="item-detail-description">${escapeHTML(item.description || PLACEHOLDER_DESCRIPTION)}</p>
-              <div class="item-detail-share">
-                <span class="item-detail-share-label">Share this item:</span>
-                <button class="btn-copy-link" id="btnCopyLink" onclick="copyItemLink()">Copy Link</button>
-              </div>
-            </div>
-            <aside class="item-detail-sidebar" id="itemPageSidebar"></aside>
-          </div>
-        `;
+        wrap.innerHTML = '\n          <button class="btn-back" onclick="showPage(\'catalogue\')">← Back to Catalogue</button>\n          <div class="item-hero" id="itemPageHero">\n            <div class="zoom-wrapper" id="zoomWrapper">\n              ' + imageMarkup(allImages[0], item.name, item.category, true) + '\n            </div>\n          </div>\n          <div class="view-thumbs" id="itemPageThumbs" style="' + (allImages.length > 1 ? "" : "display:none") + '"></div>\n          <div class="item-detail-body">\n            <div class="item-detail-main">\n              <div class="item-game-label">' + escapeHTML(item.game) + '</div>\n              <h1 class="item-detail-name">' + escapeHTML(item.name) + '</h1>\n              <span class="item-detail-section-label">Description</span>\n              <p class="item-detail-description">' + escapeHTML(item.description || PLACEHOLDER_DESCRIPTION) + '</p>\n              <div class="item-detail-share">\n                <span class="item-detail-share-label">Share this item:</span>\n                <button class="btn-copy-link" id="btnCopyLink" onclick="copyItemLink()">Copy Link</button>\n              </div>\n            </div>\n            <aside class="item-detail-sidebar" id="itemPageSidebar"></aside>\n          </div>\n        ';
 
         var labels = [
           { key: "Associated Game", value: item.game, cls: "gold" },
@@ -1745,9 +1846,11 @@
           { key: "Rarity", value: item.rarity, cls: "" },
           { key: "Availability", value: item.availability, cls: "pill" },
         ];
-        byId("itemPageSidebar").innerHTML = labels.map(function(l) {
-          return '<div class="item-label-block"><span class="item-label-key">' + l.key + '</span><div class="item-label-value ' + l.cls + '">' + escapeHTML(l.value) + '</div></div>';
-        }).join("");
+        var sidebarHTML = "";
+        for (var k = 0; k < labels.length; k++) {
+          sidebarHTML += '<div class="item-label-block"><span class="item-label-key">' + labels[k].key + '</span><div class="item-label-value ' + labels[k].cls + '">' + escapeHTML(labels[k].value) + '</div></div>';
+        }
+        byId("itemPageSidebar").innerHTML = sidebarHTML;
         addSourceLink(item);
         setupThumbnails(item, allImages);
         setupZoom(item, allImages);
@@ -1774,9 +1877,11 @@
         if (allImages.length <= 1) return;
         var thumbs = byId("itemPageThumbs");
         var hero = byId("itemPageHero");
-        thumbs.innerHTML = allImages.map(function(src, i) {
-          return '<button class="view-thumb ' + (i===0?"active":"") + '" data-source="' + escapeHTML(src) + '" aria-label="Show image ' + (i+1) + '">\n            <img src="' + escapeHTML(src) + '" alt="' + escapeHTML(item.name) + ' thumbnail ' + (i+1) + '" loading="lazy" decoding="async" referrerpolicy="no-referrer" />\n          </button>';
-        }).join("");
+        var html = "";
+        for (var i = 0; i < allImages.length; i++) {
+          html += '<button class="view-thumb ' + (i===0?"active":"") + '" data-source="' + escapeHTML(allImages[i]) + '" aria-label="Show image ' + (i+1) + '">\n            <img src="' + escapeHTML(allImages[i]) + '" alt="' + escapeHTML(item.name) + ' thumbnail ' + (i+1) + '" loading="lazy" decoding="async" referrerpolicy="no-referrer" />\n          </button>';
+        }
+        thumbs.innerHTML = html;
         thumbs.querySelectorAll(".view-thumb").forEach(function(btn) {
           btn.addEventListener("click", function() {
             thumbs.querySelectorAll(".view-thumb").forEach(function(b) { b.classList.remove("active"); });
@@ -1800,7 +1905,6 @@
         
         var currentImage = allImages[0] || item.image;
         
-        // Transform state using translate3d and scale
         var state = {
           scale: 1.5,
           translateX: 0,
@@ -1809,20 +1913,17 @@
           maxScale: 4
         };
         
-        // Drag state
         var isDragging = false;
         var dragStartX = 0;
         var dragStartY = 0;
         var dragStartTranslateX = 0;
         var dragStartTranslateY = 0;
 
-        // Click on hero to open zoom
         hero.addEventListener("click", function(e) {
           if (e.target.closest(".view-thumb") || e.target.closest(".view-link") || e.target.closest(".btn-back")) return;
           openZoom(currentImage);
         });
 
-        // Update zoom image when thumbnails change
         var observer = new MutationObserver(function() {
           var img = hero.querySelector("img");
           if (img && img.src) {
@@ -1831,7 +1932,6 @@
         });
         observer.observe(hero, { childList: true, subtree: true });
 
-        // ---- BOUNDS CALCULATION ----
         function getBounds() {
           var containerRect = container.getBoundingClientRect();
           var imgRect = zoomImg.getBoundingClientRect();
@@ -1846,7 +1946,6 @@
           return { maxX: maxX, maxY: maxY };
         }
 
-        // ---- APPLY TRANSFORM ----
         function applyTransform(animate) {
           if (animate === undefined) animate = false;
           var scale = state.scale;
@@ -1870,14 +1969,19 @@
           zoomDisplay.textContent = scale.toFixed(1) + '×';
         }
 
-        // ---- CLAMP POSITION ----
         function clampPosition() {
           var bounds = getBounds();
           state.translateX = Math.max(-bounds.maxX, Math.min(bounds.maxX, state.translateX));
           state.translateY = Math.max(-bounds.maxY, Math.min(bounds.maxY, state.translateY));
         }
 
-        // ---- DRAG EVENTS ----
+        function getEventPos(e) {
+          if (e.touches) {
+            return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+          }
+          return { x: e.clientX, y: e.clientY };
+        }
+
         function onDragStart(e) {
           if (state.scale <= 1) return;
           isDragging = true;
@@ -1911,19 +2015,10 @@
           }
         }
 
-        function getEventPos(e) {
-          if (e.touches) {
-            return { x: e.touches[0].clientX, y: e.touches[0].clientY };
-          }
-          return { x: e.clientX, y: e.clientY };
-        }
-
-        // ---- MOUSE EVENTS ----
         container.addEventListener('mousedown', onDragStart);
         document.addEventListener('mousemove', onDragMove);
         document.addEventListener('mouseup', onDragEnd);
 
-        // ---- TOUCH EVENTS ----
         var lastTouchDist = 0;
         var touchStartScale = 1;
 
@@ -1959,7 +2054,6 @@
           onDragEnd(e);
         }, { passive: false });
 
-        // ---- MOUSE WHEEL ZOOM ----
         container.addEventListener('wheel', function(e) {
           e.preventDefault();
           var delta = e.deltaY > 0 ? -0.1 : 0.1;
@@ -1971,7 +2065,6 @@
           applyTransform(true);
         }, { passive: false });
 
-        // ---- DOUBLE CLICK TO TOGGLE ----
         container.addEventListener('dblclick', function(e) {
           e.preventDefault();
           if (state.scale > 1.5) {
@@ -1993,7 +2086,6 @@
           applyTransform(true);
         });
 
-        // ---- SLIDER CONTROLS ----
         function updateFromSliders() {
           var scale = parseFloat(zSlider.value);
           state.scale = scale;
@@ -2025,7 +2117,6 @@
           applyTransform(true);
         });
 
-        // ---- CLOSE ZOOM ----
         function closeZoom() {
           overlay.style.display = "none";
           document.body.style.overflow = "auto";
@@ -2047,7 +2138,6 @@
           if (e.key === "Escape") closeZoom();
         });
 
-        // ---- OPEN ZOOM ----
         function openZoom(imageSrc) {
           if (!imageSrc) return;
           zoomImg.src = imageSrc;
@@ -2063,7 +2153,6 @@
           container.style.cursor = 'grab';
         }
 
-        // ---- WINDOW RESIZE HANDLER ----
         window.addEventListener('resize', function() {
           if (overlay.style.display === 'flex') {
             clampPosition();
@@ -2089,7 +2178,7 @@
       // ---- ROUTING ----
       function handleRoute() {
         var hash = location.hash;
-        if (hash.startsWith("#item/")) {
+        if (hash.indexOf("#item/") === 0) {
           document.querySelectorAll(".page").forEach(function(p) { p.classList.remove("active"); });
           document.querySelectorAll(".nav-link, .mobile-nav-link").forEach(function(l) { l.classList.remove("active"); });
           byId("page-item").classList.add("active");
@@ -2097,7 +2186,10 @@
           window.scrollTo(0, 0);
           return;
         }
-        if (["#catalogue", "#about", "#contact"].indexOf(hash) !== -1) { showPage(hash.slice(1)); return; }
+        if (hash === "#catalogue" || hash === "#about" || hash === "#contact") { 
+          showPage(hash.slice(1)); 
+          return; 
+        }
         showPage("home");
       }
 
