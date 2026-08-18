@@ -1,33 +1,28 @@
-```js
 const ITEMS = [
   {
     name: "Chop Plush & Bullet Whistle Set",
     game: "GTA V",
     category: "Hat",
-    description:
-      "Announced and released into the Rockstar Warehouse on 5th December 2013. Also given away in many Social Club contests.\n\n A soft plush version of Chop with a removable leather collar and tag plus a secret stash pocket with a silver effect bullet whistle etched with GTA V text and logo. The plush is approximately 15cm high and 25cm long. \n\n\ Rarer to find in its original open-fronted retail box and many are missing the whistle (which was also sold separately). The leash and collar were also sold separately as a set.",
+    description: "Announced and released into the Rockstar Warehouse on 5th December 2013. Also given away in many Social Club contests.\n\n A soft plush version of Chop with a removable leather collar and tag plus a secret stash pocket with a silver effect bullet whistle etched with GTA V text and logo. The plush is approximately 15cm high and 25cm long. \n\nRarer to find in its original open-fronted retail box and many are missing the whistle (which was also sold separately). The leash and collar were also sold separately as a set.",
     year: "2013",
     rarity: "Rare",
     availability: "Available for purchase - Yes",
     image: "images/chop.jpg",
     extraImages: [],
-    link: "",
+    link: ""
   },
-
   {
     name: "Pißwasser Beer Bottle",
     game: "Grand Theft Auto IV (2008)",
     category: "Mugs and Drinkware",
-    description:
-      "For the launch of Grand Theft Auto IV in 2008, Rockstar Games produced a real-world version of the fictional Pißwasser beer featured throughout the game.\n\nThe bottles were promotional merchandise rather than a standard retail product. They were distributed to people connected with the game's launch, including Rockstar staff, members of the press, media outlets, game testers and selected fansites. Individual bottles have since become highly sought-after collectibles.\n\nPerhaps the most interesting detail is that the bottles were not simply produced individually. 24-bottle crates of Pißwasser existed, with documented examples being distributed as promotional gifts. One particularly notable shipment reportedly consisted of six crates sent to UK gaming publication Computer and Video Games (CVG) as part of Rockstar's GTA IV promotional campaign.\n\nThe bottles were genuine physical beer bottles produced specifically for the promotion, complete with Pißwasser branding based on the fictional brewery from GTA IV. They were not included with the GTA IV Collector's Edition, despite occasional claims to the contrary.\n\nToday, surviving bottles and especially complete unopened crates are extremely rare, making the Pißwasser bottle one of the more unusual pieces of official Grand Theft Auto promotional merchandise from the GTA IV era.",
+    description: "For the launch of Grand Theft Auto IV in 2008, Rockstar Games produced a real-world version of the fictional Pißwasser beer featured throughout the game.\n\nThe bottles were promotional merchandise rather than a standard retail product. They were distributed to people connected with the game's launch, including Rockstar staff, members of the press, media outlets, game testers and selected fansites. Individual bottles have since become highly sought-after collectibles.\n\nPerhaps the most interesting detail is that the bottles were not simply produced individually. 24-bottle crates of Pißwasser existed, with documented examples being distributed as promotional gifts. One particularly notable shipment reportedly consisted of six crates sent to UK gaming publication Computer and Video Games (CVG) as part of Rockstar's GTA IV promotional campaign.\n\nThe bottles were genuine physical beer bottles produced specifically for the promotion, complete with Pißwasser branding based on the fictional brewery from GTA IV. They were not included with the GTA IV Collector's Edition, despite occasional claims to the contrary.\n\nToday, surviving bottles and especially complete unopened crates are extremely rare, making the Pißwasser bottle one of the more unusual pieces of official Grand Theft Auto promotional merchandise from the GTA IV era.",
     year: "2008",
     rarity: "Very Rare",
     availability: "Available for purchase - No",
     image: "images/pisswasser.jpg",
     extraImages: ["images/crate.jpg"],
-    link: "",
+    link: ""
   },
-
   {
     name: "Flex Handcuffs",
     game: "Grand Theft Auto IV (2008)",
@@ -38,9 +33,8 @@ const ITEMS = [
     availability: "Available for purchase - Yes",
     image: "images/fc1.jpg",
     extraImages: ["/images/fc2.jpg", "/images/fc3.jpg", "/images/fc4.jpg", "/images/fc5.jpg"],
-    link: "",
+    link: ""
   },
-
   {
     name: "Gift Wrap / Wrapping Paper",
     game: "Grand Theft Auto: San Andreas (2004)",
@@ -51,7 +45,6 @@ const ITEMS = [
     availability: "Available for purchase - Yes",
     image: "/images/GTA-SA-wrappingpaper1.jpg",
     extraImages: ["/images/GTA-SA-wrappingpaper2.jpg", "/images/GTA-SA-wrappingpaper3.jpg", "/images/GTA-SA-wrappingpaper4.jpg"],
-    link: "",
-  },
+    link: ""
+  }
 ];
-```
