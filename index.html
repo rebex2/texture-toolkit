@@ -3,19 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- RPH Version -->
     <meta name="rph-version" content="2026.07.25.3" />
     <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
     <title>R★ Games Promo Hub — Official Merch Catalogue</title>
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <style>
-      /* ================================================================
-         GLOBAL & VARIABLES
-         ================================================================ */
       :root {
         --black: #0d0d0d;
         --charcoal: #1a1a1a;
@@ -30,26 +22,11 @@
         --font-heading: "Bebas Neue", sans-serif;
         --font-body: "Inter", sans-serif;
       }
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        min-height: 100vh;
-        background: var(--black);
-        color: var(--white);
-        font-family: var(--font-body);
-      }
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-      /* ================================================================
-         HEADER & NAV
-         ================================================================ */
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body { min-height: 100vh; background: var(--black); color: var(--white); font-family: var(--font-body); }
+      a { color: inherit; text-decoration: none; }
+      
+      /* HEADER */
       header {
         position: sticky;
         top: 0;
@@ -76,9 +53,7 @@
         letter-spacing: 3px;
         line-height: 1;
       }
-      .logo-star {
-        color: var(--gold);
-      }
+      .logo-star { color: var(--gold); }
       .logo-divider {
         align-self: center;
         width: 1px;
@@ -100,8 +75,7 @@
         align-items: center;
         justify-content: center;
       }
-      .nav-link,
-      .mobile-nav-link {
+      .nav-link, .mobile-nav-link {
         border: 0;
         background: transparent;
         color: var(--muted);
@@ -128,13 +102,8 @@
         transform-origin: left;
         transition: transform 0.2s;
       }
-      .nav-link:hover,
-      .nav-link.active {
-        color: var(--white);
-      }
-      .nav-link.active::after {
-        transform: scaleX(1);
-      }
+      .nav-link:hover, .nav-link.active { color: var(--white); }
+      .nav-link.active::after { transform: scaleX(1); }
       .header-right {
         display: flex;
         flex-shrink: 0;
@@ -166,16 +135,9 @@
         background: var(--white);
         transition: all 0.25s;
       }
-      .hamburger.open span:first-child {
-        transform: translateY(7px) rotate(45deg);
-      }
-      .hamburger.open span:nth-child(2) {
-        opacity: 0;
-        transform: scaleX(0);
-      }
-      .hamburger.open span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
-      }
+      .hamburger.open span:first-child { transform: translateY(7px) rotate(45deg); }
+      .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
       .mobile-nav {
         position: fixed;
         top: 64px;
@@ -188,9 +150,7 @@
         background: var(--charcoal);
         border-bottom: 1px solid var(--border);
       }
-      .mobile-nav.open {
-        display: flex;
-      }
+      .mobile-nav.open { display: flex; }
       .mobile-nav-link {
         width: 100%;
         padding: 14px 2rem;
@@ -198,38 +158,20 @@
         font-size: 1.2rem;
         text-align: left;
       }
-      .mobile-nav-link.active,
-      .mobile-nav-link:hover {
+      .mobile-nav-link.active, .mobile-nav-link:hover {
         color: var(--white);
         background: rgba(255, 255, 255, 0.03);
         border-left-color: var(--gold);
       }
 
-      /* ================================================================
-         PAGES & BUTTONS
-         ================================================================ */
-      .page {
-        display: none;
-        animation: fade-in 0.25s ease-out;
-      }
-      .page.active {
-        display: block;
-      }
+      /* PAGES */
+      .page { display: none; animation: fade-in 0.25s ease-out; }
+      .page.active { display: block; }
       @keyframes fade-in {
-        from {
-          opacity: 0;
-          transform: translateY(6px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
       }
-      .btn-primary,
-      .btn-secondary,
-      .btn-see-all,
-      .btn-back,
-      .btn-copy-link {
+      .btn-primary, .btn-secondary, .btn-see-all, .btn-back, .btn-copy-link {
         cursor: pointer;
         font-family: var(--font-heading);
         letter-spacing: 2px;
@@ -244,10 +186,7 @@
         letter-spacing: 3px;
         transition: opacity 0.2s, transform 0.2s;
       }
-      .btn-primary:hover {
-        opacity: 0.85;
-        transform: translateY(-2px);
-      }
+      .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
       .btn-secondary {
         padding: 12px 32px;
         border: 1px solid var(--border);
@@ -258,13 +197,9 @@
         letter-spacing: 3px;
         transition: border-color 0.2s;
       }
-      .btn-secondary:hover {
-        border-color: var(--white);
-      }
+      .btn-secondary:hover { border-color: var(--white); }
 
-      /* ================================================================
-         HOME PAGE
-         ================================================================ */
+      /* HOME */
       .home-hero {
         position: relative;
         display: flex;
@@ -293,28 +228,18 @@
         animation: slow-spin 80s linear infinite;
       }
       @keyframes slow-spin {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
       }
-      .home-hero-content {
-        position: relative;
-        z-index: 1;
-      }
-      .home-eyebrow,
-      .about-eyebrow {
+      .home-hero-content { position: relative; z-index: 1; }
+      .home-eyebrow, .about-eyebrow {
         color: var(--gold);
         font-size: 0.68rem;
         font-weight: 600;
         letter-spacing: 4px;
         text-transform: uppercase;
       }
-      .home-eyebrow {
-        margin-bottom: 1.25rem;
-      }
+      .home-eyebrow { margin-bottom: 1.25rem; }
       .home-title {
         margin-bottom: 0.5rem;
         color: var(--white);
@@ -323,13 +248,8 @@
         letter-spacing: 6px;
         line-height: 0.9;
       }
-      .home-title .brand-star {
-        color: var(--gold);
-      }
-      .home-title em {
-        color: var(--gold);
-        font-style: normal;
-      }
+      .home-title .brand-star { color: var(--gold); }
+      .home-title em { color: var(--gold); font-style: normal; }
       .home-hero-description {
         max-width: 520px;
         margin: 1.5rem auto 2.5rem;
@@ -353,9 +273,7 @@
         border-right: 1px solid var(--border);
         text-align: center;
       }
-      .stat-block:last-child {
-        border-right: 0;
-      }
+      .stat-block:last-child { border-right: 0; }
       .stat-number {
         display: block;
         color: var(--gold);
@@ -381,14 +299,8 @@
         padding: 2.5rem 2rem;
         border-right: 1px solid var(--border);
       }
-      .feature-block:last-child {
-        border-right: 0;
-      }
-      .feature-icon {
-        display: block;
-        margin-bottom: 1rem;
-        font-size: 2rem;
-      }
+      .feature-block:last-child { border-right: 0; }
+      .feature-icon { display: block; margin-bottom: 1rem; font-size: 2rem; }
       .feature-block h3 {
         margin-bottom: 0.5rem;
         color: var(--white);
@@ -418,9 +330,7 @@
         font-size: 1.8rem;
         letter-spacing: 3px;
       }
-      .section-header h2 span {
-        color: var(--gold);
-      }
+      .section-header h2 span { color: var(--gold); }
       .btn-see-all {
         padding: 5px 14px;
         border: 1px solid var(--border);
@@ -431,14 +341,9 @@
         white-space: nowrap;
         transition: all 0.15s;
       }
-      .btn-see-all:hover {
-        color: var(--accent);
-        border-color: var(--accent);
-      }
+      .btn-see-all:hover { color: var(--accent); border-color: var(--accent); }
 
-      /* ================================================================
-         CATALOGUE
-         ================================================================ */
+      /* CATALOGUE */
       .page-hero {
         position: relative;
         overflow: hidden;
@@ -506,10 +411,7 @@
         transition: all 0.15s;
         white-space: nowrap;
       }
-      .filter-pill:hover {
-        color: var(--gold);
-        border-color: var(--gold);
-      }
+      .filter-pill:hover { color: var(--gold); border-color: var(--gold); }
       .filter-pill.active {
         background: var(--accent);
         color: var(--black);
@@ -533,14 +435,9 @@
         font-size: 0.85rem;
         transition: border-color 0.2s;
       }
-      .search-input:focus {
-        border-color: var(--accent);
-      }
-      .search-input::placeholder {
-        color: var(--muted);
-      }
-      .catalogue-grid,
-      .home-grid {
+      .search-input:focus { border-color: var(--accent); }
+      .search-input::placeholder { color: var(--muted); }
+      .catalogue-grid, .home-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 1.25rem;
@@ -558,23 +455,12 @@
         transition: transform 0.2s, border-color 0.2s;
       }
       @keyframes card-in {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
       @media (hover: hover) {
-        .merch-card:hover {
-          border-color: var(--gold);
-          transform: translateY(-4px);
-        }
-        .merch-card:hover .card-image img {
-          transform: scale(1.05);
-        }
+        .merch-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+        .merch-card:hover .card-image img { transform: scale(1.05); }
       }
       .card-image {
         position: relative;
@@ -601,24 +487,13 @@
         align-items: center;
         justify-content: center;
         gap: 0.55rem;
-        background: radial-gradient(
-            circle at 50% 35%,
-            rgba(201, 168, 76, 0.15),
-            transparent 42%
-          ),
-          #111111;
+        background: radial-gradient(circle at 50% 35%, rgba(201,168,76,0.15), transparent 42%), #111111;
         color: var(--gold);
         text-align: center;
         user-select: none;
       }
-      .image-placeholder[hidden] {
-        display: none;
-      }
-      .placeholder-icon {
-        font-size: 3.3rem;
-        line-height: 1;
-        opacity: 0.72;
-      }
+      .image-placeholder[hidden] { display: none; }
+      .placeholder-icon { font-size: 3.3rem; line-height: 1; opacity: 0.72; }
       .placeholder-label {
         color: var(--muted);
         font-family: var(--font-body);
@@ -627,12 +502,7 @@
         letter-spacing: 1.8px;
         text-transform: uppercase;
       }
-      .card-body {
-        display: block;
-        padding: 1rem;
-        cursor: pointer;
-        text-decoration: none;
-      }
+      .card-body { display: block; padding: 1rem; cursor: pointer; text-decoration: none; }
       .card-game {
         margin-bottom: 4px;
         color: var(--gold);
@@ -659,11 +529,7 @@
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
       }
-      .card-footer {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-      }
+      .card-footer { display: flex; align-items: center; justify-content: flex-end; }
       .card-category {
         padding: 2px 8px;
         background: var(--panel);
@@ -679,12 +545,7 @@
         color: var(--muted);
         text-align: center;
       }
-      .empty-state .big-star {
-        display: block;
-        margin-bottom: 1rem;
-        font-size: 4rem;
-        opacity: 0.2;
-      }
+      .empty-state .big-star { display: block; margin-bottom: 1rem; font-size: 4rem; opacity: 0.2; }
       .empty-state h3 {
         margin-bottom: 0.5rem;
         color: var(--white);
@@ -693,13 +554,8 @@
         letter-spacing: 2px;
       }
 
-      /* ================================================================
-         ABOUT
-         ================================================================ */
-      .about-hero {
-        background: var(--charcoal);
-        border-bottom: 1px solid var(--border);
-      }
+      /* ABOUT */
+      .about-hero { background: var(--charcoal); border-bottom: 1px solid var(--border); }
       .about-hero-inner {
         display: grid;
         max-width: 1100px;
@@ -709,9 +565,7 @@
         margin: 0 auto;
         padding: 4rem 2rem;
       }
-      .about-eyebrow {
-        margin-bottom: 1rem;
-      }
+      .about-eyebrow { margin-bottom: 1rem; }
       .about-hero-text h1 {
         margin-bottom: 1.5rem;
         color: var(--white);
@@ -720,18 +574,13 @@
         letter-spacing: 3px;
         line-height: 1;
       }
-      .about-hero-text h1 span {
-        color: var(--gold);
-      }
-      .about-hero-text p,
-      .about-section p {
+      .about-hero-text h1 span { color: var(--gold); }
+      .about-hero-text p, .about-section p {
         color: var(--muted);
         font-size: 0.88rem;
         line-height: 1.75;
       }
-      .about-hero-text p {
-        margin-bottom: 1rem;
-      }
+      .about-hero-text p { margin-bottom: 1rem; }
       .about-avatar-wrap {
         display: flex;
         flex-direction: column;
@@ -750,11 +599,7 @@
         border-radius: 2px;
         font-size: 5rem;
       }
-      .about-avatar img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+      .about-avatar img { width: 100%; height: 100%; object-fit: cover; }
       .about-avatar-label {
         color: var(--muted);
         font-size: 0.7rem;
@@ -766,10 +611,7 @@
         padding: 3rem 2rem;
         border-bottom: 1px solid var(--border);
       }
-      .team-section-inner {
-        max-width: 1100px;
-        margin: 0 auto;
-      }
+      .team-section-inner { max-width: 1100px; margin: 0 auto; }
       .team-heading {
         margin-bottom: 2rem;
         color: var(--white);
@@ -778,9 +620,7 @@
         letter-spacing: 3px;
         text-align: center;
       }
-      .team-heading span {
-        color: var(--gold);
-      }
+      .team-heading span { color: var(--gold); }
       .team-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -793,9 +633,7 @@
         text-align: center;
         transition: border-color 0.2s;
       }
-      .team-card:hover {
-        border-color: var(--gold);
-      }
+      .team-card:hover { border-color: var(--gold); }
       .team-avatar {
         display: flex;
         width: 70px;
@@ -860,17 +698,13 @@
         text-transform: uppercase;
       }
 
-      /* ================================================================
-         CONTACT
-         ================================================================ */
+      /* CONTACT */
       .contact-wrap {
         max-width: 860px;
         margin: 0 auto;
         padding: 4rem 2rem;
       }
-      .contact-intro {
-        margin-bottom: 2.5rem;
-      }
+      .contact-intro { margin-bottom: 2.5rem; }
       .contact-intro h1 {
         margin-bottom: 0.75rem;
         color: var(--white);
@@ -879,9 +713,7 @@
         letter-spacing: 3px;
         line-height: 1;
       }
-      .contact-intro h1 span {
-        color: var(--gold);
-      }
+      .contact-intro h1 span { color: var(--gold); }
       .contact-intro p {
         max-width: 540px;
         color: var(--muted);
@@ -902,9 +734,7 @@
         background: transparent;
       }
 
-      /* ================================================================
-         ITEM DETAIL PAGE (with zoom)
-         ================================================================ */
+      /* ITEM DETAIL */
       .item-detail-wrap {
         max-width: 1100px;
         margin: 0 auto;
@@ -923,12 +753,7 @@
         font-size: 0.85rem;
         transition: all 0.15s;
       }
-      .btn-back:hover {
-        color: var(--accent);
-        border-color: var(--accent);
-      }
-
-      /* hero container — click to zoom */
+      .btn-back:hover { color: var(--accent); border-color: var(--accent); }
       .item-hero {
         position: relative;
         width: 100%;
@@ -939,16 +764,8 @@
         cursor: zoom-in;
         transition: border-color 0.2s;
       }
-      .item-hero.zoomed {
-        cursor: zoom-out;
-        border-color: var(--gold);
-      }
-      .item-hero .zoom-wrapper {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        position: relative;
-      }
+      .item-hero.zoomed { cursor: zoom-out; border-color: var(--gold); }
+      .item-hero .zoom-wrapper { width: 100%; height: 100%; overflow: hidden; position: relative; }
       .item-hero .zoom-wrapper img {
         width: 100%;
         height: 100%;
@@ -957,19 +774,14 @@
         transform-origin: 0 0;
         will-change: transform;
       }
-      .item-hero .image-placeholder {
-        min-height: 100%;
-      }
+      .item-hero .image-placeholder { min-height: 100%; }
       .item-hero.zoomed .zoom-wrapper img {
         object-fit: none;
         width: 200%;
         height: 200%;
         cursor: grab;
       }
-      .item-hero.zoomed .zoom-wrapper img:active {
-        cursor: grabbing;
-      }
-
+      .item-hero.zoomed .zoom-wrapper img:active { cursor: grabbing; }
       .view-thumbs {
         display: flex;
         flex-wrap: wrap;
@@ -990,19 +802,9 @@
         opacity: 0.55;
         transition: border-color 0.15s, opacity 0.15s;
       }
-      .view-thumb img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .view-thumb:hover {
-        opacity: 0.85;
-      }
-      .view-thumb.active {
-        border-color: var(--gold);
-        opacity: 1;
-      }
-
+      .view-thumb img { width: 100%; height: 100%; object-fit: cover; }
+      .view-thumb:hover { opacity: 0.85; }
+      .view-thumb.active { border-color: var(--gold); opacity: 1; }
       .item-detail-body {
         display: grid;
         grid-template-columns: 1fr 300px;
@@ -1011,11 +813,7 @@
       }
       .item-detail-main {
         padding: 1.75rem;
-        background: linear-gradient(
-          145deg,
-          rgba(34, 34, 34, 0.9),
-          rgba(13, 13, 13, 0.9)
-        );
+        background: linear-gradient(145deg, rgba(34,34,34,0.9), rgba(13,13,13,0.9));
         border: 1px solid var(--border);
       }
       .item-game-label {
@@ -1065,9 +863,7 @@
         border: 1px solid var(--border);
         border-bottom: 0;
       }
-      .item-label-block:last-child {
-        border-bottom: 1px solid var(--border);
-      }
+      .item-label-block:last-child { border-bottom: 1px solid var(--border); }
       .item-label-key {
         display: block;
         margin-bottom: 5px;
@@ -1083,9 +879,7 @@
         font-size: 1rem;
         letter-spacing: 1px;
       }
-      .item-label-value.gold {
-        color: var(--gold);
-      }
+      .item-label-value.gold { color: var(--gold); }
       .item-label-value.pill {
         display: inline-block;
         padding: 3px 10px;
@@ -1093,6 +887,33 @@
         color: var(--black);
         font-size: 0.72rem;
         letter-spacing: 1px;
+      }
+      .item-label-value.availability-text {
+        color: var(--white);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        padding: 6px 14px;
+        border-radius: 2px;
+        display: inline-block;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .item-label-value.availability-available {
+        background: rgba(39, 174, 96, 0.15);
+        border-left: 3px solid var(--green);
+        color: var(--green);
+      }
+      .item-label-value.availability-unavailable {
+        background: rgba(192, 57, 43, 0.15);
+        border-left: 3px solid var(--red);
+        color: var(--red);
+      }
+      .item-label-value.availability-unknown {
+        background: rgba(255, 255, 255, 0.08);
+        border-left: 3px solid var(--gold);
+        color: var(--white);
       }
       .view-link {
         display: block;
@@ -1108,9 +929,7 @@
         text-decoration: none;
         transition: opacity 0.2s;
       }
-      .view-link:hover {
-        opacity: 0.85;
-      }
+      .view-link:hover { opacity: 0.85; }
       .item-detail-share {
         display: flex;
         align-items: center;
@@ -1136,18 +955,10 @@
         font-weight: 500;
         transition: all 0.15s;
       }
-      .btn-copy-link:hover {
-        color: var(--accent);
-        border-color: var(--accent);
-      }
-      .btn-copy-link.copied {
-        color: var(--green);
-        border-color: var(--green);
-      }
+      .btn-copy-link:hover { color: var(--accent); border-color: var(--accent); }
+      .btn-copy-link.copied { color: var(--green); border-color: var(--green); }
 
-      /* ================================================================
-         FOOTER
-         ================================================================ */
+      /* FOOTER */
       footer {
         padding: 2rem;
         border-top: 1px solid var(--border);
@@ -1175,126 +986,56 @@
         text-transform: uppercase;
         transition: color 0.15s;
       }
-      .footer-links button:hover {
-        color: var(--accent);
-      }
-      footer span {
-        color: var(--gold);
-      }
+      .footer-links button:hover { color: var(--accent); }
+      footer span { color: var(--gold); }
 
-      /* ================================================================
-         MOBILE
-         ================================================================ */
+      /* MOBILE */
       @media (max-width: 768px) {
-        header {
-          padding: 0 1rem;
-        }
-        .desktop-nav {
-          display: none;
-        }
-        .hamburger {
-          display: flex;
-        }
-        .item-count {
-          display: none;
-        }
-        .home-stats {
-          grid-template-columns: 1fr;
-        }
-        .stat-block {
-          border-right: 0;
-          border-bottom: 1px solid var(--border);
-        }
-        .stat-block:last-child {
-          border-bottom: 0;
-        }
-        .home-features {
-          grid-template-columns: 1fr;
-        }
-        .feature-block {
-          border-right: 0;
-          border-bottom: 1px solid var(--border);
-        }
-        .feature-block:last-child {
-          border-bottom: 0;
-        }
+        header { padding: 0 1rem; }
+        .desktop-nav { display: none; }
+        .hamburger { display: flex; }
+        .item-count { display: none; }
+        .home-stats { grid-template-columns: 1fr; }
+        .stat-block { border-right: 0; border-bottom: 1px solid var(--border); }
+        .stat-block:last-child { border-bottom: 0; }
+        .home-features { grid-template-columns: 1fr; }
+        .feature-block { border-right: 0; border-bottom: 1px solid var(--border); }
+        .feature-block:last-child { border-bottom: 0; }
         .catalogue-grid {
           grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
           gap: 1rem;
           padding: 1rem;
         }
-        .filter-bar,
-        .search-wrap {
-          padding: 0.75rem 1rem;
-        }
-        .about-hero-inner {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-          padding: 2rem 1rem;
-        }
-        .about-avatar-wrap {
-          order: -1;
-        }
-        .about-content {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-          padding: 2rem 1rem;
-        }
-        .item-detail-wrap {
-          padding: 1.5rem 1rem 3rem;
-        }
-        .item-detail-body {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-        .item-detail-sidebar {
-          position: static;
-        }
-        .item-detail-main {
-          padding: 1.25rem;
-        }
-        .contact-wrap {
-          padding: 2rem 1rem;
-        }
+        .filter-bar, .search-wrap { padding: 0.75rem 1rem; }
+        .about-hero-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 1rem; }
+        .about-avatar-wrap { order: -1; }
+        .about-content { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 1rem; }
+        .item-detail-wrap { padding: 1.5rem 1rem 3rem; }
+        .item-detail-body { grid-template-columns: 1fr; gap: 2rem; }
+        .item-detail-sidebar { position: static; }
+        .item-detail-main { padding: 1.25rem; }
+        .contact-wrap { padding: 2rem 1rem; }
       }
 
-            /* ================================================================
-         ZOOM OVERLAY STYLES
-         ================================================================ */
-      #zoomOverlay {
-        animation: zoomFadeIn 0.3s ease-out;
-      }
-
+      /* ZOOM OVERLAY */
+      #zoomOverlay { animation: zoomFadeIn 0.3s ease-out; }
       @keyframes zoomFadeIn {
-        from {
-          opacity: 0;
-          transform: scale(0.95);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
       }
-
       #zoomImage {
         will-change: transform;
         transform-origin: center center;
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
       }
-
       #zoomContainer {
         cursor: grab;
         touch-action: none;
         user-select: none;
         -webkit-user-select: none;
       }
-
-      #zoomContainer:active {
-        cursor: grabbing;
-      }
-
-      /* Style the range sliders */
+      #zoomContainer:active { cursor: grabbing; }
       #zoomHorizontal::-webkit-slider-thumb,
       #zoomLevel::-webkit-slider-thumb {
         -webkit-appearance: none;
@@ -1307,12 +1048,8 @@
         border: 2px solid var(--white);
         transition: transform 0.15s;
       }
-
       #zoomHorizontal::-webkit-slider-thumb:hover,
-      #zoomLevel::-webkit-slider-thumb:hover {
-        transform: scale(1.15);
-      }
-
+      #zoomLevel::-webkit-slider-thumb:hover { transform: scale(1.15); }
       #zoomHorizontal::-moz-range-thumb,
       #zoomLevel::-moz-range-thumb {
         width: 18px;
@@ -1322,18 +1059,15 @@
         cursor: pointer;
         border: 2px solid var(--white);
       }
-
-      /* Vertical slider support */
       #zoomVertical {
-        -webkit-appearance: slider-vertical;
-        appearance: slider-vertical;
+        writing-mode: vertical-lr;
+        direction: rtl;
         height: 120px;
         width: 8px;
         background: var(--border);
         border-radius: 4px;
         outline: none;
       }
-      
       #zoomVertical::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
@@ -1345,11 +1079,7 @@
         border: 2px solid var(--white);
         transition: transform 0.15s;
       }
-      
-      #zoomVertical::-webkit-slider-thumb:hover {
-        transform: scale(1.15);
-      }
-      
+      #zoomVertical::-webkit-slider-thumb:hover { transform: scale(1.15); }
       #zoomVertical::-moz-range-thumb {
         width: 18px;
         height: 18px;
@@ -1357,6 +1087,108 @@
         background: var(--gold);
         cursor: pointer;
         border: 2px solid var(--white);
+      }
+      #zoomOverlay .zoom-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        width: 100%;
+        max-width: 1200px;
+        height: 70vh;
+        max-height: 70vh;
+        position: relative;
+      }
+      #zoomOverlay .zoom-image-container {
+        flex: 1;
+        height: 100%;
+        overflow: hidden;
+        background: #0a0a0a;
+        border: 1px solid var(--gold);
+        border-radius: 4px;
+        position: relative;
+      }
+      #zoomOverlay .zoom-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transform-origin: center center;
+        will-change: transform;
+        pointer-events: none;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      #zoomOverlay .vertical-slider-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 0 12px;
+        margin-left: 8px;
+      }
+      #zoomOverlay .vertical-slider-container span {
+        color: var(--muted);
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      #zoomOverlay .horizontal-slider-container {
+        width: 100%;
+        max-width: 1200px;
+        padding: 12px 0 0 0;
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+      #zoomOverlay .horizontal-slider-container span {
+        color: var(--muted);
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      #zoomOverlay .zoom-level-container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 12px;
+      }
+      #zoomOverlay .zoom-level-container span {
+        color: var(--gold);
+        font-size: 0.8rem;
+        min-width: 40px;
+        text-align: center;
+        font-family: var(--font-body);
+      }
+      @media (max-width: 768px) {
+        #zoomOverlay .zoom-wrapper {
+          height: 50vh;
+          max-height: 50vh;
+          flex-direction: column;
+        }
+        #zoomOverlay .vertical-slider-container {
+          height: auto;
+          flex-direction: row;
+          padding: 8px 0;
+          margin-left: 0;
+        }
+        #zoomOverlay .vertical-slider-container span {
+          margin-bottom: 0;
+          margin-right: 8px;
+        }
+        #zoomVertical {
+          height: 40px;
+          width: 80px;
+          -webkit-appearance: slider-horizontal;
+          appearance: slider-horizontal;
+        }
+        #zoomOverlay .horizontal-slider-container {
+          flex-wrap: wrap;
+          padding: 8px 0;
+        }
       }
     </style>
   </head>
@@ -1503,43 +1335,39 @@
         </div>
       </section>
 
-      <!-- ITEM DETAIL (with zoom) -->
+      <!-- ITEM DETAIL -->
       <section class="page" id="page-item">
         <div class="item-detail-wrap"></div>
       </section>
     </main>
+
     <!-- ZOOM OVERLAY -->
-    <div id="zoomOverlay" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:9999; background:rgba(0,0,0,0.92); backdrop-filter:blur(8px); justify-content:center; align-items:center; flex-direction:column; padding:2rem;">
+    <div id="zoomOverlay" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:9999; background:rgba(0,0,0,0.92); backdrop-filter:blur(8px); justify-content:center; align-items:center; flex-direction:column; padding:1.5rem;">
       <button id="closeZoom" style="position:absolute; top:20px; right:30px; background:transparent; border:none; color:white; font-size:2.5rem; cursor:pointer; font-family:var(--font-heading); z-index:10000; transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">✕</button>
       
-      <!-- Image container with transform origin center -->
-      <div style="width:100%; max-width:1200px; max-height:70vh; overflow:hidden; position:relative; background:#0a0a0a; border:1px solid var(--gold); border-radius:4px; cursor:grab; touch-action:none;" id="zoomContainer">
-        <img id="zoomImage" src="" alt="Zoomed view" style="width:100%; height:100%; object-fit:contain; max-height:70vh; transform: translate3d(0px, 0px, 0px) scale(1); transform-origin: center center; will-change: transform; pointer-events:none; user-select:none; -webkit-user-select:none;">
+      <div class="zoom-wrapper">
+        <div class="zoom-image-container" id="zoomContainer">
+          <img id="zoomImage" src="" alt="Zoomed view" style="width:100%; height:100%; object-fit:contain; transform: translate3d(0px, 0px, 0px) scale(1); transform-origin: center center; will-change: transform; pointer-events:none; user-select:none; -webkit-user-select:none;">
+        </div>
+        
+        <div class="vertical-slider-container">
+          <span>↑↓</span>
+          <input type="range" id="zoomVertical" min="-100" max="100" value="0" style="writing-mode:vertical-lr; direction:rtl; height:120px; width:6px; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
+        </div>
       </div>
       
-      <!-- Controls -->
-      <div style="width:100%; max-width:1200px; margin-top:1.5rem; display:flex; gap:2rem; align-items:center; justify-content:center; padding:0 0.5rem; flex-wrap:wrap;">
+      <div class="horizontal-slider-container">
+        <span>← →</span>
+        <input type="range" id="zoomHorizontal" min="-100" max="100" value="0" style="flex:1; height:6px; -webkit-appearance:none; appearance:none; background:var(--border); border-radius:3px; outline:none; cursor:pointer; max-width:800px;">
         
-        <!-- Horizontal Slider -->
-        <div style="display:flex; align-items:center; gap:1rem; flex:1; min-width:150px;">
-          <span style="color:var(--muted); font-size:0.7rem; letter-spacing:1px; min-width:50px; text-transform:uppercase;">← →</span>
-          <input type="range" id="zoomHorizontal" min="-100" max="100" value="0" style="flex:1; height:6px; -webkit-appearance:none; appearance:none; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
-        </div>
-        
-        <!-- Zoom Level Slider -->
-        <div style="display:flex; align-items:center; gap:1rem; flex:1; min-width:150px;">
-          <span style="color:var(--muted); font-size:0.7rem; letter-spacing:1px; min-width:40px; text-transform:uppercase;">🔍</span>
-          <input type="range" id="zoomLevel" min="1" max="4" step="0.05" value="1.5" style="flex:1; height:6px; -webkit-appearance:none; appearance:none; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
+        <div class="zoom-level-container">
+          <span>🔍</span>
+          <input type="range" id="zoomLevel" min="1" max="4" step="0.05" value="1.5" style="width:100px; height:6px; -webkit-appearance:none; appearance:none; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
           <span id="zoomLevelDisplay" style="color:var(--gold); font-size:0.8rem; min-width:40px; text-align:center; font-family:var(--font-body);">1.5×</span>
-        </div>
-        
-        <!-- Vertical Slider - RIGHT SIDE -->
-        <div style="display:flex; align-items:center; gap:0.5rem; height:120px;">
-          <span style="color:var(--muted); font-size:0.7rem; letter-spacing:1px; writing-mode:vertical-lr; text-orientation:mixed; min-width:20px; text-transform:uppercase;">↑ ↓</span>
-          <input type="range" id="zoomVertical" min="-100" max="100" value="0" style="height:120px; width:6px; -webkit-appearance:slider-vertical; appearance:slider-vertical; background:var(--border); border-radius:3px; outline:none; cursor:pointer;">
         </div>
       </div>
     </div>
+
     <!-- FOOTER -->
     <footer>
       <div class="footer-links">
@@ -1551,574 +1379,572 @@
       <p>© 2024–2026 <span>RockstarPromoHub.com</span> — Fan-made. Not affiliated with Rockstar Games.</p>
     </footer>
 
-  
+    <!-- Load catalog.js from GitHub Pages -->
     <script src="catalog.js"></script>
 
-
     <script>
-      /* ================================================================
-         SITE LOGIC (including zoom)
-         ================================================================ */
-      const byId = (id) => document.getElementById(id);
-      const PLACEHOLDER_DESCRIPTION = "No description has been added yet.";
-      const CATEGORY_EMOJI = { Hat: "🧢", Plushie: "🧸", "T-Shirt": "👕", Hoodie: "🥋", Poster: "🖼️", Collectible: "⭐", Keychain: "🔑", Sticker: "🏷️", Other: "📦" };
+      // Wait for catalog.js to load, then run everything
+      function initApp() {
+        var byId = function(id) { return document.getElementById(id); };
+        var PLACEHOLDER_DESCRIPTION = "No description has been added yet.";
+        var CATEGORY_EMOJI = { Hat: "🧢", Plushie: "🧸", "T-Shirt": "👕", Hoodie: "🥋", Poster: "🖼️", Collectible: "⭐", Keychain: "🔑", Sticker: "🏷️", Other: "📦" };
 
-      let mobileNavOpen = false;
-      let currentTypeFilter = "all";
-      let currentGameFilter = "all";
-      let currentItemId = null;
-    
-      function slugify(text) {
-        return String(text).toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") || "item";
-      }
-      function escapeHTML(value) {
-        return String(value ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-      }
-      function safeExternalUrl(value) {
-        try { const url = new URL(value); return ["http:", "https:"].includes(url.protocol) ? url.href : ""; } catch { return ""; }
-      }
-      function normaliseItem(item = {}, fallbackId = "") {
-        return {
-          id: String(item.id || fallbackId || "item"),
-          name: item.name || "Untitled catalogue item",
-          game: item.game || "Rockstar Games",
-          category: item.category || "Other",
-          description: item.description || "",
-          year: item.year || "Not specified",
-          rarity: item.rarity || "Not specified",
-          availability: item.availability || "Not specified",
-          image: item.image || "",
-          extraImages: Array.isArray(item.extraImages) ? item.extraImages.filter(Boolean) : [],
-          link: item.link || "",
-        };
-      }
-      function getItems() {
-        const usedIds = {};
-        return ITEMS.map((raw) => {
-          let id = slugify(raw.name + "-" + raw.game);
-          usedIds[id] = (usedIds[id] || 0) + 1;
-          if (usedIds[id] > 1) id = id + "-" + usedIds[id];
-          return normaliseItem(raw, id);
-        });
-      }
-
-      function placeholderImageMarkup(category, label = "Image coming soon", hidden = false) {
-        return `<div class="image-placeholder" ${hidden ? "hidden" : ""}>
-          <span class="placeholder-icon">${CATEGORY_EMOJI[category] || "★"}</span>
-          <span class="placeholder-label">${label}</span>
-        </div>`;
-      }
-
-      function imageMarkup(source, altText, category, eager = false) {
-        if (!source) return placeholderImageMarkup(category);
-        return `<img src="${escapeHTML(source)}" alt="${escapeHTML(altText)}" loading="${eager ? "eager" : "lazy"}" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden = true; this.nextElementSibling.hidden = false;" />
-          ${placeholderImageMarkup(category, "Image coming soon", true)}`;
-      }
-
-      // ---- NAVIGATION ----
-      function toggleMobileNav() {
-        mobileNavOpen = !mobileNavOpen;
-        byId("mobileNav").classList.toggle("open", mobileNavOpen);
-        byId("hamburger").classList.toggle("open", mobileNavOpen);
-        byId("hamburger").setAttribute("aria-expanded", String(mobileNavOpen));
-      }
-      function goToMobilePage(pageName) { showPage(pageName); if (mobileNavOpen) toggleMobileNav(); }
-      function showPage(pageName) {
-        document.querySelectorAll(".page").forEach(p => p.classList.toggle("active", p.id === "page-" + pageName));
-        document.querySelectorAll(".nav-link, .mobile-nav-link").forEach(l => l.classList.remove("active"));
-        byId("nav-" + pageName)?.classList.add("active");
-        byId("mnav-" + pageName)?.classList.add("active");
-        window.scrollTo(0, 0);
-        if (pageName === "catalogue") renderCatalogue();
-        if (pageName === "home") renderHome();
-        if (pageName !== "item") history.replaceState(null, "", location.pathname + (pageName === "home" ? "" : "#" + pageName));
-      }
-
-      // ---- HOME ----
-      function renderHome() {
-        const items = getItems();
-        const uniqueGames = new Set(items.map(i => i.game));
-        const latest = [...items].reverse().slice(0, 4);
-        byId("homeStatItems").textContent = items.length;
-        byId("homeStatGames").textContent = uniqueGames.size;
-        byId("itemCount").textContent = items.length + " item" + (items.length === 1 ? "" : "s");
-        byId("homeGrid").innerHTML = latest.map(cardHTML).join("");
-      }
-
-      function cardHTML(rawItem) {
-        const item = normaliseItem(rawItem);
-        return `<article class="merch-card">
-          <a class="card-image" href="#item/${item.id}" aria-label="View ${escapeHTML(item.name)}">
-            ${imageMarkup(item.image, item.name, item.category)}
-          </a>
-          <a class="card-body" href="#item/${item.id}">
-            <div class="card-game">${escapeHTML(item.game)}</div>
-            <div class="card-name">${escapeHTML(item.name)}</div>
-            <div class="card-description">${escapeHTML(item.description || PLACEHOLDER_DESCRIPTION)}</div>
-            <div class="card-footer"><span class="card-category">${escapeHTML(item.category)}</span></div>
-          </a>
-        </article>`;
-      }
-
-      // ---- CATALOGUE FILTERS ----
-      function setTypeFilter(value, btn) {
-        currentTypeFilter = value;
-        document.querySelectorAll(".filter-bar:not(#gameFilterBar) .filter-pill").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        renderCatalogue();
-      }
-      function setGameFilter(value, btn) {
-        currentGameFilter = value;
-        document.querySelectorAll("#gameFilterBar .filter-pill").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        renderCatalogue();
-      }
-      function populateGameFilters(items) {
-        const bar = byId("gameFilterBar");
-        const games = [...new Set(items.map(i => i.game).filter(Boolean))].sort((a, b) => a.localeCompare(b));
-        if (!games.includes(currentGameFilter)) currentGameFilter = "all";
-        bar.querySelectorAll('[data-generated-game-filter="true"]').forEach(b => b.remove());
-        games.forEach(game => {
-          const btn = document.createElement("button");
-          btn.className = "filter-pill" + (currentGameFilter === game ? " active" : "");
-          btn.dataset.generatedGameFilter = "true";
-          btn.textContent = game;
-          btn.onclick = function() { setGameFilter(game, btn); };
-          bar.appendChild(btn);
-        });
-        bar.querySelector(".filter-pill")?.classList.toggle("active", currentGameFilter === "all");
-      }
-      function renderCatalogue() {
-        const items = getItems();
-        const term = byId("searchInput").value.toLowerCase().trim();
-        populateGameFilters(items);
-        byId("itemCount").textContent = items.length + " item" + (items.length === 1 ? "" : "s");
-        const filtered = items.filter(function(item) {
-          var matchType = currentTypeFilter === "all" || item.category === currentTypeFilter;
-          var matchGame = currentGameFilter === "all" || item.game === currentGameFilter;
-          var searchText = [item.name, item.game, item.category, item.description].join(" ").toLowerCase();
-          return matchType && matchGame && (!term || searchText.includes(term));
-        });
-        if (filtered.length === 0) {
-          byId("catalogue").innerHTML = '<div class="empty-state"><span class="big-star">★</span><h3>No Items Found</h3><p>Try a different filter or search term.</p></div>';
-          return;
+        var mobileNavOpen = false;
+        var currentTypeFilter = "all";
+        var currentGameFilter = "all";
+        var currentItemId = null;
+      
+        function slugify(text) {
+          return String(text).toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") || "item";
         }
-        byId("catalogue").innerHTML = filtered.map(cardHTML).join("");
-      }
-
-      // ---- ITEM DETAIL with ZOOM ----
-      function renderItemPage(itemId) {
-        var items = getItems();
-        var raw = items.find(function(i) { return i.id === itemId; });
-        var item = normaliseItem(raw, itemId);
-        var allImages = [item.image].concat(item.extraImages).filter(Boolean);
-        var wrap = document.querySelector(".item-detail-wrap");
-        currentItemId = item.id;
-
-        wrap.innerHTML = `
-          <button class="btn-back" onclick="showPage('catalogue')">← Back to Catalogue</button>
-          <div class="item-hero" id="itemPageHero">
-            <div class="zoom-wrapper" id="zoomWrapper">
-              ${imageMarkup(allImages[0], item.name, item.category, true)}
-            </div>
-          </div>
-          <div class="view-thumbs" id="itemPageThumbs" style="${allImages.length > 1 ? "" : "display:none"}"></div>
-          <div class="item-detail-body">
-            <div class="item-detail-main">
-              <div class="item-game-label">${escapeHTML(item.game)}</div>
-              <h1 class="item-detail-name">${escapeHTML(item.name)}</h1>
-              <span class="item-detail-section-label">Description</span>
-              <p class="item-detail-description">${escapeHTML(item.description || PLACEHOLDER_DESCRIPTION)}</p>
-              <div class="item-detail-share">
-                <span class="item-detail-share-label">Share this item:</span>
-                <button class="btn-copy-link" id="btnCopyLink" onclick="copyItemLink()">Copy Link</button>
-              </div>
-            </div>
-            <aside class="item-detail-sidebar" id="itemPageSidebar"></aside>
-          </div>
-        `;
-
-        var labels = [
-          { key: "Associated Game", value: item.game, cls: "gold" },
-          { key: "Year of Release", value: item.year, cls: "" },
-          { key: "Category", value: item.category, cls: "gold" },
-          { key: "Rarity", value: item.rarity, cls: "" },
-          { key: "Availability", value: item.availability, cls: "pill" },
-        ];
-        byId("itemPageSidebar").innerHTML = labels.map(function(l) {
-          return '<div class="item-label-block"><span class="item-label-key">' + l.key + '</span><div class="item-label-value ' + l.cls + '">' + escapeHTML(l.value) + '</div></div>';
-        }).join("");
-        addSourceLink(item);
-        setupThumbnails(item, allImages);
-        setupZoom(item, allImages);
-      }
-
-      function addSourceLink(item) {
-        var link = safeExternalUrl(item.link);
-        if (!link) return;
-        var sidebar = byId("itemPageSidebar");
-        var block = document.createElement("div");
-        block.className = "item-label-block";
-        block.innerHTML = '<span class="item-label-key">Source</span><a href="' + escapeHTML(link) + '" target="_blank" rel="noopener noreferrer" style="color:var(--gold);word-break:break-all;font-size:0.8rem;">' + escapeHTML(link) + '</a>';
-        sidebar.appendChild(block);
-        var viewLink = document.createElement("a");
-        viewLink.className = "view-link";
-        viewLink.href = link;
-        viewLink.target = "_blank";
-        viewLink.rel = "noopener noreferrer";
-        viewLink.textContent = "View / Buy This Item →";
-        sidebar.appendChild(viewLink);
-      }
-
-      function setupThumbnails(item, allImages) {
-        if (allImages.length <= 1) return;
-        var thumbs = byId("itemPageThumbs");
-        var hero = byId("itemPageHero");
-        thumbs.innerHTML = allImages.map(function(src, i) {
-          return '<button class="view-thumb ' + (i===0?"active":"") + '" data-source="' + escapeHTML(src) + '" aria-label="Show image ' + (i+1) + '">\n            <img src="' + escapeHTML(src) + '" alt="' + escapeHTML(item.name) + ' thumbnail ' + (i+1) + '" loading="lazy" decoding="async" referrerpolicy="no-referrer" />\n          </button>';
-        }).join("");
-        thumbs.querySelectorAll(".view-thumb").forEach(function(btn) {
-          btn.addEventListener("click", function() {
-            thumbs.querySelectorAll(".view-thumb").forEach(function(b) { b.classList.remove("active"); });
-            btn.classList.add("active");
-            var wrapper = hero.querySelector(".zoom-wrapper");
-            wrapper.innerHTML = imageMarkup(btn.dataset.source, item.name, item.category, true);
+        function escapeHTML(value) {
+          return String(value ?? "").replace(/[&<>"']/g, function(c) {
+            return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c];
           });
-        });
-      }
-
-      function setupZoom(item, allImages) {
-        var hero = byId("itemPageHero");
-        var overlay = byId("zoomOverlay");
-        var container = byId("zoomContainer");
-        var zoomImg = byId("zoomImage");
-        var closeBtn = byId("closeZoom");
-        var hSlider = byId("zoomHorizontal");
-        var vSlider = byId("zoomVertical");
-        var zSlider = byId("zoomLevel");
-        var zoomDisplay = byId("zoomLevelDisplay");
-        
-        var currentImage = allImages[0] || item.image;
-        
-        // Transform state using translate3d and scale
-        var state = {
-          scale: 1.5,
-          translateX: 0,
-          translateY: 0,
-          minScale: 1,
-          maxScale: 4
-        };
-        
-        // Drag state
-        var isDragging = false;
-        var dragStartX = 0;
-        var dragStartY = 0;
-        var dragStartTranslateX = 0;
-        var dragStartTranslateY = 0;
-
-        // Click on hero to open zoom
-        hero.addEventListener("click", function(e) {
-          if (e.target.closest(".view-thumb") || e.target.closest(".view-link") || e.target.closest(".btn-back")) return;
-          openZoom(currentImage);
-        });
-
-        // Update zoom image when thumbnails change
-        var observer = new MutationObserver(function() {
-          var img = hero.querySelector("img");
-          if (img && img.src) {
-            currentImage = img.src;
-          }
-        });
-        observer.observe(hero, { childList: true, subtree: true });
-
-        // ---- BOUNDS CALCULATION ----
-        function getBounds() {
-          var containerRect = container.getBoundingClientRect();
-          var imgRect = zoomImg.getBoundingClientRect();
-          var containerWidth = containerRect.width;
-          var containerHeight = containerRect.height;
-          var imgWidth = imgRect.width;
-          var imgHeight = imgRect.height;
-          
-          var maxX = Math.max(0, (imgWidth * state.scale - containerWidth) / 2);
-          var maxY = Math.max(0, (imgHeight * state.scale - containerHeight) / 2);
-          
-          return { maxX: maxX, maxY: maxY };
+        }
+        function safeExternalUrl(value) {
+          try { var url = new URL(value); return ["http:", "https:"].includes(url.protocol) ? url.href : ""; } catch(e) { return ""; }
+        }
+        function normaliseItem(item, fallbackId) {
+          if (item === undefined) item = {};
+          if (fallbackId === undefined) fallbackId = "";
+          return {
+            id: String(item.id || fallbackId || "item"),
+            name: item.name || "Untitled catalogue item",
+            game: item.game || "Rockstar Games",
+            category: item.category || "Other",
+            description: item.description || "",
+            year: item.year || "Not specified",
+            rarity: item.rarity || "Not specified",
+            availability: item.availability || "Not specified",
+            image: item.image || "",
+            extraImages: Array.isArray(item.extraImages) ? item.extraImages.filter(Boolean) : [],
+            link: item.link || "",
+          };
+        }
+        function getItems() {
+          var usedIds = {};
+          return ITEMS.map(function(raw) {
+            var id = slugify(raw.name + "-" + raw.game);
+            usedIds[id] = (usedIds[id] || 0) + 1;
+            if (usedIds[id] > 1) id = id + "-" + usedIds[id];
+            return normaliseItem(raw, id);
+          });
         }
 
-        // ---- APPLY TRANSFORM ----
-        function applyTransform(animate) {
-          if (animate === undefined) animate = false;
-          var scale = state.scale;
-          var translateX = state.translateX;
-          var translateY = state.translateY;
-          zoomImg.style.transition = animate ? 'transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
-          zoomImg.style.transform = 'translate3d(' + translateX + 'px, ' + translateY + 'px, 0px) scale(' + scale + ')';
-          
-          var bounds = getBounds();
-          if (bounds.maxX > 0) {
-            hSlider.value = (translateX / bounds.maxX) * 100;
+        function placeholderImageMarkup(category, label, hidden) {
+          if (label === undefined) label = "Image coming soon";
+          if (hidden === undefined) hidden = false;
+          return '<div class="image-placeholder"' + (hidden ? ' hidden' : '') + '>\n          <span class="placeholder-icon">' + (CATEGORY_EMOJI[category] || "★") + '</span>\n          <span class="placeholder-label">' + label + '</span>\n        </div>';
+        }
+
+        function imageMarkup(source, altText, category, eager) {
+          if (eager === undefined) eager = false;
+          if (!source) return placeholderImageMarkup(category);
+          return '<img src="' + escapeHTML(source) + '" alt="' + escapeHTML(altText) + '" loading="' + (eager ? "eager" : "lazy") + '" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden = true; this.nextElementSibling.hidden = false;" />\n          ' + placeholderImageMarkup(category, "Image coming soon", true);
+        }
+
+        function toggleMobileNav() {
+          mobileNavOpen = !mobileNavOpen;
+          byId("mobileNav").classList.toggle("open", mobileNavOpen);
+          byId("hamburger").classList.toggle("open", mobileNavOpen);
+          byId("hamburger").setAttribute("aria-expanded", String(mobileNavOpen));
+        }
+        function goToMobilePage(pageName) { showPage(pageName); if (mobileNavOpen) toggleMobileNav(); }
+        function showPage(pageName) {
+          document.querySelectorAll(".page").forEach(function(p) {
+            p.classList.toggle("active", p.id === "page-" + pageName);
+          });
+          document.querySelectorAll(".nav-link, .mobile-nav-link").forEach(function(l) { l.classList.remove("active"); });
+          var navLink = byId("nav-" + pageName);
+          if (navLink) navLink.classList.add("active");
+          var mNavLink = byId("mnav-" + pageName);
+          if (mNavLink) mNavLink.classList.add("active");
+          window.scrollTo(0, 0);
+          if (pageName === "catalogue") renderCatalogue();
+          if (pageName === "home") renderHome();
+          if (pageName !== "item") history.replaceState(null, "", location.pathname + (pageName === "home" ? "" : "#" + pageName));
+        }
+
+        function renderHome() {
+          var items = getItems();
+          var uniqueGames = new Set();
+          items.forEach(function(i) { uniqueGames.add(i.game); });
+          var latest = items.slice().reverse().slice(0, 4);
+          byId("homeStatItems").textContent = items.length;
+          byId("homeStatGames").textContent = uniqueGames.size;
+          byId("itemCount").textContent = items.length + " item" + (items.length === 1 ? "" : "s");
+          byId("homeGrid").innerHTML = latest.map(cardHTML).join("");
+        }
+
+        function cardHTML(rawItem) {
+          var item = normaliseItem(rawItem);
+          return '<article class="merch-card">\n          <a class="card-image" href="#item/' + item.id + '" aria-label="View ' + escapeHTML(item.name) + '">\n            ' + imageMarkup(item.image, item.name, item.category) + '\n          </a>\n          <a class="card-body" href="#item/' + item.id + '">\n            <div class="card-game">' + escapeHTML(item.game) + '</div>\n            <div class="card-name">' + escapeHTML(item.name) + '</div>\n            <div class="card-description">' + escapeHTML(item.description || PLACEHOLDER_DESCRIPTION) + '</div>\n            <div class="card-footer"><span class="card-category">' + escapeHTML(item.category) + '</span></div>\n          </a>\n        </article>';
+        }
+
+        function setTypeFilter(value, btn) {
+          currentTypeFilter = value;
+          document.querySelectorAll(".filter-bar:not(#gameFilterBar) .filter-pill").forEach(function(b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          renderCatalogue();
+        }
+        function setGameFilter(value, btn) {
+          currentGameFilter = value;
+          document.querySelectorAll("#gameFilterBar .filter-pill").forEach(function(b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          renderCatalogue();
+        }
+        function populateGameFilters(items) {
+          var bar = byId("gameFilterBar");
+          var games = [];
+          var seen = {};
+          items.forEach(function(i) {
+            if (i.game && !seen[i.game]) { seen[i.game] = true; games.push(i.game); }
+          });
+          games.sort(function(a, b) { return a.localeCompare(b); });
+          if (games.indexOf(currentGameFilter) === -1) currentGameFilter = "all";
+          bar.querySelectorAll('[data-generated-game-filter="true"]').forEach(function(b) { b.remove(); });
+          games.forEach(function(game) {
+            var btn = document.createElement("button");
+            btn.className = "filter-pill" + (currentGameFilter === game ? " active" : "");
+            btn.dataset.generatedGameFilter = "true";
+            btn.textContent = game;
+            btn.onclick = function() { setGameFilter(game, btn); };
+            bar.appendChild(btn);
+          });
+          var firstPill = bar.querySelector(".filter-pill");
+          if (firstPill) firstPill.classList.toggle("active", currentGameFilter === "all");
+        }
+        function renderCatalogue() {
+          var items = getItems();
+          var term = byId("searchInput").value.toLowerCase().trim();
+          populateGameFilters(items);
+          byId("itemCount").textContent = items.length + " item" + (items.length === 1 ? "" : "s");
+          var filtered = items.filter(function(item) {
+            var matchType = currentTypeFilter === "all" || item.category === currentTypeFilter;
+            var matchGame = currentGameFilter === "all" || item.game === currentGameFilter;
+            var searchText = [item.name, item.game, item.category, item.description].join(" ").toLowerCase();
+            return matchType && matchGame && (!term || searchText.indexOf(term) !== -1);
+          });
+          if (filtered.length === 0) {
+            byId("catalogue").innerHTML = '<div class="empty-state"><span class="big-star">★</span><h3>No Items Found</h3><p>Try a different filter or search term.</p></div>';
+            return;
+          }
+          byId("catalogue").innerHTML = filtered.map(cardHTML).join("");
+        }
+
+        function getAvailabilityClass(availability) {
+          var lower = String(availability).toLowerCase();
+          if (lower.includes('yes') || lower.includes('available')) {
+            return 'availability-available';
+          } else if (lower.includes('no') || lower.includes('unavailable')) {
+            return 'availability-unavailable';
           } else {
-            hSlider.value = 0;
+            return 'availability-unknown';
           }
-          if (bounds.maxY > 0) {
-            vSlider.value = (translateY / bounds.maxY) * 100;
-          } else {
-            vSlider.value = 0;
+        }
+
+        function renderItemPage(itemId) {
+          var items = getItems();
+          var raw = null;
+          for (var i = 0; i < items.length; i++) {
+            if (items[i].id === itemId) { raw = items[i]; break; }
           }
+          var item = normaliseItem(raw, itemId);
+          var allImages = [item.image];
+          for (var j = 0; j < item.extraImages.length; j++) {
+            if (item.extraImages[j]) allImages.push(item.extraImages[j]);
+          }
+          var wrap = document.querySelector(".item-detail-wrap");
+          currentItemId = item.id;
+
+          wrap.innerHTML = '\n          <button class="btn-back" onclick="showPage(\'catalogue\')">← Back to Catalogue</button>\n          <div class="item-hero" id="itemPageHero">\n            <div class="zoom-wrapper" id="zoomWrapper">\n              ' + imageMarkup(allImages[0], item.name, item.category, true) + '\n            </div>\n          </div>\n          <div class="view-thumbs" id="itemPageThumbs" style="' + (allImages.length > 1 ? "" : "display:none") + '"></div>\n          <div class="item-detail-body">\n            <div class="item-detail-main">\n              <div class="item-game-label">' + escapeHTML(item.game) + '</div>\n              <h1 class="item-detail-name">' + escapeHTML(item.name) + '</h1>\n              <span class="item-detail-section-label">Description</span>\n              <p class="item-detail-description">' + escapeHTML(item.description || PLACEHOLDER_DESCRIPTION) + '</p>\n              <div class="item-detail-share">\n                <span class="item-detail-share-label">Share this item:</span>\n                <button class="btn-copy-link" id="btnCopyLink" onclick="copyItemLink()">Copy Link</button>\n              </div>\n            </div>\n            <aside class="item-detail-sidebar" id="itemPageSidebar"></aside>\n          </div>\n        ';
+
+          var labels = [
+            { key: "Associated Game", value: item.game, cls: "gold" },
+            { key: "Year of Release", value: item.year, cls: "" },
+            { key: "Category", value: item.category, cls: "gold" },
+            { key: "Rarity", value: item.rarity, cls: "" },
+            { key: "Availability", value: item.availability || "Not specified", cls: "availability-text " + getAvailabilityClass(item.availability) },
+          ];
+          var sidebarHTML = "";
+          for (var k = 0; k < labels.length; k++) {
+            sidebarHTML += '<div class="item-label-block"><span class="item-label-key">' + labels[k].key + '</span><div class="item-label-value ' + labels[k].cls + '">' + escapeHTML(labels[k].value) + '</div></div>';
+          }
+          byId("itemPageSidebar").innerHTML = sidebarHTML;
+          addSourceLink(item);
+          setupThumbnails(item, allImages);
+          setupZoom(item, allImages);
+        }
+
+        function addSourceLink(item) {
+          var link = safeExternalUrl(item.link);
+          if (!link) return;
+          var sidebar = byId("itemPageSidebar");
+          var block = document.createElement("div");
+          block.className = "item-label-block";
+          block.innerHTML = '<span class="item-label-key">Source</span><a href="' + escapeHTML(link) + '" target="_blank" rel="noopener noreferrer" style="color:var(--gold);word-break:break-all;font-size:0.8rem;">' + escapeHTML(link) + '</a>';
+          sidebar.appendChild(block);
+          var viewLink = document.createElement("a");
+          viewLink.className = "view-link";
+          viewLink.href = link;
+          viewLink.target = "_blank";
+          viewLink.rel = "noopener noreferrer";
+          viewLink.textContent = "View / Buy This Item →";
+          sidebar.appendChild(viewLink);
+        }
+
+        function setupThumbnails(item, allImages) {
+          if (allImages.length <= 1) return;
+          var thumbs = byId("itemPageThumbs");
+          var hero = byId("itemPageHero");
+          var html = "";
+          for (var i = 0; i < allImages.length; i++) {
+            html += '<button class="view-thumb ' + (i===0?"active":"") + '" data-source="' + escapeHTML(allImages[i]) + '" aria-label="Show image ' + (i+1) + '">\n            <img src="' + escapeHTML(allImages[i]) + '" alt="' + escapeHTML(item.name) + ' thumbnail ' + (i+1) + '" loading="lazy" decoding="async" referrerpolicy="no-referrer" />\n          </button>';
+          }
+          thumbs.innerHTML = html;
+          thumbs.querySelectorAll(".view-thumb").forEach(function(btn) {
+            btn.addEventListener("click", function() {
+              thumbs.querySelectorAll(".view-thumb").forEach(function(b) { b.classList.remove("active"); });
+              btn.classList.add("active");
+              var wrapper = hero.querySelector(".zoom-wrapper");
+              wrapper.innerHTML = imageMarkup(btn.dataset.source, item.name, item.category, true);
+            });
+          });
+        }
+
+        function setupZoom(item, allImages) {
+          var hero = byId("itemPageHero");
+          var overlay = byId("zoomOverlay");
+          var container = byId("zoomContainer");
+          var zoomImg = byId("zoomImage");
+          var closeBtn = byId("closeZoom");
+          var hSlider = byId("zoomHorizontal");
+          var vSlider = byId("zoomVertical");
+          var zSlider = byId("zoomLevel");
+          var zoomDisplay = byId("zoomLevelDisplay");
           
-          zoomDisplay.textContent = scale.toFixed(1) + '×';
-        }
-
-        // ---- CLAMP POSITION ----
-        function clampPosition() {
-          var bounds = getBounds();
-          state.translateX = Math.max(-bounds.maxX, Math.min(bounds.maxX, state.translateX));
-          state.translateY = Math.max(-bounds.maxY, Math.min(bounds.maxY, state.translateY));
-        }
-
-        // ---- DRAG EVENTS ----
-        function onDragStart(e) {
-          if (state.scale <= 1) return;
-          isDragging = true;
-          var pos = getEventPos(e);
-          dragStartX = pos.x;
-          dragStartY = pos.y;
-          dragStartTranslateX = state.translateX;
-          dragStartTranslateY = state.translateY;
-          container.style.cursor = 'grabbing';
-          e.preventDefault();
-        }
-
-        function onDragMove(e) {
-          if (!isDragging) return;
-          var pos = getEventPos(e);
-          var dx = pos.x - dragStartX;
-          var dy = pos.y - dragStartY;
+          var currentImage = allImages[0] || item.image;
           
-          state.translateX = dragStartTranslateX + dx;
-          state.translateY = dragStartTranslateY + dy;
+          var state = {
+            scale: 1.5,
+            translateX: 0,
+            translateY: 0,
+            minScale: 1,
+            maxScale: 4
+          };
           
-          clampPosition();
-          applyTransform(false);
-          e.preventDefault();
-        }
+          var isDragging = false;
+          var dragStartX = 0;
+          var dragStartY = 0;
+          var dragStartTranslateX = 0;
+          var dragStartTranslateY = 0;
 
-        function onDragEnd(e) {
-          if (isDragging) {
-            isDragging = false;
-            container.style.cursor = 'grab';
+          hero.addEventListener("click", function(e) {
+            if (e.target.closest(".view-thumb") || e.target.closest(".view-link") || e.target.closest(".btn-back")) return;
+            openZoom(currentImage);
+          });
+
+          var observer = new MutationObserver(function() {
+            var img = hero.querySelector("img");
+            if (img && img.src) {
+              currentImage = img.src;
+            }
+          });
+          observer.observe(hero, { childList: true, subtree: true });
+
+          function getBounds() {
+            var containerRect = container.getBoundingClientRect();
+            var imgRect = zoomImg.getBoundingClientRect();
+            var containerWidth = containerRect.width;
+            var containerHeight = containerRect.height;
+            var imgWidth = imgRect.width;
+            var imgHeight = imgRect.height;
+            
+            var maxX = Math.max(0, (imgWidth * state.scale - containerWidth) / 2);
+            var maxY = Math.max(0, (imgHeight * state.scale - containerHeight) / 2);
+            
+            return { maxX: maxX, maxY: maxY };
           }
-        }
 
-        function getEventPos(e) {
-          if (e.touches) {
-            return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+          function applyTransform(animate) {
+            if (animate === undefined) animate = false;
+            var scale = state.scale;
+            var translateX = state.translateX;
+            var translateY = state.translateY;
+            zoomImg.style.transition = animate ? 'transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
+            zoomImg.style.transform = 'translate3d(' + translateX + 'px, ' + translateY + 'px, 0px) scale(' + scale + ')';
+            
+            var bounds = getBounds();
+            if (bounds.maxX > 0) {
+              hSlider.value = (translateX / bounds.maxX) * 100;
+            } else {
+              hSlider.value = 0;
+            }
+            if (bounds.maxY > 0) {
+              vSlider.value = (translateY / bounds.maxY) * 100;
+            } else {
+              vSlider.value = 0;
+            }
+            
+            zoomDisplay.textContent = scale.toFixed(1) + '×';
           }
-          return { x: e.clientX, y: e.clientY };
-        }
 
-        // ---- MOUSE EVENTS ----
-        container.addEventListener('mousedown', onDragStart);
-        document.addEventListener('mousemove', onDragMove);
-        document.addEventListener('mouseup', onDragEnd);
-
-        // ---- TOUCH EVENTS ----
-        var lastTouchDist = 0;
-        var touchStartScale = 1;
-
-        container.addEventListener('touchstart', function(e) {
-          if (e.touches.length === 1) {
-            onDragStart(e);
-          } else if (e.touches.length === 2) {
-            var touch1 = e.touches[0];
-            var touch2 = e.touches[1];
-            lastTouchDist = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
-            touchStartScale = state.scale;
+          function clampPosition() {
+            var bounds = getBounds();
+            state.translateX = Math.max(-bounds.maxX, Math.min(bounds.maxX, state.translateX));
+            state.translateY = Math.max(-bounds.maxY, Math.min(bounds.maxY, state.translateY));
           }
-        }, { passive: false });
 
-        container.addEventListener('touchmove', function(e) {
-          if (e.touches.length === 1 && isDragging) {
-            onDragMove(e);
-          } else if (e.touches.length === 2) {
-            var touch1 = e.touches[0];
-            var touch2 = e.touches[1];
-            var dist = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
-            var scaleChange = dist / lastTouchDist;
-            var newScale = Math.min(state.maxScale, Math.max(state.minScale, touchStartScale * scaleChange));
+          function getEventPos(e) {
+            if (e.touches) {
+              return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+            }
+            return { x: e.clientX, y: e.clientY };
+          }
+
+          function onDragStart(e) {
+            if (state.scale <= 1) return;
+            isDragging = true;
+            var pos = getEventPos(e);
+            dragStartX = pos.x;
+            dragStartY = pos.y;
+            dragStartTranslateX = state.translateX;
+            dragStartTranslateY = state.translateY;
+            container.style.cursor = 'grabbing';
+            e.preventDefault();
+          }
+
+          function onDragMove(e) {
+            if (!isDragging) return;
+            var pos = getEventPos(e);
+            var dx = pos.x - dragStartX;
+            var dy = pos.y - dragStartY;
+            
+            state.translateX = dragStartTranslateX + dx;
+            state.translateY = dragStartTranslateY + dy;
+            
+            clampPosition();
+            applyTransform(false);
+            e.preventDefault();
+          }
+
+          function onDragEnd(e) {
+            if (isDragging) {
+              isDragging = false;
+              container.style.cursor = 'grab';
+            }
+          }
+
+          container.addEventListener('mousedown', onDragStart);
+          document.addEventListener('mousemove', onDragMove);
+          document.addEventListener('mouseup', onDragEnd);
+
+          var lastTouchDist = 0;
+          var touchStartScale = 1;
+
+          container.addEventListener('touchstart', function(e) {
+            if (e.touches.length === 1) {
+              onDragStart(e);
+            } else if (e.touches.length === 2) {
+              var touch1 = e.touches[0];
+              var touch2 = e.touches[1];
+              lastTouchDist = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
+              touchStartScale = state.scale;
+            }
+          }, { passive: false });
+
+          container.addEventListener('touchmove', function(e) {
+            if (e.touches.length === 1 && isDragging) {
+              onDragMove(e);
+            } else if (e.touches.length === 2) {
+              var touch1 = e.touches[0];
+              var touch2 = e.touches[1];
+              var dist = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
+              var scaleChange = dist / lastTouchDist;
+              var newScale = Math.min(state.maxScale, Math.max(state.minScale, touchStartScale * scaleChange));
+              state.scale = newScale;
+              zSlider.value = newScale;
+              clampPosition();
+              applyTransform(false);
+            }
+            e.preventDefault();
+          }, { passive: false });
+
+          container.addEventListener('touchend', function(e) {
+            onDragEnd(e);
+          }, { passive: false });
+
+          container.addEventListener('wheel', function(e) {
+            e.preventDefault();
+            var delta = e.deltaY > 0 ? -0.1 : 0.1;
+            var newScale = Math.min(state.maxScale, Math.max(state.minScale, state.scale + delta));
+            newScale = Math.round(newScale * 100) / 100;
             state.scale = newScale;
             zSlider.value = newScale;
             clampPosition();
-            applyTransform(false);
-          }
-          e.preventDefault();
-        }, { passive: false });
+            applyTransform(true);
+          }, { passive: false });
 
-        container.addEventListener('touchend', function(e) {
-          onDragEnd(e);
-        }, { passive: false });
+          container.addEventListener('dblclick', function(e) {
+            e.preventDefault();
+            if (state.scale > 1.5) {
+              state.scale = 1;
+              state.translateX = 0;
+              state.translateY = 0;
+              zSlider.value = 1;
+            } else {
+              var rect = container.getBoundingClientRect();
+              var x = ((e.clientX - rect.left) / rect.width) * 100;
+              var y = ((e.clientY - rect.top) / rect.height) * 100;
+              state.scale = 2.5;
+              zSlider.value = 2.5;
+              var bounds = getBounds();
+              state.translateX = -(x / 100) * bounds.maxX * 2;
+              state.translateY = -(y / 100) * bounds.maxY * 2;
+              clampPosition();
+            }
+            applyTransform(true);
+          });
 
-        // ---- MOUSE WHEEL ZOOM ----
-        container.addEventListener('wheel', function(e) {
-          e.preventDefault();
-          var delta = e.deltaY > 0 ? -0.1 : 0.1;
-          var newScale = Math.min(state.maxScale, Math.max(state.minScale, state.scale + delta));
-          newScale = Math.round(newScale * 100) / 100;
-          state.scale = newScale;
-          zSlider.value = newScale;
-          clampPosition();
-          applyTransform(true);
-        }, { passive: false });
-
-        // ---- DOUBLE CLICK TO TOGGLE ----
-        container.addEventListener('dblclick', function(e) {
-          e.preventDefault();
-          if (state.scale > 1.5) {
-            state.scale = 1;
-            state.translateX = 0;
-            state.translateY = 0;
-            zSlider.value = 1;
-          } else {
-            var rect = container.getBoundingClientRect();
-            var x = ((e.clientX - rect.left) / rect.width) * 100;
-            var y = ((e.clientY - rect.top) / rect.height) * 100;
-            state.scale = 2.5;
-            zSlider.value = 2.5;
+          function updateFromSliders() {
+            var scale = parseFloat(zSlider.value);
+            state.scale = scale;
+            
             var bounds = getBounds();
-            state.translateX = -(x / 100) * bounds.maxX * 2;
-            state.translateY = -(y / 100) * bounds.maxY * 2;
+            var hVal = parseFloat(hSlider.value);
+            var vVal = parseFloat(vSlider.value);
+            
+            if (bounds.maxX > 0) {
+              state.translateX = (hVal / 100) * bounds.maxX;
+            } else {
+              state.translateX = 0;
+            }
+            if (bounds.maxY > 0) {
+              state.translateY = (vVal / 100) * bounds.maxY;
+            } else {
+              state.translateY = 0;
+            }
+            
             clampPosition();
+            applyTransform(true);
           }
-          applyTransform(true);
-        });
 
-        // ---- SLIDER CONTROLS ----
-        function updateFromSliders() {
-          var scale = parseFloat(zSlider.value);
-          state.scale = scale;
-          
-          var bounds = getBounds();
-          var hVal = parseFloat(hSlider.value);
-          var vVal = parseFloat(vSlider.value);
-          
-          if (bounds.maxX > 0) {
-            state.translateX = (hVal / 100) * bounds.maxX;
-          } else {
+          hSlider.addEventListener('input', updateFromSliders);
+          vSlider.addEventListener('input', updateFromSliders);
+          zSlider.addEventListener('input', function() {
+            state.scale = parseFloat(zSlider.value);
+            clampPosition();
+            applyTransform(true);
+          });
+
+          function closeZoom() {
+            overlay.style.display = "none";
+            document.body.style.overflow = "auto";
+            state.scale = 1.5;
             state.translateX = 0;
-          }
-          if (bounds.maxY > 0) {
-            state.translateY = (vVal / 100) * bounds.maxY;
-          } else {
             state.translateY = 0;
-          }
-          
-          clampPosition();
-          applyTransform(true);
-        }
-
-        hSlider.addEventListener('input', updateFromSliders);
-        vSlider.addEventListener('input', updateFromSliders);
-        zSlider.addEventListener('input', function() {
-          state.scale = parseFloat(zSlider.value);
-          clampPosition();
-          applyTransform(true);
-        });
-
-        // ---- CLOSE ZOOM ----
-        function closeZoom() {
-          overlay.style.display = "none";
-          document.body.style.overflow = "auto";
-          state.scale = 1.5;
-          state.translateX = 0;
-          state.translateY = 0;
-          hSlider.value = 0;
-          vSlider.value = 0;
-          zSlider.value = 1.5;
-          applyTransform(false);
-        }
-
-        closeBtn.addEventListener("click", closeZoom);
-        overlay.addEventListener("click", function(e) {
-          if (e.target === overlay) closeZoom();
-        });
-
-        document.addEventListener("keydown", function(e) {
-          if (e.key === "Escape") closeZoom();
-        });
-
-        // ---- OPEN ZOOM ----
-        function openZoom(imageSrc) {
-          if (!imageSrc) return;
-          zoomImg.src = imageSrc;
-          overlay.style.display = "flex";
-          document.body.style.overflow = "hidden";
-          state.scale = 1.5;
-          state.translateX = 0;
-          state.translateY = 0;
-          hSlider.value = 0;
-          vSlider.value = 0;
-          zSlider.value = 1.5;
-          applyTransform(false);
-          container.style.cursor = 'grab';
-        }
-
-        // ---- WINDOW RESIZE HANDLER ----
-        window.addEventListener('resize', function() {
-          if (overlay.style.display === 'flex') {
-            clampPosition();
+            hSlider.value = 0;
+            vSlider.value = 0;
+            zSlider.value = 1.5;
             applyTransform(false);
           }
-        });
 
-        window.openZoom = openZoom;
-      }
+          closeBtn.addEventListener("click", closeZoom);
+          overlay.addEventListener("click", function(e) {
+            if (e.target === overlay) closeZoom();
+          });
 
+          document.addEventListener("keydown", function(e) {
+            if (e.key === "Escape") closeZoom();
+          });
 
-      // ---- COPY LINK ----
-      function copyItemLink() {
-        var url = location.origin + location.pathname + '#item/' + currentItemId;
-        var btn = byId("btnCopyLink");
-        navigator.clipboard.writeText(url).then(function() {
-          btn.textContent = "Copied!";
-          btn.classList.add("copied");
-          setTimeout(function() { btn.textContent = "Copy Link"; btn.classList.remove("copied"); }, 1800);
-        }).catch(function() { window.prompt("Copy this link:", url); });
-      }
+          function openZoom(imageSrc) {
+            if (!imageSrc) return;
+            zoomImg.src = imageSrc;
+            overlay.style.display = "flex";
+            document.body.style.overflow = "hidden";
+            state.scale = 1.5;
+            state.translateX = 0;
+            state.translateY = 0;
+            hSlider.value = 0;
+            vSlider.value = 0;
+            zSlider.value = 1.5;
+            applyTransform(false);
+            container.style.cursor = 'grab';
+          }
 
-      // ---- ROUTING ----
-      function handleRoute() {
-        var hash = location.hash;
-        if (hash.startsWith("#item/")) {
-          document.querySelectorAll(".page").forEach(function(p) { p.classList.remove("active"); });
-          document.querySelectorAll(".nav-link, .mobile-nav-link").forEach(function(l) { l.classList.remove("active"); });
-          byId("page-item").classList.add("active");
-          renderItemPage(hash.slice(6));
-          window.scrollTo(0, 0);
-          return;
+          window.addEventListener('resize', function() {
+            if (overlay.style.display === 'flex') {
+              clampPosition();
+              applyTransform(false);
+            }
+          });
+
+          window.openZoom = openZoom;
         }
-        if (["#catalogue", "#about", "#contact"].indexOf(hash) !== -1) { showPage(hash.slice(1)); return; }
-        showPage("home");
-      }
 
-      function applyVersionStrategy() {
-        var ver = document.querySelector('meta[name="rph-version"]').content;
-        var key = "rph_app_version";
-        var prev = localStorage.getItem(key);
-        localStorage.setItem(key, ver);
-        if (prev && prev !== ver && location.search.indexOf("v=" + ver) === -1) {
-          location.replace(location.pathname + "?v=" + encodeURIComponent(ver) + location.hash);
-          return true;
+        function copyItemLink() {
+          var url = location.origin + location.pathname + '#item/' + currentItemId;
+          var btn = byId("btnCopyLink");
+          navigator.clipboard.writeText(url).then(function() {
+            btn.textContent = "Copied!";
+            btn.classList.add("copied");
+            setTimeout(function() { btn.textContent = "Copy Link"; btn.classList.remove("copied"); }, 1800);
+          }).catch(function() { window.prompt("Copy this link:", url); });
         }
-        return false;
+
+        function handleRoute() {
+          var hash = location.hash;
+          if (hash.indexOf("#item/") === 0) {
+            document.querySelectorAll(".page").forEach(function(p) { p.classList.remove("active"); });
+            document.querySelectorAll(".nav-link, .mobile-nav-link").forEach(function(l) { l.classList.remove("active"); });
+            byId("page-item").classList.add("active");
+            renderItemPage(hash.slice(6));
+            window.scrollTo(0, 0);
+            return;
+          }
+          if (hash === "#catalogue" || hash === "#about" || hash === "#contact") { 
+            showPage(hash.slice(1)); 
+            return; 
+          }
+          showPage("home");
+        }
+
+        function applyVersionStrategy() {
+          var ver = document.querySelector('meta[name="rph-version"]').content;
+          var key = "rph_app_version";
+          var prev = localStorage.getItem(key);
+          localStorage.setItem(key, ver);
+          if (prev && prev !== ver && location.search.indexOf("v=" + ver) === -1) {
+            location.replace(location.pathname + "?v=" + encodeURIComponent(ver) + location.hash);
+            return true;
+          }
+          return false;
+        }
+
+        window.addEventListener("hashchange", handleRoute);
+        if (!applyVersionStrategy()) {
+          renderHome();
+          renderCatalogue();
+          handleRoute();
+        }
       }
 
-      window.addEventListener("hashchange", handleRoute);
-      if (!applyVersionStrategy()) {
-        renderHome();
-        renderCatalogue();
-        handleRoute();
+      // Check if ITEMS is defined, if not wait for it
+      function checkAndInit() {
+        if (typeof ITEMS !== 'undefined') {
+          console.log('✅ catalog.js loaded! Items:', ITEMS.length);
+          initApp();
+        } else {
+          console.log('⏳ Waiting for catalog.js to load...');
+          // Check again in 100ms
+          setTimeout(checkAndInit, 100);
+        }
       }
+
+      // Start the check
+      checkAndInit();
     </script>
   </body>
 </html>
