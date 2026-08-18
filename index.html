@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="rph-version" content="2026.08.18.1" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <title>R★ Games Promo Hub — Official Merch Catalogue</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <style>
@@ -886,14 +887,14 @@
             width: 100%;
             box-sizing: border-box;
         }
-        /* NEW: Only yellow/gold border for availability - NO GREEN TINT */
+        /* FIXED: No green tint - just a subtle gold border */
         .item-label-value.availability-available {
             background: rgba(255, 255, 255, 0.05);
             border-left: 3px solid var(--gold);
             color: var(--white);
         }
         .item-label-value.availability-unavailable {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03);
             border-left: 3px solid var(--muted);
             color: var(--muted);
         }
@@ -1177,7 +1178,7 @@
 
     <!-- HEADER -->
     <header>
-        <a class="logo" href="#" data-page="home">
+        <a class="logo" href="#home">
             <div class="logo-word">R<span class="logo-star">★</span> GAMES <span class="logo-star">PROMO</span> HUB</div>
             <div class="logo-divider"></div>
             <div class="logo-subtitle">Merch<br />Catalogue</div>
@@ -1357,23 +1358,16 @@
         <p>© 2024–2026 <span>RockstarPromoHub.com</span> — Fan-made. Not affiliated with Rockstar Games.</p>
     </footer>
 
-    <!-- Load catalog.js -->
+    <!-- Load catalog.js with cache-busting version -->
     <script src="catalog.js?v=2026.08.18.1"></script>
 
     <!-- MAIN APPLICATION -->
     <script>
         (function() {
 
-            // ---------- CACHE BUSTING ----------
-            // Force clear old cache on every visit
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.getRegistrations().then(function(registrations) {
-                    registrations.forEach(function(reg) { reg.unregister(); });
-                });
-            }
-            // Tell the browser not to cache this page
-            document.querySelector('meta[http-equiv="Cache-Control"]').content = 'no-cache, no-store, must-revalidate';
-            document.querySelector('meta[http-equiv="Cache-Control"]').setAttribute('http-equiv', 'Cache-Control');
+            // ---------- DOM REFS ----------
+            var $ = function(id) { return document.getElementById(id); };
+            var qsa = function(sel, ctx) { return (ctx || document).querySelectorAll(sel); };
 
             // ---------- APP STATE ----------
             var state = {
@@ -1385,11 +1379,6 @@
                 items: [],
                 uniqueGames: []
             };
-
-            // ---------- DOM REFS ----------
-            var $ = function(id) { return document.getElementById(id); };
-            var qs = function(sel, ctx) { return (ctx || document).querySelector(sel); };
-            var qsa = function(sel, ctx) { return (ctx || document).querySelectorAll(sel); };
 
             // ---------- HELPERS ----------
             function escapeHTML(str) {
@@ -1404,7 +1393,8 @@
             }
 
             function safeExternalUrl(value) {
-                try { var url = new URL(value); return ['http:', 'https:'].includes(url.protocol) ? url.href : ''; } catch(e) { return ''; }
+                try { var url = new URL(value); return ['http:', 'https:'].includes(url.protocol) ? url.href : ''; } catch(
+                e) { return ''; }
             }
 
             function normaliseItem(item, fallbackId) {
@@ -1443,7 +1433,9 @@
 
             function imageMarkup(source, altText, category, eager) {
                 if (!source) return placeholderImageMarkup(category);
-                return '<img src="' + escapeHTML(source) + '" alt="' + escapeHTML(altText) + '" loading="' + (eager ? 'eager' : 'lazy') + '" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden = true; this.nextElementSibling.hidden = false;" />\n          ' + placeholderImageMarkup(category, 'Image coming soon', true);
+                return '<img src="' + escapeHTML(source) + '" alt="' + escapeHTML(altText) + '" loading="' + (eager ? 'eager' :
+                    'lazy') + '" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden = true; this.nextElementSibling.hidden = false;" />\n          ' +
+                    placeholderImageMarkup(category, 'Image coming soon', true);
             }
 
             function getAvailabilityClass(availability) {
@@ -1475,7 +1467,13 @@
             // ---------- RENDER FUNCTIONS ----------
             function cardHTML(rawItem) {
                 var item = normaliseItem(rawItem);
-                return '<article class="merch-card">\n          <a class="card-image" href="#item/' + item.id + '" aria-label="View ' + escapeHTML(item.name) + '">\n            ' + imageMarkup(item.image, item.name, item.category) + '\n          </a>\n          <a class="card-body" href="#item/' + item.id + '">\n            <div class="card-game">' + escapeHTML(item.game) + '</div>\n            <div class="card-name">' + escapeHTML(item.name) + '</div>\n            <div class="card-description">' + escapeHTML(item.description || 'No description has been added yet.') + '</div>\n            <div class="card-footer"><span class="card-category">' + escapeHTML(item.category) + '</span></div>\n          </a>\n        </article>';
+                return '<article class="merch-card">\n          <a class="card-image" href="#item/' + item.id + '" aria-label="View ' +
+                    escapeHTML(item.name) + '">\n            ' + imageMarkup(item.image, item.name, item.category) +
+                    '\n          </a>\n          <a class="card-body" href="#item/' + item.id + '">\n            <div class="card-game">' +
+                    escapeHTML(item.game) + '</div>\n            <div class="card-name">' + escapeHTML(item.name) +
+                    '</div>\n            <div class="card-description">' + escapeHTML(item.description ||
+                    'No description has been added yet.') + '</div>\n            <div class="card-footer"><span class="card-category">' +
+                    escapeHTML(item.category) + '</span></div>\n          </a>\n        </article>';
             }
 
             function renderHome() {
@@ -1503,7 +1501,8 @@
                     return matchType && matchGame && (!term || searchText.indexOf(term) !== -1);
                 });
                 if (filtered.length === 0) {
-                    $('catalogue').innerHTML = '<div class="empty-state"><span class="big-star">★</span><h3>No Items Found</h3><p>Try a different filter or search term.</p></div>';
+                    $('catalogue').innerHTML =
+                        '<div class="empty-state"><span class="big-star">★</span><h3>No Items Found</h3><p>Try a different filter or search term.</p></div>';
                     return;
                 }
                 $('catalogue').innerHTML = filtered.map(cardHTML).join('');
@@ -1565,7 +1564,15 @@
                 var wrap = document.querySelector('.item-detail-wrap');
                 state.currentItemId = item.id;
 
-                wrap.innerHTML = '\n          <button class="btn-back" id="backToCatalogue">← Back to Catalogue</button>\n          <div class="item-hero" id="itemPageHero">\n            <div class="zoom-wrapper" id="zoomWrapper">\n              ' + imageMarkup(allImages[0], item.name, item.category, true) + '\n            </div>\n          </div>\n          <div class="view-thumbs" id="itemPageThumbs" style="' + (allImages.length > 1 ? '' : 'display:none') + '"></div>\n          <div class="item-detail-body">\n            <div class="item-detail-main">\n              <div class="item-game-label">' + escapeHTML(item.game) + '</div>\n              <h1 class="item-detail-name">' + escapeHTML(item.name) + '</h1>\n              <span class="item-detail-section-label">Description</span>\n              <p class="item-detail-description">' + escapeHTML(item.description || 'No description has been added yet.') + '</p>\n              <div class="item-detail-share">\n                <span class="item-detail-share-label">Share this item:</span>\n                <button class="btn-copy-link" id="btnCopyLink">Copy Link</button>\n              </div>\n            </div>\n            <aside class="item-detail-sidebar" id="itemPageSidebar"></aside>\n          </div>\n        ';
+                wrap.innerHTML = '\n          <button class="btn-back" id="backToCatalogue">← Back to Catalogue</button>\n          <div class="item-hero" id="itemPageHero">\n            <div class="zoom-wrapper" id="zoomWrapper">\n              ' +
+                    imageMarkup(allImages[0], item.name, item.category, true) +
+                    '\n            </div>\n          </div>\n          <div class="view-thumbs" id="itemPageThumbs" style="' + (allImages.length >
+                        1 ? '' : 'display:none') + '"></div>\n          <div class="item-detail-body">\n            <div class="item-detail-main">\n              <div class="item-game-label">' +
+                    escapeHTML(item.game) + '</div>\n              <h1 class="item-detail-name">' + escapeHTML(item
+                    .name) +
+                    '</h1>\n              <span class="item-detail-section-label">Description</span>\n              <p class="item-detail-description">' +
+                    escapeHTML(item.description || 'No description has been added yet.') +
+                    '</p>\n              <div class="item-detail-share">\n                <span class="item-detail-share-label">Share this item:</span>\n                <button class="btn-copy-link" id="btnCopyLink">Copy Link</button>\n              </div>\n            </div>\n            <aside class="item-detail-sidebar" id="itemPageSidebar"></aside>\n          </div>\n        ';
 
                 // Back button
                 $('backToCatalogue').addEventListener('click', function() { showPage('catalogue'); });
@@ -1692,7 +1699,8 @@
                     var scale = state.scale;
                     var translateX = state.translateX;
                     var translateY = state.translateY;
-                    zoomImg.style.transition = animate ? 'transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
+                    zoomImg.style.transition = animate ? 'transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)' :
+                    'none';
                     zoomImg.style.transform = 'translate3d(' + translateX + 'px, ' + translateY + 'px, 0px) scale(' +
                         scale + ')';
                     var bounds = getBounds();
@@ -1874,28 +1882,19 @@
 
             // ---------- EVENT BINDING ----------
             function bindEvents() {
-                // Navigation buttons
-                document.querySelectorAll('[data-page]').forEach(function(el) {
-                    el.addEventListener('click', function(e) {
+                // Navigation buttons - Desktop
+                document.querySelectorAll('.desktop-nav .nav-link').forEach(function(btn) {
+                    btn.addEventListener('click', function(e) {
                         e.preventDefault();
                         var page = this.dataset.page;
-                        if (page === 'catalogue' || page === 'about' || page === 'contact' || page === 'home') {
-                            showPage(page);
-                        }
+                        if (page) showPage(page);
                     });
                 });
 
-                // Mobile hamburger
-                $('hamburger').addEventListener('click', function() {
-                    var nav = $('mobileNav');
-                    var isOpen = nav.classList.toggle('open');
-                    this.classList.toggle('open');
-                    this.setAttribute('aria-expanded', String(isOpen));
-                });
-
-                // Mobile nav links
+                // Navigation buttons - Mobile
                 document.querySelectorAll('.mobile-nav-link').forEach(function(btn) {
-                    btn.addEventListener('click', function() {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
                         var page = this.dataset.page;
                         if (page) {
                             showPage(page);
@@ -1906,13 +1905,46 @@
                     });
                 });
 
+                // Navigation buttons - Footer
+                document.querySelectorAll('.footer-links button').forEach(function(btn) {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        var page = this.dataset.page;
+                        if (page) showPage(page);
+                    });
+                });
+
+                // Home page buttons
+                document.querySelectorAll('.home-actions .btn-primary, .home-actions .btn-secondary, .btn-see-all')
+                    .forEach(function(btn) {
+                        btn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            var page = this.dataset.page;
+                            if (page) showPage(page);
+                        });
+                    });
+
+                // Logo
+                document.querySelector('.logo').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showPage('home');
+                });
+
+                // Mobile hamburger
+                $('hamburger').addEventListener('click', function() {
+                    var nav = $('mobileNav');
+                    var isOpen = nav.classList.toggle('open');
+                    this.classList.toggle('open');
+                    this.setAttribute('aria-expanded', String(isOpen));
+                });
+
                 // Type filters
                 document.querySelectorAll('.filter-bar:not(#gameFilterBar) .filter-pill').forEach(function(btn) {
                     btn.addEventListener('click', function() {
                         var type = this.dataset.type;
                         state.typeFilter = type || 'all';
-                        document.querySelectorAll('.filter-bar:not(#gameFilterBar) .filter-pill').forEach(function(
-                        b) { b.classList.remove('active'); });
+                        document.querySelectorAll('.filter-bar:not(#gameFilterBar) .filter-pill').forEach(
+                            function(b) { b.classList.remove('active'); });
                         this.classList.add('active');
                         renderCatalogue();
                     });
@@ -1924,8 +1956,8 @@
                     if (!btn) return;
                     var game = btn.dataset.game;
                     state.gameFilter = game || 'all';
-                    document.querySelectorAll('#gameFilterBar .filter-pill').forEach(function(b) { b.classList.remove(
-                        'active'); });
+                    document.querySelectorAll('#gameFilterBar .filter-pill').forEach(function(b) { b.classList
+                        .remove('active'); });
                     btn.classList.add('active');
                     renderCatalogue();
                 });
@@ -1935,12 +1967,6 @@
 
                 // Hash change
                 window.addEventListener('hashchange', handleRoute);
-
-                // Logo click
-                document.querySelector('.logo').addEventListener('click', function(e) {
-                    e.preventDefault();
-                    showPage('home');
-                });
             }
 
             // ---------- INIT ----------
