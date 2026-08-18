@@ -6,193 +6,193 @@
 <title>Rockstar Merchandise Generator</title>
 
 <style>
-*{
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-body{
-    margin:0;
-    padding:40px;
-    background:#1e1e1e;
-    color:white;
-    font-family:"Segoe UI",Arial,sans-serif;
+body {
+    margin: 0;
+    padding: 40px;
+    background: #1e1e1e;
+    color: white;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
-.container{
-    max-width:760px;
-    margin:auto;
-    background:#2b2b2b;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 0 20px rgba(0,0,0,.45);
+.container {
+    max-width: 760px;
+    margin: auto;
+    background: #2b2b2b;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,.45);
 }
 
-h1{
-    text-align:center;
-    margin-top:0;
-    margin-bottom:10px;
+h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
-h2{
-    margin-top:0;
-    margin-bottom:4px;
-    font-size:17px;
-    border-bottom:1px solid #444;
-    padding-bottom:8px;
+h2 {
+    margin-top: 0;
+    margin-bottom: 4px;
+    font-size: 17px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 8px;
 }
 
-.step{
-    margin-top:34px;
-    padding-top:4px;
+.step {
+    margin-top: 34px;
+    padding-top: 4px;
 }
 
-.stepDesc{
-    color:#aaa;
-    font-size:13px;
-    margin-bottom:14px;
+.stepDesc {
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 14px;
 }
 
-label{
-    display:block;
-    margin-top:18px;
-    margin-bottom:6px;
-    font-weight:bold;
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 6px;
+    font-weight: bold;
 }
 
 input,
 textarea,
-select{
-    width:100%;
-    padding:11px;
-    border:none;
-    border-radius:6px;
-    background:#3b3b3b;
-    color:white;
-    font-size:15px;
-    font-family:inherit;
+select {
+    width: 100%;
+    padding: 11px;
+    border: none;
+    border-radius: 6px;
+    background: #3b3b3b;
+    color: white;
+    font-size: 15px;
+    font-family: inherit;
 }
 
-textarea{
-    min-height:90px;
-    resize:vertical;
+textarea {
+    min-height: 90px;
+    resize: vertical;
 }
 
-#catalogInput{
-    min-height:160px;
-    font-family:Consolas, monospace;
-    font-size:13px;
+#catalogInput {
+    min-height: 160px;
+    font-family: Consolas, monospace;
+    font-size: 13px;
 }
 
-.note{
-    color:#ff6b6b;
-    font-size:13px;
-    margin-bottom:8px;
+.note {
+    color: #ff6b6b;
+    font-size: 13px;
+    margin-bottom: 8px;
 }
 
-.hint{
-    color:#8a8a8a;
-    font-size:13px;
-    margin-bottom:8px;
+.hint {
+    color: #8a8a8a;
+    font-size: 13px;
+    margin-bottom: 8px;
 }
 
-.status{
-    font-size:13px;
-    margin-top:8px;
-    min-height:16px;
+.status {
+    font-size: 13px;
+    margin-top: 8px;
+    min-height: 16px;
 }
 
-.status.ok{
-    color:#34c759;
+.status.ok {
+    color: #34c759;
 }
 
-.status.err{
-    color:#ff6b6b;
+.status.err {
+    color: #ff6b6b;
 }
 
-.row{
-    display:flex;
-    gap:10px;
-    align-items:stretch;
+.row {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
 }
 
-.row input{
-    flex:1;
+.row input {
+    flex: 1;
 }
 
-.row button{
-    width:auto;
-    white-space:nowrap;
-    margin-top:0;
-    padding:0 18px;
+.row button {
+    width: auto;
+    white-space: nowrap;
+    margin-top: 0;
+    padding: 0 18px;
 }
 
-button{
-    width:100%;
-    margin-top:25px;
-    padding:14px;
-    border:none;
-    border-radius:8px;
-    font-size:18px;
-    cursor:pointer;
-    background:#0078d7;
-    color:white;
-    transition:.2s;
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    background: #0078d7;
+    color: white;
+    transition: .2s;
 }
 
-button:hover{
-    background:#0a84ff;
+button:hover {
+    background: #0a84ff;
 }
 
-button:disabled{
-    background:#444;
-    color:#888;
-    cursor:not-allowed;
+button:disabled {
+    background: #444;
+    color: #888;
+    cursor: not-allowed;
 }
 
-.copyBtn{
-    background:#28a745;
+.copyBtn {
+    background: #28a745;
 }
 
-.copyBtn:hover{
-    background:#34c759;
+.copyBtn:hover {
+    background: #34c759;
 }
 
-.downloadBtn{
-    background:#6f42c1;
+.downloadBtn {
+    background: #6f42c1;
 }
 
-.downloadBtn:hover{
-    background:#8250df;
+.downloadBtn:hover {
+    background: #8250df;
 }
 
-.fetchBtn{
-    background:#555;
+.fetchBtn {
+    background: #555;
 }
 
-.fetchBtn:hover{
-    background:#6b6b6b;
+.fetchBtn:hover {
+    background: #6b6b6b;
 }
 
-.btnRow{
-    display:flex;
-    gap:10px;
+.btnRow {
+    display: flex;
+    gap: 10px;
 }
 
-.btnRow button{
-    flex:1;
+.btnRow button {
+    flex: 1;
 }
 
-#output{
-    margin-top:25px;
-    background:#111;
-    padding:18px;
-    border-radius:8px;
-    white-space:pre-wrap;
-    font-family:Consolas, monospace;
-    overflow-x:auto;
-    max-height:420px;
-    overflow-y:auto;
-    font-size:13px;
+#output {
+    margin-top: 25px;
+    background: #111;
+    padding: 18px;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    font-family: Consolas, monospace;
+    overflow-x: auto;
+    max-height: 420px;
+    overflow-y: auto;
+    font-size: 13px;
 }
 </style>
 
@@ -205,200 +205,419 @@ button:disabled{
 
 <div class="step">
 <h2>Step 1 — Load current catalog.js</h2>
-<div class="stepDesc">This tool automatically fetches the latest catalog.js directly from your GitHub repository when opened. You can also click "Fetch Latest" or paste catalog.js contents manually.</div>
+
+<div class="stepDesc">
+This tool automatically fetches the latest catalog.js directly from your GitHub repository when opened.
+You can also click "Fetch Latest" or paste catalog.js contents manually.
+</div>
 
 <label for="githubUrl">GitHub Repository catalog.js URL</label>
+
 <div class="row">
-  <input id="githubUrl" value="https://github.com/rebex2/texture-toolkit/blob/main/catalog.js" placeholder="https://github.com/rebex2/texture-toolkit/blob/main/catalog.js">
-  <button class="fetchBtn" onclick="fetchFromGithub()">Fetch Latest</button>
+    <input
+        id="githubUrl"
+        value="https://github.com/rebex2/texture-toolkit/blob/main/catalog.js"
+        placeholder="https://github.com/rebex2/texture-toolkit/blob/main/catalog.js"
+    >
+
+    <button class="fetchBtn" onclick="fetchFromGithub()">
+        Fetch Latest
+    </button>
 </div>
+
 <div id="fetchStatus" class="status"></div>
 
-<label for="catalogInput">catalog.js contents <span style="color:#ff6b6b">*required*</span></label>
-<textarea id="catalogInput" placeholder="catalog.js contents will automatically load here..."></textarea>
-<div class="hint">Tip: If auto-fetch succeeds, you don't need to touch Step 1 at all! Just fill in Step 2 below to add your item.</div>
+<label for="catalogInput">
+    catalog.js contents
+    <span style="color:#ff6b6b">*required*</span>
+</label>
+
+<textarea
+    id="catalogInput"
+    placeholder="catalog.js contents will automatically load here..."
+></textarea>
+
+<div class="hint">
+Tip: If auto-fetch succeeds, you don't need to touch Step 1 at all!
+Just fill in Step 2 below to add your item.
 </div>
 
+</div>
+
+
 <div class="step">
+
 <h2>Step 2 — New item details</h2>
-<div class="stepDesc">Fill in the details of the new merchandise item to add to the catalog.</div>
+
+<div class="stepDesc">
+Fill in the details of the new merchandise item to add to the catalog.
+</div>
+
 
 <label for="name">Name</label>
 <input id="name">
 
+
 <label for="game">Game (Type to search)</label>
-<input list="gameOptions" id="game" value="Grand Theft Auto V (2013)" placeholder="Search or select a game...">
+
+<input
+    list="gameOptions"
+    id="game"
+    value="Grand Theft Auto V (2013)"
+    placeholder="Search or select a game..."
+>
+
 <datalist id="gameOptions">
-  <option value="Grand Theft Auto (1997)">
-  <option value="Grand Theft Auto 2 (1999)">
-  <option value="Midnight Club: Street Racing (2000)">
-  <option value="Max Payne (2001)">
-  <option value="Grand Theft Auto III (2001)">
-  <option value="Grand Theft Auto: Vice City (2002)">
-  <option value="Midnight Club II (2003)">
-  <option value="Max Payne 2: The Fall of Max Payne (2003)">
-  <option value="Manhunt (2003)">
-  <option value="Red Dead Revolver (2004)">
-  <option value="Grand Theft Auto: San Andreas (2004)">
-  <option value="Midnight Club 3: DUB Edition (2005)">
-  <option value="The Warriors (2005)">
-  <option value="Grand Theft Auto: Liberty City Stories (2005)">
-  <option value="Bully (2006)">
-  <option value="Grand Theft Auto: Vice City Stories (2006)">
-  <option value="Grand Theft Auto IV (2008)">
-  <option value="Midnight Club: Los Angeles (2008)">
-  <option value="Grand Theft Auto: Chinatown Wars (2009)">
-  <option value="Red Dead Redemption (2010)">
-  <option value="L.A. Noire (2011)">
-  <option value="Max Payne 3 (2012)">
-  <option value="Grand Theft Auto V (2013)">
-  <option value="Red Dead Redemption 2 (2018)">
-  <option value="Grand Theft Auto VI (2026)">
+
+    <option value="Grand Theft Auto (1997)">
+    <option value="Grand Theft Auto 2 (1999)">
+    <option value="Midnight Club: Street Racing (2000)">
+    <option value="Max Payne (2001)">
+    <option value="Grand Theft Auto III (2001)">
+    <option value="Grand Theft Auto: Vice City (2002)">
+    <option value="Midnight Club II (2003)">
+    <option value="Max Payne 2: The Fall of Max Payne (2003)">
+    <option value="Manhunt (2003)">
+    <option value="Red Dead Revolver (2004)">
+    <option value="Grand Theft Auto: San Andreas (2004)">
+    <option value="Midnight Club 3: DUB Edition (2005)">
+    <option value="The Warriors (2005)">
+    <option value="Grand Theft Auto: Liberty City Stories (2005)">
+    <option value="Bully (2006)">
+    <option value="Grand Theft Auto: Vice City Stories (2006)">
+    <option value="Grand Theft Auto IV (2008)">
+    <option value="Midnight Club: Los Angeles (2008)">
+    <option value="Grand Theft Auto: Chinatown Wars (2009)">
+    <option value="Red Dead Redemption (2010)">
+    <option value="L.A. Noire (2011)">
+    <option value="Max Payne 3 (2012)">
+    <option value="Grand Theft Auto V (2013)">
+    <option value="Red Dead Redemption 2 (2018)">
+    <option value="Grand Theft Auto VI (2026)">
+
 </datalist>
 
+
 <label for="category">Type (Type to search)</label>
-<input list="categoryOptions" id="category" placeholder="Search or select a type...">
+
+<input
+    list="categoryOptions"
+    id="category"
+    placeholder="Search or select a type..."
+>
+
 <datalist id="categoryOptions">
-  <option value="Hats">
-  <option value="Plushies">
-  <option value="T-Shirts">
-  <option value="Hoodies">
-  <option value="Posters">
-  <option value="Collectibles">
-  <option value="Keychains">
-  <option value="Stickers">
-  <option value="Zippo Lighters">
-  <option value="Mugs and Drinkware">
-  <option value="Shot Glasses">
-  <option value="Playing Card Decks">
-  <option value="Domino Sets">
-  <option value="Kubrick Figures">
-  <option value="USB Flash Drives">
-  <option value="Mousepads">
-  <option value="Phone Cases">
-  <option value="Air Fresheners">
-  <option value="Replica License Plates">
-  <option value="Enamel Pin Sets">
-  <option value="Patches">
-  <option value="Bandanas">
-  <option value="Socks and Underwear">
-  <option value="Lithographs and Art Prints">
-  <option value="Vinyl Soundtracks">
-  <option value="Art Books and Comics">
-  <option value="Drug-related Items">
-  <option value="Other">
+
+    <option value="Hats">
+    <option value="Plushies">
+    <option value="T-Shirts">
+    <option value="Hoodies">
+    <option value="Posters">
+    <option value="Collectibles">
+    <option value="Keychains">
+    <option value="Stickers">
+    <option value="Zippo Lighters">
+    <option value="Mugs and Drinkware">
+    <option value="Shot Glasses">
+    <option value="Playing Card Decks">
+    <option value="Domino Sets">
+    <option value="Kubrick Figures">
+    <option value="USB Flash Drives">
+    <option value="Mousepads">
+    <option value="Phone Cases">
+    <option value="Air Fresheners">
+    <option value="Replica License Plates">
+    <option value="Enamel Pin Sets">
+    <option value="Patches">
+    <option value="Bandanas">
+    <option value="Socks and Underwear">
+    <option value="Lithographs and Art Prints">
+    <option value="Vinyl Soundtracks">
+    <option value="Art Books and Comics">
+    <option value="Drug-related Items">
+    <option value="Other">
+
 </datalist>
+
 
 <label for="description">Description</label>
 <textarea id="description"></textarea>
 
+
 <label for="year">Year</label>
 <input id="year">
 
+
 <label for="rarity">Rarity (Type to search)</label>
-<input list="rarityOptions" id="rarity" placeholder="Search or select rarity...">
+
+<input
+    list="rarityOptions"
+    id="rarity"
+    placeholder="Search or select rarity..."
+>
+
 <datalist id="rarityOptions">
-  <option value="Common">
-  <option value="Rare">
-  <option value="Very Rare">
-  <option value="Extremely Rare">
+
+    <option value="Common">
+    <option value="Rare">
+    <option value="Very Rare">
+    <option value="Extremely Rare">
+
 </datalist>
 
+
 <label for="availability">Publicly Available</label>
+
 <select id="availability">
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
+
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+
 </select>
 
-    
+
 <label for="image">Main Image Path / Filename</label>
-<div class="note">Subfolders supported, e.g. <code>images/gta4/chop.jpg</code> or <code>gta4/chop.jpg</code> (Leave blank if none).</div>
-<input id="image" placeholder="images/gta4/chop.jpg">
 
-<label for="extraImages">Extra Images (comma or newline separated)</label>
-<div class="note">Enter as many images as you like, e.g. <code>images/gta4/crate1.jpg, images/gta4/crate2.jpg</code></div>
-<textarea id="extraImages" style="min-height:70px;" placeholder="images/gta4/crate1.jpg&#10;images/gta4/crate2.jpg"></textarea>
-
-<button onclick="generate()">Generate Updated catalog.js</button>
-<div id="generateStatus" class="status"></div>
+<div class="note">
+Subfolders supported, e.g.
+<code>images/gta4/chop.jpg</code>
+or
+<code>gta4/chop.jpg</code>
+(Leave blank if none).
 </div>
+
+<input
+    id="image"
+    placeholder="images/gta4/chop.jpg"
+>
+
+
+<label for="extraImages">
+Extra Images (comma or newline separated)
+</label>
+
+<div class="note">
+Enter as many images as you like, e.g.
+<code>images/gta4/crate1.jpg, images/gta4/crate2.jpg</code>
+</div>
+
+<textarea
+    id="extraImages"
+    style="min-height:70px;"
+    placeholder="images/gta4/crate1.jpg&#10;images/gta4/crate2.jpg"
+></textarea>
+
+
+<button onclick="generate()">
+Generate Updated catalog.js
+</button>
+
+<div id="generateStatus" class="status"></div>
+
+</div>
+
 
 <pre id="output"></pre>
 
+
 <div class="btnRow" style="margin-top:14px;">
-  <button class="copyBtn" onclick="copyOutput()">Copy to Clipboard</button>
-  <button class="downloadBtn" onclick="downloadOutput()">Download catalog.js</button>
+
+    <button class="copyBtn" onclick="copyOutput()">
+        Copy to Clipboard
+    </button>
+
+    <button class="downloadBtn" onclick="downloadOutput()">
+        Download catalog.js
+    </button>
+
 </div>
 
 </div>
+
 
 <script>
 
-// Clean and normalize image paths (handles quotes, slashes, and optional 'images/' folder prefix)
+
+// --------------------------------------------------
+// IMAGE PATH CLEANUP
+// --------------------------------------------------
+
 function formatImagePath(rawPath) {
-    let path = String(rawPath || "").trim().replace(/^["']|["']$/g, "").trim();
+
+    let path = String(rawPath || "")
+        .trim()
+        .replace(/^["']|["']$/g, "")
+        .trim();
+
     if (!path) return "";
+
     path = path.replace(/\\/g, "/");
-    if (!path.startsWith("images/") && !path.startsWith("http://") && !path.startsWith("https://") && !path.startsWith("/")) {
+
+    if (
+        !path.startsWith("images/") &&
+        !path.startsWith("http://") &&
+        !path.startsWith("https://") &&
+        !path.startsWith("/")
+    ) {
         path = "images/" + path;
     }
+
     return path;
 }
 
-async function fetchFromGithub(isAutoLoad = false){
+
+
+// --------------------------------------------------
+// FETCH CATALOG FROM GITHUB
+// --------------------------------------------------
+
+async function fetchFromGithub(isAutoLoad = false) {
 
     const urlField = document.getElementById("githubUrl");
     const statusEl = document.getElementById("fetchStatus");
+
     let url = urlField.value.trim();
 
-    if(url === ""){
+
+    if (url === "") {
+
         statusEl.textContent = "Enter a GitHub URL first.";
         statusEl.className = "status err";
+
         return;
     }
 
-    // Convert normal github.com blob or raw URLs into raw URLs automatically
-    if(url.includes("github.com") && url.includes("/blob/")){
-        url = url.replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/");
-    } else if(url.includes("github.com") && url.includes("/raw/")){
-        url = url.replace("github.com", "raw.githubusercontent.com").replace("/raw/", "/");
+
+    // Convert normal GitHub blob URLs into raw URLs
+
+    if (
+        url.includes("github.com") &&
+        url.includes("/blob/")
+    ) {
+
+        url = url
+            .replace("github.com", "raw.githubusercontent.com")
+            .replace("/blob/", "/");
+
     }
 
-    // Append timestamp for cache busting
-    const fetchUrl = url + (url.includes("?") ? "&" : "?") + "t=" + Date.now();
+    else if (
+        url.includes("github.com") &&
+        url.includes("/raw/")
+    ) {
 
-    statusEl.textContent = isAutoLoad ? "Auto-loading latest catalog.js from GitHub..." : "Fetching...";
+        url = url
+            .replace("github.com", "raw.githubusercontent.com")
+            .replace("/raw/", "/");
+
+    }
+
+
+    // Cache busting
+
+    const fetchUrl =
+        url +
+        (url.includes("?") ? "&" : "?") +
+        "t=" +
+        Date.now();
+
+
+    statusEl.textContent =
+        isAutoLoad
+            ? "Auto-loading latest catalog.js from GitHub..."
+            : "Fetching...";
+
     statusEl.className = "status";
 
-    try{
+
+    try {
+
         const res = await fetch(fetchUrl);
 
-        if(!res.ok){
+
+        if (!res.ok) {
             throw new Error("HTTP " + res.status);
         }
 
+
         const text = await res.text();
+
         document.getElementById("catalogInput").value = text;
-        statusEl.textContent = "✓ " + (isAutoLoad ? "Automatically loaded" : "Loaded") + " latest catalog.js (" + text.length + " characters).";
+
+
+        statusEl.textContent =
+            "✓ " +
+            (isAutoLoad ? "Automatically loaded" : "Loaded") +
+            " latest catalog.js (" +
+            text.length +
+            " characters).";
+
         statusEl.className = "status ok";
-    }catch(err){
-        statusEl.textContent = isAutoLoad ? "Notice: Could not auto-fetch catalog.js (" + err.message + "). You can click Fetch Latest or paste catalog.js manually." : "Couldn't fetch URL (" + err.message + "). Paste file contents manually.";
+
+    }
+
+    catch (err) {
+
+        statusEl.textContent =
+            isAutoLoad
+                ? "Notice: Could not auto-fetch catalog.js (" +
+                  err.message +
+                  "). You can click Fetch Latest or paste catalog.js manually."
+                : "Couldn't fetch URL (" +
+                  err.message +
+                  "). Paste file contents manually.";
+
         statusEl.className = "status err";
     }
 }
 
-function buildNewItemText(){
 
-    // JSON.stringify safely escapes quotes, backslashes and line breaks
-    // so multi-line descriptions remain valid JavaScript.
+
+// --------------------------------------------------
+// BUILD NEW ITEM
+// --------------------------------------------------
+
+function buildNewItemText() {
+
+    // JSON.stringify safely escapes:
+    // quotes
+    // backslashes
+    // line breaks
+
     const jsString = value => JSON.stringify(value);
 
-    let extra = document.getElementById("extraImages").value.trim();
+
+    // Extra images
+
+    let extra =
+        document
+            .getElementById("extraImages")
+            .value
+            .trim();
+
+
     let extraImagesList = extra
         .split(/[\n,]+/)
         .map(formatImagePath)
         .filter(Boolean);
-    let extraImagesJson = "[" + extraImagesList.map(jsString).join(", ") + "]";
+
+
+    let extraImagesJson =
+        "[" +
+        extraImagesList
+            .map(jsString)
+            .join(", ") +
+        "]";
+
+
+    // Availability
+    // The dropdown says simply Yes / No,
+    // but catalog.js stores the full value.
+
+    const availability =
+        "Available for purchase - " +
+        document.getElementById("availability").value;
+
 
     return `  {
     name: ${jsString(document.getElementById("name").value)},
@@ -407,99 +626,225 @@ function buildNewItemText(){
     description: ${jsString(document.getElementById("description").value)},
     year: ${jsString(document.getElementById("year").value)},
     rarity: ${jsString(document.getElementById("rarity").value)},
-    availability: ${jsString(document.getElementById("availability").value)},
+    availability: ${jsString(availability)},
     image: ${jsString(formatImagePath(document.getElementById("image").value))},
     extraImages: ${extraImagesJson},
-    link: "",
+    link: ""
   },`;
 }
 
-function insertItemIntoCatalog(catalogText, itemText){
 
-    const lastBracket = catalogText.lastIndexOf("]");
 
-    if(lastBracket === -1){
-        throw new Error("Couldn't find a closing ']' for the catalog array in the pasted file.");
+// --------------------------------------------------
+// INSERT ITEM INTO CATALOG
+// --------------------------------------------------
+
+function insertItemIntoCatalog(catalogText, itemText) {
+
+    const lastBracket =
+        catalogText.lastIndexOf("]");
+
+
+    if (lastBracket === -1) {
+
+        throw new Error(
+            "Couldn't find a closing ']' for the catalog array in the pasted file."
+        );
     }
 
-    let before = catalogText.slice(0, lastBracket);
-    const after = catalogText.slice(lastBracket);
 
-    const trimmedBefore = before.replace(/\s+$/, "");
+    let before =
+        catalogText.slice(0, lastBracket);
+
+
+    const after =
+        catalogText.slice(lastBracket);
+
+
+    const trimmedBefore =
+        before.replace(/\s+$/, "");
+
 
     let joined;
-    if(trimmedBefore.endsWith(",") || trimmedBefore.endsWith("[")){
+
+
+    if (
+        trimmedBefore.endsWith(",") ||
+        trimmedBefore.endsWith("[")
+    ) {
+
         joined = trimmedBefore;
-    }else{
-        joined = trimmedBefore + ",";
+
     }
 
-    return joined + "\n" + itemText + "\n" + after;
+    else {
+
+        joined =
+            trimmedBefore + ",";
+    }
+
+
+    return (
+        joined +
+        "\n" +
+        itemText +
+        "\n" +
+        after
+    );
 }
 
-function generate(){
 
-    const statusEl = document.getElementById("generateStatus");
-    const catalogText = document.getElementById("catalogInput").value;
 
-    if(catalogText.trim() === ""){
-        statusEl.textContent = "Paste or fetch the current catalog.js in Step 1 before generating.";
+// --------------------------------------------------
+// GENERATE UPDATED CATALOG
+// --------------------------------------------------
+
+function generate() {
+
+    const statusEl =
+        document.getElementById("generateStatus");
+
+
+    const catalogText =
+        document.getElementById("catalogInput").value;
+
+
+    if (catalogText.trim() === "") {
+
+        statusEl.textContent =
+            "Paste or fetch the current catalog.js in Step 1 before generating.";
+
         statusEl.className = "status err";
+
         document.getElementById("output").textContent = "";
+
         return;
     }
 
-    try{
-        const itemText = buildNewItemText();
-        const updated = insertItemIntoCatalog(catalogText, itemText);
-        document.getElementById("output").textContent = updated;
-        statusEl.textContent = "New catalog.js generated below — review it, then copy or download.";
+
+    try {
+
+        const itemText =
+            buildNewItemText();
+
+
+        const updated =
+            insertItemIntoCatalog(
+                catalogText,
+                itemText
+            );
+
+
+        document.getElementById("output").textContent =
+            updated;
+
+
+        statusEl.textContent =
+            "New catalog.js generated below — review it, then copy or download.";
+
         statusEl.className = "status ok";
-    }catch(err){
-        statusEl.textContent = "Error: " + err.message;
+
+    }
+
+    catch (err) {
+
+        statusEl.textContent =
+            "Error: " +
+            err.message;
+
         statusEl.className = "status err";
+
         document.getElementById("output").textContent = "";
     }
 }
 
-function copyOutput(){
 
-    const output = document.getElementById("output").textContent;
 
-    if(output === ""){
+// --------------------------------------------------
+// COPY OUTPUT
+// --------------------------------------------------
+
+function copyOutput() {
+
+    const output =
+        document.getElementById("output").textContent;
+
+
+    if (output === "") {
+
         alert("Generate something first!");
+
         return;
     }
+
 
     navigator.clipboard.writeText(output);
 
     alert("Copied to clipboard!");
 }
 
-function downloadOutput(){
 
-    const output = document.getElementById("output").textContent;
 
-    if(output === ""){
+// --------------------------------------------------
+// DOWNLOAD OUTPUT
+// --------------------------------------------------
+
+function downloadOutput() {
+
+    const output =
+        document.getElementById("output").textContent;
+
+
+    if (output === "") {
+
         alert("Generate something first!");
+
         return;
     }
 
-    const blob = new Blob([output], {type: "text/javascript"});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
+
+    const blob =
+        new Blob(
+            [output],
+            { type: "text/javascript" }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const a =
+        document.createElement("a");
+
+
     a.href = url;
+
     a.download = "catalog.js";
+
+
     document.body.appendChild(a);
+
     a.click();
+
     document.body.removeChild(a);
+
+
     URL.revokeObjectURL(url);
 }
 
-// Automatically fetch latest catalog.js from GitHub on load
-window.addEventListener("DOMContentLoaded", () => {
-    fetchFromGithub(true);
-});
+
+
+// --------------------------------------------------
+// AUTOMATICALLY LOAD CATALOG ON PAGE LOAD
+// --------------------------------------------------
+
+window.addEventListener(
+    "DOMContentLoaded",
+    () => {
+        fetchFromGithub(true);
+    }
+);
 
 </script>
 
