@@ -1063,13 +1063,27 @@
         font-size: 0.9rem;
         font-weight: 500;
         letter-spacing: 0.5px;
-        background: rgba(255, 255, 255, 0.08);
         padding: 6px 14px;
         border-radius: 2px;
-        border-left: 3px solid var(--gold);
         display: inline-block;
         width: 100%;
         box-sizing: border-box;
+      }
+      /* Added styles for availability status */
+      .item-label-value.availability-available {
+        background: rgba(39, 174, 96, 0.15);
+        border-left: 3px solid var(--green);
+        color: var(--green);
+      }
+      .item-label-value.availability-unavailable {
+        background: rgba(192, 57, 43, 0.15);
+        border-left: 3px solid var(--red);
+        color: var(--red);
+      }
+      .item-label-value.availability-unknown {
+        background: rgba(255, 255, 255, 0.08);
+        border-left: 3px solid var(--gold);
+        color: var(--white);
       }
       .view-link {
         display: block;
@@ -1755,6 +1769,17 @@
         byId("catalogue").innerHTML = filtered.map(cardHTML).join("");
       }
 
+      function getAvailabilityClass(availability) {
+        var lower = String(availability).toLowerCase();
+        if (lower.includes('yes') || lower.includes('available')) {
+          return 'availability-available';
+        } else if (lower.includes('no') || lower.includes('unavailable')) {
+          return 'availability-unavailable';
+        } else {
+          return 'availability-unknown';
+        }
+      }
+
       function renderItemPage(itemId) {
         var items = getItems();
         var raw = null;
@@ -1771,13 +1796,12 @@
 
         wrap.innerHTML = '\n          <button class="btn-back" onclick="showPage(\'catalogue\')">← Back to Catalogue</button>\n          <div class="item-hero" id="itemPageHero">\n            <div class="zoom-wrapper" id="zoomWrapper">\n              ' + imageMarkup(allImages[0], item.name, item.category, true) + '\n            </div>\n          </div>\n          <div class="view-thumbs" id="itemPageThumbs" style="' + (allImages.length > 1 ? "" : "display:none") + '"></div>\n          <div class="item-detail-body">\n            <div class="item-detail-main">\n              <div class="item-game-label">' + escapeHTML(item.game) + '</div>\n              <h1 class="item-detail-name">' + escapeHTML(item.name) + '</h1>\n              <span class="item-detail-section-label">Description</span>\n              <p class="item-detail-description">' + escapeHTML(item.description || PLACEHOLDER_DESCRIPTION) + '</p>\n              <div class="item-detail-share">\n                <span class="item-detail-share-label">Share this item:</span>\n                <button class="btn-copy-link" id="btnCopyLink" onclick="copyItemLink()">Copy Link</button>\n              </div>\n            </div>\n            <aside class="item-detail-sidebar" id="itemPageSidebar"></aside>\n          </div>\n        ';
 
-        // Color scheme: white, gold, white, gold, white
         var labels = [
           { key: "Associated Game", value: item.game, cls: "gold" },
           { key: "Year of Release", value: item.year, cls: "" },
           { key: "Category", value: item.category, cls: "gold" },
           { key: "Rarity", value: item.rarity, cls: "" },
-          { key: "Availability", value: item.availability || "Not specified", cls: "availability-text" },
+          { key: "Availability", value: item.availability || "Not specified", cls: "availability-text " + getAvailabilityClass(item.availability) },
         ];
         var sidebarHTML = "";
         for (var k = 0; k < labels.length; k++) {
