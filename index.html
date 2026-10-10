@@ -866,20 +866,101 @@
       font-size: 0.88rem;
       line-height: 1.8;
     }
-    .contact-form-embed {
-      overflow: hidden;
-      background: rgba(30, 15, 46, 0.5);
+
+    /* ----- NATIVE CONTACT FORM ----- */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      padding: 2rem;
+      background: rgba(30, 15, 46, 0.55);
       border: 1px solid rgba(176, 110, 255, 0.2);
       border-radius: 3px;
       box-shadow: 0 0 40px rgba(176, 110, 255, 0.08);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
     }
-    .contact-form-embed iframe {
-      display: block;
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-field label {
+      color: var(--muted);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form select,
+    .contact-form textarea {
       width: 100%;
-      min-height: 700px;
-      border: 0;
-      background: transparent;
+      padding: 11px 14px;
+      outline: 0;
+      border: 1px solid rgba(176, 110, 255, 0.2);
+      border-radius: 2px;
+      background: rgba(10, 10, 26, 0.7);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
     }
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 130px;
+      line-height: 1.6;
+    }
+    .contact-form select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, var(--accent-cyan) 50%),
+                        linear-gradient(135deg, var(--accent-cyan) 50%, transparent 50%);
+      background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
+      background-size: 5px 5px, 5px 5px;
+      background-repeat: no-repeat;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+    .contact-form select option {
+      background: #1e0f2e;
+      color: var(--white);
+    }
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: var(--accent-cyan);
+      background: rgba(30, 15, 46, 0.85);
+      box-shadow: 0 0 18px rgba(77, 224, 255, 0.15);
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: rgba(154, 134, 176, 0.65);
+    }
+    .form-submit {
+      align-self: flex-start;
+      margin-top: 0.25rem;
+    }
+    .form-submit:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    .form-status {
+      min-height: 1.2em;
+      font-size: 0.82rem;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+    }
+    .form-status.success { color: var(--green); }
+    .form-status.error { color: var(--red); }
 
     /* ----- ITEM DETAIL ----- */
     .item-detail-wrap {
@@ -1335,6 +1416,9 @@
       .item-detail-sidebar { position: static; }
       .item-detail-main { padding: 1.25rem; }
       .contact-wrap { padding: 2rem 1rem; }
+      .contact-form { padding: 1.25rem; gap: 1rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-submit { align-self: stretch; }
       #zoomOverlay .zoom-wrapper {
         height: 50vh;
         max-height: 50vh;
@@ -1499,10 +1583,46 @@
     <!-- CONTACT -->
     <section class="page" id="page-contact">
       <div class="contact-wrap">
-        <div class="contact-intro"><h1>Get In <span>Touch</span></h1><p>Got a tip about some merch? Spotted something missing from the catalogue? Fill in the form below and we'll get back to you.</p></div>
-        <div class="contact-form-embed">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdhKhp1s9aOOpSQHgJoEfNrcz-2Pm8gGiEETikGLTqmCvsWYA/viewform?embedded=true" title="Contact Form" loading="lazy">Loading form…</iframe>
+        <div class="contact-intro">
+          <h1>Get In <span>Touch</span></h1>
+          <p>Got a tip about some merch? Spotted something missing from the catalogue? Fill in the form below and we'll get back to you.</p>
         </div>
+        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="867db492-211b-411d-a95a-fdb6433e9e33" />
+          <input type="hidden" name="subject" value="New submission from RockstarPromoHub" />
+          <input type="hidden" name="from_name" value="RockstarPromoHub Contact Form" />
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cf-name">Name</label>
+              <input id="cf-name" name="name" type="text" required placeholder="Your name" />
+            </div>
+            <div class="form-field">
+              <label for="cf-email">Email</label>
+              <input id="cf-email" name="email" type="email" required placeholder="you@example.com" />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="cf-topic">Subject</label>
+            <select id="cf-topic" name="topic" required>
+              <option value="" disabled selected>Choose a topic…</option>
+              <option value="Merch Submission">Merch Submission</option>
+              <option value="Correction / Edit">Correction / Edit</option>
+              <option value="General Question">General Question</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="6" required placeholder="Tell us what you've got — item name, game, any source links or photos you can share…"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary form-submit" id="cfSubmit">Send Message →</button>
+          <p class="form-status" id="cfStatus" aria-live="polite"></p>
+        </form>
       </div>
     </section>
 
@@ -2029,6 +2149,48 @@
         showPage('home');
       }
 
+      // ---------- CONTACT FORM ----------
+      function bindContactForm() {
+        var form = $('contactForm');
+        if (!form) return;
+        var status = $('cfStatus');
+        var submit = $('cfSubmit');
+
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          submit.disabled = true;
+          var original = submit.textContent;
+          submit.textContent = 'Sending…';
+          status.textContent = '';
+          status.className = 'form-status';
+
+          fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          })
+          .then(function(res) { return res.json(); })
+          .then(function(data) {
+            if (data.success) {
+              status.textContent = '★ Message sent — thanks! We\'ll get back to you soon.';
+              status.className = 'form-status success';
+              form.reset();
+            } else {
+              status.textContent = 'Something went wrong. Try again or email us directly.';
+              status.className = 'form-status error';
+            }
+          })
+          .catch(function() {
+            status.textContent = 'Network error. Please try again.';
+            status.className = 'form-status error';
+          })
+          .finally(function() {
+            submit.disabled = false;
+            submit.textContent = original;
+          });
+        });
+      }
+
       // ---------- EVENT BINDING ----------
       function bindEvents() {
         // Navigation buttons - Desktop
@@ -2113,6 +2275,9 @@
 
         // Hash change
         window.addEventListener('hashchange', handleRoute);
+
+        // Contact form
+        bindContactForm();
       }
 
       // ---------- INIT ----------
