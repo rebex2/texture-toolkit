@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rockstar Merch · Catalog Manager</title>
+  <title>Rockstar Merch · Full Catalog Editor</title>
   <style>
     * {
       box-sizing: border-box;
@@ -25,7 +25,6 @@
       gap: 24px;
     }
 
-    /* header */
     .header {
       display: flex;
       align-items: center;
@@ -53,14 +52,12 @@
       color: #9aa3b2;
     }
 
-    /* cards */
     .card {
       background: #1c1c20;
       border-radius: 20px;
       padding: 24px;
       border: 1px solid #2e2e36;
       box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.5);
-      transition: border-color 0.2s;
     }
 
     .card-header {
@@ -81,10 +78,6 @@
       color: #d0d6e0;
     }
 
-    .card-header h2 svg {
-      opacity: 0.7;
-    }
-
     .status-msg {
       font-size: 0.85rem;
       padding: 6px 12px;
@@ -96,33 +89,25 @@
       gap: 6px;
     }
 
-    .status-msg.ok {
-      background: #1a3a2a;
-      color: #8dd6a8;
-    }
+    .status-msg.ok { background: #1a3a2a; color: #8dd6a8; }
+    .status-msg.err { background: #3a1e1e; color: #f09a9a; }
 
-    .status-msg.err {
-      background: #3a1e1e;
-      color: #f09a9a;
-    }
-
-    /* form elements */
     label {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 500;
       color: #b6c0d0;
       display: block;
-      margin-top: 14px;
-      margin-bottom: 4px;
+      margin-top: 12px;
+      margin-bottom: 3px;
     }
 
     input, textarea, select {
       width: 100%;
       background: #131317;
       border: 1px solid #2d2d36;
-      border-radius: 12px;
-      padding: 12px 14px;
-      font-size: 0.95rem;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 0.9rem;
       color: #f0f4fc;
       font-family: inherit;
       transition: border 0.15s, box-shadow 0.15s;
@@ -135,7 +120,7 @@
     }
 
     textarea {
-      min-height: 90px;
+      min-height: 70px;
       resize: vertical;
     }
 
@@ -146,65 +131,38 @@
       flex-wrap: wrap;
     }
 
-    .row input {
-      flex: 1;
-    }
+    .row input { flex: 1; }
 
     button {
       background: #292930;
       border: none;
-      border-radius: 12px;
-      padding: 12px 18px;
+      border-radius: 10px;
+      padding: 10px 16px;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: #eef2f8;
       cursor: pointer;
       transition: all 0.15s;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       white-space: nowrap;
       border: 1px solid #3d3d48;
     }
 
-    button:hover {
-      background: #34343e;
-      border-color: #5a5a6a;
-    }
+    button:hover { background: #34343e; border-color: #5a5a6a; }
 
-    button.primary {
-      background: #4f7df3;
-      border-color: #4f7df3;
-      color: white;
-    }
+    button.primary { background: #4f7df3; border-color: #4f7df3; color: white; }
+    button.primary:hover { background: #628cf5; border-color: #628cf5; }
 
-    button.primary:hover {
-      background: #628cf5;
-      border-color: #628cf5;
-    }
+    button.success { background: #2b7a4b; border-color: #2b7a4b; color: white; }
+    button.success:hover { background: #359a5a; border-color: #359a5a; }
 
-    button.success {
-      background: #2b7a4b;
-      border-color: #2b7a4b;
-      color: white;
-    }
+    button.secondary { background: #28282e; }
 
-    button.success:hover {
-      background: #359a5a;
-      border-color: #359a5a;
-    }
-
-    button.secondary {
-      background: #28282e;
-    }
-
-    button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      background: #28282e;
-      border-color: #3d3d48;
-    }
+    button.danger { background: #4a1e1e; border-color: #6a2a2a; color: #f0a0a0; }
+    button.danger:hover { background: #6a2a2a; border-color: #8a3a3a; }
 
     .btn-group {
       display: flex;
@@ -213,19 +171,14 @@
       margin-top: 16px;
     }
 
-    .btn-group button {
-      flex: 1 1 auto;
-    }
+    .btn-group button { flex: 1 1 auto; }
 
-    /* item list / editor */
+    /* ---------- ITEM LIST ---------- */
     .item-list {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
       margin-top: 8px;
-      max-height: 380px;
-      overflow-y: auto;
-      padding-right: 4px;
     }
 
     .item-entry {
@@ -251,9 +204,7 @@
       gap: 12px;
     }
 
-    .item-summary:hover {
-      background: #1e1e26;
-    }
+    .item-summary:hover { background: #1e1e26; }
 
     .item-title {
       display: flex;
@@ -287,8 +238,8 @@
     }
 
     .item-actions button {
-      padding: 6px 12px;
-      font-size: 0.75rem;
+      padding: 5px 10px;
+      font-size: 0.7rem;
       border-radius: 30px;
       background: #24242c;
       border: 1px solid #35353f;
@@ -302,6 +253,9 @@
 
     .item-entry.editing .item-editor {
       display: block;
+      /* extra room for scrolling */
+      max-height: none;
+      overflow: visible;
     }
 
     .item-editor .field-grid {
@@ -314,23 +268,28 @@
       grid-column: span 2;
     }
 
-    @media (max-width: 640px) {
-      .item-editor .field-grid {
-        grid-template-columns: 1fr;
-      }
-      .item-editor .field-grid .full {
-        grid-column: span 1;
-      }
-      .item-summary {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .item-actions {
-        align-self: flex-end;
-      }
+    /* ---------- STICKY EDITOR FOOTER ---------- */
+    .editor-footer {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px dashed #2a2a32;
+      background: #131317;
+      position: sticky;
+      bottom: 0;
     }
 
-    /* catalog output */
+    .editor-footer button { flex: 1; }
+
+    @media (max-width: 640px) {
+      .item-editor .field-grid { grid-template-columns: 1fr; }
+      .item-editor .field-grid .full { grid-column: span 1; }
+      .item-summary { flex-direction: column; align-items: flex-start; }
+      .item-actions { align-self: flex-end; }
+    }
+
+    /* ---------- OUTPUT ---------- */
     .output-box {
       background: #0b0b0e;
       border-radius: 16px;
@@ -339,7 +298,7 @@
       font-size: 0.8rem;
       white-space: pre-wrap;
       overflow-x: auto;
-      max-height: 380px;
+      max-height: 400px;
       overflow-y: auto;
       border: 1px solid #282830;
       color: #cbd5e1;
@@ -352,65 +311,37 @@
       margin-top: 6px;
     }
 
-    .hidden {
-      display: none;
+    .field-helper {
+      font-size: 0.7rem;
+      color: #6a7385;
+      margin-top: 2px;
     }
 
-    .flex-between {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .spacer {
-      height: 4px;
-    }
-
-    /* scrollbars */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #131317;
-      border-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #35353f;
-      border-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #4a4a58;
-    }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #131317; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb { background: #35353f; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #4a4a58; }
   </style>
 </head>
 <body>
 
 <div class="app">
 
-  <!-- header -->
   <div class="header">
-    <h1>🎸 Merch Catalog Manager</h1>
-    <div class="badge">rockstar · catalog.js</div>
+    <h1>🎸 Full Catalog Editor</h1>
+    <div class="badge">rockstar · every field editable</div>
   </div>
 
-  <!-- ========== STEP 1 · LOAD EXISTING CATALOG ========== -->
+  <!-- STEP 1 -->
   <div class="card">
     <div class="card-header">
-      <h2>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M4 7h16M4 12h16M4 17h10" stroke-linecap="round"/>
-        </svg>
-        Step 1 — Load your catalog
-      </h2>
+      <h2>📥 Step 1 — Load your catalog</h2>
       <div id="fetchStatus" class="status-msg"></div>
     </div>
 
     <div class="hint" style="margin-bottom:12px;">
       Paste your <code>catalog.js</code> below or fetch it from GitHub.
-      All items appear in the list — click any to edit.
+      Click any item in Step 2 to expand and edit <strong>every field</strong>.
     </div>
 
     <label for="githubUrl">GitHub URL (optional)</label>
@@ -420,34 +351,26 @@
     </div>
 
     <label for="catalogInput">catalog.js content</label>
-    <textarea id="catalogInput" placeholder="Paste your catalog.js here... items will appear below." style="min-height:140px; font-family:monospace; font-size:0.85rem;"></textarea>
+    <textarea id="catalogInput" placeholder="Paste your catalog.js here..." style="min-height:140px; font-family:monospace; font-size:0.85rem;"></textarea>
 
     <div class="btn-group">
       <button class="primary" onclick="parseAndRenderItems()">📋 Load &amp; show items</button>
     </div>
   </div>
 
-  <!-- ========== STEP 2 · ITEM LIST + EDITOR ========== -->
+  <!-- STEP 2 -->
   <div class="card">
     <div class="card-header">
-      <h2>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-          <line x1="3" y1="9" x2="21" y2="9"/>
-          <line x1="9" y1="21" x2="9" y2="9"/>
-        </svg>
-        Step 2 — Your merchandise items
-      </h2>
+      <h2>✏️ Step 2 — Edit items</h2>
       <div id="itemCount" class="status-msg">0 items</div>
     </div>
 
     <div class="hint" style="margin-bottom:8px;">
-      Click any item to <strong>expand and edit</strong>. Use <strong>Add new</strong> to create a fresh entry.
+      Click any item to expand and edit all fields. Only one item is open at a time.
+      Scroll the page to see every field.
     </div>
 
-    <div id="itemListContainer" class="item-list">
-      <!-- dynamic items will be rendered here -->
-    </div>
+    <div id="itemListContainer" class="item-list"></div>
 
     <div class="btn-group" style="margin-top:18px;">
       <button class="primary" onclick="addNewItem()" style="flex:2;">➕ Add new item</button>
@@ -455,16 +378,10 @@
     </div>
   </div>
 
-  <!-- ========== STEP 3 · OUTPUT ========== -->
+  <!-- STEP 3 -->
   <div class="card" id="outputCard">
     <div class="card-header">
-      <h2>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="16 18 22 12 16 6"/>
-          <polyline points="8 6 2 12 8 18"/>
-        </svg>
-        Step 3 — Updated catalog.js
-      </h2>
+      <h2>⚙️ Step 3 — Updated catalog.js</h2>
       <div id="generateStatus" class="status-msg"></div>
     </div>
 
@@ -480,13 +397,12 @@
 
 <script>
   // ================================================================
-  // GLOBAL STATE
+  // STATE
   // ================================================================
-  let currentCatalogText = "";        // raw catalog string
-  let currentItems = [];              // parsed array of item objects (editable)
-  let activeEditIndex = -1;           // which item is expanded
+  let currentCatalogText = "";
+  let currentItems = [];
+  let activeEditIndex = -1;
 
-  // DOM refs
   const catalogInput = document.getElementById('catalogInput');
   const itemListContainer = document.getElementById('itemListContainer');
   const itemCountEl = document.getElementById('itemCount');
@@ -497,8 +413,6 @@
   // ================================================================
   // HELPERS
   // ================================================================
-
-  // Format image paths (keep original logic)
   function formatImagePath(rawPath) {
     let path = String(rawPath || "")
       .trim()
@@ -512,11 +426,22 @@
     return path;
   }
 
-  // Escape for safe JSON stringify (built-in)
   const jsString = (value) => JSON.stringify(value);
 
+  function escapeHtml(str) {
+    if (str === undefined || str === null) return '';
+    return String(str).replace(/[&<>"]/g, function(m) {
+      if (m === '&') return '&amp;';
+      if (m === '<') return '&lt;';
+      if (m === '>') return '&gt;';
+      if (m === '"') return '&quot;';
+      return m;
+    });
+  }
+  function escapeAttr(str) { return escapeHtml(str); }
+
   // ================================================================
-  // 1. FETCH FROM GITHUB
+  // FETCH
   // ================================================================
   async function fetchFromGithub(isAuto = false) {
     const urlField = document.getElementById('githubUrl');
@@ -528,7 +453,6 @@
       return;
     }
 
-    // transform blob/raw to raw.githubusercontent.com
     if (url.includes('github.com') && url.includes('/blob/')) {
       url = url.replace('github.com', 'raw.githubusercontent.com').replace('/blob/', '/');
     } else if (url.includes('github.com') && url.includes('/raw/')) {
@@ -544,11 +468,9 @@
       const res = await fetch(fetchUrl);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const text = await res.text();
-
       catalogInput.value = text;
       currentCatalogText = text;
-      parseAndRenderItems(); // automatically parse & show items
-
+      parseAndRenderItems();
       fetchStatus.textContent = `✓ Loaded ${text.length} characters.`;
       fetchStatus.className = 'status-msg ok';
     } catch (err) {
@@ -558,47 +480,38 @@
   }
 
   // ================================================================
-  // 2. PARSE catalog.js → array of items
+  // PARSE
   // ================================================================
   function parseCatalogItems(text) {
     if (!text || text.trim() === '') return [];
 
-    // Find the array structure: look for '[' after 'const catalog' or just the last '['
     let arrayStart = text.indexOf('[');
     if (arrayStart === -1) return [];
-
-    // take substring from first '[' to the matching closing ']' (last ']' is fine for simple arrays)
     let arrayEnd = text.lastIndexOf(']');
     if (arrayEnd === -1 || arrayEnd <= arrayStart) return [];
 
     const arrayText = text.slice(arrayStart, arrayEnd + 1);
 
-    // Use Function constructor to safely evaluate the array literal
-    // This is safer than eval and works for JSON-like arrays (keys without quotes)
     try {
-      // Clean up trailing commas and ensure proper syntax (just in case)
       const cleaned = arrayText
-        .replace(/,\s*]/g, ']')  // remove trailing commas before ]
-        .replace(/\n/g, ' ')      // avoid newline issues in Function
-        .replace(/\s+/g, ' ');    // collapse whitespace
-
+        .replace(/,\s*]/g, ']')
+        .replace(/\n/g, ' ')
+        .replace(/\s+/g, ' ');
       const items = Function('return ' + cleaned)();
       return Array.isArray(items) ? items : [];
     } catch (e) {
-      console.warn('Parse error, falling back to manual evaluation', e);
-      // Fallback: try to extract objects with regex (very rough, but helpful)
+      console.warn('Standard parse failed, trying fallback', e);
       try {
         const objRegex = /\{([^{}]*?)\}/gs;
         const matches = arrayText.match(objRegex);
         if (!matches) return [];
-        const parsed = matches.map(m => {
+        return matches.map(m => {
           const obj = {};
           const keyValRegex = /(\w+)\s*:\s*(".*?"|'.*?'|\[.*?\]|\{.*?\}|[^,}]+)/g;
           let match;
           while ((match = keyValRegex.exec(m)) !== null) {
             let key = match[1].trim();
             let val = match[2].trim();
-            // remove surrounding quotes if string
             if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1);
             if (val.startsWith("'") && val.endsWith("'")) val = val.slice(1, -1);
             if (val === 'true') val = true;
@@ -606,8 +519,7 @@
             obj[key] = val;
           }
           return obj;
-        });
-        return parsed.filter(o => o.name);
+        }).filter(o => o.name);
       } catch (e2) {
         return [];
       }
@@ -615,7 +527,7 @@
   }
 
   // ================================================================
-  // 3. RENDER ITEM LIST (accordion style)
+  // RENDER
   // ================================================================
   function renderItemList() {
     if (!currentItems.length) {
@@ -633,55 +545,59 @@
       const game = item.game || '—';
       const category = item.category || '—';
       const rarity = item.rarity || '—';
+      const year = item.year || '—';
 
-      // build editable fields
-      const fieldHtml = `
+      const editorHtml = `
         <div class="item-editor" id="editor-${idx}">
           <div class="field-grid">
             <div class="full">
               <label>Name</label>
-              <input id="edit-name-${idx}" value="${escapeAttr(item.name || '')}" data-field="name">
+              <input id="edit-name-${idx}" value="${escapeAttr(item.name || '')}">
             </div>
             <div>
               <label>Game</label>
-              <input id="edit-game-${idx}" value="${escapeAttr(item.game || '')}" data-field="game">
+              <input id="edit-game-${idx}" value="${escapeAttr(item.game || '')}">
             </div>
             <div>
               <label>Category</label>
-              <input id="edit-category-${idx}" value="${escapeAttr(item.category || '')}" data-field="category">
+              <input id="edit-category-${idx}" value="${escapeAttr(item.category || '')}">
             </div>
             <div class="full">
               <label>Description</label>
-              <textarea id="edit-description-${idx}" data-field="description" style="min-height:70px;">${escapeHtml(item.description || '')}</textarea>
+              <textarea id="edit-description-${idx}" style="min-height:90px;">${escapeHtml(item.description || '')}</textarea>
             </div>
             <div>
               <label>Year</label>
-              <input id="edit-year-${idx}" value="${escapeAttr(item.year || '')}" data-field="year">
+              <input id="edit-year-${idx}" value="${escapeAttr(item.year || '')}">
             </div>
             <div>
               <label>Rarity</label>
-              <input id="edit-rarity-${idx}" value="${escapeAttr(item.rarity || '')}" data-field="rarity">
+              <input id="edit-rarity-${idx}" value="${escapeAttr(item.rarity || '')}">
             </div>
-            <div>
+            <div class="full">
               <label>Availability</label>
-              <input id="edit-availability-${idx}" value="${escapeAttr(item.availability || '')}" data-field="availability">
+              <input id="edit-availability-${idx}" value="${escapeAttr(item.availability || '')}">
+              <div class="field-helper">e.g. "Available for purchase - Yes"</div>
             </div>
-            <div>
-              <label>Image path</label>
-              <input id="edit-image-${idx}" value="${escapeAttr(item.image || '')}" data-field="image">
+            <div class="full">
+              <label>Main image path / filename</label>
+              <input id="edit-image-${idx}" value="${escapeAttr(item.image || '')}">
+              <div class="field-helper">e.g. images/gta4/chop.jpg</div>
             </div>
             <div class="full">
               <label>Extra images (comma separated)</label>
-              <textarea id="edit-extra-${idx}" data-field="extraImages" style="min-height:50px;">${escapeHtml(Array.isArray(item.extraImages) ? item.extraImages.join(', ') : (item.extraImages || ''))}</textarea>
+              <textarea id="edit-extra-${idx}" style="min-height:60px;">${escapeHtml(Array.isArray(item.extraImages) ? item.extraImages.join(', ') : (item.extraImages || ''))}</textarea>
+              <div class="field-helper">e.g. images/gta4/crate1.jpg, images/gta4/crate2.jpg</div>
             </div>
             <div class="full">
-              <label>Link</label>
-              <input id="edit-link-${idx}" value="${escapeAttr(item.link || '')}" data-field="link">
+              <label>Link (optional)</label>
+              <input id="edit-link-${idx}" value="${escapeAttr(item.link || '')}">
             </div>
           </div>
-          <div style="display:flex; gap:8px; margin-top:16px;">
-            <button class="success" onclick="saveItem(${idx})" style="flex:1;">💾 Save changes</button>
-            <button class="secondary" onclick="cancelEdit(${idx})" style="flex:1;">Cancel</button>
+          <div class="editor-footer">
+            <button class="success" onclick="saveItem(${idx})">💾 Save changes</button>
+            <button class="secondary" onclick="cancelEdit(${idx})">Cancel</button>
+            <button class="danger" onclick="deleteItem(${idx})">🗑️ Delete</button>
           </div>
         </div>
       `;
@@ -695,14 +611,14 @@
                 <span>🎮 ${escapeHtml(game)}</span>
                 <span>🏷️ ${escapeHtml(category)}</span>
                 <span>⭐ ${escapeHtml(rarity)}</span>
+                <span>📅 ${escapeHtml(year)}</span>
               </div>
             </div>
             <div class="item-actions" onclick="event.stopPropagation()">
-              <button class="secondary" onclick="toggleEdit(${idx})">✏️ Edit</button>
-              <button class="secondary" onclick="deleteItem(${idx})" style="color:#f08a8a;">🗑️</button>
+              <button class="secondary" onclick="toggleEdit(${idx})">✏️ ${isEditing ? 'Close' : 'Edit'}</button>
             </div>
           </div>
-          ${fieldHtml}
+          ${editorHtml}
         </div>
       `;
     });
@@ -710,59 +626,42 @@
     itemListContainer.innerHTML = html;
   }
 
-  // small escape helpers
-  function escapeHtml(str) {
-    if (str === undefined || str === null) return '';
-    return String(str).replace(/[&<>"]/g, function(m) {
-      if (m === '&') return '&amp;';
-      if (m === '<') return '&lt;';
-      if (m === '>') return '&gt;';
-      if (m === '"') return '&quot;';
-      return m;
-    });
-  }
-  function escapeAttr(str) {
-    if (str === undefined || str === null) return '';
-    return String(str).replace(/[&<>"]/g, function(m) {
-      if (m === '&') return '&amp;';
-      if (m === '<') return '&lt;';
-      if (m === '>') return '&gt;';
-      if (m === '"') return '&quot;';
-      return m;
-    });
-  }
-
-  // ================================================================
-  // 4. PARSE AND RENDER (called when loading catalog)
-  // ================================================================
   function parseAndRenderItems() {
     const text = catalogInput.value;
     currentCatalogText = text;
     currentItems = parseCatalogItems(text);
     activeEditIndex = -1;
     renderItemList();
-    // clear output when loading fresh
     outputEl.textContent = '';
     generateStatus.textContent = '';
     generateStatus.className = 'status-msg';
   }
 
   // ================================================================
-  // 5. EDIT / TOGGLE / SAVE / DELETE
+  // EDIT ACTIONS
   // ================================================================
   function toggleEdit(idx) {
     if (activeEditIndex === idx) {
-      activeEditIndex = -1; // collapse
-    } else {
-      activeEditIndex = idx;
+      activeEditIndex = -1;
+      renderItemList();
+      return;
     }
+
+    // collapse any currently open item first
+    activeEditIndex = idx;
     renderItemList();
+
+    // wait for the DOM to re-render, then scroll editor into view
+    setTimeout(() => {
+      const entry = document.getElementById(`item-${idx}`);
+      if (entry) {
+        entry.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 60);
   }
 
   function cancelEdit(idx) {
-    if (activeEditIndex === idx) {
-      activeEditIndex = -1;
-    }
+    if (activeEditIndex === idx) activeEditIndex = -1;
     renderItemList();
   }
 
@@ -770,24 +669,34 @@
     const item = currentItems[idx];
     if (!item) return;
 
-    // gather fields
-    const fields = ['name', 'game', 'category', 'description', 'year', 'rarity', 'availability', 'image', 'link'];
-    fields.forEach(f => {
-      const el = document.getElementById(`edit-${f}-${idx}`);
-      if (el) item[f] = el.value;
-    });
+    // grab all values
+    const get = (field) => {
+      const el = document.getElementById(`edit-${field}-${idx}`);
+      return el ? el.value : '';
+    };
 
-    // extraImages: split by comma
-    const extraEl = document.getElementById(`edit-extra-${idx}`);
-    if (extraEl) {
-      const raw = extraEl.value;
-      item.extraImages = raw.split(',').map(s => formatImagePath(s.trim())).filter(Boolean);
+    item.name = get('name');
+    item.game = get('game');
+    item.category = get('category');
+    item.description = get('description');
+    item.year = get('year');
+    item.rarity = get('rarity');
+    item.availability = get('availability');
+    item.image = formatImagePath(get('image'));
+    item.link = get('link');
+
+    // extra images
+    const extraRaw = get('extra');
+    item.extraImages = extraRaw
+      .split(',')
+      .map(s => formatImagePath(s.trim()))
+      .filter(Boolean);
+
+    // ensure availability prefix
+    if (item.availability && !item.availability.startsWith('Available for purchase')) {
+      item.availability = 'Available for purchase - ' + item.availability;
     }
 
-    // also clean image path
-    if (item.image) item.image = formatImagePath(item.image);
-
-    // close editor
     activeEditIndex = -1;
     renderItemList();
   }
@@ -800,9 +709,6 @@
     renderItemList();
   }
 
-  // ================================================================
-  // 6. ADD NEW ITEM
-  // ================================================================
   function addNewItem() {
     const newItem = {
       name: 'New item',
@@ -817,17 +723,18 @@
       link: ''
     };
     currentItems.push(newItem);
-    activeEditIndex = currentItems.length - 1; // open editor
+    activeEditIndex = currentItems.length - 1;
     renderItemList();
+
     // scroll to new item
     setTimeout(() => {
-      const el = document.getElementById(`item-${currentItems.length - 1}`);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 50);
+      const entry = document.getElementById(`item-${currentItems.length - 1}`);
+      if (entry) entry.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
   }
 
   // ================================================================
-  // 7. GENERATE UPDATED catalog.js
+  // GENERATE
   // ================================================================
   function generateCatalog() {
     if (!currentItems.length) {
@@ -837,12 +744,10 @@
       return;
     }
 
-    // Build item strings in the exact format of the original tool
     const itemStrings = currentItems.map(item => {
       const extraArr = Array.isArray(item.extraImages) ? item.extraImages : [];
       const extraJson = '[' + extraArr.map(jsString).join(', ') + ']';
 
-      // ensure availability has the full prefix if not already present
       let availability = item.availability || '';
       if (!availability.startsWith('Available for purchase')) {
         availability = 'Available for purchase - ' + availability.replace(/^.*?-\s*/, '');
@@ -862,11 +767,7 @@
   },`;
     }).join('\n');
 
-    // Wrap in the original structure: we need to maintain the exact catalog variable
-    // Try to keep the original header and footer from currentCatalogText if possible
     let output = '';
-
-    // Attempt to reconstruct by taking everything before the first '[', then the items, then after the last ']'
     const raw = currentCatalogText || catalogInput.value;
 
     if (raw && raw.includes('[') && raw.includes(']')) {
@@ -874,12 +775,9 @@
       const lastBracket = raw.lastIndexOf(']');
       const before = raw.slice(0, firstBracket);
       const after = raw.slice(lastBracket + 1);
-
-      // Build new array content: remove trailing comma from last item
-      const itemsArray = itemStrings.replace(/,\s*$/, ''); // remove last comma
+      const itemsArray = itemStrings.replace(/,\s*$/, '');
       output = before + '[\n' + itemsArray + '\n]' + after;
     } else {
-      // Fallback: just wrap in a simple const catalog
       output = `const catalog = [\n${itemStrings.replace(/,\s*$/, '')}\n];\n`;
     }
 
@@ -889,27 +787,19 @@
   }
 
   // ================================================================
-  // 8. COPY / DOWNLOAD
+  // COPY / DOWNLOAD
   // ================================================================
   function copyOutput() {
     const text = outputEl.textContent;
-    if (!text) {
-      alert('Generate the catalog first!');
-      return;
-    }
-    navigator.clipboard.writeText(text).then(() => {
-      alert('📋 Copied to clipboard!');
-    }).catch(() => {
-      alert('Could not copy. Select manually.');
-    });
+    if (!text) { alert('Generate the catalog first!'); return; }
+    navigator.clipboard.writeText(text)
+      .then(() => alert('📋 Copied to clipboard!'))
+      .catch(() => alert('Could not copy. Select manually.'));
   }
 
   function downloadOutput() {
     const text = outputEl.textContent;
-    if (!text) {
-      alert('Generate the catalog first!');
-      return;
-    }
+    if (!text) { alert('Generate the catalog first!'); return; }
     const blob = new Blob([text], { type: 'text/javascript' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -922,18 +812,14 @@
   }
 
   // ================================================================
-  // 9. AUTO-LOAD ON START
+  // AUTO-LOAD
   // ================================================================
   window.addEventListener('DOMContentLoaded', () => {
-    // Try auto-fetch on first load (silently)
     fetchFromGithub(true).catch(() => {});
-    // also if input already has content, parse it
-    if (catalogInput.value.trim()) {
-      parseAndRenderItems();
-    }
+    if (catalogInput.value.trim()) parseAndRenderItems();
   });
 
-  // Expose functions globally for inline onclick
+  // expose
   window.fetchFromGithub = fetchFromGithub;
   window.parseAndRenderItems = parseAndRenderItems;
   window.addNewItem = addNewItem;
