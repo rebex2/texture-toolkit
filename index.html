@@ -1247,6 +1247,8 @@
       transform-origin: center center;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
+      transform: translateZ(0);
+      image-rendering: -webkit-optimize-contrast;
     }
     #zoomContainer {
       cursor: grab;
@@ -1974,8 +1976,8 @@
 
         function applyTransform(animate) {
           var scale = state.scale;
-          var translateX = state.translateX;
-          var translateY = state.translateY;
+          var translateX = Math.round(state.translateX);
+          var translateY = Math.round(state.translateY);
           zoomImg.style.transition = animate ? 'transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
           zoomImg.style.transform = 'translate3d(' + translateX + 'px, ' + translateY + 'px, 0px) scale(' + scale + ')';
           var bounds = getBounds();
