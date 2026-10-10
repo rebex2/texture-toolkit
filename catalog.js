@@ -46,5 +46,17 @@ const ITEMS = [
     image: "/images/GTA-SA-wrappingpaper1.jpg",
     extraImages: ["/images/GTA-SA-wrappingpaper2.jpg", "/images/GTA-SA-wrappingpaper3.jpg", "/images/GTA-SA-wrappingpaper4.jpg"],
     link: ""
-  }
+  },
+  {
+    name: "Max Payne 3 Special Edition Statue",
+    game: "Max Payne 3 (2012)",
+    category: "Statue / Collectible Figure",
+    description: "Approximately 10-inch (25 cm) collectible statue of Max Payne wearing a grey suit and holding two handguns. Created by TriForce in collaboration with Rockstar Games, it was included in the limited Max Payne 3 Special Edition collector's package.",
+    year: "2012",
+    rarity: "Rare",
+    availability: "Available for purchase - Yes",
+    image: "images/mp1.jpg",
+    extraImages: [],
+    link: ""
+  },
 ];
