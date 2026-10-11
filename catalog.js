@@ -27,7 +27,7 @@ const ITEMS = [
     name: "Flex Handcuffs",
     game: "Grand Theft Auto IV (2008)",
     category: "Other",
-    description: "Flex handcuffs used to promote the release of GTA IV.",
+    description: "Flex handcuffs used to promote the release of GTA IV. Test.",
     year: "2008",
     rarity: "Very Rare",
     availability: "Available for purchase - Yes",
