@@ -32,12 +32,7 @@ const ITEMS = [
     rarity: "Very Rare",
     availability: "Available for purchase - Yes",
     image: "images/GTAIV/flex-cuff1.jpg",
-    extraImages: [
-      "images/GTAIV/flex-cuff2.jpg",
-      "images/GTAIV/flex-cuff3.jpg",
-      "images/GTAIV/flex-cuff4.jpg",
-      "images/GTAIV/flex-cuff5.jpg"
-    ],
+    extraImages: ["images/GTAIV/flex-cuff2.jpg", "images/GTAIV/flex-cuff3.jpg", "images/GTAIV/flex-cuff4.jpg", "images/GTAIV/flex-cuff5.jpg"],
     link: ""
   },
   {
@@ -49,11 +44,7 @@ const ITEMS = [
     rarity: "Common",
     availability: "Available for purchase - Yes",
     image: "images/SA/wrap-paper1.jpg",
-    extraImages: [
-      "images/SA/wrap-paper2.jpg",
-      "images/SA/wrap-paper3.jpg",
-      "images/SA/wrap-paper4.jpg"
-    ],
+    extraImages: ["images/SA/wrap-paper2.jpg", "images/SA/wrap-paper3.jpg", "images/SA/wrap-paper4.jpg"],
     link: ""
   },
   {
@@ -67,5 +58,5 @@ const ITEMS = [
     image: "images/MAX3/MP_statue1.jpg",
     extraImages: [],
     link: ""
-  },
+  }
 ];
