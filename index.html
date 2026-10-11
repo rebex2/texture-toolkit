@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="rph-version" content="2026.09.01" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="rph-version" content="2026.09.03" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <title>R★ Games Promo Hub — Miami Merch Catalogue</title>
+  <title>R★ Games Promo Hub — Fan-Made Merch Catalogue</title>
+  <meta name="description" content="A fan-made, unofficial catalogue of Rockstar Games promotional merchandise. Community-compiled and not affiliated with Rockstar Games or Take-Two Interactive." />
+  <meta property="og:title" content="R★ Games Promo Hub — Fan-Made Merch Catalogue" />
+  <meta property="og:description" content="A fan-made, unofficial catalogue of Rockstar Games promotional merchandise." />
+  <meta property="og:type" content="website" />
+  <meta name="robots" content="index, follow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -36,28 +41,30 @@
     body {
       min-height: 100vh;
       background: linear-gradient(145deg, #0a0a1a 0%, #1a0b2e 40%, #2a1040 70%, #1e0f2e 100%);
-      background-attachment: fixed;
       color: var(--white);
       font-family: var(--font-body);
       line-height: 1.5;
       position: relative;
       overflow-x: hidden;
     }
-    /* subtle animated stars */
+    /* static star field via single fixed pseudo-element */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      background-image: radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
-        radial-gradient(1px 1px at 30% 70%, rgba(255,200,255,0.4) 0%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 50% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
-        radial-gradient(1px 1px at 70% 50%, rgba(200,220,255,0.4) 0%, transparent 100%),
-        radial-gradient(1px 1px at 85% 80%, rgba(255,255,255,0.5) 0%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 20% 90%, rgba(255,200,200,0.3) 0%, transparent 100%),
-        radial-gradient(1px 1px at 92% 30%, rgba(255,255,255,0.5) 0%, transparent 100%),
-        radial-gradient(1px 1px at 45% 45%, rgba(200,200,255,0.4) 0%, transparent 100%);
+      background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.55) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 70%, rgba(255,200,255,0.35) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 50% 15%, rgba(255,255,255,0.45) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 50%, rgba(200,220,255,0.35) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 80%, rgba(255,255,255,0.45) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 20% 90%, rgba(255,200,200,0.25) 0%, transparent 100%),
+        radial-gradient(1px 1px at 92% 30%, rgba(255,255,255,0.45) 0%, transparent 100%),
+        radial-gradient(1px 1px at 45% 45%, rgba(200,200,255,0.35) 0%, transparent 100%);
       pointer-events: none;
       z-index: 0;
+      transform: translateZ(0);
+      will-change: transform;
     }
     a { color: inherit; text-decoration: none; }
 
@@ -71,11 +78,12 @@
       gap: 1.5rem;
       height: 68px;
       padding: 0 2rem;
-      background: rgba(18, 8, 36, 0.85);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: rgba(18, 8, 36, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(176, 110, 255, 0.2);
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      transform: translateZ(0);
     }
     .logo {
       display: flex;
@@ -193,7 +201,7 @@
       display: none;
       flex-direction: column;
       padding: 0.5rem 0 1rem;
-      background: rgba(18, 8, 36, 0.96);
+      background: rgba(18, 8, 36, 0.98);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(176, 110, 255, 0.25);
@@ -286,6 +294,7 @@
       line-height: 1;
       animation: slow-spin 90s linear infinite;
       text-shadow: 0 0 80px rgba(176, 110, 255, 0.1);
+      will-change: transform;
     }
     @keyframes slow-spin {
       from { transform: rotate(0deg); }
@@ -338,7 +347,6 @@
       grid-template-columns: repeat(3, 1fr);
       border-bottom: 1px solid rgba(176, 110, 255, 0.12);
       background: rgba(26, 11, 46, 0.4);
-      backdrop-filter: blur(4px);
     }
     .stat-block {
       padding: 2rem;
@@ -480,7 +488,6 @@
       gap: 0.4rem;
       padding: 0.8rem 2rem;
       background: rgba(18, 8, 36, 0.5);
-      backdrop-filter: blur(4px);
       border-bottom: 1px solid rgba(176, 110, 255, 0.1);
     }
     .filter-label {
@@ -556,13 +563,13 @@
     }
     .merch-card {
       position: relative;
-      background: rgba(30, 15, 46, 0.7);
-      backdrop-filter: blur(6px);
+      background: rgba(30, 15, 46, 0.92);
       border: 1px solid rgba(176, 110, 255, 0.15);
       border-radius: 3px;
       overflow: hidden;
       animation: card-in 0.35s ease-out;
       transition: transform 0.25s, border-color 0.25s, box-shadow 0.3s;
+      will-change: transform;
     }
     @keyframes card-in {
       from { opacity: 0; transform: translateY(12px); }
@@ -877,8 +884,6 @@
       border: 1px solid rgba(176, 110, 255, 0.2);
       border-radius: 3px;
       box-shadow: 0 0 40px rgba(176, 110, 255, 0.08);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
     }
     .form-row {
       display: grid;
@@ -1231,7 +1236,7 @@
     .footer-links button:hover { color: var(--accent-cyan); }
     footer span { color: var(--accent-pink); }
 
-    /* ----- ZOOM OVERLAY (unchanged structure, updated styling) ----- */
+    /* ----- ZOOM OVERLAY ----- */
     #zoomOverlay {
       animation: zoomFadeIn 0.3s ease-out;
       background: rgba(8, 4, 16, 0.94) !important;
@@ -1257,6 +1262,8 @@
       -webkit-user-select: none;
       border: 1px solid var(--accent-pink) !important;
       box-shadow: 0 0 50px rgba(255, 77, 166, 0.25);
+      contain: layout paint;
+      will-change: transform;
     }
     #zoomContainer:active { cursor: grabbing; }
     #zoomHorizontal::-webkit-slider-thumb,
@@ -1447,6 +1454,23 @@
         padding: 8px 0;
       }
     }
+
+    /* mobile performance overrides */
+    @media (max-width: 768px), (prefers-reduced-motion: reduce) {
+      header {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(18, 8, 36, 0.98);
+      }
+      .mobile-nav {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(18, 8, 36, 0.99);
+      }
+      .home-background-star { animation: none; }
+      .merch-card { animation: none; }
+      body::before { will-change: auto; }
+    }
   </style>
 </head>
 <body>
@@ -1567,7 +1591,7 @@
       <section class="about-content">
         <div class="about-section">
           <h2>What We Cover</h2>
-          <p>This catalogue covers official promotional merchandise from all Rockstar Games titles — past and present. Each item is logged with its game, category, description, year of release, rarity, and availability where possible.</p>
+          <p>This catalogue covers promotional merchandise from all Rockstar Games titles — past and present. Each item is logged with its game, category, description, year of release, rarity, and availability where possible.</p>
           <div class="games-list">
             <span class="game-tag">GTA V</span><span class="game-tag">GTA VI</span><span class="game-tag">GTA Online</span>
             <span class="game-tag">Red Dead Redemption</span><span class="game-tag">Red Dead 2</span><span class="game-tag">Bully</span>
@@ -1670,17 +1694,15 @@
   </footer>
 
   <!-- Load catalog.js with cache-busting version -->
-  <script src="catalog.js?v=2026.09.01"></script>
+  <script src="catalog.js?v=2026.09.03"></script>
 
   <!-- MAIN APPLICATION -->
   <script>
     (function() {
 
-      // ---------- DOM REFS ----------
       var $ = function(id) { return document.getElementById(id); };
       var qsa = function(sel, ctx) { return (ctx || document).querySelectorAll(sel); };
 
-      // ---------- APP STATE ----------
       var state = {
         currentPage: 'home',
         typeFilter: 'all',
@@ -1691,7 +1713,6 @@
         uniqueGames: []
       };
 
-      // ---------- HELPERS ----------
       function escapeHTML(str) {
         return String(str ?? '').replace(/[&<>"']/g, function(c) {
           var map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
@@ -1757,7 +1778,6 @@
         }
       }
 
-      // ---------- GET ITEMS ----------
       function getItems() {
         if (typeof ITEMS === 'undefined' || !Array.isArray(ITEMS)) {
           console.warn('ITEMS not loaded yet');
@@ -1772,7 +1792,6 @@
         });
       }
 
-      // ---------- RENDER FUNCTIONS ----------
       function cardHTML(rawItem) {
         var item = normaliseItem(rawItem);
         return '<article class="merch-card">\n          <a class="card-image" href="#item/' + item.id + '" aria-label="View ' + escapeHTML(item.name) + '">\n            ' + imageMarkup(item.image, item.name, item.category) + '\n          </a>\n          <a class="card-body" href="#item/' + item.id + '">\n            <div class="card-game">' + escapeHTML(item.game) + '</div>\n            <div class="card-name">' + escapeHTML(item.name) + '</div>\n            <div class="card-description">' + escapeHTML(item.description || 'No description has been added yet.') + '</div>\n            <div class="card-footer"><span class="card-category">' + escapeHTML(item.category) + '</span></div>\n          </a>\n        </article>';
@@ -1831,7 +1850,6 @@
         if (firstPill) firstPill.classList.toggle('active', state.gameFilter === 'all');
       }
 
-      // ---------- NAVIGATION ----------
       function showPage(pageName) {
         state.currentPage = pageName;
         document.querySelectorAll('.page').forEach(function(p) {
@@ -1849,7 +1867,6 @@
         }
       }
 
-      // ---------- ITEM DETAIL ----------
       function renderItemPage(itemId) {
         var items = getItems();
         var raw = null;
@@ -1866,7 +1883,6 @@
 
         wrap.innerHTML = '\n          <button class="btn-back" id="backToCatalogue">← Back to Catalogue</button>\n          <div class="item-hero" id="itemPageHero">\n            <div class="zoom-wrapper" id="zoomWrapper">\n              ' + imageMarkup(allImages[0], item.name, item.category, true) + '\n            </div>\n          </div>\n          <div class="view-thumbs" id="itemPageThumbs" style="' + (allImages.length > 1 ? '' : 'display:none') + '"></div>\n          <div class="item-detail-body">\n            <div class="item-detail-main">\n              <div class="item-game-label">' + escapeHTML(item.game) + '</div>\n              <h1 class="item-detail-name">' + escapeHTML(item.name) + '</h1>\n              <span class="item-detail-section-label">Description</span>\n              <p class="item-detail-description">' + escapeHTML(item.description || 'No description has been added yet.') + '</p>\n              <div class="item-detail-share">\n                <span class="item-detail-share-label">Share this item:</span>\n                <button class="btn-copy-link" id="btnCopyLink">Copy Link</button>\n              </div>\n            </div>\n            <aside class="item-detail-sidebar" id="itemPageSidebar"></aside>\n          </div>\n        ';
 
-        // Back button
         $('backToCatalogue').addEventListener('click', function() { showPage('catalogue'); });
 
         var labels = [
@@ -1885,7 +1901,6 @@
         setupThumbnails(item, allImages);
         setupZoom(item, allImages);
 
-        // Copy link
         $('btnCopyLink').addEventListener('click', function() {
           var url = location.origin + location.pathname + '#item/' + state.currentItemId;
           var btn = $('btnCopyLink');
@@ -1933,6 +1948,7 @@
         });
       }
 
+      /* Smooth zoom/pan — cached geometry, rAF coalescing, fixed bounds math */
       function setupZoom(item, allImages) {
         var hero = $('itemPageHero');
         var overlay = $('zoomOverlay');
@@ -1946,50 +1962,66 @@
 
         var currentImage = allImages[0] || item.image;
 
-        var state = { scale: 1.5, translateX: 0, translateY: 0, minScale: 1, maxScale: 4 };
+        var scale = 1.5, translateX = 0, translateY = 0;
+        var minScale = 1, maxScale = 4;
+
+        var containerW = 0, containerH = 0;
+        var baseImgW = 0, baseImgH = 0;
+        var renderedW = 0, renderedH = 0;
+
         var isDragging = false;
         var dragStartX = 0, dragStartY = 0;
         var dragStartTranslateX = 0, dragStartTranslateY = 0;
 
-        hero.addEventListener('click', function(e) {
-          if (e.target.closest('.view-thumb') || e.target.closest('.view-link') || e.target.closest('.btn-back')) return;
-          openZoom(currentImage);
-        });
+        var rafPending = false;
+        var pendingAnimate = false;
 
-        var observer = new MutationObserver(function() {
-          var img = hero.querySelector('img');
-          if (img && img.src) { currentImage = img.src; }
-        });
-        observer.observe(hero, { childList: true, subtree: true });
+        function measure() {
+          var cRect = container.getBoundingClientRect();
+          containerW = cRect.width;
+          containerH = cRect.height;
+          if (zoomImg.naturalWidth && zoomImg.naturalHeight) {
+            baseImgW = zoomImg.naturalWidth;
+            baseImgH = zoomImg.naturalHeight;
+            var scaleFit = Math.min(containerW / baseImgW, containerH / baseImgH);
+            renderedW = baseImgW * scaleFit;
+            renderedH = baseImgH * scaleFit;
+          } else {
+            renderedW = containerW;
+            renderedH = containerH;
+          }
+        }
 
-        function getBounds() {
-          var containerRect = container.getBoundingClientRect();
-          var imgRect = zoomImg.getBoundingClientRect();
-          var containerWidth = containerRect.width;
-          var containerHeight = containerRect.height;
-          var imgWidth = imgRect.width;
-          var imgHeight = imgRect.height;
-          var maxX = Math.max(0, (imgWidth * state.scale - containerWidth) / 2);
-          var maxY = Math.max(0, (imgHeight * state.scale - containerHeight) / 2);
+        function getMaxTranslate() {
+          var maxX = Math.max(0, (renderedW * scale - containerW) / 2);
+          var maxY = Math.max(0, (renderedH * scale - containerH) / 2);
           return { maxX: maxX, maxY: maxY };
         }
 
-        function applyTransform(animate) {
-          var scale = state.scale;
-          var translateX = Math.round(state.translateX);
-          var translateY = Math.round(state.translateY);
-          zoomImg.style.transition = animate ? 'transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
-          zoomImg.style.transform = 'translate3d(' + translateX + 'px, ' + translateY + 'px, 0px) scale(' + scale + ')';
-          var bounds = getBounds();
-          hSlider.value = bounds.maxX > 0 ? (translateX / bounds.maxX) * 100 : 0;
-          vSlider.value = bounds.maxY > 0 ? (translateY / bounds.maxY) * 100 : 0;
-          zoomDisplay.textContent = scale.toFixed(1) + '×';
+        function clampPosition() {
+          var b = getMaxTranslate();
+          if (translateX > b.maxX) translateX = b.maxX;
+          if (translateX < -b.maxX) translateX = -b.maxX;
+          if (translateY > b.maxY) translateY = b.maxY;
+          if (translateY < -b.maxY) translateY = -b.maxY;
         }
 
-        function clampPosition() {
-          var bounds = getBounds();
-          state.translateX = Math.max(-bounds.maxX, Math.min(bounds.maxX, state.translateX));
-          state.translateY = Math.max(-bounds.maxY, Math.min(bounds.maxY, state.translateY));
+        function writeTransform(animate) {
+          var t = 'translate3d(' + Math.round(translateX) + 'px, ' + Math.round(translateY) + 'px, 0) scale(' + scale + ')';
+          zoomImg.style.transition = animate ? 'transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
+          zoomImg.style.transform = t;
+          var b = getMaxTranslate();
+          hSlider.value = b.maxX > 0 ? (translateX / b.maxX) * 100 : 0;
+          vSlider.value = b.maxY > 0 ? (translateY / b.maxY) * 100 : 0;
+          zoomDisplay.textContent = scale.toFixed(1) + '×';
+          rafPending = false;
+        }
+
+        function scheduleTransform(animate) {
+          pendingAnimate = animate;
+          if (rafPending) return;
+          rafPending = true;
+          requestAnimationFrame(function() { writeTransform(pendingAnimate); });
         }
 
         function getEventPos(e) {
@@ -1998,13 +2030,13 @@
         }
 
         function onDragStart(e) {
-          if (state.scale <= 1) return;
+          if (scale <= 1) return;
           isDragging = true;
           var pos = getEventPos(e);
           dragStartX = pos.x;
           dragStartY = pos.y;
-          dragStartTranslateX = state.translateX;
-          dragStartTranslateY = state.translateY;
+          dragStartTranslateX = translateX;
+          dragStartTranslateY = translateY;
           container.style.cursor = 'grabbing';
           e.preventDefault();
         }
@@ -2012,10 +2044,10 @@
         function onDragMove(e) {
           if (!isDragging) return;
           var pos = getEventPos(e);
-          state.translateX = dragStartTranslateX + (pos.x - dragStartX);
-          state.translateY = dragStartTranslateY + (pos.y - dragStartY);
+          translateX = dragStartTranslateX + (pos.x - dragStartX);
+          translateY = dragStartTranslateY + (pos.y - dragStartY);
           clampPosition();
-          applyTransform(false);
+          scheduleTransform(false);
           e.preventDefault();
         }
 
@@ -2029,22 +2061,24 @@
 
         var lastTouchDist = 0, touchStartScale = 1;
         container.addEventListener('touchstart', function(e) {
-          if (e.touches.length === 1) { onDragStart(e); } else if (e.touches.length === 2) {
+          if (e.touches.length === 1) { onDragStart(e); }
+          else if (e.touches.length === 2) {
             var t1 = e.touches[0], t2 = e.touches[1];
             lastTouchDist = Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
-            touchStartScale = state.scale;
+            touchStartScale = scale;
           }
         }, { passive: false });
 
         container.addEventListener('touchmove', function(e) {
-          if (e.touches.length === 1 && isDragging) { onDragMove(e); } else if (e.touches.length === 2) {
+          if (e.touches.length === 1 && isDragging) { onDragMove(e); }
+          else if (e.touches.length === 2) {
             var t1 = e.touches[0], t2 = e.touches[1];
             var dist = Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
-            var newScale = Math.min(state.maxScale, Math.max(state.minScale, touchStartScale * (dist / lastTouchDist)));
-            state.scale = newScale;
+            var newScale = Math.min(maxScale, Math.max(minScale, touchStartScale * (dist / lastTouchDist)));
+            scale = newScale;
             zSlider.value = newScale;
             clampPosition();
-            applyTransform(false);
+            scheduleTransform(false);
           }
           e.preventDefault();
         }, { passive: false });
@@ -2054,61 +2088,55 @@
         container.addEventListener('wheel', function(e) {
           e.preventDefault();
           var delta = e.deltaY > 0 ? -0.1 : 0.1;
-          var newScale = Math.min(state.maxScale, Math.max(state.minScale, state.scale + delta));
-          state.scale = Math.round(newScale * 100) / 100;
-          zSlider.value = state.scale;
+          var newScale = Math.min(maxScale, Math.max(minScale, scale + delta));
+          scale = Math.round(newScale * 100) / 100;
+          zSlider.value = scale;
           clampPosition();
-          applyTransform(true);
+          scheduleTransform(true);
         }, { passive: false });
 
         container.addEventListener('dblclick', function(e) {
           e.preventDefault();
-          if (state.scale > 1.5) {
-            state.scale = 1;
-            state.translateX = 0;
-            state.translateY = 0;
+          if (scale > 1.5) {
+            scale = 1;
+            translateX = 0;
+            translateY = 0;
             zSlider.value = 1;
           } else {
-            var rect = container.getBoundingClientRect();
-            var x = ((e.clientX - rect.left) / rect.width) * 100;
-            var y = ((e.clientY - rect.top) / rect.height) * 100;
-            state.scale = 2.5;
+            scale = 2.5;
             zSlider.value = 2.5;
-            var bounds = getBounds();
-            state.translateX = -(x / 100) * bounds.maxX * 2;
-            state.translateY = -(y / 100) * bounds.maxY * 2;
             clampPosition();
           }
-          applyTransform(true);
+          scheduleTransform(true);
         });
 
         function updateFromSliders() {
-          state.scale = parseFloat(zSlider.value);
-          var bounds = getBounds();
-          state.translateX = bounds.maxX > 0 ? (parseFloat(hSlider.value) / 100) * bounds.maxX : 0;
-          state.translateY = bounds.maxY > 0 ? (parseFloat(vSlider.value) / 100) * bounds.maxY : 0;
+          scale = parseFloat(zSlider.value);
+          var b = getMaxTranslate();
+          translateX = b.maxX > 0 ? (parseFloat(hSlider.value) / 100) * b.maxX : 0;
+          translateY = b.maxY > 0 ? (parseFloat(vSlider.value) / 100) * b.maxY : 0;
           clampPosition();
-          applyTransform(true);
+          scheduleTransform(true);
         }
 
         hSlider.addEventListener('input', updateFromSliders);
         vSlider.addEventListener('input', updateFromSliders);
         zSlider.addEventListener('input', function() {
-          state.scale = parseFloat(zSlider.value);
+          scale = parseFloat(zSlider.value);
           clampPosition();
-          applyTransform(true);
+          scheduleTransform(true);
         });
 
         function closeZoom() {
           overlay.style.display = 'none';
           document.body.style.overflow = 'auto';
-          state.scale = 1.5;
-          state.translateX = 0;
-          state.translateY = 0;
+          scale = 1.5;
+          translateX = 0;
+          translateY = 0;
           hSlider.value = 0;
           vSlider.value = 0;
           zSlider.value = 1.5;
-          applyTransform(false);
+          writeTransform(false);
         }
 
         closeBtn.addEventListener('click', closeZoom);
@@ -2120,20 +2148,41 @@
           zoomImg.src = imageSrc;
           overlay.style.display = 'flex';
           document.body.style.overflow = 'hidden';
-          state.scale = 1.5;
-          state.translateX = 0;
-          state.translateY = 0;
+          scale = 1.5;
+          translateX = 0;
+          translateY = 0;
           hSlider.value = 0;
           vSlider.value = 0;
           zSlider.value = 1.5;
-          applyTransform(false);
           container.style.cursor = 'grab';
+
+          requestAnimationFrame(function() {
+            if (zoomImg.complete && zoomImg.naturalWidth) {
+              measure();
+              writeTransform(false);
+            } else {
+              zoomImg.addEventListener('load', function onLoad() {
+                zoomImg.removeEventListener('load', onLoad);
+                measure();
+                writeTransform(false);
+              });
+              measure();
+              writeTransform(false);
+            }
+          });
         }
+
+        window.addEventListener('resize', function() {
+          if (overlay.style.display === 'flex') {
+            measure();
+            clampPosition();
+            writeTransform(false);
+          }
+        });
 
         window.openZoom = openZoom;
       }
 
-      // ---------- ROUTING ----------
       function handleRoute() {
         var hash = location.hash;
         if (hash.indexOf('#item/') === 0) {
@@ -2151,7 +2200,6 @@
         showPage('home');
       }
 
-      // ---------- CONTACT FORM ----------
       function bindContactForm() {
         var form = $('contactForm');
         if (!form) return;
@@ -2193,9 +2241,7 @@
         });
       }
 
-      // ---------- EVENT BINDING ----------
       function bindEvents() {
-        // Navigation buttons - Desktop
         document.querySelectorAll('.desktop-nav .nav-link').forEach(function(btn) {
           btn.addEventListener('click', function(e) {
             e.preventDefault();
@@ -2204,7 +2250,6 @@
           });
         });
 
-        // Navigation buttons - Mobile
         document.querySelectorAll('.mobile-nav-link').forEach(function(btn) {
           btn.addEventListener('click', function(e) {
             e.preventDefault();
@@ -2218,7 +2263,6 @@
           });
         });
 
-        // Navigation buttons - Footer
         document.querySelectorAll('.footer-links button').forEach(function(btn) {
           btn.addEventListener('click', function(e) {
             e.preventDefault();
@@ -2227,7 +2271,6 @@
           });
         });
 
-        // Home page buttons
         document.querySelectorAll('.home-actions .btn-primary, .home-actions .btn-secondary, .btn-see-all').forEach(function(btn) {
           btn.addEventListener('click', function(e) {
             e.preventDefault();
@@ -2236,13 +2279,11 @@
           });
         });
 
-        // Logo
         document.querySelector('.logo').addEventListener('click', function(e) {
           e.preventDefault();
           showPage('home');
         });
 
-        // Mobile hamburger
         $('hamburger').addEventListener('click', function() {
           var nav = $('mobileNav');
           var isOpen = nav.classList.toggle('open');
@@ -2250,7 +2291,6 @@
           this.setAttribute('aria-expanded', String(isOpen));
         });
 
-        // Type filters
         document.querySelectorAll('.filter-bar:not(#gameFilterBar) .filter-pill').forEach(function(btn) {
           btn.addEventListener('click', function() {
             var type = this.dataset.type;
@@ -2261,7 +2301,6 @@
           });
         });
 
-        // Game filters - delegated
         $('gameFilterBar').addEventListener('click', function(e) {
           var btn = e.target.closest('.filter-pill');
           if (!btn) return;
@@ -2272,17 +2311,13 @@
           renderCatalogue();
         });
 
-        // Search
         $('searchInput').addEventListener('input', renderCatalogue);
 
-        // Hash change
         window.addEventListener('hashchange', handleRoute);
 
-        // Contact form
         bindContactForm();
       }
 
-      // ---------- INIT ----------
       function init() {
         if (typeof ITEMS !== 'undefined' && Array.isArray(ITEMS)) {
           console.log('✅ catalog.js loaded! Items:', ITEMS.length);
@@ -2296,7 +2331,6 @@
         }
       }
 
-      // Start
       init();
 
     })();
