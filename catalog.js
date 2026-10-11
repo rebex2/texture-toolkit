@@ -7,7 +7,7 @@ const ITEMS = [
     year: "2013",
     rarity: "Rare",
     availability: "Available for purchase - Yes",
-    image: "images/chop.jpg",
+    image: "images/GTAV/chop.jpg",
     extraImages: [],
     link: ""
   },
@@ -19,8 +19,8 @@ const ITEMS = [
     year: "2008",
     rarity: "Very Rare",
     availability: "Available for purchase - No",
-    image: "images/pisswasser.jpg",
-    extraImages: ["images/crate.jpg"],
+    image: "images/GTAIV/pisswasser.jpg",
+    extraImages: ["images/GTAIV/crate.jpg"],
     link: ""
   },
   {
@@ -31,8 +31,13 @@ const ITEMS = [
     year: "2008",
     rarity: "Very Rare",
     availability: "Available for purchase - Yes",
-    image: "images/fc1.jpg",
-    extraImages: ["/images/fc2.jpg", "/images/fc3.jpg", "/images/fc4.jpg", "/images/fc5.jpg"],
+    image: "images/GTAIV/flex-cuff1.jpg",
+    extraImages: [
+      "images/GTAIV/flex-cuff2.jpg",
+      "images/GTAIV/flex-cuff3.jpg",
+      "images/GTAIV/flex-cuff4.jpg",
+      "images/GTAIV/flex-cuff5.jpg"
+    ],
     link: ""
   },
   {
@@ -43,8 +48,12 @@ const ITEMS = [
     year: "2004",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "/images/GTA-SA-wrappingpaper1.jpg",
-    extraImages: ["/images/GTA-SA-wrappingpaper2.jpg", "/images/GTA-SA-wrappingpaper3.jpg", "/images/GTA-SA-wrappingpaper4.jpg"],
+    image: "images/SA/wrap-paper1.jpg",
+    extraImages: [
+      "images/SA/wrap-paper2.jpg",
+      "images/SA/wrap-paper3.jpg",
+      "images/SA/wrap-paper4.jpg"
+    ],
     link: ""
   },
   {
@@ -55,7 +64,7 @@ const ITEMS = [
     year: "2012",
     rarity: "Rare",
     availability: "Available for purchase - Yes",
-    image: "images/mp1.jpg",
+    image: "images/MAX3/MP_statue1.jpg",
     extraImages: [],
     link: ""
   },
