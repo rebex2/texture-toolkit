@@ -412,7 +412,6 @@
       pointer-events: none;
     }
     .home-hero-content { position: relative; z-index: 1; max-width: 760px; }
-    .home-eyebrow { margin-bottom: 1rem; }
     .home-title {
       margin-bottom: 1rem;
       font-size: clamp(2.8rem, 8.5vw, 6.4rem);
@@ -1102,25 +1101,21 @@
       line-height: 1.45;
     }
     .item-label-value.gold { color: var(--gold); }
+    /* Availability — simple Yes / No text, no box */
     .item-label-value.availability-text {
-      font-size: 0.82rem;
-      padding: 7px 12px;
-      border-radius: var(--radius-sm);
-      display: inline-block;
-      width: 100%;
+      font-size: 0.88rem;
+      padding: 0;
+      border: none;
+      background: none;
+      display: inline;
+      width: auto;
     }
-    .item-label-value.availability-available {
-      background: rgba(46, 230, 168, 0.08);
-      border-left: 2px solid var(--green);
-    }
-    .item-label-value.availability-unavailable {
-      background: rgba(255, 255, 255, 0.03);
-      border-left: 2px solid var(--muted-2);
-      color: var(--muted);
-    }
+    .item-label-value.availability-available,
+    .item-label-value.availability-unavailable,
     .item-label-value.availability-unknown {
-      background: rgba(245, 197, 66, 0.06);
-      border-left: 2px solid var(--gold);
+      background: none;
+      border-left: none;
+      color: var(--white);
     }
     .view-link {
       display: block;
@@ -1157,15 +1152,21 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
     }
-    .btn-copy-link {
+    .btn-copy-link, .btn-report-error {
       padding: 7px 13px;
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
       background: transparent;
       color: var(--white);
       font-size: 0.62rem;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: border-color 0.15s, color 0.15s;
     }
-    .btn-copy-link:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-copy-link:hover, .btn-report-error:hover { border-color: var(--accent); color: var(--accent); }
     .btn-copy-link.copied { color: var(--green); border-color: var(--green); }
 
     /* ----- FOOTER ----- */
@@ -1285,7 +1286,7 @@
     <a class="logo" href="#home">
       <div class="logo-word">R<span class="logo-star">★</span> Games <span class="logo-star">Promo</span> Hub</div>
       <div class="logo-divider"></div>
-      <div class="logo-subtitle">Merch</div>
+      <a class="logo-subtitle" href="#catalogue" id="logoSubtitle" style="cursor:pointer;">Catalogue</a>
     </a>
     <nav class="desktop-nav" aria-label="Main navigation">
       <button class="nav-link active" data-page="home">Home</button>
@@ -1314,9 +1315,8 @@
     <section class="page active" id="page-home">
       <section class="home-hero">
         <div class="home-hero-content">
-          <p class="home-eyebrow eyebrow">A fan-made catalogue of</p>
           <h1 class="home-title h-display">R<span class="brand-star">★</span> Games<br /><em>Promo</em> Hub</h1>
-          <p class="home-hero-description">A community-compiled record of Rockstar Games promotional merchandise — from launch-day giveaways to limited-edition collector's pieces across every title.</p>
+          <p class="home-hero-description">A fan-made catalogue of Rockstar Games promotional merchandise — from launch-day giveaways to limited-edition collector's pieces across every title.</p>
           <div class="home-actions">
             <button class="btn-primary" data-page="catalogue">Browse the Catalogue</button>
             <button class="btn-text" data-page="about">About this site →</button>
@@ -1354,6 +1354,10 @@
         <h1>Merch Catalogue</h1>
         <p>Every piece of promo gear — from GTA to Red Dead &amp; beyond</p>
       </section>
+      <div class="filter-bar" id="gameFilterBar" aria-label="Filter by game">
+        <span class="filter-label">Game</span>
+        <button class="filter-pill active" data-game="all">All games</button>
+      </div>
       <div class="filter-bar" aria-label="Filter by item type">
         <span class="filter-label">Type</span>
         <button class="filter-pill active" data-type="all">All</button>
@@ -1366,10 +1370,6 @@
         <button class="filter-pill" data-type="Keychain">Keychains</button>
         <button class="filter-pill" data-type="Sticker">Stickers</button>
         <button class="filter-pill" data-type="Other">Other</button>
-      </div>
-      <div class="filter-bar" id="gameFilterBar" aria-label="Filter by game">
-        <span class="filter-label">Game</span>
-        <button class="filter-pill active" data-game="all">All games</button>
       </div>
       <div class="search-wrap">
         <input class="search-input" id="searchInput" type="search" placeholder="Search by name, game, or keyword…" />
@@ -1384,21 +1384,21 @@
           <div class="about-hero-text">
             <p class="eyebrow">Fan-made &amp; community-driven</p>
             <h1>About <span>this</span> site</h1>
-            <p>RockstarPromoHub started with a simple frustration: searching across the internet for photos of Rockstar Games promotional merchandise and never finding it in one place. We're two long-time Rockstar fans, so we built the resource we wanted to use.</p>
+            <p>RockstarPromoHub started with a simple frustration: frustration searching the internet for accurate and detailed information about Rockstar Games promotional merchandise. So as two long-time Rockstar fans we decided to build the resource we wanted for this purpose pulling detailed information and photos about all Rockstar Games promotional items into one place.</p>
             <p>From snapbacks handed out at trade shows to Red Dead plushies, launch-event exclusives, and GTA hoodies, we're always looking for more items to add. There's plenty of interesting material out there, and we're certain we've got a lot left to find.</p>
           </div>
         </div>
       </section>
 
       <section class="about-section">
-        <h2>Who runs <span>this</span></h2>
+        <h2>Who runs <span>this</span> website</h2>
         <div class="team-list">
           <div class="team-member">
             <div class="team-avatar">W</div>
             <div>
               <div class="team-name">Wade</div>
-              <div class="team-role">Site builder &amp; cataloguer</div>
-              <p class="team-desc">The person behind the site itself — design, development, adding new items, and everything that happens behind the scenes.</p>
+              <div class="team-role">Editor-In-Chief &amp; Contributor</div>
+              <p class="team-desc">Helps shape the direction of the site, performs research and also adds items.</p>
             </div>
           </div>
           <div class="team-member">
@@ -1431,9 +1431,9 @@
             </div>
           </div>
           <div>
-            <h2>How to <span>help</span></h2>
-            <p>Found a piece of merch that's missing from the catalogue? Got photos, a link to an old listing, or details about an item we've struggled to identify? We'd love to hear from you.</p>
-            <p>Head to the Contact page and send it our way. Good-quality photos, source links, release dates, and any other useful information all help build a more complete catalogue.</p>
+            <h2>How to <span>help us</span></h2>
+            <p>Found a piece of merch that's missing from the catalogue, have more information on an existing entry or spotted an error — we want to hear from you!</p>
+            <p>Head to the Contact page and let us know. Good-quality photos, source links, release dates, and any other useful information all help build a more complete catalogue.</p>
             <p style="color: var(--muted-2); font-size: 0.82rem;">RockstarPromoHub is an independent fan project and isn't affiliated with or endorsed by Rockstar Games or Take-Two Interactive. All trademarks belong to their respective owners. We're simply fans who enjoy collecting, documenting, and sharing the merch connected to these games.</p>
           </div>
         </div>
@@ -1507,7 +1507,7 @@
       <button data-page="about">About</button>
       <button data-page="contact">Contact</button>
     </div>
-    <p>© <span id="footerYear"></span> <span>RockstarPromoHub.com</span> — Fan-made. Not affiliated with Rockstar Games.</p>
+    <p>© <span id="footerYear"></span> <span>RockstarPromoHub.com</span> — Fan-made. Not affiliated with Rockstar Games. All trademarks belong to their respective owners.</p>
   </footer>
 
   <script src="catalog.js?v=2026.10.19"></script>
@@ -1552,6 +1552,7 @@
           year: item.year || 'Not specified',
           rarity: item.rarity || 'Not specified',
           availability: item.availability || 'Not specified',
+          price: item.price || 'Not Applicable',
           image: item.image || '',
           extraImages: Array.isArray(item.extraImages) ? item.extraImages.filter(Boolean) : [],
           link: item.link || ''
@@ -1722,6 +1723,7 @@
               '<div class="item-detail-share">' +
                 '<span class="item-detail-share-label">Share</span>' +
                 '<button class="btn-copy-link" id="btnCopyLink">Copy link</button>' +
+                '<button class="btn-report-error" id="btnReportError">Report error</button>' +
               '</div>' +
             '</div>' +
             '<aside class="item-detail-sidebar" id="itemPageSidebar"></aside>' +
@@ -1730,11 +1732,12 @@
         $('backToCatalogue').addEventListener('click', function() { showPage('catalogue'); });
 
         var labels = [
-          { key: 'Associated game', value: item.game, cls: 'gold' },
+          { key: 'Associated game', value: item.game, cls: '' },
           { key: 'Year of release', value: item.year, cls: '' },
           { key: 'Category', value: item.category, cls: '' },
           { key: 'Rarity', value: item.rarity, cls: '' },
-          { key: 'Availability', value: item.availability || 'Not specified', cls: 'availability-text ' + getAvailabilityClass(item.availability) }
+          { key: 'Available for purchase', value: item.availability || 'Not specified', cls: 'availability-text ' + getAvailabilityClass(item.availability) },
+          { key: 'Price', value: item.price || 'Not Applicable', cls: '' }
         ];
         var sidebarHTML = '';
         for (var k = 0; k < labels.length; k++) {
@@ -1753,6 +1756,25 @@
             btn.classList.add('copied');
             setTimeout(function() { btn.textContent = 'Copy link'; btn.classList.remove('copied'); }, 1800);
           }).catch(function() { window.prompt('Copy this link:', url); });
+        });
+
+        $('btnReportError').addEventListener('click', function() {
+          var itemName = item.name;
+          var game = item.game;
+          showPage('contact');
+          setTimeout(function() {
+            var msg = $('cf-message');
+            var topic = $('cf-topic');
+            if (topic) {
+              for (var t = 0; t < topic.options.length; t++) {
+                if (topic.options[t].value === 'Correction / Edit') { topic.selectedIndex = t; break; }
+              }
+            }
+            if (msg) {
+              msg.value = 'Report an error for: ' + itemName + ' (' + game + ')\n\nWhat is wrong?\n';
+              msg.focus();
+            }
+          }, 200);
         });
       }
 
@@ -1927,9 +1949,13 @@
           });
         });
 
-        document.querySelector('.logo').addEventListener('click', function(e) {
+        document.querySelector('.logo-word').addEventListener('click', function(e) {
           e.preventDefault();
           showPage('home');
+        });
+        $('logoSubtitle').addEventListener('click', function(e) {
+          e.preventDefault();
+          showPage('catalogue');
         });
 
         $('hamburger').addEventListener('click', function() {
