@@ -380,7 +380,6 @@
       text-align: center;
       overflow: hidden;
     }
-    /* Soft lit-from-within vignette behind hero content only */
     .home-hero::before {
       content: "";
       position: absolute;
@@ -398,7 +397,6 @@
       pointer-events: none;
       z-index: 0;
     }
-    /* Hairline gradient rule under the hero */
     .home-hero::after {
       content: "";
       position: absolute;
@@ -422,7 +420,6 @@
       display: inline-block;
       transform: translateY(-0.02em);
     }
-    /* Slow, subtle gradient drift on the word "Promo" */
     .home-title em {
       font-style: normal;
       background: linear-gradient(
@@ -630,7 +627,6 @@
     }
     @media (hover: hover) {
       .merch-card:hover {
-        /* Light catching the top-left edge */
         border-color: rgba(255, 77, 166, 0.35);
         transform: translateY(-2px);
         box-shadow: var(--shadow-depth);
@@ -1101,7 +1097,6 @@
       line-height: 1.45;
     }
     .item-label-value.gold { color: var(--gold); }
-    /* Availability — simple Yes / No text, no box */
     .item-label-value.availability-text {
       font-size: 0.88rem;
       padding: 0;
@@ -1277,6 +1272,14 @@
       .form-row { grid-template-columns: 1fr; }
       .form-submit { align-self: stretch; }
     }
+
+    /* Subcategory filter bar (hidden by default, shown when a category is selected) */
+    .filter-bar.subcategory-bar {
+      display: none;
+    }
+    .filter-bar.subcategory-bar.visible {
+      display: flex;
+    }
   </style>
 </head>
 <body>
@@ -1361,6 +1364,9 @@
       <div class="filter-bar" id="typeFilterBar" aria-label="Filter by item type">
         <span class="filter-label">Type</span>
         <button class="filter-pill active" data-type="all">All</button>
+      </div>
+      <div class="filter-bar subcategory-bar" id="subcategoryFilterBar" aria-label="Filter by subcategory">
+        <span class="filter-label">Subcategory</span>
       </div>
       <div class="search-wrap">
         <input class="search-input" id="searchInput" type="search" placeholder="Search by name, game, or keyword…" />
@@ -1511,6 +1517,7 @@
         currentPage: 'home',
         typeFilter: 'all',
         gameFilter: 'all',
+        subcategoryFilter: 'all',
         searchTerm: '',
         currentItemId: null,
         items: [],
@@ -1539,6 +1546,7 @@
           name: item.name || 'Untitled catalogue item',
           game: item.game || 'Rockstar Games',
           category: item.category || 'Other',
+          subcategory: item.subcategory || '',
           description: item.description || '',
           year: item.year || 'Not specified',
           rarity: item.rarity || 'Not specified',
@@ -1616,7 +1624,7 @@
             '<div class="card-game">' + escapeHTML(item.game) + '</div>' +
             '<div class="card-name">' + escapeHTML(item.name) + '</div>' +
             '<div class="card-description">' + escapeHTML(item.description || 'No description has been added yet.') + '</div>' +
-            '<div class="card-footer"><span class="card-category">' + escapeHTML(item.category) + '</span></div>' +
+            '<div class="card-footer"><span class="card-category">' + escapeHTML(item.category) + (item.subcategory ? ' — ' + escapeHTML(item.subcategory) : '') + '</span></div>' +
           '</a>' +
         '</article>';
       }
@@ -1644,12 +1652,14 @@
         var term = ($('searchInput')?.value || '').toLowerCase().trim();
         populateGameFilters(items);
         populateTypeFilters(items);
+        populateSubcategoryFilters(items);
         $('itemCount').textContent = items.length + ' item' + (items.length === 1 ? '' : 's');
         var filtered = items.filter(function(item) {
           var matchType = state.typeFilter === 'all' || item.category === state.typeFilter;
           var matchGame = state.gameFilter === 'all' || item.game === state.gameFilter;
-          var searchText = [item.name, item.game, item.category, item.description].join(' ').toLowerCase();
-          return matchType && matchGame && (!term || searchText.indexOf(term) !== -1);
+          var matchSub = state.subcategoryFilter === 'all' || item.subcategory === state.subcategoryFilter;
+          var searchText = [item.name, item.game, item.category, item.subcategory, item.description].join(' ').toLowerCase();
+          return matchType && matchGame && matchSub && (!term || searchText.indexOf(term) !== -1);
         });
         var grid = $('catalogue');
         if (filtered.length === 0) {
@@ -1710,6 +1720,71 @@
 
         var firstPill = bar.querySelector('.filter-pill');
         if (firstPill) firstPill.classList.toggle('active', state.typeFilter === 'all');
+      }
+
+      // Subcategory pills are generated from the `subcategory` field of items
+      // filtered by the currently selected category.
+      function populateSubcategoryFilters(items) {
+        var bar = $('subcategoryFilterBar');
+        if (!bar) return;
+
+        // If no specific category is selected, hide the subcategory bar entirely
+        if (state.typeFilter === 'all') {
+          bar.classList.remove('visible');
+          state.subcategoryFilter = 'all';
+          return;
+        }
+
+        var subcats = [];
+        var seen = {};
+        items.forEach(function(i) {
+          if (i.category === state.typeFilter && i.subcategory && !seen[i.subcategory]) {
+            seen[i.subcategory] = true;
+            subcats.push(i.subcategory);
+          }
+        });
+        subcats.sort(function(a, b) { return a.localeCompare(b); });
+
+        // If the current subcategory filter is no longer valid, reset to 'all'
+        if (subcats.indexOf(state.subcategoryFilter) === -1) {
+          state.subcategoryFilter = 'all';
+        }
+
+        // If there are no subcategories for this category, hide the bar
+        if (subcats.length === 0) {
+          bar.classList.remove('visible');
+          state.subcategoryFilter = 'all';
+          return;
+        }
+
+        bar.classList.add('visible');
+
+        // Clear all children except the label
+        bar.querySelectorAll('[data-generated-sub-filter="true"]').forEach(function(b) { b.remove(); });
+        var label = bar.querySelector('.filter-label');
+        if (!label) {
+          label = document.createElement('span');
+          label.className = 'filter-label';
+          label.textContent = 'Subcategory';
+          bar.prepend(label);
+        }
+
+        // Add "All" pill
+        var allBtn = document.createElement('button');
+        allBtn.className = 'filter-pill' + (state.subcategoryFilter === 'all' ? ' active' : '');
+        allBtn.dataset.generatedSubFilter = 'true';
+        allBtn.dataset.sub = 'all';
+        allBtn.textContent = 'All';
+        bar.appendChild(allBtn);
+
+        subcats.forEach(function(sub) {
+          var btn = document.createElement('button');
+          btn.className = 'filter-pill' + (state.subcategoryFilter === sub ? ' active' : '');
+          btn.dataset.generatedSubFilter = 'true';
+          btn.dataset.sub = sub;
+          btn.textContent = sub;
+          bar.appendChild(btn);
+        });
       }
 
       function showPage(pageName) {
@@ -1775,6 +1850,7 @@
           { key: 'Associated game', value: item.game, cls: '' },
           { key: 'Year of release', value: item.year, cls: '' },
           { key: 'Category', value: item.category, cls: '' },
+          { key: 'Subcategory', value: item.subcategory || '—', cls: '' },
           { key: 'Rarity', value: item.rarity, cls: '' },
           { key: 'Available for purchase', value: item.availability || 'Not specified', cls: 'availability-text ' + getAvailabilityClass(item.availability) },
           { key: 'Price', value: item.price || 'Not Applicable', cls: '' }
@@ -2011,6 +2087,7 @@
           if (!btn) return;
           var type = btn.dataset.type;
           state.typeFilter = type || 'all';
+          state.subcategoryFilter = 'all'; // reset subcategory when type changes
           document.querySelectorAll('#typeFilterBar .filter-pill').forEach(function(b) { b.classList.remove('active'); });
           btn.classList.add('active');
           renderCatalogue();
@@ -2022,6 +2099,17 @@
           var game = btn.dataset.game;
           state.gameFilter = game || 'all';
           document.querySelectorAll('#gameFilterBar .filter-pill').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          renderCatalogue();
+        });
+
+        // Subcategory filter bar — delegated handler
+        $('subcategoryFilterBar').addEventListener('click', function(e) {
+          var btn = e.target.closest('.filter-pill');
+          if (!btn) return;
+          var sub = btn.dataset.sub;
+          state.subcategoryFilter = sub || 'all';
+          document.querySelectorAll('#subcategoryFilterBar .filter-pill').forEach(function(b) { b.classList.remove('active'); });
           btn.classList.add('active');
           renderCatalogue();
         });
