@@ -46,6 +46,8 @@
       --radius-pill: 999px;
       --shadow-depth: 0 10px 24px rgba(0, 0, 0, 0.35);
       --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+      /* Shared hero top offset — every page hero starts here */
+      --hero-top: 3.5rem;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -274,7 +276,6 @@
       html { scroll-behavior: auto; }
     }
 
-    /* Grid item entrance for re-renders */
     .grid-enter .merch-card {
       animation: card-in 0.28s var(--ease-out) both;
     }
@@ -304,18 +305,31 @@
       transition: background 0.15s, border-color 0.15s, color 0.15s, box-shadow 0.2s;
     }
     .btn-primary {
+      position: relative;
       padding: 13px 30px;
       border: 1px solid var(--accent);
       border-radius: var(--radius-sm);
       background: var(--accent);
       color: #14061a;
       font-size: 0.72rem;
+      overflow: hidden;
+    }
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.18) 50%, transparent 70%);
+      background-size: 220% 100%;
+      background-position: 100% 0;
+      transition: background-position 0.6s var(--ease-out);
+      pointer-events: none;
     }
     .btn-primary:hover {
       background: #ff67b3;
       border-color: #ff67b3;
       box-shadow: 0 6px 20px rgba(255, 77, 166, 0.25);
     }
+    .btn-primary:hover::after { background-position: -100% 0; }
     .btn-secondary {
       padding: 13px 30px;
       border: 1px solid var(--border-strong);
@@ -337,39 +351,106 @@
       background: transparent;
       color: var(--muted);
       font-size: 0.72rem;
+      position: relative;
+    }
+    .btn-text::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      bottom: 6px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), var(--link));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s var(--ease-out);
     }
     .btn-text:hover { color: var(--white); }
+    .btn-text:hover::after { transform: scaleX(1); }
 
-    /* ----- HOME HERO ----- */
+    /* ----- HOME HERO (tightened top) ----- */
     .home-hero {
       position: relative;
       display: flex;
-      min-height: 78vh;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 5rem 1.75rem 4rem;
+      padding: var(--hero-top) 1.75rem 3.5rem;
       border-bottom: 1px solid var(--border);
       text-align: center;
+      overflow: hidden;
+    }
+    /* Soft lit-from-within vignette behind hero content only */
+    .home-hero::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: min(1100px, 130%);
+      height: min(640px, 90%);
+      transform: translate(-50%, -50%);
+      background: radial-gradient(
+        ellipse at center,
+        rgba(255, 77, 166, 0.10) 0%,
+        rgba(176, 110, 255, 0.06) 35%,
+        transparent 70%
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+    /* Hairline gradient rule under the hero */
+    .home-hero::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: min(520px, 70%);
+      height: 1px;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, transparent, var(--accent), var(--link), transparent);
+      opacity: 0.55;
+      pointer-events: none;
     }
     .home-hero-content { position: relative; z-index: 1; max-width: 760px; }
-    .home-eyebrow { margin-bottom: 1.25rem; }
+    .home-eyebrow { margin-bottom: 1rem; }
     .home-title {
       margin-bottom: 1rem;
-      font-size: clamp(3rem, 9vw, 7rem);
+      font-size: clamp(2.8rem, 8.5vw, 6.4rem);
       letter-spacing: 0.02em;
     }
-    .home-title .brand-star { color: var(--accent); }
+    .home-title .brand-star {
+      color: var(--accent);
+      display: inline-block;
+      transform: translateY(-0.02em);
+    }
+    /* Slow, subtle gradient drift on the word "Promo" */
     .home-title em {
       font-style: normal;
-      background: linear-gradient(120deg, var(--accent) 0%, #c26bff 60%, var(--link) 100%);
+      background: linear-gradient(
+        120deg,
+        var(--accent) 0%,
+        #c26bff 30%,
+        var(--link) 55%,
+        #c26bff 75%,
+        var(--accent) 100%
+      );
+      background-size: 220% 100%;
+      background-position: 0% 50%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      animation: shimmer 9s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .home-title em { animation: none; }
     }
     .home-hero-description {
       max-width: 540px;
-      margin: 1.5rem auto 2.5rem;
+      margin: 1.25rem auto 2.25rem;
       color: var(--muted);
       font-size: 0.95rem;
       line-height: 1.7;
@@ -391,7 +472,9 @@
     .feature-block {
       padding: 2.5rem 2rem;
       border-right: 1px solid var(--border);
+      transition: background 0.25s var(--ease-out);
     }
+    .feature-block:hover { background: rgba(255, 77, 166, 0.02); }
     .feature-block:last-child { border-right: 0; }
     .feature-block h3 {
       margin-bottom: 0.6rem;
@@ -440,9 +523,9 @@
       border-color: var(--accent);
     }
 
-    /* ----- PAGE HERO ----- */
+    /* ----- PAGE HERO (shared hero top offset) ----- */
     .page-hero {
-      padding: 3rem 1.75rem 2.5rem;
+      padding: var(--hero-top) 1.75rem 2.25rem;
       border-bottom: 1px solid var(--border);
       text-align: center;
     }
@@ -548,7 +631,8 @@
     }
     @media (hover: hover) {
       .merch-card:hover {
-        border-color: var(--border-strong);
+        /* Light catching the top-left edge */
+        border-color: rgba(255, 77, 166, 0.35);
         transform: translateY(-2px);
         box-shadow: var(--shadow-depth);
       }
@@ -653,14 +737,14 @@
     }
     .empty-state p { font-size: 0.85rem; }
 
-    /* ----- ABOUT ----- */
+    /* ----- ABOUT (uses shared --hero-top) ----- */
     .about-hero {
       border-bottom: 1px solid var(--border);
     }
     .about-hero-inner {
       max-width: 760px;
       margin: 0 auto;
-      padding: 4.5rem 1.75rem 4rem;
+      padding: var(--hero-top) 1.75rem 4rem;
     }
     .about-hero-text h1 {
       margin: 0.75rem 0 1.5rem;
@@ -775,11 +859,11 @@
       border-left: 1px solid var(--border);
     }
 
-    /* ----- CONTACT ----- */
+    /* ----- CONTACT (shared hero top) ----- */
     .contact-wrap {
       max-width: 800px;
       margin: 0 auto;
-      padding: 4rem 1.75rem;
+      padding: var(--hero-top) 1.75rem 4rem;
     }
     .contact-intro { margin-bottom: 2.5rem; }
     .contact-intro h1 {
@@ -871,11 +955,11 @@
     .form-status.success { color: var(--green); }
     .form-status.error { color: var(--red); }
 
-    /* ----- ITEM DETAIL ----- */
+    /* ----- ITEM DETAIL (shared hero top) ----- */
     .item-detail-wrap {
       max-width: 1080px;
       margin: 0 auto;
-      padding: 2rem 1.75rem 5rem;
+      padding: var(--hero-top) 1.75rem 5rem;
     }
     .btn-back {
       display: inline-flex;
@@ -1160,7 +1244,7 @@
 
     /* ----- RESPONSIVE ----- */
     @media (max-width: 820px) {
-      .about-hero-inner { padding: 3rem 1.25rem; }
+      .about-hero-inner { padding: var(--hero-top) 1.25rem 3rem; }
       .about-two-col { grid-template-columns: 1fr; gap: 2rem; }
       .about-two-col > div + div { padding-left: 0; border-left: 0; padding-top: 2rem; border-top: 1px solid var(--border); }
       .team-list { grid-template-columns: 1fr; gap: 2rem; }
@@ -1168,11 +1252,13 @@
       .item-detail-sidebar { position: static; }
     }
     @media (max-width: 768px) {
+      :root { --hero-top: 2.5rem; }
       header { padding: 0 1.25rem; height: 60px; }
       .desktop-nav { display: none; }
       .hamburger { display: flex; }
       .item-count { display: none; }
       .mobile-nav { top: 60px; }
+      .home-hero { padding: var(--hero-top) 1.25rem 2.5rem; }
       .home-features { grid-template-columns: 1fr; }
       .feature-block { border-right: 0; border-bottom: 1px solid var(--border); }
       .feature-block:last-child { border-bottom: 0; }
@@ -1183,9 +1269,9 @@
       }
       .filter-bar, .search-wrap { padding: 0.75rem 1.25rem; }
       .home-section { padding: 2.5rem 1.25rem; }
-      .item-detail-wrap { padding: 1.5rem 1.25rem 3rem; }
+      .item-detail-wrap { padding: var(--hero-top) 1.25rem 3rem; }
       .item-detail-main { padding: 1.25rem; }
-      .contact-wrap { padding: 2.5rem 1.25rem; }
+      .contact-wrap { padding: var(--hero-top) 1.25rem 3rem; }
       .contact-form { padding: 1.25rem; gap: 1rem; }
       .form-row { grid-template-columns: 1fr; }
       .form-submit { align-self: stretch; }
@@ -1527,7 +1613,6 @@
       function animateGridEnter(container) {
         if (!container) return;
         container.classList.remove('grid-enter');
-        // Force reflow so the class re-adding replays the animation
         void container.offsetWidth;
         container.classList.add('grid-enter');
       }
@@ -1595,8 +1680,6 @@
         document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(function(l) {
           l.classList.toggle('active', l.dataset.page === pageName);
         });
-        // Scroll only when the page actually changes — avoids jumping when
-        // re-rendering the same page (e.g. filter clicks).
         if (previous !== pageName) {
           window.scrollTo({ top: 0, behavior: 'auto' });
         }
@@ -1751,7 +1834,6 @@
           document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(function(l) { l.classList.remove('active'); });
           var itemPage = $('page-item');
           itemPage.classList.add('active');
-          // Retrigger entrance animation when navigating between items
           itemPage.style.animation = 'none';
           void itemPage.offsetWidth;
           itemPage.style.animation = '';
