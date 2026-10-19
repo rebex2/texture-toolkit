@@ -1348,7 +1348,7 @@
       </section>
     </section>
 
-       <!-- CATALOGUE -->
+    <!-- CATALOGUE -->
     <section class="page" id="page-catalogue">
       <section class="page-hero">
         <h1>Merch Catalogue</h1>
@@ -1361,15 +1361,6 @@
       <div class="filter-bar" id="typeFilterBar" aria-label="Filter by item type">
         <span class="filter-label">Type</span>
         <button class="filter-pill active" data-type="all">All</button>
-        <button class="filter-pill" data-type="Hat">Hats</button>
-        <button class="filter-pill" data-type="Plushie">Plushies</button>
-        <button class="filter-pill" data-type="T-Shirt">T-Shirts</button>
-        <button class="filter-pill" data-type="Hoodie">Hoodies</button>
-        <button class="filter-pill" data-type="Poster">Posters</button>
-        <button class="filter-pill" data-type="Collectible">Collectibles</button>
-        <button class="filter-pill" data-type="Keychain">Keychains</button>
-        <button class="filter-pill" data-type="Sticker">Stickers</button>
-        <button class="filter-pill" data-type="Other">Other</button>
       </div>
       <div class="search-wrap">
         <input class="search-input" id="searchInput" type="search" placeholder="Search by name, game, or keyword…" />
@@ -1377,7 +1368,6 @@
       <div class="catalogue-grid" id="catalogue"></div>
     </section>
 
-    
     <!-- ABOUT -->
     <section class="page" id="page-about">
       <section class="about-hero">
@@ -1560,9 +1550,28 @@
         };
       }
 
+      // Glyphs are keyed by category name. Unknown categories fall back to ★.
       var CATEGORY_GLYPH = {
-        Hat: 'H', Plushie: 'P', 'T-Shirt': 'T', Hoodie: 'H',
-        Poster: 'Po', Collectible: 'C', Keychain: 'K', Sticker: 'S', Other: '•'
+        'Hat': 'H',
+        'Hats': 'H',
+        'Plushie': 'P',
+        'Plushies': 'P',
+        'T-Shirt': 'T',
+        'T-Shirts': 'T',
+        'Hoodie': 'H',
+        'Hoodies': 'H',
+        'Poster': 'Po',
+        'Posters': 'Po',
+        'Collectible': 'C',
+        'Collectibles': 'C',
+        'Statue / Collectible Figure': 'C',
+        'Keychain': 'K',
+        'Keychains': 'K',
+        'Sticker': 'S',
+        'Stickers': 'S',
+        'Mugs and Drinkware': 'M',
+        'Pre-Order Bonus': '★',
+        'Other': '•'
       };
 
       function placeholderImageMarkup(category, label, hidden) {
@@ -1634,6 +1643,7 @@
         if (!items.length) return;
         var term = ($('searchInput')?.value || '').toLowerCase().trim();
         populateGameFilters(items);
+        populateTypeFilters(items);
         $('itemCount').textContent = items.length + ' item' + (items.length === 1 ? '' : 's');
         var filtered = items.filter(function(item) {
           var matchType = state.typeFilter === 'all' || item.category === state.typeFilter;
@@ -1671,6 +1681,35 @@
         });
         var firstPill = bar.querySelector('.filter-pill');
         if (firstPill) firstPill.classList.toggle('active', state.gameFilter === 'all');
+      }
+
+      // Type pills are generated from the `category` field of each item in catalog.js.
+      function populateTypeFilters(items) {
+        var bar = $('typeFilterBar');
+        if (!bar) return;
+
+        var types = [];
+        var seen = {};
+        items.forEach(function(i) {
+          if (i.category && !seen[i.category]) { seen[i.category] = true; types.push(i.category); }
+        });
+        types.sort(function(a, b) { return a.localeCompare(b); });
+
+        if (types.indexOf(state.typeFilter) === -1) state.typeFilter = 'all';
+
+        bar.querySelectorAll('[data-generated-type-filter="true"]').forEach(function(b) { b.remove(); });
+
+        types.forEach(function(type) {
+          var btn = document.createElement('button');
+          btn.className = 'filter-pill' + (state.typeFilter === type ? ' active' : '');
+          btn.dataset.generatedTypeFilter = 'true';
+          btn.dataset.type = type;
+          btn.textContent = type;
+          bar.appendChild(btn);
+        });
+
+        var firstPill = bar.querySelector('.filter-pill');
+        if (firstPill) firstPill.classList.toggle('active', state.typeFilter === 'all');
       }
 
       function showPage(pageName) {
@@ -1966,14 +2005,15 @@
           this.setAttribute('aria-expanded', String(isOpen));
         });
 
-        document.querySelectorAll('.filter-bar:not(#gameFilterBar) .filter-pill').forEach(function(btn) {
-          btn.addEventListener('click', function() {
-            var type = this.dataset.type;
-            state.typeFilter = type || 'all';
-            document.querySelectorAll('.filter-bar:not(#gameFilterBar) .filter-pill').forEach(function(b) { b.classList.remove('active'); });
-            this.classList.add('active');
-            renderCatalogue();
-          });
+        // Delegated handler — survives re-render of pills
+        $('typeFilterBar').addEventListener('click', function(e) {
+          var btn = e.target.closest('.filter-pill');
+          if (!btn) return;
+          var type = btn.dataset.type;
+          state.typeFilter = type || 'all';
+          document.querySelectorAll('#typeFilterBar .filter-pill').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          renderCatalogue();
         });
 
         $('gameFilterBar').addEventListener('click', function(e) {
