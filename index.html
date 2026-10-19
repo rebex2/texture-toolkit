@@ -45,6 +45,7 @@
       --radius-md: 4px;
       --radius-pill: 999px;
       --shadow-depth: 0 10px 24px rgba(0, 0, 0, 0.35);
+      --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -249,7 +250,49 @@
 
     /* ----- PAGE TRANSITIONS ----- */
     .page { display: none; position: relative; }
-    .page.active { display: block; }
+    .page.active {
+      display: block;
+      animation: page-in 0.22s var(--ease-out);
+    }
+    @keyframes page-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .page > * {
+      animation: section-in 0.32s var(--ease-out) both;
+    }
+    .page > *:nth-child(2) { animation-delay: 0.04s; }
+    .page > *:nth-child(3) { animation-delay: 0.08s; }
+    .page > *:nth-child(4) { animation-delay: 0.11s; }
+    @keyframes section-in {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .page.active,
+      .page > * { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* Grid item entrance for re-renders */
+    .grid-enter .merch-card {
+      animation: card-in 0.28s var(--ease-out) both;
+    }
+    .grid-enter .merch-card:nth-child(1) { animation-delay: 0.00s; }
+    .grid-enter .merch-card:nth-child(2) { animation-delay: 0.02s; }
+    .grid-enter .merch-card:nth-child(3) { animation-delay: 0.04s; }
+    .grid-enter .merch-card:nth-child(4) { animation-delay: 0.06s; }
+    .grid-enter .merch-card:nth-child(5) { animation-delay: 0.08s; }
+    .grid-enter .merch-card:nth-child(6) { animation-delay: 0.10s; }
+    .grid-enter .merch-card:nth-child(7) { animation-delay: 0.12s; }
+    .grid-enter .merch-card:nth-child(8) { animation-delay: 0.14s; }
+    @keyframes card-in {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .grid-enter .merch-card { animation: none; }
+    }
 
     /* ----- BUTTONS ----- */
     .btn-primary, .btn-secondary, .btn-text, .btn-see-all, .btn-back, .btn-copy-link {
@@ -615,11 +658,7 @@
       border-bottom: 1px solid var(--border);
     }
     .about-hero-inner {
-      display: grid;
-      max-width: 1080px;
-      grid-template-columns: 1.4fr 1fr;
-      align-items: start;
-      gap: 4rem;
+      max-width: 760px;
       margin: 0 auto;
       padding: 4.5rem 1.75rem 4rem;
     }
@@ -637,43 +676,8 @@
       font-size: 0.92rem;
       line-height: 1.8;
       margin-bottom: 1rem;
-      max-width: 52ch;
+      max-width: 62ch;
     }
-    .colophon {
-      padding: 1.75rem;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-    }
-    .colophon-key {
-      display: block;
-      margin-bottom: 1.25rem;
-      color: var(--muted-2);
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-    .colophon-row {
-      padding: 0.9rem 0;
-      border-top: 1px solid var(--border);
-    }
-    .colophon-row:first-of-type { border-top: 0; padding-top: 0; }
-    .colophon-row dt {
-      color: var(--muted-2);
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-    .colophon-row dd {
-      color: var(--white);
-      font-size: 0.85rem;
-      line-height: 1.5;
-    }
-    .colophon-row dd a { color: var(--link); }
-    .colophon-row dd a:hover { text-decoration: underline; }
 
     .about-section {
       max-width: 1080px;
@@ -697,7 +701,6 @@
       margin-bottom: 1rem;
     }
 
-    /* Team — replaced card grid with a bio list */
     .team-list {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1125,7 +1128,11 @@
       padding: 2rem;
       cursor: zoom-out;
     }
-    .lightbox.open { display: flex; }
+    .lightbox.open { display: flex; animation: lightbox-in 0.18s var(--ease-out); }
+    @keyframes lightbox-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
     .lightbox img {
       max-width: 100%;
       max-height: 100%;
@@ -1147,10 +1154,13 @@
       font-family: var(--font-body);
     }
     .lightbox-close:hover { color: var(--accent); }
+    @media (prefers-reduced-motion: reduce) {
+      .lightbox.open { animation: none; }
+    }
 
     /* ----- RESPONSIVE ----- */
     @media (max-width: 820px) {
-      .about-hero-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.25rem; }
+      .about-hero-inner { padding: 3rem 1.25rem; }
       .about-two-col { grid-template-columns: 1fr; gap: 2rem; }
       .about-two-col > div + div { padding-left: 0; border-left: 0; padding-top: 2rem; border-top: 1px solid var(--border); }
       .team-list { grid-template-columns: 1fr; gap: 2rem; }
@@ -1219,7 +1229,7 @@
       <section class="home-hero">
         <div class="home-hero-content">
           <p class="home-eyebrow eyebrow">A fan-made catalogue of</p>
-          <h1 class="home-title h-display">R<span class="brand-star">★</span> Games<br /><em>Promo</em> Merch</h1>
+          <h1 class="home-title h-display">R<span class="brand-star">★</span> Games<br /><em>Promo</em> Hub</h1>
           <p class="home-hero-description">A community-compiled record of Rockstar Games promotional merchandise — from launch-day giveaways to limited-edition collector's pieces across every title.</p>
           <div class="home-actions">
             <button class="btn-primary" data-page="catalogue">Browse the Catalogue</button>
@@ -1291,32 +1301,6 @@
             <p>RockstarPromoHub started with a simple frustration: searching across the internet for photos of Rockstar Games promotional merchandise and never finding it in one place. We're two long-time Rockstar fans, so we built the resource we wanted to use.</p>
             <p>From snapbacks handed out at trade shows to Red Dead plushies, launch-event exclusives, and GTA hoodies, we're always looking for more items to add. There's plenty of interesting material out there, and we're certain we've got a lot left to find.</p>
           </div>
-
-          <aside class="colophon" aria-label="Site information">
-            <span class="colophon-key">Colophon</span>
-            <dl>
-              <div class="colophon-row">
-                <dt>Project</dt>
-                <dd>RockstarPromoHub</dd>
-              </div>
-              <div class="colophon-row">
-                <dt>Type</dt>
-                <dd>Independent fan archive</dd>
-              </div>
-              <div class="colophon-row">
-                <dt>Focus</dt>
-                <dd>Promotional merchandise from Rockstar Games titles</dd>
-              </div>
-              <div class="colophon-row">
-                <dt>Status</dt>
-                <dd>Ongoing — new items added regularly</dd>
-              </div>
-              <div class="colophon-row">
-                <dt>Affiliation</dt>
-                <dd>Not affiliated with Rockstar Games or Take-Two Interactive</dd>
-              </div>
-            </dl>
-          </aside>
         </div>
       </section>
 
@@ -1445,7 +1429,6 @@
   <script>
     (function() {
       var $ = function(id) { return document.getElementById(id); };
-      var qsa = function(sel, ctx) { return (ctx || document).querySelectorAll(sel); };
 
       var state = {
         currentPage: 'home',
@@ -1541,14 +1524,22 @@
         '</article>';
       }
 
+      function animateGridEnter(container) {
+        if (!container) return;
+        container.classList.remove('grid-enter');
+        // Force reflow so the class re-adding replays the animation
+        void container.offsetWidth;
+        container.classList.add('grid-enter');
+      }
+
       function renderHome() {
         var items = getItems();
         if (!items.length) return;
-        var uniqueGames = new Set();
-        items.forEach(function(i) { uniqueGames.add(i.game); });
         var latest = items.slice().reverse().slice(0, 4);
         $('itemCount').textContent = items.length + ' item' + (items.length === 1 ? '' : 's');
-        $('homeGrid').innerHTML = latest.map(cardHTML).join('');
+        var grid = $('homeGrid');
+        grid.innerHTML = latest.map(cardHTML).join('');
+        animateGridEnter(grid);
       }
 
       function renderCatalogue() {
@@ -1563,11 +1554,14 @@
           var searchText = [item.name, item.game, item.category, item.description].join(' ').toLowerCase();
           return matchType && matchGame && (!term || searchText.indexOf(term) !== -1);
         });
+        var grid = $('catalogue');
         if (filtered.length === 0) {
-          $('catalogue').innerHTML = '<div class="empty-state"><h3>No items found</h3><p>Try a different filter or search term.</p></div>';
+          grid.classList.remove('grid-enter');
+          grid.innerHTML = '<div class="empty-state"><h3>No items found</h3><p>Try a different filter or search term.</p></div>';
           return;
         }
-        $('catalogue').innerHTML = filtered.map(cardHTML).join('');
+        grid.innerHTML = filtered.map(cardHTML).join('');
+        animateGridEnter(grid);
       }
 
       function populateGameFilters(items) {
@@ -1593,6 +1587,7 @@
       }
 
       function showPage(pageName) {
+        var previous = state.currentPage;
         state.currentPage = pageName;
         document.querySelectorAll('.page').forEach(function(p) {
           p.classList.toggle('active', p.id === 'page-' + pageName);
@@ -1600,7 +1595,11 @@
         document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(function(l) {
           l.classList.toggle('active', l.dataset.page === pageName);
         });
-        window.scrollTo(0, 0);
+        // Scroll only when the page actually changes — avoids jumping when
+        // re-rendering the same page (e.g. filter clicks).
+        if (previous !== pageName) {
+          window.scrollTo({ top: 0, behavior: 'auto' });
+        }
         if (pageName === 'catalogue') renderCatalogue();
         if (pageName === 'home') renderHome();
         if (pageName !== 'item') {
@@ -1750,9 +1749,14 @@
         if (hash.indexOf('#item/') === 0) {
           document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
           document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(function(l) { l.classList.remove('active'); });
-          $('page-item').classList.add('active');
+          var itemPage = $('page-item');
+          itemPage.classList.add('active');
+          // Retrigger entrance animation when navigating between items
+          itemPage.style.animation = 'none';
+          void itemPage.offsetWidth;
+          itemPage.style.animation = '';
           renderItemPage(hash.slice(6));
-          window.scrollTo(0, 0);
+          window.scrollTo({ top: 0, behavior: 'auto' });
           return;
         }
         if (hash === '#catalogue' || hash === '#about' || hash === '#contact') {
