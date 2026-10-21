@@ -15,14 +15,14 @@ const ITEMS = [
   {
     name: "Pißwasser Beer Bottle",
     game: "Grand Theft Auto IV (2008)",
-    category: "Mugs and Drinkware",
-    subcategory: "",
+    category: "Drinkware",
+    subcategory: "Glass bottles",
     description: "For the launch of Grand Theft Auto IV in 2008, Rockstar Games produced a real-world version of the fictional Pißwasser beer featured throughout the game.\n\nThe bottles were promotional merchandise rather than a standard retail product. They were distributed to people connected with the game's launch, including Rockstar staff, members of the press, media outlets, game testers and selected fansites. Individual bottles have since become highly sought-after collectibles.\n\nPerhaps the most interesting detail is that the bottles were not simply produced individually. 24-bottle crates of Pißwasser existed, with documented examples being distributed as promotional gifts. One particularly notable shipment reportedly consisted of six crates sent to UK gaming publication Computer and Video Games (CVG) as part of Rockstar's GTA IV promotional campaign.\n\nThe bottles were genuine physical beer bottles produced specifically for the promotion, complete with Pißwasser branding based on the fictional brewery from GTA IV. They were not included with the GTA IV Collector's Edition, despite occasional claims to the contrary.\n\nToday, surviving bottles and especially complete unopened crates are extremely rare, making the Pißwasser bottle one of the more unusual pieces of official Grand Theft Auto promotional merchandise from the GTA IV era.",
     year: "2008",
     rarity: "Very Rare",
     availability: "Available for purchase - No",
-    image: "images/GTAIV/pisswasser.jpg",
-    extraImages: ["images/GTAIV/crate.jpg"],
+    image: "images/GTAIV/Pisswasser/Pisswasser_2.jpg",
+    extraImages: ["images/GTAIV/Pisswasser/Pisswasser_1.jpg","images/GTAIV/Pisswasser/Pisswasser_3.jpg","images/GTAIV/Pisswasser/Pisswasser_4.jpg","images/GTAIV/Pisswasser/Pisswasser_5.jpg","images/GTAIV/Pisswasser/Pisswasser_6.jpg"],
     link: ""
   },
   {
