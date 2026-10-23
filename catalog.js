@@ -450,8 +450,8 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/collecters/collcecters_1.jpg",
-    extraImages: ["images/GTAVI/collecters/collcecters_2.jpg","images/GTAVI/collecters/collcecters_3.jpg","images/GTAVI/collecters/collcecters_4.jpg","images/GTAVI/collecters/collcecters_5.jpg","images/GTAVI/collecters/collcecters_6.jpg","images/GTAVI/collecters/collcecters_7.jpg","images/GTAVI/collecters/collcecters_8.jpg","images/GTAVI/collecters/collcecters_9.jpg","images/GTAVI/collecters/collcecters_10.jpg","images/GTAVI/collecters/collcecters_11.jpg","images/GTAVI/collecters/collcecters_12.jpg","images/GTAVI/collecters/collcecters_13.jpg"],
+    image: "images/GTAVI/collecters/collecters_1.jpg",
+    extraImages: ["images/GTAVI/collecters/collecters_2.jpg","images/GTAVI/collecters/collecters_3.jpg","images/GTAVI/collecters/collecters_4.jpg","images/GTAVI/collecters/collecters_5.jpg","images/GTAVI/collecters/collecters_6.jpg","images/GTAVI/collecters/collecters_7.jpg","images/GTAVI/collecters/collecters_8.jpg","images/GTAVI/collecters/collecters_9.jpg","images/GTAVI/collecters/collecters_10.jpg","images/GTAVI/collecters/collecters_11.jpg","images/GTAVI/collecters/collecters_12.jpg","images/GTAVI/collecters/collecters_13.jpg"],
     link: ""
   }
 ];
