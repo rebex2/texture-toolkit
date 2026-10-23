@@ -42,13 +42,13 @@ const ITEMS = [
     name: "Gift Wrap / Wrapping Paper",
     game: "Grand Theft Auto: San Andreas (2004)",
     category: "Pre-Order Bonus",
-    subcategory: "",
+    subcategory: "Other",
     description: "San Andreas-themed gift wrap/wrapping paper.",
     year: "2004",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/SA/wrap-paper1.jpg",
-    extraImages: ["images/SA/wrap-paper2.jpg","images/SA/wrap-paper3.jpg","images/SA/wrap-paper4.jpg"],
+    image: "images/GTA-SA/wrap/wrap-paper_1.jpg",
+    extraImages: ["images/GTA-SA/wrap/wrap-paper_2.jpg","images/GTA-SA/wrap/wrap-paper_3.jpg","images/GTA-SA/wrap/wrap-paper_4.jpg"],
     link: ""
   },
   {
