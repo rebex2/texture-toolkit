@@ -1,2140 +1,457 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="rph-version" content="2026.10.19" />
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <title>R★ Games Promo Hub — Fan-Made Merch Catalogue</title>
-
-  <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png" />
-  <link rel="shortcut icon" href="images/favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png" />
-  <link rel="manifest" href="images/favicon/site.webmanifest" />
-
-  <meta name="description" content="A fan-made, unofficial catalogue of Rockstar Games promotional merchandise. Community-compiled and not affiliated with Rockstar Games or Take-Two Interactive." />
-  <meta property="og:title" content="R★ Games Promo Hub — Fan-Made Merch Catalogue" />
-  <meta property="og:description" content="A fan-made, unofficial catalogue of Rockstar Games promotional merchandise." />
-  <meta property="og:type" content="website" />
-  <meta name="robots" content="index, follow" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    /* ----- PALETTE ----- */
-    :root {
-      --bg-deep: #0a0a1a;
-      --bg-purple: #1a0b2e;
-      --bg-mid: #2a1040;
-      --panel: #1a1026;
-      --panel-light: #221533;
-      --border: #2e1f3d;
-      --border-strong: #3d2952;
-      --accent: #ff4da6;
-      --link: #4de0ff;
-      --gold: #f5c542;
-      --white: #f0eaff;
-      --muted: #9a86b0;
-      --muted-2: #6b5a80;
-      --red: #ff3b5c;
-      --green: #2ee6a8;
-      --font-display: "Bebas Neue", sans-serif;
-      --font-body: "Inter", sans-serif;
-      --radius-sm: 2px;
-      --radius-md: 4px;
-      --radius-pill: 999px;
-      --shadow-depth: 0 10px 24px rgba(0, 0, 0, 0.35);
-      --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
-      /* Shared hero top offset — every page hero starts here */
-      --hero-top: 3.5rem;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      min-height: 100vh;
-      background: #0a0a1a;
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 15px;
-      line-height: 1.55;
-      position: relative;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(1200px 600px at 15% 0%, rgba(176, 110, 255, 0.06), transparent 60%),
-        radial-gradient(900px 500px at 85% 100%, rgba(77, 224, 255, 0.04), transparent 60%),
-        linear-gradient(180deg, #0a0a1a 0%, #120a22 55%, #0e0818 100%);
-      pointer-events: none;
-      z-index: -1;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    button { font: inherit; }
-
-    /* ----- TYPE SCALE ----- */
-    .h-display {
-      font-family: var(--font-display);
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      line-height: 0.95;
-      color: var(--white);
-    }
-    .eyebrow {
-      font-family: var(--font-body);
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .label {
-      font-family: var(--font-body);
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    /* ----- HEADER ----- */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      height: 64px;
-      padding: 0 1.75rem;
-      background: rgba(10, 8, 20, 0.92);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-    .logo {
-      display: flex;
-      flex-shrink: 0;
-      align-items: baseline;
-      gap: 6px;
-      cursor: pointer;
-    }
-    .logo-word {
-      color: var(--white);
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-      letter-spacing: 0.12em;
-      line-height: 1;
-    }
-    .logo-star { color: var(--accent); }
-    .logo-divider {
-      align-self: center;
-      width: 1px;
-      height: 18px;
-      margin: 0 6px;
-      background: var(--border-strong);
-    }
-    .logo-subtitle {
-      align-self: center;
-      color: var(--muted-2);
-      font-size: 0.6rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-    .desktop-nav {
-      display: flex;
-      flex: 1;
-      align-items: center;
-      justify-content: center;
-      gap: 0.25rem;
-    }
-    .nav-link, .mobile-nav-link {
-      border: 0;
-      background: transparent;
-      color: var(--muted);
-      cursor: pointer;
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      transition: color 0.15s;
-    }
-    .nav-link {
-      position: relative;
-      padding: 8px 16px;
-      white-space: nowrap;
-      border-radius: var(--radius-sm);
-    }
-    .nav-link::after {
-      position: absolute;
-      right: 16px;
-      bottom: 2px;
-      left: 16px;
-      height: 1px;
-      background: var(--accent);
-      content: "";
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.2s;
-    }
-    .nav-link:hover { color: var(--white); }
-    .nav-link.active { color: var(--white); }
-    .nav-link.active::after { transform: scaleX(1); }
-    .header-right {
-      display: flex;
-      flex-shrink: 0;
-      align-items: center;
-      gap: 0.75rem;
-      margin-left: auto;
-    }
-    .item-count {
-      color: var(--muted-2);
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--border);
-    }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      padding: 4px;
-      border: 0;
-      background: transparent;
-      cursor: pointer;
-    }
-    .hamburger span {
-      display: block;
-      width: 20px;
-      height: 1.5px;
-      border-radius: 2px;
-      background: var(--white);
-      transition: all 0.2s;
-    }
-    .hamburger.open span:first-child { transform: translateY(6.5px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-    .mobile-nav {
-      position: fixed;
-      top: 64px;
-      right: 0;
-      left: 0;
-      z-index: 199;
-      display: none;
-      flex-direction: column;
-      padding: 0.5rem 0;
-      background: #120a22;
-      border-bottom: 1px solid var(--border);
-    }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav-link {
-      width: 100%;
-      padding: 14px 1.75rem;
-      border-left: 2px solid transparent;
-      font-size: 0.72rem;
-      text-align: left;
-    }
-    .mobile-nav-link.active, .mobile-nav-link:hover {
-      color: var(--white);
-      border-left-color: var(--accent);
-    }
-
-    /* ----- PAGE TRANSITIONS ----- */
-    .page { display: none; position: relative; }
-    .page.active {
-      display: block;
-      animation: page-in 0.22s var(--ease-out);
-    }
-    @keyframes page-in {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .page > * {
-      animation: section-in 0.32s var(--ease-out) both;
-    }
-    .page > *:nth-child(2) { animation-delay: 0.04s; }
-    .page > *:nth-child(3) { animation-delay: 0.08s; }
-    .page > *:nth-child(4) { animation-delay: 0.11s; }
-    @keyframes section-in {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .page.active,
-      .page > * { animation: none; }
-      html { scroll-behavior: auto; }
-    }
-
-    .grid-enter .merch-card {
-      animation: card-in 0.28s var(--ease-out) both;
-    }
-    .grid-enter .merch-card:nth-child(1) { animation-delay: 0.00s; }
-    .grid-enter .merch-card:nth-child(2) { animation-delay: 0.02s; }
-    .grid-enter .merch-card:nth-child(3) { animation-delay: 0.04s; }
-    .grid-enter .merch-card:nth-child(4) { animation-delay: 0.06s; }
-    .grid-enter .merch-card:nth-child(5) { animation-delay: 0.08s; }
-    .grid-enter .merch-card:nth-child(6) { animation-delay: 0.10s; }
-    .grid-enter .merch-card:nth-child(7) { animation-delay: 0.12s; }
-    .grid-enter .merch-card:nth-child(8) { animation-delay: 0.14s; }
-    @keyframes card-in {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .grid-enter .merch-card { animation: none; }
-    }
-
-    /* ----- BUTTONS ----- */
-    .btn-primary, .btn-secondary, .btn-text, .btn-see-all, .btn-back, .btn-copy-link {
-      cursor: pointer;
-      font-family: var(--font-body);
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      transition: background 0.15s, border-color 0.15s, color 0.15s, box-shadow 0.2s;
-    }
-    .btn-primary {
-      position: relative;
-      padding: 13px 30px;
-      border: 1px solid var(--accent);
-      border-radius: var(--radius-sm);
-      background: var(--accent);
-      color: #14061a;
-      font-size: 0.72rem;
-      overflow: hidden;
-    }
-    .btn-primary::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.18) 50%, transparent 70%);
-      background-size: 220% 100%;
-      background-position: 100% 0;
-      transition: background-position 0.6s var(--ease-out);
-      pointer-events: none;
-    }
-    .btn-primary:hover {
-      background: #ff67b3;
-      border-color: #ff67b3;
-      box-shadow: 0 6px 20px rgba(255, 77, 166, 0.25);
-    }
-    .btn-primary:hover::after { background-position: -100% 0; }
-    .btn-secondary {
-      padding: 13px 30px;
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius-sm);
-      background: transparent;
-      color: var(--white);
-      font-size: 0.72rem;
-    }
-    .btn-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-    .btn-text {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 13px 4px;
-      border: 0;
-      background: transparent;
-      color: var(--muted);
-      font-size: 0.72rem;
-      position: relative;
-    }
-    .btn-text::after {
-      content: "";
-      position: absolute;
-      left: 4px;
-      right: 4px;
-      bottom: 6px;
-      height: 1px;
-      background: linear-gradient(90deg, var(--accent), var(--link));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.25s var(--ease-out);
-    }
-    .btn-text:hover { color: var(--white); }
-    .btn-text:hover::after { transform: scaleX(1); }
-
-    /* ----- HOME HERO (tightened top) ----- */
-    .home-hero {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: var(--hero-top) 1.75rem 3.5rem;
-      border-bottom: 1px solid var(--border);
-      text-align: center;
-      overflow: hidden;
-    }
-    .home-hero::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: min(1100px, 130%);
-      height: min(640px, 90%);
-      transform: translate(-50%, -50%);
-      background: radial-gradient(
-        ellipse at center,
-        rgba(255, 77, 166, 0.10) 0%,
-        rgba(176, 110, 255, 0.06) 35%,
-        transparent 70%
-      );
-      pointer-events: none;
-      z-index: 0;
-    }
-    .home-hero::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: min(520px, 70%);
-      height: 1px;
-      transform: translateX(-50%);
-      background: linear-gradient(90deg, transparent, var(--accent), var(--link), transparent);
-      opacity: 0.55;
-      pointer-events: none;
-    }
-    .home-hero-content { position: relative; z-index: 1; max-width: 760px; }
-    .home-title {
-      margin-bottom: 1rem;
-      font-size: clamp(2.8rem, 8.5vw, 6.4rem);
-      letter-spacing: 0.02em;
-    }
-    .home-title .brand-star {
-      color: var(--accent);
-      display: inline-block;
-      transform: translateY(-0.02em);
-    }
-    .home-title em {
-      font-style: normal;
-      background: linear-gradient(
-        120deg,
-        var(--accent) 0%,
-        #c26bff 30%,
-        var(--link) 55%,
-        #c26bff 75%,
-        var(--accent) 100%
-      );
-      background-size: 220% 100%;
-      background-position: 0% 50%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 9s ease-in-out infinite;
-    }
-    @keyframes shimmer {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .home-title em { animation: none; }
-    }
-    .home-hero-description {
-      max-width: 540px;
-      margin: 1.25rem auto 2.25rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-    .home-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem 1.25rem;
-    }
-
-    /* ----- FEATURES ----- */
-    .home-features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      border-bottom: 1px solid var(--border);
-    }
-    .feature-block {
-      padding: 2.5rem 2rem;
-      border-right: 1px solid var(--border);
-      transition: background 0.25s var(--ease-out);
-    }
-    .feature-block:hover { background: rgba(255, 77, 166, 0.02); }
-    .feature-block:last-child { border-right: 0; }
-    .feature-block h3 {
-      margin-bottom: 0.6rem;
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .feature-block p {
-      color: var(--muted);
-      font-size: 0.85rem;
-      line-height: 1.7;
-    }
-
-    /* ----- SECTIONS ----- */
-    .home-section {
-      padding: 3rem 1.75rem 4rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 1.75rem;
-    }
-    .section-header h2 {
-      font-family: var(--font-display);
-      font-size: 1.7rem;
-      letter-spacing: 0.04em;
-      color: var(--white);
-    }
-    .btn-see-all {
-      padding: 6px 14px;
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius-sm);
-      background: transparent;
-      color: var(--muted);
-      font-size: 0.65rem;
-      white-space: nowrap;
-    }
-    .btn-see-all:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-    }
-
-    /* ----- PAGE HERO (shared hero top offset) ----- */
-    .page-hero {
-      padding: var(--hero-top) 1.75rem 2.25rem;
-      border-bottom: 1px solid var(--border);
-      text-align: center;
-    }
-    .page-hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 3.6rem);
-      letter-spacing: 0.03em;
-      line-height: 1;
-      color: var(--white);
-    }
-    .page-hero p {
-      margin-top: 0.6rem;
-      color: var(--muted);
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    /* ----- FILTERS ----- */
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.8rem 1.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .filter-label {
-      flex-shrink: 0;
-      margin-right: 0.4rem;
-      color: var(--muted-2);
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .filter-pill {
-      padding: 5px 12px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-pill);
-      background: transparent;
-      color: var(--muted);
-      cursor: pointer;
-      font-family: var(--font-body);
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: color 0.15s, border-color 0.15s, background 0.15s;
-      white-space: nowrap;
-    }
-    .filter-pill:hover {
-      color: var(--white);
-      border-color: var(--border-strong);
-    }
-    .filter-pill.active {
-      background: var(--accent);
-      color: #14061a;
-      border-color: var(--accent);
-    }
-    .search-wrap {
-      padding: 0.85rem 1.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .search-input {
-      width: 100%;
-      max-width: 420px;
-      padding: 10px 14px;
-      outline: 0;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      background: #100a1c;
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      transition: border-color 0.15s;
-    }
-    .search-input:focus { border-color: var(--accent); }
-    .search-input::placeholder { color: var(--muted-2); }
-
-    /* ----- CATALOGUE GRID & CARDS ----- */
-    .catalogue-grid, .home-grid {
-      display: grid;
-      gap: 1.25rem;
-    }
-    .catalogue-grid {
-      padding: 1.75rem;
-      gap: 1.25rem;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    }
-    .home-grid {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-    .merch-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-    }
-    @media (hover: hover) {
-      .merch-card:hover {
-        border-color: rgba(255, 77, 166, 0.35);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-depth);
-      }
-      .merch-card:hover .card-image img { transform: scale(1.03); }
-    }
-    .card-image {
-      position: relative;
-      display: flex;
-      aspect-ratio: 1;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      background: #0d0918;
-      cursor: pointer;
-    }
-    .card-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-    .image-placeholder {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: #0d0918;
-      color: var(--muted-2);
-      text-align: center;
-      user-select: none;
-    }
-    .image-placeholder[hidden] { display: none; }
-    .placeholder-icon {
-      font-family: var(--font-display);
-      font-size: 2.2rem;
-      line-height: 1;
-      opacity: 0.4;
-      letter-spacing: 0.1em;
-    }
-    .placeholder-label {
-      font-family: var(--font-body);
-      font-size: 0.55rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .card-body { display: block; padding: 0.9rem 1rem 1rem; }
-    .card-game {
-      margin-bottom: 5px;
-      color: var(--muted-2);
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .card-name {
-      margin-bottom: 6px;
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 0.92rem;
-      font-weight: 600;
-      line-height: 1.3;
-      letter-spacing: 0;
-    }
-    .card-description {
-      display: -webkit-box;
-      overflow: hidden;
-      margin-bottom: 0.85rem;
-      color: var(--muted);
-      font-size: 0.75rem;
-      line-height: 1.55;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-    }
-    .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
-    .card-category {
-      padding: 3px 9px;
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.55rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      border-radius: var(--radius-pill);
-    }
-    .empty-state {
-      grid-column: 1 / -1;
-      padding: 5rem 1rem;
-      color: var(--muted);
-      text-align: center;
-    }
-    .empty-state h3 {
-      margin-bottom: 0.5rem;
-      color: var(--white);
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      letter-spacing: 0.04em;
-    }
-    .empty-state p { font-size: 0.85rem; }
-
-    /* ----- ABOUT (uses shared --hero-top) ----- */
-    .about-hero {
-      border-bottom: 1px solid var(--border);
-    }
-    .about-hero-inner {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: var(--hero-top) 1.75rem 4rem;
-    }
-    .about-hero-text h1 {
-      margin: 0.75rem 0 1.5rem;
-      font-family: var(--font-display);
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      letter-spacing: 0.03em;
-      line-height: 0.95;
-      color: var(--white);
-    }
-    .about-hero-text h1 span { color: var(--accent); }
-    .about-hero-text p {
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.8;
-      margin-bottom: 1rem;
-      max-width: 62ch;
-    }
-
-    .about-section {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 3.5rem 1.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .about-section h2 {
-      margin-bottom: 1.25rem;
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      letter-spacing: 0.04em;
-      color: var(--white);
-    }
-    .about-section h2 span { color: var(--accent); }
-    .about-section p {
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.8;
-      max-width: 68ch;
-      margin-bottom: 1rem;
-    }
-
-    .team-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem 3rem;
-      margin-top: 0.5rem;
-    }
-    .team-member {
-      display: grid;
-      grid-template-columns: 56px 1fr;
-      gap: 1.25rem;
-      align-items: start;
-    }
-    .team-avatar {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: var(--panel-light);
-      border: 1px solid var(--border-strong);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      letter-spacing: 0.06em;
-      color: var(--accent);
-    }
-    .team-name {
-      color: var(--white);
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-    .team-role {
-      color: var(--muted-2);
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-    .team-desc {
-      color: var(--muted);
-      font-size: 0.85rem;
-      line-height: 1.7;
-    }
-
-    .games-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 1.25rem;
-    }
-    .game-tag {
-      padding: 5px 12px;
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-radius: var(--radius-pill);
-    }
-
-    .about-two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-    .about-two-col > div + div {
-      padding-left: 3rem;
-      border-left: 1px solid var(--border);
-    }
-
-    /* ----- CONTACT (shared hero top) ----- */
-    .contact-wrap {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: var(--hero-top) 1.75rem 4rem;
-    }
-    .contact-intro { margin-bottom: 2.5rem; }
-    .contact-intro h1 {
-      margin: 0.75rem 0 0.9rem;
-      font-family: var(--font-display);
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      letter-spacing: 0.03em;
-      line-height: 1;
-      color: var(--white);
-    }
-    .contact-intro h1 span { color: var(--accent); }
-    .contact-intro p {
-      max-width: 540px;
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.75;
-    }
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      padding: 1.75rem;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-    }
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .form-field label {
-      color: var(--muted-2);
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .contact-form input[type="text"],
-    .contact-form input[type="email"],
-    .contact-form select,
-    .contact-form textarea {
-      width: 100%;
-      padding: 11px 14px;
-      outline: 0;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      background: #100a1c;
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 0.88rem;
-      transition: border-color 0.15s;
-    }
-    .contact-form textarea {
-      resize: vertical;
-      min-height: 130px;
-      line-height: 1.6;
-    }
-    .contact-form select {
-      appearance: none;
-      -webkit-appearance: none;
-      background-image:
-        linear-gradient(45deg, transparent 50%, var(--muted) 50%),
-        linear-gradient(135deg, var(--muted) 50%, transparent 50%);
-      background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
-      background-size: 5px 5px, 5px 5px;
-      background-repeat: no-repeat;
-      padding-right: 36px;
-      cursor: pointer;
-    }
-    .contact-form select option { background: #1a1026; color: var(--white); }
-    .contact-form input:focus,
-    .contact-form select:focus,
-    .contact-form textarea:focus { border-color: var(--accent); }
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder { color: var(--muted-2); }
-    .form-submit { align-self: flex-start; margin-top: 0.25rem; }
-    .form-submit:disabled { opacity: 0.55; cursor: not-allowed; }
-    .form-status {
-      min-height: 1.2em;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-    .form-status.success { color: var(--green); }
-    .form-status.error { color: var(--red); }
-
-    /* ----- ITEM DETAIL (shared hero top) ----- */
-    .item-detail-wrap {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: var(--hero-top) 1.75rem 5rem;
-    }
-    .btn-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin-bottom: 1.75rem;
-      padding: 7px 14px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      background: transparent;
-      color: var(--muted);
-      font-size: 0.65rem;
-    }
-    .btn-back:hover { color: var(--white); border-color: var(--border-strong); }
-    .item-hero {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 7;
-      overflow: hidden;
-      background: #0d0918;
-      border: 1px solid var(--border);
-      cursor: zoom-in;
-      border-radius: var(--radius-md) var(--radius-md) 0 0;
-    }
-    .item-hero:hover { border-color: var(--border-strong); }
-    .item-hero .zoom-wrapper {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      position: relative;
-    }
-    .item-hero .zoom-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-    .item-hero .image-placeholder { min-height: 100%; }
-    .view-thumbs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 2.5rem;
-      padding: 10px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-top: 0;
-      border-radius: 0 0 var(--radius-md) var(--radius-md);
-    }
-    .view-thumb {
-      width: 64px;
-      height: 64px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      opacity: 0.55;
-      transition: border-color 0.15s, opacity 0.15s;
-      padding: 0;
-      background: transparent;
-    }
-    .view-thumb img { width: 100%; height: 100%; object-fit: cover; }
-    .view-thumb:hover { opacity: 0.85; }
-    .view-thumb.active { border-color: var(--accent); opacity: 1; }
-    .item-detail-body {
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      align-items: start;
-      gap: 3rem;
-    }
-    .item-detail-main {
-      padding: 1.75rem;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-    }
-    .item-game-label {
-      margin-bottom: 0.5rem;
-      color: var(--muted-2);
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-    .item-detail-name {
-      margin-bottom: 1.5rem;
-      color: var(--white);
-      font-family: var(--font-display);
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      letter-spacing: 0.03em;
-      line-height: 1.1;
-    }
-    .item-detail-section-label {
-      display: block;
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-      color: var(--muted-2);
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-    .item-detail-description {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.85;
-      white-space: pre-line;
-    }
-    .item-detail-sidebar {
-      position: sticky;
-      top: 84px;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-    .item-label-block {
-      padding: 0.9rem 1.15rem;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-bottom: 0;
-    }
-    .item-label-block:last-child {
-      border-bottom: 1px solid var(--border);
-      border-radius: 0 0 var(--radius-md) var(--radius-md);
-    }
-    .item-label-block:first-child { border-radius: var(--radius-md) var(--radius-md) 0 0; }
-    .item-label-key {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--muted-2);
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .item-label-value {
-      color: var(--white);
-      font-size: 0.88rem;
-      font-weight: 500;
-      line-height: 1.45;
-    }
-    .item-label-value.gold { color: var(--gold); }
-    .item-label-value.availability-text {
-      font-size: 0.88rem;
-      padding: 0;
-      border: none;
-      background: none;
-      display: inline;
-      width: auto;
-    }
-    .item-label-value.availability-available,
-    .item-label-value.availability-unavailable,
-    .item-label-value.availability-unknown {
-      background: none;
-      border-left: none;
-      color: var(--white);
-    }
-    .view-link {
-      display: block;
-      margin-top: 1rem;
-      padding: 12px;
-      border-radius: var(--radius-sm);
-      background: var(--accent);
-      color: #14061a;
-      font-family: var(--font-body);
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-align: center;
-      text-decoration: none;
-      transition: background 0.15s, box-shadow 0.2s;
-    }
-    .view-link:hover {
-      background: #ff67b3;
-      box-shadow: 0 6px 20px rgba(255, 77, 166, 0.25);
-    }
-    .item-detail-share {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-top: 1.75rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border);
-    }
-    .item-detail-share-label {
-      color: var(--muted-2);
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .btn-copy-link, .btn-report-error {
-      padding: 7px 13px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      background: transparent;
-      color: var(--white);
-      font-size: 0.62rem;
-      cursor: pointer;
-      font-family: var(--font-body);
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      transition: border-color 0.15s, color 0.15s;
-    }
-    .btn-copy-link:hover, .btn-report-error:hover { border-color: var(--accent); color: var(--accent); }
-    .btn-copy-link.copied { color: var(--green); border-color: var(--green); }
-
-    /* ----- FOOTER ----- */
-    footer {
-      padding: 2.5rem 1.75rem;
-      border-top: 1px solid var(--border);
-      color: var(--muted-2);
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-align: center;
-      text-transform: uppercase;
-    }
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 1.25rem;
-    }
-    .footer-links button {
-      border: 0;
-      background: transparent;
-      color: var(--muted);
-      cursor: pointer;
-      font-family: var(--font-body);
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      transition: color 0.15s;
-    }
-    .footer-links button:hover { color: var(--white); }
-    footer span { color: var(--accent); }
-
-    /* ----- LIGHTBOX ----- */
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: rgba(8, 4, 16, 0.96);
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      cursor: zoom-out;
-    }
-    .lightbox.open { display: flex; animation: lightbox-in 0.18s var(--ease-out); }
-    @keyframes lightbox-in {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    .lightbox img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius-md);
-    }
-    .lightbox-close {
-      position: absolute;
-      top: 16px;
-      right: 24px;
-      background: transparent;
-      border: 0;
-      color: var(--white);
-      font-size: 1.8rem;
-      line-height: 1;
-      cursor: pointer;
-      padding: 8px 12px;
-      font-family: var(--font-body);
-    }
-    .lightbox-close:hover { color: var(--accent); }
-    @media (prefers-reduced-motion: reduce) {
-      .lightbox.open { animation: none; }
-    }
-
-    /* ----- RESPONSIVE ----- */
-    @media (max-width: 820px) {
-      .about-hero-inner { padding: var(--hero-top) 1.25rem 3rem; }
-      .about-two-col { grid-template-columns: 1fr; gap: 2rem; }
-      .about-two-col > div + div { padding-left: 0; border-left: 0; padding-top: 2rem; border-top: 1px solid var(--border); }
-      .team-list { grid-template-columns: 1fr; gap: 2rem; }
-      .item-detail-body { grid-template-columns: 1fr; gap: 2rem; }
-      .item-detail-sidebar { position: static; }
-    }
-    @media (max-width: 768px) {
-      :root { --hero-top: 2.5rem; }
-      header { padding: 0 1.25rem; height: 60px; }
-      .desktop-nav { display: none; }
-      .hamburger { display: flex; }
-      .item-count { display: none; }
-      .mobile-nav { top: 60px; }
-      .home-hero { padding: var(--hero-top) 1.25rem 2.5rem; }
-      .home-features { grid-template-columns: 1fr; }
-      .feature-block { border-right: 0; border-bottom: 1px solid var(--border); }
-      .feature-block:last-child { border-bottom: 0; }
-      .catalogue-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 0.9rem;
-        padding: 1rem;
-      }
-      .filter-bar, .search-wrap { padding: 0.75rem 1.25rem; }
-      .home-section { padding: 2.5rem 1.25rem; }
-      .item-detail-wrap { padding: var(--hero-top) 1.25rem 3rem; }
-      .item-detail-main { padding: 1.25rem; }
-      .contact-wrap { padding: var(--hero-top) 1.25rem 3rem; }
-      .contact-form { padding: 1.25rem; gap: 1rem; }
-      .form-row { grid-template-columns: 1fr; }
-      .form-submit { align-self: stretch; }
-    }
-
-    /* Subcategory filter bar (hidden by default, shown when a category is selected) */
-    .filter-bar.subcategory-bar {
-      display: none;
-    }
-    .filter-bar.subcategory-bar.visible {
-      display: flex;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- HEADER -->
-  <header>
-    <a class="logo" href="#home">
-      <div class="logo-word">R<span class="logo-star">★</span> Games <span class="logo-star">Promo</span> Hub</div>
-      <div class="logo-divider"></div>
-      <a class="logo-subtitle" href="#catalogue" id="logoSubtitle" style="cursor:pointer;">Catalogue</a>
-    </a>
-    <nav class="desktop-nav" aria-label="Main navigation">
-      <button class="nav-link active" data-page="home">Home</button>
-      <button class="nav-link" data-page="catalogue">Catalogue</button>
-      <button class="nav-link" data-page="about">About</button>
-      <button class="nav-link" data-page="contact">Contact</button>
-    </nav>
-    <div class="header-right">
-      <span class="item-count" id="itemCount">0 items</span>
-      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <div class="mobile-nav" id="mobileNav">
-    <button class="mobile-nav-link active" data-page="home">Home</button>
-    <button class="mobile-nav-link" data-page="catalogue">Catalogue</button>
-    <button class="mobile-nav-link" data-page="about">About</button>
-    <button class="mobile-nav-link" data-page="contact">Contact / Submissions</button>
-  </div>
-
-  <main>
-
-    <!-- HOME -->
-    <section class="page active" id="page-home">
-      <section class="home-hero">
-        <div class="home-hero-content">
-          <h1 class="home-title h-display">R<span class="brand-star">★</span> Games<br /><em>Promo</em> Hub</h1>
-          <p class="home-hero-description">A fan-made catalogue of Rockstar Games promotional merchandise — from launch-day giveaways to limited-edition collector's pieces across every title.</p>
-          <div class="home-actions">
-            <button class="btn-primary" data-page="catalogue">Browse the Catalogue</button>
-            <button class="btn-text" data-page="about">About this site →</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="home-features">
-        <article class="feature-block">
-          <h3>Every category</h3>
-          <p>Hats, plushies, tees, hoodies, posters, collectibles, keychains, and stickers — all in one place, filterable.</p>
-        </article>
-        <article class="feature-block">
-          <h3>All Rockstar titles</h3>
-          <p>GTA, Red Dead Redemption, Bully, Midnight Club, Max Payne — promo merch from across the Rockstar library.</p>
-        </article>
-        <article class="feature-block">
-          <h3>Rare &amp; limited finds</h3>
-          <p>From E3 giveaways to launch-day exclusives, we track down the hard-to-find pieces collectors care about.</p>
-        </article>
-      </section>
-
-      <section class="home-section">
-        <div class="section-header">
-          <h2>Latest additions</h2>
-          <button class="btn-see-all" data-page="catalogue">See all →</button>
-        </div>
-        <div class="home-grid" id="homeGrid"></div>
-      </section>
-    </section>
-
-    <!-- CATALOGUE -->
-    <section class="page" id="page-catalogue">
-      <section class="page-hero">
-        <h1>Merch Catalogue</h1>
-        <p>Every piece of promo gear — from GTA to Red Dead &amp; beyond</p>
-      </section>
-      <div class="filter-bar" id="gameFilterBar" aria-label="Filter by game">
-        <span class="filter-label">Game</span>
-        <button class="filter-pill active" data-game="all">All games</button>
-      </div>
-      <div class="filter-bar" id="typeFilterBar" aria-label="Filter by item type">
-        <span class="filter-label">Type</span>
-        <button class="filter-pill active" data-type="all">All</button>
-      </div>
-      <div class="filter-bar subcategory-bar" id="subcategoryFilterBar" aria-label="Filter by subcategory">
-        <span class="filter-label">Subcategory</span>
-      </div>
-      <div class="search-wrap">
-        <input class="search-input" id="searchInput" type="search" placeholder="Search by name, game, or keyword…" />
-      </div>
-      <div class="catalogue-grid" id="catalogue"></div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="page" id="page-about">
-      <section class="about-hero">
-        <div class="about-hero-inner">
-          <div class="about-hero-text">
-            <p class="eyebrow">Fan-made &amp; community-driven</p>
-            <h1>About <span>this</span> site</h1>
-            <p>RockstarPromoHub started with a simple frustration: frustration searching the internet for accurate and detailed information about Rockstar Games promotional merchandise. So as two long-time Rockstar fans we decided to build the resource we wanted for this purpose pulling detailed information and photos about all Rockstar Games promotional items into one place.</p>
-            <p>From snapbacks handed out at trade shows to Red Dead plushies, launch-event exclusives, and GTA hoodies, we're always looking for more items to add. There's plenty of interesting material out there, and we're certain we've got a lot left to find.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="about-section">
-        <h2>Who runs <span>this</span> website</h2>
-        <div class="team-list">
-          <div class="team-member">
-            <div class="team-avatar">W</div>
-            <div>
-              <div class="team-name">Wade</div>
-              <div class="team-role">Editor-In-Chief &amp; Contributor</div>
-              <p class="team-desc">Helps shape the direction of the site, performs research and also adds items.</p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="team-avatar">TE</div>
-            <div>
-              <div class="team-name">The Editor</div>
-              <div class="team-role">Advisor</div>
-              <p class="team-desc">Helps shape the direction of the site, shares ideas, and advises on what to work on next — the person to bounce ideas off when figuring out where the project should go.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="about-section">
-        <div class="about-two-col">
-          <div>
-            <h2>What we <span>cover</span></h2>
-            <p>The aim is a catalogue of promotional merchandise from across the Rockstar Games universe, covering everything from older releases to the latest titles. Each item records the game it's linked to, its category, a description, release year, rarity, and availability where known.</p>
-            <div class="games-list">
-              <span class="game-tag">GTA V</span>
-              <span class="game-tag">GTA VI</span>
-              <span class="game-tag">GTA Online</span>
-              <span class="game-tag">Red Dead Redemption</span>
-              <span class="game-tag">Red Dead 2</span>
-              <span class="game-tag">Bully</span>
-              <span class="game-tag">Max Payne</span>
-              <span class="game-tag">Midnight Club</span>
-              <span class="game-tag">L.A. Noire</span>
-              <span class="game-tag">+ more</span>
-            </div>
-          </div>
-          <div>
-            <h2>How to <span>help us</span></h2>
-            <p>Found a piece of merch that's missing from the catalogue, have more information on an existing entry or spotted an error — we want to hear from you!</p>
-            <p>Head to the Contact page and let us know. Good-quality photos, source links, release dates, and any other useful information all help build a more complete catalogue.</p>
-            <p style="color: var(--muted-2); font-size: 0.82rem;">RockstarPromoHub is an independent fan project and isn't affiliated with or endorsed by Rockstar Games or Take-Two Interactive. All trademarks belong to their respective owners. We're simply fans who enjoy collecting, documenting, and sharing the merch connected to these games.</p>
-          </div>
-        </div>
-      </section>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="page" id="page-contact">
-      <div class="contact-wrap">
-        <div class="contact-intro">
-          <p class="eyebrow">Contact &amp; submissions</p>
-          <h1>Get in <span>touch</span></h1>
-          <p>Got a tip about some merch? Spotted something missing from the catalogue? Fill in the form below and we'll get back to you.</p>
-        </div>
-        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="867db492-211b-411d-a95a-fdb6433e9e33" />
-          <input type="hidden" name="subject" value="New submission from RockstarPromoHub" />
-          <input type="hidden" name="from_name" value="RockstarPromoHub Contact Form" />
-          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
-
-          <div class="form-row">
-            <div class="form-field">
-              <label for="cf-name">Name</label>
-              <input id="cf-name" name="name" type="text" required placeholder="Your name" />
-            </div>
-            <div class="form-field">
-              <label for="cf-email">Email</label>
-              <input id="cf-email" name="email" type="email" required placeholder="We can only respond if a email is given," />
-            </div>
-          </div>
-
-          <div class="form-field">
-            <label for="cf-topic">Subject</label>
-            <select id="cf-topic" name="topic" required>
-              <option value="" disabled selected>Choose a topic…</option>
-              <option value="Merch Submission">Merch Submission</option>
-              <option value="Correction / Edit">Correction / Edit</option>
-              <option value="General Question">General Question</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-
-          <div class="form-field">
-            <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" rows="6" required placeholder="Tell us what you've got — item name, game, any source links or photos you can share, an email is required for a response."></textarea>
-          </div>
-
-          <button type="submit" class="btn-primary form-submit" id="cfSubmit">Send Message</button>
-          <p class="form-status" id="cfStatus" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
-
-    <!-- ITEM DETAIL -->
-    <section class="page" id="page-item">
-      <div class="item-detail-wrap"></div>
-    </section>
-
-  </main>
-
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
-    <img id="lightboxImg" src="" alt="" />
-  </div>
-
-  <footer>
-    <div class="footer-links">
-      <button data-page="home">Home</button>
-      <button data-page="catalogue">Catalogue</button>
-      <button data-page="about">About</button>
-      <button data-page="contact">Contact</button>
-    </div>
-    <p>© <span id="footerYear"></span> <span>RockstarPromoHub.com</span> — Fan-made. Not affiliated with Rockstar Games. All trademarks belong to their respective owners.</p>
-  </footer>
-
-  <script src="catalog.js?v=2026.10.19"></script>
-
-  <script>
-    (function() {
-      var $ = function(id) { return document.getElementById(id); };
-
-      var state = {
-        currentPage: 'home',
-        typeFilter: 'all',
-        gameFilter: 'all',
-        subcategoryFilter: 'all',
-        searchTerm: '',
-        currentItemId: null,
-        items: [],
-        uniqueGames: []
-      };
-
-      function escapeHTML(str) {
-        return String(str ?? '').replace(/[&<>"']/g, function(c) {
-          var map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
-          return map[c] || c;
-        });
-      }
-
-      function slugify(text) {
-        return String(text).toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'item';
-      }
-
-      function safeExternalUrl(value) {
-        try { var url = new URL(value); return ['http:', 'https:'].includes(url.protocol) ? url.href : ''; } catch(e) { return ''; }
-      }
-
-      function normaliseItem(item, fallbackId) {
-        item = item || {};
-        return {
-          id: String(item.id || fallbackId || 'item'),
-          name: item.name || 'Untitled catalogue item',
-          game: item.game || 'Rockstar Games',
-          category: item.category || 'Other',
-          subcategory: item.subcategory || '',
-          description: item.description || '',
-          year: item.year || 'Not specified',
-          rarity: item.rarity || 'Not specified',
-          availability: item.availability || 'Not specified',
-          price: item.price || 'Not Applicable',
-          image: item.image || '',
-          extraImages: Array.isArray(item.extraImages) ? item.extraImages.filter(Boolean) : [],
-          link: item.link || ''
-        };
-      }
-
-      // Glyphs are keyed by category name. Unknown categories fall back to ★.
-      var CATEGORY_GLYPH = {
-        'Hat': 'H',
-        'Hats': 'H',
-        'Plushie': 'P',
-        'Plushies': 'P',
-        'T-Shirt': 'T',
-        'T-Shirts': 'T',
-        'Hoodie': 'H',
-        'Hoodies': 'H',
-        'Poster': 'Po',
-        'Posters': 'Po',
-        'Collectible': 'C',
-        'Collectibles': 'C',
-        'Statue / Collectible Figure': 'C',
-        'Keychain': 'K',
-        'Keychains': 'K',
-        'Sticker': 'S',
-        'Stickers': 'S',
-        'Mugs and Drinkware': 'M',
-        'Pre-Order Bonus': '★',
-        'Other': '•'
-      };
-
-      function placeholderImageMarkup(category, label, hidden) {
-        label = label || 'Image coming soon';
-        return '<div class="image-placeholder"' + (hidden ? ' hidden' : '') + '>' +
-          '<span class="placeholder-icon">' + (CATEGORY_GLYPH[category] || '★') + '</span>' +
-          '<span class="placeholder-label">' + label + '</span>' +
-        '</div>';
-      }
-
-      function imageMarkup(source, altText, category, eager) {
-        if (!source) return placeholderImageMarkup(category);
-        return '<img src="' + escapeHTML(source) + '" alt="' + escapeHTML(altText) + '" loading="' + (eager ? 'eager' : 'lazy') + '" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden = true; this.nextElementSibling.hidden = false;" />' +
-          placeholderImageMarkup(category, 'Image coming soon', true);
-      }
-
-      function getAvailabilityClass(availability) {
-        var lower = String(availability).toLowerCase();
-        if (lower.includes('yes') || lower.includes('available')) return 'availability-available';
-        if (lower.includes('no') || lower.includes('unavailable')) return 'availability-unavailable';
-        return 'availability-unknown';
-      }
-
-      function getItems() {
-        if (typeof ITEMS === 'undefined' || !Array.isArray(ITEMS)) return [];
-        var usedIds = {};
-        return ITEMS.map(function(raw) {
-          var id = slugify(raw.name + '-' + raw.game);
-          usedIds[id] = (usedIds[id] || 0) + 1;
-          if (usedIds[id] > 1) id = id + '-' + usedIds[id];
-          return normaliseItem(raw, id);
-        });
-      }
-
-      function cardHTML(rawItem) {
-        var item = normaliseItem(rawItem);
-        return '<article class="merch-card">' +
-          '<a class="card-image" href="#item/' + item.id + '" aria-label="View ' + escapeHTML(item.name) + '">' +
-            imageMarkup(item.image, item.name, item.category) +
-          '</a>' +
-          '<a class="card-body" href="#item/' + item.id + '">' +
-            '<div class="card-game">' + escapeHTML(item.game) + '</div>' +
-            '<div class="card-name">' + escapeHTML(item.name) + '</div>' +
-            '<div class="card-description">' + escapeHTML(item.description || 'No description has been added yet.') + '</div>' +
-            '<div class="card-footer"><span class="card-category">' + escapeHTML(item.category) + (item.subcategory ? ' — ' + escapeHTML(item.subcategory) : '') + '</span></div>' +
-          '</a>' +
-        '</article>';
-      }
-
-      function animateGridEnter(container) {
-        if (!container) return;
-        container.classList.remove('grid-enter');
-        void container.offsetWidth;
-        container.classList.add('grid-enter');
-      }
-
-      function renderHome() {
-        var items = getItems();
-        if (!items.length) return;
-        var latest = items.slice().reverse().slice(0, 4);
-        $('itemCount').textContent = items.length + ' item' + (items.length === 1 ? '' : 's');
-        var grid = $('homeGrid');
-        grid.innerHTML = latest.map(cardHTML).join('');
-        animateGridEnter(grid);
-      }
-
-      function renderCatalogue() {
-        var items = getItems();
-        if (!items.length) return;
-        var term = ($('searchInput')?.value || '').toLowerCase().trim();
-        populateGameFilters(items);
-        populateTypeFilters(items);
-        populateSubcategoryFilters(items);
-        $('itemCount').textContent = items.length + ' item' + (items.length === 1 ? '' : 's');
-        var filtered = items.filter(function(item) {
-          var matchType = state.typeFilter === 'all' || item.category === state.typeFilter;
-          var matchGame = state.gameFilter === 'all' || item.game === state.gameFilter;
-          var matchSub = state.subcategoryFilter === 'all' || item.subcategory === state.subcategoryFilter;
-          var searchText = [item.name, item.game, item.category, item.subcategory, item.description].join(' ').toLowerCase();
-          return matchType && matchGame && matchSub && (!term || searchText.indexOf(term) !== -1);
-        });
-        var grid = $('catalogue');
-        if (filtered.length === 0) {
-          grid.classList.remove('grid-enter');
-          grid.innerHTML = '<div class="empty-state"><h3>No items found</h3><p>Try a different filter or search term.</p></div>';
-          return;
-        }
-        grid.innerHTML = filtered.map(cardHTML).join('');
-        animateGridEnter(grid);
-      }
-
-      function populateGameFilters(items) {
-        var bar = $('gameFilterBar');
-        var games = [];
-        var seen = {};
-        items.forEach(function(i) {
-          if (i.game && !seen[i.game]) { seen[i.game] = true; games.push(i.game); }
-        });
-        games.sort(function(a, b) { return a.localeCompare(b); });
-        if (games.indexOf(state.gameFilter) === -1) state.gameFilter = 'all';
-        bar.querySelectorAll('[data-generated-game-filter="true"]').forEach(function(b) { b.remove(); });
-        games.forEach(function(game) {
-          var btn = document.createElement('button');
-          btn.className = 'filter-pill' + (state.gameFilter === game ? ' active' : '');
-          btn.dataset.generatedGameFilter = 'true';
-          btn.dataset.game = game;
-          btn.textContent = game;
-          bar.appendChild(btn);
-        });
-        var firstPill = bar.querySelector('.filter-pill');
-        if (firstPill) firstPill.classList.toggle('active', state.gameFilter === 'all');
-      }
-
-      // Type pills are generated from the `category` field of each item in catalog.js.
-      function populateTypeFilters(items) {
-        var bar = $('typeFilterBar');
-        if (!bar) return;
-
-        var types = [];
-        var seen = {};
-        items.forEach(function(i) {
-          if (i.category && !seen[i.category]) { seen[i.category] = true; types.push(i.category); }
-        });
-        types.sort(function(a, b) { return a.localeCompare(b); });
-
-        if (types.indexOf(state.typeFilter) === -1) state.typeFilter = 'all';
-
-        bar.querySelectorAll('[data-generated-type-filter="true"]').forEach(function(b) { b.remove(); });
-
-        types.forEach(function(type) {
-          var btn = document.createElement('button');
-          btn.className = 'filter-pill' + (state.typeFilter === type ? ' active' : '');
-          btn.dataset.generatedTypeFilter = 'true';
-          btn.dataset.type = type;
-          btn.textContent = type;
-          bar.appendChild(btn);
-        });
-
-        var firstPill = bar.querySelector('.filter-pill');
-        if (firstPill) firstPill.classList.toggle('active', state.typeFilter === 'all');
-      }
-
-      // Subcategory pills are generated from the `subcategory` field of items
-      // filtered by the currently selected category.
-      function populateSubcategoryFilters(items) {
-        var bar = $('subcategoryFilterBar');
-        if (!bar) return;
-
-        // If no specific category is selected, hide the subcategory bar entirely
-        if (state.typeFilter === 'all') {
-          bar.classList.remove('visible');
-          state.subcategoryFilter = 'all';
-          return;
-        }
-
-        var subcats = [];
-        var seen = {};
-        items.forEach(function(i) {
-          if (i.category === state.typeFilter && i.subcategory && !seen[i.subcategory]) {
-            seen[i.subcategory] = true;
-            subcats.push(i.subcategory);
-          }
-        });
-        subcats.sort(function(a, b) { return a.localeCompare(b); });
-
-        // If the current subcategory filter is no longer valid, reset to 'all'
-        if (subcats.indexOf(state.subcategoryFilter) === -1) {
-          state.subcategoryFilter = 'all';
-        }
-
-        // If there are no subcategories for this category, hide the bar
-        if (subcats.length === 0) {
-          bar.classList.remove('visible');
-          state.subcategoryFilter = 'all';
-          return;
-        }
-
-        bar.classList.add('visible');
-
-        // Clear all children except the label
-        bar.querySelectorAll('[data-generated-sub-filter="true"]').forEach(function(b) { b.remove(); });
-        var label = bar.querySelector('.filter-label');
-        if (!label) {
-          label = document.createElement('span');
-          label.className = 'filter-label';
-          label.textContent = 'Subcategory';
-          bar.prepend(label);
-        }
-
-        // Add "All" pill
-        var allBtn = document.createElement('button');
-        allBtn.className = 'filter-pill' + (state.subcategoryFilter === 'all' ? ' active' : '');
-        allBtn.dataset.generatedSubFilter = 'true';
-        allBtn.dataset.sub = 'all';
-        allBtn.textContent = 'All';
-        bar.appendChild(allBtn);
-
-        subcats.forEach(function(sub) {
-          var btn = document.createElement('button');
-          btn.className = 'filter-pill' + (state.subcategoryFilter === sub ? ' active' : '');
-          btn.dataset.generatedSubFilter = 'true';
-          btn.dataset.sub = sub;
-          btn.textContent = sub;
-          bar.appendChild(btn);
-        });
-      }
-
-      function showPage(pageName) {
-        var previous = state.currentPage;
-        state.currentPage = pageName;
-        document.querySelectorAll('.page').forEach(function(p) {
-          p.classList.toggle('active', p.id === 'page-' + pageName);
-        });
-        document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(function(l) {
-          l.classList.toggle('active', l.dataset.page === pageName);
-        });
-        if (previous !== pageName) {
-          window.scrollTo({ top: 0, behavior: 'auto' });
-        }
-        if (pageName === 'catalogue') renderCatalogue();
-        if (pageName === 'home') renderHome();
-        if (pageName !== 'item') {
-          var newUrl = location.pathname + (pageName === 'home' ? '' : '#' + pageName);
-          history.replaceState(null, '', newUrl);
-        }
-      }
-
-      function renderItemPage(itemId) {
-        var items = getItems();
-        var raw = null;
-        for (var i = 0; i < items.length; i++) {
-          if (items[i].id === itemId) { raw = items[i]; break; }
-        }
-        var item = normaliseItem(raw, itemId);
-        var allImages = [item.image];
-        for (var j = 0; j < item.extraImages.length; j++) {
-          if (item.extraImages[j]) allImages.push(item.extraImages[j]);
-        }
-        var wrap = document.querySelector('.item-detail-wrap');
-        state.currentItemId = item.id;
-
-        wrap.innerHTML =
-          '<button class="btn-back" id="backToCatalogue">← Back to catalogue</button>' +
-          '<div class="item-hero" id="itemPageHero">' +
-            '<div class="zoom-wrapper" id="zoomWrapper">' +
-              imageMarkup(allImages[0], item.name, item.category, true) +
-            '</div>' +
-          '</div>' +
-          '<div class="view-thumbs" id="itemPageThumbs" style="' + (allImages.length > 1 ? '' : 'display:none') + '"></div>' +
-          '<div class="item-detail-body">' +
-            '<div class="item-detail-main">' +
-              '<div class="item-game-label">' + escapeHTML(item.game) + '</div>' +
-              '<h1 class="item-detail-name">' + escapeHTML(item.name) + '</h1>' +
-              '<span class="item-detail-section-label">Description</span>' +
-              '<p class="item-detail-description">' + escapeHTML(item.description || 'No description has been added yet.') + '</p>' +
-              '<div class="item-detail-share">' +
-                '<span class="item-detail-share-label">Share</span>' +
-                '<button class="btn-copy-link" id="btnCopyLink">Copy link</button>' +
-                '<button class="btn-report-error" id="btnReportError">Report error</button>' +
-              '</div>' +
-            '</div>' +
-            '<aside class="item-detail-sidebar" id="itemPageSidebar"></aside>' +
-          '</div>';
-
-        $('backToCatalogue').addEventListener('click', function() { showPage('catalogue'); });
-
-        var labels = [
-          { key: 'Associated game', value: item.game, cls: '' },
-          { key: 'Year of release', value: item.year, cls: '' },
-          { key: 'Category', value: item.category, cls: '' },
-          { key: 'Subcategory', value: item.subcategory || '—', cls: '' },
-          { key: 'Rarity', value: item.rarity, cls: '' },
-          { key: 'Available for purchase', value: item.availability || 'Not specified', cls: 'availability-text ' + getAvailabilityClass(item.availability) },
-          { key: 'Price', value: item.price || 'Not Applicable', cls: '' }
-        ];
-        var sidebarHTML = '';
-        for (var k = 0; k < labels.length; k++) {
-          sidebarHTML += '<div class="item-label-block"><span class="item-label-key">' + labels[k].key + '</span><div class="item-label-value ' + labels[k].cls + '">' + escapeHTML(labels[k].value) + '</div></div>';
-        }
-        $('itemPageSidebar').innerHTML = sidebarHTML;
-        addSourceLink(item);
-        setupThumbnails(item, allImages);
-        setupLightbox(item, allImages);
-
-        $('btnCopyLink').addEventListener('click', function() {
-          var url = location.origin + location.pathname + '#item/' + state.currentItemId;
-          var btn = $('btnCopyLink');
-          navigator.clipboard.writeText(url).then(function() {
-            btn.textContent = 'Copied';
-            btn.classList.add('copied');
-            setTimeout(function() { btn.textContent = 'Copy link'; btn.classList.remove('copied'); }, 1800);
-          }).catch(function() { window.prompt('Copy this link:', url); });
-        });
-
-        $('btnReportError').addEventListener('click', function() {
-          var itemName = item.name;
-          var game = item.game;
-          showPage('contact');
-          setTimeout(function() {
-            var msg = $('cf-message');
-            var topic = $('cf-topic');
-            if (topic) {
-              for (var t = 0; t < topic.options.length; t++) {
-                if (topic.options[t].value === 'Correction / Edit') { topic.selectedIndex = t; break; }
-              }
-            }
-            if (msg) {
-              msg.value = 'Report an error for: ' + itemName + ' (' + game + ')\n\nWhat is wrong?\n';
-              msg.focus();
-            }
-          }, 200);
-        });
-      }
-
-      function addSourceLink(item) {
-        var link = safeExternalUrl(item.link);
-        if (!link) return;
-        var sidebar = $('itemPageSidebar');
-        var block = document.createElement('div');
-        block.className = 'item-label-block';
-        block.innerHTML = '<span class="item-label-key">Source</span><a href="' + escapeHTML(link) + '" target="_blank" rel="noopener noreferrer" style="color:var(--link);word-break:break-all;font-size:0.8rem;">' + escapeHTML(link) + '</a>';
-        sidebar.appendChild(block);
-        var viewLink = document.createElement('a');
-        viewLink.className = 'view-link';
-        viewLink.href = link;
-        viewLink.target = '_blank';
-        viewLink.rel = 'noopener noreferrer';
-        viewLink.textContent = 'View item →';
-        sidebar.appendChild(viewLink);
-      }
-
-      function setupThumbnails(item, allImages) {
-        if (allImages.length <= 1) return;
-        var thumbs = $('itemPageThumbs');
-        var hero = $('itemPageHero');
-        var html = '';
-        for (var i = 0; i < allImages.length; i++) {
-          html += '<button class="view-thumb ' + (i === 0 ? 'active' : '') + '" data-source="' + escapeHTML(allImages[i]) + '" aria-label="Show image ' + (i + 1) + '">' +
-            '<img src="' + escapeHTML(allImages[i]) + '" alt="' + escapeHTML(item.name) + ' thumbnail ' + (i + 1) + '" loading="lazy" decoding="async" referrerpolicy="no-referrer" />' +
-          '</button>';
-        }
-        thumbs.innerHTML = html;
-        thumbs.querySelectorAll('.view-thumb').forEach(function(btn) {
-          btn.addEventListener('click', function() {
-            thumbs.querySelectorAll('.view-thumb').forEach(function(b) { b.classList.remove('active'); });
-            btn.classList.add('active');
-            var wrapper = hero.querySelector('.zoom-wrapper');
-            wrapper.innerHTML = imageMarkup(btn.dataset.source, item.name, item.category, true);
-          });
-        });
-      }
-
-      function setupLightbox(item, allImages) {
-        var hero = $('itemPageHero');
-        var overlay = $('lightbox');
-        var overlayImg = $('lightboxImg');
-        var closeBtn = $('lightboxClose');
-
-        function open(src, alt) {
-          if (!src) return;
-          overlayImg.src = src;
-          overlayImg.alt = alt || '';
-          overlay.classList.add('open');
-          document.body.style.overflow = 'hidden';
-        }
-        function close() {
-          overlay.classList.remove('open');
-          document.body.style.overflow = '';
-          overlayImg.src = '';
-        }
-
-        hero.addEventListener('click', function(e) {
-          var img = hero.querySelector('.zoom-wrapper img');
-          if (img && img.src) open(img.src, img.alt);
-        });
-
-        closeBtn.addEventListener('click', function(e) { e.stopPropagation(); close(); });
-        overlay.addEventListener('click', function(e) {
-          if (e.target === overlay || e.target === overlayImg) close();
-        });
-        document.addEventListener('keydown', function(e) {
-          if (e.key === 'Escape' && overlay.classList.contains('open')) close();
-        });
-      }
-
-      function handleRoute() {
-        var hash = location.hash;
-        if (hash.indexOf('#item/') === 0) {
-          document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
-          document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(function(l) { l.classList.remove('active'); });
-          var itemPage = $('page-item');
-          itemPage.classList.add('active');
-          itemPage.style.animation = 'none';
-          void itemPage.offsetWidth;
-          itemPage.style.animation = '';
-          renderItemPage(hash.slice(6));
-          window.scrollTo({ top: 0, behavior: 'auto' });
-          return;
-        }
-        if (hash === '#catalogue' || hash === '#about' || hash === '#contact') {
-          showPage(hash.slice(1));
-          return;
-        }
-        showPage('home');
-      }
-
-      function bindContactForm() {
-        var form = $('contactForm');
-        if (!form) return;
-        var status = $('cfStatus');
-        var submit = $('cfSubmit');
-
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          submit.disabled = true;
-          var original = submit.textContent;
-          submit.textContent = 'Sending…';
-          status.textContent = '';
-          status.className = 'form-status';
-
-          fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-          })
-          .then(function(res) { return res.json(); })
-          .then(function(data) {
-            if (data.success) {
-              status.textContent = 'Message sent — thanks. We\'ll get back to you soon.';
-              status.className = 'form-status success';
-              form.reset();
-            } else {
-              status.textContent = 'Something went wrong. Try again or email us directly.';
-              status.className = 'form-status error';
-            }
-          })
-          .catch(function() {
-            status.textContent = 'Network error. Please try again.';
-            status.className = 'form-status error';
-          })
-          .finally(function() {
-            submit.disabled = false;
-            submit.textContent = original;
-          });
-        });
-      }
-
-      function bindEvents() {
-        document.querySelectorAll('.desktop-nav .nav-link').forEach(function(btn) {
-          btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            var page = this.dataset.page;
-            if (page) showPage(page);
-          });
-        });
-
-        document.querySelectorAll('.mobile-nav-link').forEach(function(btn) {
-          btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            var page = this.dataset.page;
-            if (page) {
-              showPage(page);
-              $('mobileNav').classList.remove('open');
-              $('hamburger').classList.remove('open');
-              $('hamburger').setAttribute('aria-expanded', 'false');
-            }
-          });
-        });
-
-        document.querySelectorAll('.footer-links button').forEach(function(btn) {
-          btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            var page = this.dataset.page;
-            if (page) showPage(page);
-          });
-        });
-
-        document.querySelectorAll('.home-actions .btn-primary, .home-actions .btn-text, .btn-see-all').forEach(function(btn) {
-          btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            var page = this.dataset.page;
-            if (page) showPage(page);
-          });
-        });
-
-        document.querySelector('.logo-word').addEventListener('click', function(e) {
-          e.preventDefault();
-          showPage('home');
-        });
-        $('logoSubtitle').addEventListener('click', function(e) {
-          e.preventDefault();
-          showPage('catalogue');
-        });
-
-        $('hamburger').addEventListener('click', function() {
-          var nav = $('mobileNav');
-          var isOpen = nav.classList.toggle('open');
-          this.classList.toggle('open');
-          this.setAttribute('aria-expanded', String(isOpen));
-        });
-
-        // Delegated handler — survives re-render of pills
-        $('typeFilterBar').addEventListener('click', function(e) {
-          var btn = e.target.closest('.filter-pill');
-          if (!btn) return;
-          var type = btn.dataset.type;
-          state.typeFilter = type || 'all';
-          state.subcategoryFilter = 'all'; // reset subcategory when type changes
-          document.querySelectorAll('#typeFilterBar .filter-pill').forEach(function(b) { b.classList.remove('active'); });
-          btn.classList.add('active');
-          renderCatalogue();
-        });
-
-        $('gameFilterBar').addEventListener('click', function(e) {
-          var btn = e.target.closest('.filter-pill');
-          if (!btn) return;
-          var game = btn.dataset.game;
-          state.gameFilter = game || 'all';
-          document.querySelectorAll('#gameFilterBar .filter-pill').forEach(function(b) { b.classList.remove('active'); });
-          btn.classList.add('active');
-          renderCatalogue();
-        });
-
-        // Subcategory filter bar — delegated handler
-        $('subcategoryFilterBar').addEventListener('click', function(e) {
-          var btn = e.target.closest('.filter-pill');
-          if (!btn) return;
-          var sub = btn.dataset.sub;
-          state.subcategoryFilter = sub || 'all';
-          document.querySelectorAll('#subcategoryFilterBar .filter-pill').forEach(function(b) { b.classList.remove('active'); });
-          btn.classList.add('active');
-          renderCatalogue();
-        });
-
-        $('searchInput').addEventListener('input', renderCatalogue);
-        window.addEventListener('hashchange', handleRoute);
-        bindContactForm();
-      }
-
-      function init() {
-        var yearEl = $('footerYear');
-        if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-        if (typeof ITEMS !== 'undefined' && Array.isArray(ITEMS)) {
-          renderHome();
-          renderCatalogue();
-          handleRoute();
-          bindEvents();
-        } else {
-          setTimeout(init, 100);
-        }
-      }
-
-      init();
-    })();
-  </script>
-</body>
-</html>
+const ITEMS = [
+  {
+    name: "Chop Plush & Bullet Whistle Set",
+    game: "GTA V",
+    category: "Plushies & Soft Toys",
+    subcategory: "Animal plushies",
+    description: "Announced and released into the Rockstar Warehouse on 5th December 2013. Also given away in many Social Club contests.\n\n A soft plush version of Chop with a removable leather collar and tag plus a secret stash pocket with a silver effect bullet whistle etched with GTA V text and logo. The plush is approximately 15cm high and 25cm long. \n\nRarer to find in its original open-fronted retail box and many are missing the whistle (which was also sold separately). The leash and collar were also sold separately as a set.",
+    year: "2013",
+    rarity: "Rare",
+    availability: "Available for purchase - Yes",
+    image: "images/GTAV/Chop/Chop_14.jpg",
+    extraImages: ["images/GTAV/Chop/Chop_1.jpg","images/GTAV/Chop/Chop_2.jpg","images/GTAV/Chop/Chop_3.jpg","images/GTAV/Chop/Chop_4.jpg","images/GTAV/Chop/Chop_5.jpg","images/GTAV/Chop/Chop_6.jpg","images/GTAV/Chop/Chop_7.jpg","images/GTAV/Chop/Chop_8.jpg","images/GTAV/Chop/Chop_9.jpg","images/GTAV/Chop/Chop_10.jpg","images/GTAV/Chop/Chop_11.jpg","images/GTAV/Chop/Chop_12.jpg","images/GTAV/Chop/Chop_13.jpg"],
+    link: ""
+  },
+  {
+    name: "Pißwasser Beer Bottle",
+    game: "Grand Theft Auto IV (2008)",
+    category: "Drinkware",
+    subcategory: "Glass bottles",
+    description: "For the launch of Grand Theft Auto IV in 2008, Rockstar Games produced a real-world version of the fictional Pißwasser beer featured throughout the game.\n\nThe bottles were promotional merchandise rather than a standard retail product. They were distributed to people connected with the game's launch, including Rockstar staff, members of the press, media outlets, game testers and selected fansites. Individual bottles have since become highly sought-after collectibles.\n\nPerhaps the most interesting detail is that the bottles were not simply produced individually. 24-bottle crates of Pißwasser existed, with documented examples being distributed as promotional gifts. One particularly notable shipment reportedly consisted of six crates sent to UK gaming publication Computer and Video Games (CVG) as part of Rockstar's GTA IV promotional campaign.\n\nThe bottles were genuine physical beer bottles produced specifically for the promotion, complete with Pißwasser branding based on the fictional brewery from GTA IV. They were not included with the GTA IV Collector's Edition, despite occasional claims to the contrary.\n\nToday, surviving bottles and especially complete unopened crates are extremely rare, making the Pißwasser bottle one of the more unusual pieces of official Grand Theft Auto promotional merchandise from the GTA IV era.",
+    year: "2008",
+    rarity: "Very Rare",
+    availability: "Available for purchase - No",
+    image: "images/GTAIV/Pisswasser/Pisswasser_2.jpg",
+    extraImages: ["images/GTAIV/Pisswasser/Pisswasser_1.jpg","images/GTAIV/Pisswasser/Pisswasser_3.jpg","images/GTAIV/Pisswasser/Pisswasser_4.jpg","images/GTAIV/Pisswasser/Pisswasser_5.jpg","images/GTAIV/Pisswasser/Pisswasser_6.jpg"],
+    link: ""
+  },
+  {
+    name: "Flex Handcuffs",
+    game: "Grand Theft Auto IV (2008)",
+    category: "Other",
+    subcategory: "",
+    description: "Flex handcuffs used to promote the release of GTA IV. Test.",
+    year: "2008",
+    rarity: "Very Rare",
+    availability: "Available for purchase - Yes",
+    image: "images/GTAIV/flex-cuff1.jpg",
+    extraImages: ["images/GTAIV/flex-cuff2.jpg","images/GTAIV/flex-cuff3.jpg","images/GTAIV/flex-cuff4.jpg","images/GTAIV/flex-cuff5.jpg"],
+    link: ""
+  },
+  {
+    name: "Gift Wrap / Wrapping Paper",
+    game: "Grand Theft Auto: San Andreas (2004)",
+    category: "Pre-Order Bonus",
+    subcategory: "",
+    description: "San Andreas-themed gift wrap/wrapping paper.",
+    year: "2004",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/SA/wrap-paper1.jpg",
+    extraImages: ["images/SA/wrap-paper2.jpg","images/SA/wrap-paper3.jpg","images/SA/wrap-paper4.jpg"],
+    link: ""
+  },
+  {
+    name: "Max Payne 3 Special Edition Statue",
+    game: "Max Payne 3 (2012)",
+    category: "Statue / Collectible Figure",
+    subcategory: "",
+    description: "Approximately 10-inch (25 cm) collectible statue of Max Payne wearing a grey suit and holding two handguns. Created by TriForce in collaboration with Rockstar Games, it was included in the limited Max Payne 3 Special Edition collector's package.",
+    year: "2012",
+    rarity: "Rare",
+    availability: "Available for purchase - Yes",
+    image: "images/MAX3/MP_statue1.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "White Grand Theft Auto VI Macca the Gator Tee",
+    game: "Grand Theft Auto VI",
+    category: "Clothing",
+    subcategory: "T-shirts",
+    description: "White T-shirt featuring Macca the Gator artwork associated with Grand Theft Auto VI. Part of the game's merchandise collection.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Clothing/GTAVI_Macca_Gator_Tee_White.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Blue Rockstar Games Logo Tee",
+    game: "Rockstar Games",
+    category: "Clothing",
+    subcategory: "T-shirts",
+    description: "Blue T-shirt featuring the Rockstar Games logo.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Clothing/Rockstar_Logo_Tee_Blue.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Pink Rockstar Games Logo Tee",
+    game: "Rockstar Games",
+    category: "Clothing",
+    subcategory: "T-shirts",
+    description: "Pink T-shirt featuring the Rockstar Games logo.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Clothing/Rockstar_Logo_Tee_Pink.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Black Rockstar Games Logo Tee",
+    game: "Rockstar Games",
+    category: "Clothing",
+    subcategory: "T-shirts",
+    description: "Black T-shirt featuring the Rockstar Games logo.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Clothing/Rockstar_Logo_Tee_Black.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Pink Grand Theft Auto VI Goodtime State Tee",
+    game: "Grand Theft Auto VI",
+    category: "Clothing",
+    subcategory: "T-shirts",
+    description: "Pink T-shirt featuring Grand Theft Auto VI Goodtime State-themed branding.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Clothing/GTAVI_Goodtime_State_Tee_Pink.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Black Grand Theft Auto VI Goodtime State Tee",
+    game: "Grand Theft Auto VI",
+    category: "Clothing",
+    subcategory: "T-shirts",
+    description: "Black T-shirt featuring Grand Theft Auto VI Goodtime State-themed branding.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Clothing/GTAVI_Goodtime_State_Tee_Black.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Blue Grand Theft Auto VI Goodtime State Tee",
+    game: "Grand Theft Auto VI",
+    category: "Clothing",
+    subcategory: "T-shirts",
+    description: "Blue T-shirt featuring Grand Theft Auto VI Goodtime State-themed branding.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Clothing/GTAVI_Goodtime_State_Tee_Blue.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Blue Grand Theft Auto VI Logo Tee",
+    game: "Grand Theft Auto VI",
+    category: "Clothing",
+    subcategory: "T-shirts",
+    description: "Blue T-shirt featuring Grand Theft Auto VI logo branding.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Clothing/GTAVI_Logo_Tee_Blue.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Blue Grand Theft Auto VI Women's Cropped Baby Logo Tee",
+    game: "Grand Theft Auto VI",
+    category: "Clothing",
+    subcategory: "Cropped T-shirts",
+    description: "Blue women's cropped baby T-shirt featuring Grand Theft Auto VI logo branding.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Clothing/GTAVI_Cropped_Baby_Logo_Tee_Blue.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Pink Grand Theft Auto VI Logo Tee",
+    game: "Grand Theft Auto VI",
+    category: "Clothing",
+    subcategory: "T-shirts",
+    description: "Pink T-shirt featuring Grand Theft Auto VI logo branding.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Clothing/GTAVI_Logo_Tee_Pink.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Pink Grand Theft Auto VI Women's Cropped Baby Logo Tee",
+    game: "Grand Theft Auto VI",
+    category: "Clothing",
+    subcategory: "Cropped T-shirts",
+    description: "Pink women's cropped baby T-shirt featuring Grand Theft Auto VI logo branding.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Clothing/GTAVI_Cropped_Baby_Logo_Tee_Pink.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Black Grand Theft Auto VI Logo Tee",
+    game: "Grand Theft Auto VI",
+    category: "Clothing",
+    subcategory: "T-shirts",
+    description: "Black T-shirt featuring Grand Theft Auto VI logo branding.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Clothing/GTAVI_Logo_Tee_Black.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Black Grand Theft Auto VI Women's Cropped Baby Logo Tee",
+    game: "Grand Theft Auto VI",
+    category: "Clothing",
+    subcategory: "Cropped T-shirts",
+    description: "Black women's cropped baby T-shirt featuring Grand Theft Auto VI logo branding.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Clothing/GTAVI_Cropped_Baby_Logo_Tee_Black.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Rockstar Baseball Cap: Blue and Pink",
+    game: "Rockstar Games",
+    category: "Clothing & Accessories",
+    subcategory: "Baseball caps",
+    description: "Baseball cap featuring Rockstar Games branding in blue and pink.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Caps/Rockstar_Baseball_Cap_Blue_Pink.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Rockstar Baseball Cap: Pink and Blue",
+    game: "Rockstar Games",
+    category: "Clothing & Accessories",
+    subcategory: "Baseball caps",
+    description: "Baseball cap featuring Rockstar Games branding in pink and blue.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Caps/Rockstar_Baseball_Cap_Pink_Blue.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Rockstar Baseball Cap: Black and Pink",
+    game: "Rockstar Games",
+    category: "Clothing & Accessories",
+    subcategory: "Baseball caps",
+    description: "Baseball cap featuring Rockstar Games branding in black and pink.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Caps/Rockstar_Baseball_Cap_Black_Pink.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Grand Theft Auto VI Baseball Cap: Blue and Pink",
+    game: "Grand Theft Auto VI",
+    category: "Clothing & Accessories",
+    subcategory: "Baseball caps",
+    description: "Baseball cap featuring Grand Theft Auto VI branding in blue and pink.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Caps/GTAVI_Baseball_Cap_Blue_Pink.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Grand Theft Auto VI Baseball Cap: Pink and Blue",
+    game: "Grand Theft Auto VI",
+    category: "Clothing & Accessories",
+    subcategory: "Baseball caps",
+    description: "Baseball cap featuring Grand Theft Auto VI branding in pink and blue.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Caps/GTAVI_Baseball_Cap_Pink_Blue.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Grand Theft Auto VI Baseball Cap: Black and Pink",
+    game: "Grand Theft Auto VI",
+    category: "Clothing & Accessories",
+    subcategory: "Baseball caps",
+    description: "Baseball cap featuring Grand Theft Auto VI branding in black and pink.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Caps/GTAVI_Baseball_Cap_Black_Pink.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Blue and Pink Grand Theft Auto VI Canvas Tote",
+    game: "Grand Theft Auto VI",
+    category: "Bags",
+    subcategory: "Canvas tote bags",
+    description: "Canvas tote bag featuring Grand Theft Auto VI branding in blue and pink.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Bags/GTAVI_Canvas_Tote_Blue_Pink.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Pink and Blue Grand Theft Auto VI Canvas Tote",
+    game: "Grand Theft Auto VI",
+    category: "Bags",
+    subcategory: "Canvas tote bags",
+    description: "Canvas tote bag featuring Grand Theft Auto VI branding in pink and blue.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Bags/GTAVI_Canvas_Tote_Pink_Blue.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Grand Theft Auto VI – Vice City Money Clip",
+    game: "Grand Theft Auto VI",
+    category: "Accessories",
+    subcategory: "Money clips",
+    description: "Money clip featuring Grand Theft Auto VI and Vice City-themed branding.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Accessories/GTAVI_Vice_City_Money_Clip.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Grand Theft Auto VI – Vice City Zippo® Lighter",
+    game: "Grand Theft Auto VI",
+    category: "Accessories",
+    subcategory: "Lighters",
+    description: "Zippo® lighter featuring Grand Theft Auto VI and Vice City-themed branding.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Accessories/GTAVI_Vice_City_Zippo_Lighter.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Grand Theft Auto VI and Rockstar Games Holographic Sticker Collection",
+    game: "Grand Theft Auto VI",
+    category: "Collectibles",
+    subcategory: "Sticker collections",
+    description: "Collection of holographic stickers featuring Grand Theft Auto VI and Rockstar Games branding.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Stickers/GTAVI_Rockstar_Holographic_Sticker_Collection.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Grand Theft Auto VI and Rockstar Games Sticker Collection",
+    game: "Grand Theft Auto VI",
+    category: "Collectibles",
+    subcategory: "Sticker collections",
+    description: "Sticker collection featuring Grand Theft Auto VI and Rockstar Games branding.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Stickers/GTAVI_Rockstar_Sticker_Collection.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Grand Theft Auto VI: The Album – Exclusive Vinyl",
+    game: "Grand Theft Auto VI",
+    category: "Music",
+    subcategory: "Vinyl records",
+    description: "Exclusive vinyl edition of Grand Theft Auto VI: The Album.",
+    year: "2026",
+    rarity: "Uncommon",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Music/GTAVI_The_Album_Exclusive_Vinyl.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Grand Theft Auto VI: The Album – Exclusive CD",
+    game: "Grand Theft Auto VI",
+    category: "Music",
+    subcategory: "CDs",
+    description: "Exclusive CD edition of Grand Theft Auto VI: The Album.",
+    year: "2026",
+    rarity: "Uncommon",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Music/GTAVI_The_Album_Exclusive_CD.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Grand Theft Auto VI: The Album - Standard Vinyl",
+    game: "Grand Theft Auto VI",
+    category: "Music",
+    subcategory: "Vinyl records",
+    description: "Standard vinyl edition of Grand Theft Auto VI: The Album.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Music/GTAVI_The_Album_Standard_Vinyl.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Grand Theft Auto VI: The Album - Standard CD",
+    game: "Grand Theft Auto VI",
+    category: "Music",
+    subcategory: "CDs",
+    description: "Standard CD edition of Grand Theft Auto VI: The Album.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTA6/Music/GTAVI_The_Album_Standard_CD.jpg",
+    extraImages: [],
+    link: ""
+  },
+  {
+    name: "Grand Theft Auto VI: The Goodtime State – Vice City™ Collection",
+    game: "Grand Theft Auto VI",
+    category: "Merchandise Collection",
+    subcategory: "Apparel & accessories",
+    description: "The Goodtime State – Vice City™ merchandise collection associated with Grand Theft Auto VI. Includes themed apparel and accessories.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTAVI/collecters/collecters_1.jpg",
+    extraImages: ["images/GTAVI/collecters/collecters_2.jpg","images/GTAVI/collecters/collecters_3.jpg","images/GTAVI/collecters/collecters_4.jpg","images/GTAVI/collecters/collecters_5.jpg","images/GTAVI/collecters/collecters_6.jpg","images/GTAVI/collecters/collecters_7.jpg","images/GTAVI/collecters/collecters_8.jpg","images/GTAVI/collecters/collecters_9.jpg","images/GTAVI/collecters/collecters_10.jpg","images/GTAVI/collecters/collecters_11.jpg","images/GTAVI/collecters/collecters_12.jpg","images/GTAVI/collecters/collecters_13.jpg"],
+    link: ""
+  }
+];
