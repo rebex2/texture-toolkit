@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="rph-version" content="2026.10.19" />
+  <meta name="rph-version" content="2026.10.24" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <title>R★ Games Promo Hub — Fan-Made Merch Catalogue</title>
 
@@ -46,7 +46,6 @@
       --radius-pill: 999px;
       --shadow-depth: 0 10px 24px rgba(0, 0, 0, 0.35);
       --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
-      /* Shared hero top offset — every page hero starts here */
       --hero-top: 3.5rem;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -368,7 +367,7 @@
     .btn-text:hover { color: var(--white); }
     .btn-text:hover::after { transform: scaleX(1); }
 
-    /* ----- HOME HERO (tightened top) ----- */
+    /* ----- HOME HERO ----- */
     .home-hero {
       position: relative;
       display: flex;
@@ -519,7 +518,7 @@
       border-color: var(--accent);
     }
 
-    /* ----- PAGE HERO (shared hero top offset) ----- */
+    /* ----- PAGE HERO ----- */
     .page-hero {
       padding: var(--hero-top) 1.75rem 2.25rem;
       border-bottom: 1px solid var(--border);
@@ -649,7 +648,6 @@
       object-fit: cover;
       transition: transform 0.4s ease;
     }
-    /* ----- IMAGE PLACEHOLDER (centered, no shimmer) ----- */
     .image-placeholder {
       position: absolute;
       inset: 0;
@@ -710,7 +708,7 @@
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
     }
-    .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; }
     .card-category {
       padding: 3px 9px;
       background: transparent;
@@ -721,6 +719,21 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       border-radius: var(--radius-pill);
+    }
+    .card-price {
+      color: var(--gold);
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    .card-price.no-price {
+      color: var(--muted-2);
+      font-weight: 500;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
     .empty-state {
       grid-column: 1 / -1;
@@ -737,7 +750,7 @@
     }
     .empty-state p { font-size: 0.85rem; }
 
-    /* ----- ABOUT (uses shared --hero-top) ----- */
+    /* ----- ABOUT ----- */
     .about-hero {
       border-bottom: 1px solid var(--border);
     }
@@ -859,7 +872,7 @@
       border-left: 1px solid var(--border);
     }
 
-    /* ----- CONTACT (shared hero top) ----- */
+    /* ----- CONTACT ----- */
     .contact-wrap {
       max-width: 800px;
       margin: 0 auto;
@@ -955,7 +968,7 @@
     .form-status.success { color: var(--green); }
     .form-status.error { color: var(--red); }
 
-    /* ----- ITEM DETAIL (shared hero top) ----- */
+    /* ----- ITEM DETAIL ----- */
     .item-detail-wrap {
       max-width: 1080px;
       margin: 0 auto;
@@ -1102,6 +1115,11 @@
       line-height: 1.45;
     }
     .item-label-value.gold { color: var(--gold); }
+    .item-label-value.price-value {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
     .item-label-value.availability-text {
       font-size: 0.88rem;
       padding: 0;
@@ -1278,7 +1296,7 @@
       .form-submit { align-self: stretch; }
     }
 
-    /* Subcategory filter bar (hidden by default, shown when a category is selected) */
+    /* Subcategory filter bar */
     .filter-bar.subcategory-bar {
       display: none;
     }
@@ -1512,7 +1530,7 @@
     <p>© <span id="footerYear"></span> <span>RockstarPromoHub.com</span> — Fan-made. Not affiliated with Rockstar Games. All trademarks belong to their respective owners.</p>
   </footer>
 
-  <script src="catalog.js?v=2026.10.19"></script>
+  <script src="catalog.js?v=2026.10.24"></script>
 
   <script>
     (function() {
@@ -1544,6 +1562,29 @@
         try { var url = new URL(value); return ['http:', 'https:'].includes(url.protocol) ? url.href : ''; } catch(e) { return ''; }
       }
 
+      // ---- PRICE HELPERS ----
+      // Formats a raw price value into a display string.
+      // Accepts "20", "20.00", "£20", "$20.99", "Free", "N/A", etc.
+      function formatPrice(rawPrice) {
+        if (rawPrice === undefined || rawPrice === null) return '';
+        var str = String(rawPrice).trim();
+        if (!str) return '';
+        // If it's purely numeric, prepend £ (common for UK-based fan catalogue).
+        // If it already has a currency symbol/letters, leave as-is.
+        if (/^\d+(\.\d{1,2})?$/.test(str)) {
+          return '£' + str;
+        }
+        return str;
+      }
+
+      function hasPrice(item) {
+        if (!item) return false;
+        var p = item.price;
+        if (p === undefined || p === null) return false;
+        var s = String(p).trim();
+        return s !== '' && s.toLowerCase() !== 'n/a' && s.toLowerCase() !== 'na' && s.toLowerCase() !== 'not applicable';
+      }
+
       function normaliseItem(item, fallbackId) {
         item = item || {};
         return {
@@ -1556,32 +1597,23 @@
           year: item.year || 'Not specified',
           rarity: item.rarity || 'Not specified',
           availability: item.availability || 'Not specified',
-          price: item.price || 'Not Applicable',
+          price: (item.price !== undefined && item.price !== null) ? String(item.price) : '',
           image: item.image || '',
           extraImages: Array.isArray(item.extraImages) ? item.extraImages.filter(Boolean) : [],
           link: item.link || ''
         };
       }
 
-      // Glyphs are keyed by category name. Unknown categories fall back to ★.
       var CATEGORY_GLYPH = {
-        'Hat': 'H',
-        'Hats': 'H',
-        'Plushie': 'P',
-        'Plushies': 'P',
-        'T-Shirt': 'T',
-        'T-Shirts': 'T',
-        'Hoodie': 'H',
-        'Hoodies': 'H',
-        'Poster': 'Po',
-        'Posters': 'Po',
-        'Collectible': 'C',
-        'Collectibles': 'C',
+        'Hat': 'H', 'Hats': 'H',
+        'Plushie': 'P', 'Plushies': 'P',
+        'T-Shirt': 'T', 'T-Shirts': 'T',
+        'Hoodie': 'H', 'Hoodies': 'H',
+        'Poster': 'Po', 'Posters': 'Po',
+        'Collectible': 'C', 'Collectibles': 'C',
         'Statue / Collectible Figure': 'C',
-        'Keychain': 'K',
-        'Keychains': 'K',
-        'Sticker': 'S',
-        'Stickers': 'S',
+        'Keychain': 'K', 'Keychains': 'K',
+        'Sticker': 'S', 'Stickers': 'S',
         'Mugs and Drinkware': 'M',
         'Pre-Order Bonus': '★',
         'Other': '•'
@@ -1620,8 +1652,15 @@
         });
       }
 
+      // ---- CARD HTML (now includes price in footer) ----
       function cardHTML(rawItem) {
         var item = normaliseItem(rawItem);
+        var priceMarkup = '';
+        if (hasPrice(item)) {
+          priceMarkup = '<span class="card-price">' + escapeHTML(formatPrice(item.price)) + '</span>';
+        } else {
+          priceMarkup = '<span class="card-price no-price">Price N/A</span>';
+        }
         return '<article class="merch-card">' +
           '<a class="card-image" href="#item/' + item.id + '" aria-label="View ' + escapeHTML(item.name) + '">' +
             imageMarkup(item.image, item.name, item.category) +
@@ -1630,7 +1669,10 @@
             '<div class="card-game">' + escapeHTML(item.game) + '</div>' +
             '<div class="card-name">' + escapeHTML(item.name) + '</div>' +
             '<div class="card-description">' + escapeHTML(item.description || 'No description has been added yet.') + '</div>' +
-            '<div class="card-footer"><span class="card-category">' + escapeHTML(item.category) + (item.subcategory ? ' — ' + escapeHTML(item.subcategory) : '') + '</span></div>' +
+            '<div class="card-footer">' +
+              '<span class="card-category">' + escapeHTML(item.category) + (item.subcategory ? ' — ' + escapeHTML(item.subcategory) : '') + '</span>' +
+              priceMarkup +
+            '</div>' +
           '</a>' +
         '</article>';
       }
@@ -1699,7 +1741,6 @@
         if (firstPill) firstPill.classList.toggle('active', state.gameFilter === 'all');
       }
 
-      // Type pills are generated from the `category` field of each item in catalog.js.
       function populateTypeFilters(items) {
         var bar = $('typeFilterBar');
         if (!bar) return;
@@ -1728,13 +1769,10 @@
         if (firstPill) firstPill.classList.toggle('active', state.typeFilter === 'all');
       }
 
-      // Subcategory pills are generated from the `subcategory` field of items
-      // filtered by the currently selected category.
       function populateSubcategoryFilters(items) {
         var bar = $('subcategoryFilterBar');
         if (!bar) return;
 
-        // If no specific category is selected, hide the subcategory bar entirely
         if (state.typeFilter === 'all') {
           bar.classList.remove('visible');
           state.subcategoryFilter = 'all';
@@ -1751,12 +1789,10 @@
         });
         subcats.sort(function(a, b) { return a.localeCompare(b); });
 
-        // If the current subcategory filter is no longer valid, reset to 'all'
         if (subcats.indexOf(state.subcategoryFilter) === -1) {
           state.subcategoryFilter = 'all';
         }
 
-        // If there are no subcategories for this category, hide the bar
         if (subcats.length === 0) {
           bar.classList.remove('visible');
           state.subcategoryFilter = 'all';
@@ -1765,7 +1801,6 @@
 
         bar.classList.add('visible');
 
-        // Clear all children except the label
         bar.querySelectorAll('[data-generated-sub-filter="true"]').forEach(function(b) { b.remove(); });
         var label = bar.querySelector('.filter-label');
         if (!label) {
@@ -1775,7 +1810,6 @@
           bar.prepend(label);
         }
 
-        // Add "All" pill
         var allBtn = document.createElement('button');
         allBtn.className = 'filter-pill' + (state.subcategoryFilter === 'all' ? ' active' : '');
         allBtn.dataset.generatedSubFilter = 'true';
@@ -1859,7 +1893,7 @@
           { key: 'Subcategory', value: item.subcategory || '—', cls: '' },
           { key: 'Rarity', value: item.rarity, cls: '' },
           { key: 'Available for purchase', value: item.availability || 'Not specified', cls: 'availability-text ' + getAvailabilityClass(item.availability) },
-          { key: 'Price', value: item.price || 'Not Applicable', cls: '' }
+          { key: 'Price', value: hasPrice(item) ? formatPrice(item.price) : 'Not Applicable', cls: 'price-value' }
         ];
         var sidebarHTML = '';
         for (var k = 0; k < labels.length; k++) {
@@ -2087,13 +2121,12 @@
           this.setAttribute('aria-expanded', String(isOpen));
         });
 
-        // Delegated handler — survives re-render of pills
         $('typeFilterBar').addEventListener('click', function(e) {
           var btn = e.target.closest('.filter-pill');
           if (!btn) return;
           var type = btn.dataset.type;
           state.typeFilter = type || 'all';
-          state.subcategoryFilter = 'all'; // reset subcategory when type changes
+          state.subcategoryFilter = 'all';
           document.querySelectorAll('#typeFilterBar .filter-pill').forEach(function(b) { b.classList.remove('active'); });
           btn.classList.add('active');
           renderCatalogue();
@@ -2109,7 +2142,6 @@
           renderCatalogue();
         });
 
-        // Subcategory filter bar — delegated handler
         $('subcategoryFilterBar').addEventListener('click', function(e) {
           var btn = e.target.closest('.filter-pill');
           if (!btn) return;
