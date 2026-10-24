@@ -720,21 +720,6 @@
       text-transform: uppercase;
       border-radius: var(--radius-pill);
     }
-    .card-price {
-      color: var(--gold);
-      font-family: var(--font-body);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      white-space: nowrap;
-    }
-    .card-price.no-price {
-      color: var(--muted-2);
-      font-weight: 500;
-      font-size: 0.62rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
     .empty-state {
       grid-column: 1 / -1;
       padding: 5rem 1rem;
@@ -1116,9 +1101,9 @@
     }
     .item-label-value.gold { color: var(--gold); }
     .item-label-value.price-value {
-      color: var(--gold);
-      font-weight: 700;
-      font-size: 1.05rem;
+      color: var(--white);
+      font-weight: 500;
+      font-size: 0.88rem;
     }
     .item-label-value.availability-text {
       font-size: 0.88rem;
@@ -1563,14 +1548,10 @@
       }
 
       // ---- PRICE HELPERS ----
-      // Formats a raw price value into a display string.
-      // Accepts "20", "20.00", "£20", "$20.99", "Free", "N/A", etc.
       function formatPrice(rawPrice) {
         if (rawPrice === undefined || rawPrice === null) return '';
         var str = String(rawPrice).trim();
         if (!str) return '';
-        // If it's purely numeric, prepend £ (common for UK-based fan catalogue).
-        // If it already has a currency symbol/letters, leave as-is.
         if (/^\d+(\.\d{1,2})?$/.test(str)) {
           return '£' + str;
         }
@@ -1652,15 +1633,9 @@
         });
       }
 
-      // ---- CARD HTML (now includes price in footer) ----
+      // ---- CARD HTML (price removed from catalogue cards) ----
       function cardHTML(rawItem) {
         var item = normaliseItem(rawItem);
-        var priceMarkup = '';
-        if (hasPrice(item)) {
-          priceMarkup = '<span class="card-price">' + escapeHTML(formatPrice(item.price)) + '</span>';
-        } else {
-          priceMarkup = '<span class="card-price no-price">Price N/A</span>';
-        }
         return '<article class="merch-card">' +
           '<a class="card-image" href="#item/' + item.id + '" aria-label="View ' + escapeHTML(item.name) + '">' +
             imageMarkup(item.image, item.name, item.category) +
@@ -1671,7 +1646,6 @@
             '<div class="card-description">' + escapeHTML(item.description || 'No description has been added yet.') + '</div>' +
             '<div class="card-footer">' +
               '<span class="card-category">' + escapeHTML(item.category) + (item.subcategory ? ' — ' + escapeHTML(item.subcategory) : '') + '</span>' +
-              priceMarkup +
             '</div>' +
           '</a>' +
         '</article>';
@@ -1886,14 +1860,15 @@
 
         $('backToCatalogue').addEventListener('click', function() { showPage('catalogue'); });
 
+        // Price now placed between Rarity and Available for purchase, and always white
         var labels = [
           { key: 'Associated game', value: item.game, cls: '' },
           { key: 'Year of release', value: item.year, cls: '' },
           { key: 'Category', value: item.category, cls: '' },
           { key: 'Subcategory', value: item.subcategory || '—', cls: '' },
           { key: 'Rarity', value: item.rarity, cls: '' },
-          { key: 'Available for purchase', value: item.availability || 'Not specified', cls: 'availability-text ' + getAvailabilityClass(item.availability) },
-          { key: 'Price', value: hasPrice(item) ? formatPrice(item.price) : 'Not Applicable', cls: 'price-value' }
+          { key: 'Price', value: hasPrice(item) ? formatPrice(item.price) : 'Not Applicable', cls: 'price-value' },
+          { key: 'Available for purchase', value: item.availability || 'Not specified', cls: 'availability-text ' + getAvailabilityClass(item.availability) }
         ];
         var sidebarHTML = '';
         for (var k = 0; k < labels.length; k++) {
