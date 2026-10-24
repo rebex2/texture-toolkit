@@ -10,7 +10,8 @@ const ITEMS = [
     availability: "Available for purchase - Yes",
     image: "images/GTAV/Chop/Chop_14.jpg",
     extraImages: ["images/GTAV/Chop/Chop_1.jpg","images/GTAV/Chop/Chop_2.jpg","images/GTAV/Chop/Chop_3.jpg","images/GTAV/Chop/Chop_4.jpg","images/GTAV/Chop/Chop_5.jpg","images/GTAV/Chop/Chop_6.jpg","images/GTAV/Chop/Chop_7.jpg","images/GTAV/Chop/Chop_8.jpg","images/GTAV/Chop/Chop_9.jpg","images/GTAV/Chop/Chop_10.jpg","images/GTAV/Chop/Chop_11.jpg","images/GTAV/Chop/Chop_12.jpg","images/GTAV/Chop/Chop_13.jpg"],
-    link: ""
+    link: "",
+    price: "20"
   },
   {
     name: "Pißwasser Beer Bottle",
@@ -62,6 +63,19 @@ const ITEMS = [
     availability: "Available for purchase - Yes",
     image: "images/MAX3/MP_statue1.jpg",
     extraImages: [],
+    link: ""
+  },
+  {
+    name: "Grand Theft Auto VI: The Goodtime State – Vice City™ Collection",
+    game: "Grand Theft Auto VI",
+    category: "Merchandise Collection",
+    subcategory: "Apparel & accessories",
+    description: "The Goodtime State – Vice City™ merchandise collection associated with Grand Theft Auto VI. Includes themed apparel and accessories.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTAVI/collecters/collecters_1.jpg",
+    extraImages: ["images/GTAVI/collecters/collecters_2.jpg","images/GTAVI/collecters/collecters_3.jpg","images/GTAVI/collecters/collecters_4.jpg","images/GTAVI/collecters/collecters_5.jpg","images/GTAVI/collecters/collecters_6.jpg","images/GTAVI/collecters/collecters_7.jpg","images/GTAVI/collecters/collecters_8.jpg","images/GTAVI/collecters/collecters_9.jpg","images/GTAVI/collecters/collecters_10.jpg","images/GTAVI/collecters/collecters_11.jpg","images/GTAVI/collecters/collecters_12.jpg","images/GTAVI/collecters/collecters_13.jpg"],
     link: ""
   },
   {
@@ -439,19 +453,6 @@ const ITEMS = [
     availability: "Available for purchase - Yes",
     image: "images/GTA6/Music/GTAVI_The_Album_Standard_CD.jpg",
     extraImages: [],
-    link: ""
-  },
-  {
-    name: "Grand Theft Auto VI: The Goodtime State – Vice City™ Collection",
-    game: "Grand Theft Auto VI",
-    category: "Merchandise Collection",
-    subcategory: "Apparel & accessories",
-    description: "The Goodtime State – Vice City™ merchandise collection associated with Grand Theft Auto VI. Includes themed apparel and accessories.",
-    year: "2026",
-    rarity: "Common",
-    availability: "Available for purchase - Yes",
-    image: "images/GTAVI/collecters/collecters_1.jpg",
-    extraImages: ["images/GTAVI/collecters/collecters_2.jpg","images/GTAVI/collecters/collecters_3.jpg","images/GTAVI/collecters/collecters_4.jpg","images/GTAVI/collecters/collecters_5.jpg","images/GTAVI/collecters/collecters_6.jpg","images/GTAVI/collecters/collecters_7.jpg","images/GTAVI/collecters/collecters_8.jpg","images/GTAVI/collecters/collecters_9.jpg","images/GTAVI/collecters/collecters_10.jpg","images/GTAVI/collecters/collecters_11.jpg","images/GTAVI/collecters/collecters_12.jpg","images/GTAVI/collecters/collecters_13.jpg"],
     link: ""
   }
 ];
