@@ -87,9 +87,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Clothing/GTAVI_Macca_Gator_Tee_White.jpg",
-    extraImages: [],
-    link: ""
+    image: "images/GTAVI/gator_white_T/gator_white_T_1.jpg",
+    extraImages: ["images/GTAVI/gator_white_T/gator_white_T_2.jpg","images/GTAVI/gator_white_T/gator_white_T_3.jpg","images/GTAVI/gator_white_T/gator_white_T_4.jpg"],
+    link: "",
+    price: ""
   },
   {
     name: "Blue Rockstar Games Logo Tee",
