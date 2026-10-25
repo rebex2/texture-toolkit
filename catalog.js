@@ -101,9 +101,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Clothing/Rockstar_Logo_Tee_Blue.jpg",
-    extraImages: [],
-    link: ""
+    image: "images/Rockstar/BLUE_T/BLUE_T_1.jpg",
+    extraImages: ["images/Rockstar/BLUE_T/BLUE_T_2.jpg","images/Rockstar/BLUE_T/BLUE_T_3.jpg"],
+    link: "",
+    price: ""
   },
   {
     name: "Pink Rockstar Games Logo Tee",
@@ -114,9 +115,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Clothing/Rockstar_Logo_Tee_Pink.jpg",
-    extraImages: [],
-    link: ""
+    image: "images/Rockstar/PINK_T/PINK_T_1.jpg",
+    extraImages: ["images/Rockstar/PINK_T/PINK_T_2.jpg","images/Rockstar/PINK_T/PINK_T_3.jpg","images/Rockstar/PINK_T/PINK_T_4.jpg"],
+    link: "",
+    price: ""
   },
   {
     name: "Black Rockstar Games Logo Tee",
@@ -127,9 +129,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Clothing/Rockstar_Logo_Tee_Black.jpg",
-    extraImages: [],
-    link: ""
+    image: "images/Rockstar/BLACK_T/BLACK_T_1.jpg",
+    extraImages: ["images/Rockstar/BLACK_T/BLACK_T_2.jpg","images/Rockstar/BLACK_T/BLACK_T_3.jpg"],
+    link: "",
+    price: ""
   },
   {
     name: "Pink Grand Theft Auto VI Goodtime State Tee",
@@ -374,9 +377,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Accessories/GTAVI_Vice_City_Zippo_Lighter.jpg",
-    extraImages: [],
-    link: ""
+    image: "images/GTAVI/VICE_ZIPPO/VICE_ZIPPO_1.jpg",
+    extraImages: ["images/GTAVI/VICE_ZIPPO/VICE_ZIPPO_2.jpg","images/GTAVI/VICE_ZIPPO/VICE_ZIPPO_3.jpg"],
+    link: "",
+    price: ""
   },
   {
     name: "Grand Theft Auto VI and Rockstar Games Holographic Sticker Collection",
