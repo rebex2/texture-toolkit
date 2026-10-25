@@ -143,7 +143,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Clothing/GTAVI_Goodtime_State_Tee_Pink.jpg",
+    image: "images/GTAVI/Clothing/GTAVI_Goodtime_State_Tee_Pink.jpg",
     extraImages: [],
     link: ""
   },
@@ -156,7 +156,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Clothing/GTAVI_Goodtime_State_Tee_Black.jpg",
+    image: "images/GTAVI/Clothing/GTAVI_Goodtime_State_Tee_Black.jpg",
     extraImages: [],
     link: ""
   },
@@ -169,7 +169,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Clothing/GTAVI_Goodtime_State_Tee_Blue.jpg",
+    image: "images/GTAVI/Clothing/GTAVI_Goodtime_State_Tee_Blue.jpg",
     extraImages: [],
     link: ""
   },
@@ -182,7 +182,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Clothing/GTAVI_Logo_Tee_Blue.jpg",
+    image: "images/GTAVI/Clothing/GTAVI_Logo_Tee_Blue.jpg",
     extraImages: [],
     link: ""
   },
@@ -195,7 +195,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Clothing/GTAVI_Cropped_Baby_Logo_Tee_Blue.jpg",
+    image: "images/GTAVI/Clothing/GTAVI_Cropped_Baby_Logo_Tee_Blue.jpg",
     extraImages: [],
     link: ""
   },
@@ -208,7 +208,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Clothing/GTAVI_Logo_Tee_Pink.jpg",
+    image: "images/GTAVI/Clothing/GTAVI_Logo_Tee_Pink.jpg",
     extraImages: [],
     link: ""
   },
@@ -221,7 +221,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Clothing/GTAVI_Cropped_Baby_Logo_Tee_Pink.jpg",
+    image: "images/GTAVI/Clothing/GTAVI_Cropped_Baby_Logo_Tee_Pink.jpg",
     extraImages: [],
     link: ""
   },
@@ -234,7 +234,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Clothing/GTAVI_Logo_Tee_Black.jpg",
+    image: "images/GTAVI/Clothing/GTAVI_Logo_Tee_Black.jpg",
     extraImages: [],
     link: ""
   },
@@ -247,7 +247,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Clothing/GTAVI_Cropped_Baby_Logo_Tee_Black.jpg",
+    image: "images/GTAVI/Clothing/GTAVI_Cropped_Baby_Logo_Tee_Black.jpg",
     extraImages: [],
     link: ""
   },
@@ -260,7 +260,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Caps/Rockstar_Baseball_Cap_Blue_Pink.jpg",
+    image: "images/GTAVI/Caps/Rockstar_Baseball_Cap_Blue_Pink.jpg",
     extraImages: [],
     link: ""
   },
@@ -273,7 +273,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Caps/Rockstar_Baseball_Cap_Pink_Blue.jpg",
+    image: "images/GTAVI/Caps/Rockstar_Baseball_Cap_Pink_Blue.jpg",
     extraImages: [],
     link: ""
   },
@@ -286,7 +286,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Caps/Rockstar_Baseball_Cap_Black_Pink.jpg",
+    image: "images/GTAVI/Caps/Rockstar_Baseball_Cap_Black_Pink.jpg",
     extraImages: [],
     link: ""
   },
@@ -299,7 +299,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Caps/GTAVI_Baseball_Cap_Blue_Pink.jpg",
+    image: "images/GTAVI/Caps/GTAVI_Baseball_Cap_Blue_Pink.jpg",
     extraImages: [],
     link: ""
   },
@@ -312,7 +312,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Caps/GTAVI_Baseball_Cap_Pink_Blue.jpg",
+    image: "images/GTAVI/Caps/GTAVI_Baseball_Cap_Pink_Blue.jpg",
     extraImages: [],
     link: ""
   },
@@ -325,7 +325,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Caps/GTAVI_Baseball_Cap_Black_Pink.jpg",
+    image: "images/GTAVI/Caps/GTAVI_Baseball_Cap_Black_Pink.jpg",
     extraImages: [],
     link: ""
   },
@@ -338,7 +338,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Bags/GTAVI_Canvas_Tote_Blue_Pink.jpg",
+    image: "images/GTAVI/Bags/GTAVI_Canvas_Tote_Blue_Pink.jpg",
     extraImages: [],
     link: ""
   },
@@ -351,7 +351,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Bags/GTAVI_Canvas_Tote_Pink_Blue.jpg",
+    image: "images/GTAVI/Bags/GTAVI_Canvas_Tote_Pink_Blue.jpg",
     extraImages: [],
     link: ""
   },
@@ -364,7 +364,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Accessories/GTAVI_Vice_City_Money_Clip.jpg",
+    image: "images/GTAVI/Accessories/GTAVI_Vice_City_Money_Clip.jpg",
     extraImages: [],
     link: ""
   },
@@ -391,7 +391,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Stickers/GTAVI_Rockstar_Holographic_Sticker_Collection.jpg",
+    image: "images/GTAVI/Stickers/GTAVI_Rockstar_Holographic_Sticker_Collection.jpg",
     extraImages: [],
     link: ""
   },
@@ -404,7 +404,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Stickers/GTAVI_Rockstar_Sticker_Collection.jpg",
+    image: "images/GTAVI/Stickers/GTAVI_Rockstar_Sticker_Collection.jpg",
     extraImages: [],
     link: ""
   },
@@ -417,9 +417,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Uncommon",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Music/GTAVI_The_Album_Exclusive_Vinyl.jpg",
+    image: "images/GTAVI/music/EV/EV_1.jpg",
     extraImages: [],
-    link: ""
+    link: "",
+    price: ""
   },
   {
     name: "Grand Theft Auto VI: The Album – Exclusive CD",
@@ -430,9 +431,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Uncommon",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Music/GTAVI_The_Album_Exclusive_CD.jpg",
+    image: "images/GTAVI/music/ECD/ECD_1.jpg",
     extraImages: [],
-    link: ""
+    link: "",
+    price: ""
   },
   {
     name: "Grand Theft Auto VI: The Album - Standard Vinyl",
@@ -443,9 +445,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Music/GTAVI_The_Album_Standard_Vinyl.jpg",
+    image: "images/GTAVI/music/SV/SV_1.jpg",
     extraImages: [],
-    link: ""
+    link: "",
+    price: ""
   },
   {
     name: "Grand Theft Auto VI: The Album - Standard CD",
@@ -456,8 +459,9 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTA6/Music/GTAVI_The_Album_Standard_CD.jpg",
+    image: "images/GTAVI/music/SCD/SCD_1.jpg",
     extraImages: [],
-    link: ""
+    link: "",
+    price: ""
   }
 ];
