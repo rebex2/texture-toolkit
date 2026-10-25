@@ -115,8 +115,8 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/Rockstar/PINK_T/PINK_T_1.jpg",
-    extraImages: ["images/Rockstar/PINK_T/PINK_T_2.jpg","images/Rockstar/PINK_T/PINK_T_3.jpg","images/Rockstar/PINK_T/PINK_T_4.jpg"],
+    image: "images/Rockstar/PINK_T/PINK_T_3.jpg",
+    extraImages: ["images/Rockstar/PINK_T/PINK_T_1.jpg","images/Rockstar/PINK_T/PINK_T_2.jpg"],
     link: "",
     price: ""
   },
