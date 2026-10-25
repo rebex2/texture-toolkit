@@ -87,8 +87,8 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/gator_white_T/gator_white_T_1.jpg",
-    extraImages: ["images/GTAVI/gator_white_T/gator_white_T_2.jpg","images/GTAVI/gator_white_T/gator_white_T_3.jpg","images/GTAVI/gator_white_T/gator_white_T_4.jpg"],
+    image: "images/GTAVI/gator_white_T/gator_white_T_2.jpg",
+    extraImages: ["images/GTAVI/gator_white_T/gator_white_T_1.jpg","images/GTAVI/gator_white_T/gator_white_T_3.jpg","images/GTAVI/gator_white_T/gator_white_T_4.jpg"],
     link: "",
     price: ""
   },
@@ -101,8 +101,8 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/Rockstar/BLUE_T/BLUE_T_1.jpg",
-    extraImages: ["images/Rockstar/BLUE_T/BLUE_T_2.jpg","images/Rockstar/BLUE_T/BLUE_T_3.jpg"],
+    image: "images/Rockstar/BLUE_T/BLUE_T_3.jpg",
+    extraImages: ["images/Rockstar/BLUE_T/BLUE_T_1.jpg","images/Rockstar/BLUE_T/BLUE_T_2.jpg"],
     link: "",
     price: ""
   },
@@ -129,8 +129,8 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/Rockstar/BLACK_T/BLACK_T_1.jpg",
-    extraImages: ["images/Rockstar/BLACK_T/BLACK_T_2.jpg","images/Rockstar/BLACK_T/BLACK_T_3.jpg"],
+    image: "images/Rockstar/BLACK_T/BLACK_T_2.jpg",
+    extraImages: ["images/Rockstar/BLACK_T/BLACK_T_1.jpg","images/Rockstar/BLACK_T/BLACK_T_3.jpg"],
     link: "",
     price: ""
   },
