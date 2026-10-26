@@ -338,9 +338,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Bags/GTAVI_Canvas_Tote_Blue_Pink.jpg",
-    extraImages: [],
-    link: ""
+    image: "images/GTAVI/blue_tote/blue_tote_1.jpg",
+    extraImages: ["images/GTAVI/blue_tote/blue_tote_2.jpg"],
+    link: "",
+    price: ""
   },
   {
     name: "Pink and Blue Grand Theft Auto VI Canvas Tote",
@@ -351,9 +352,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Bags/GTAVI_Canvas_Tote_Pink_Blue.jpg",
-    extraImages: [],
-    link: ""
+    image: "images/GTAVI/Pink_tote/Pink_tote_1.jpg",
+    extraImages: ["images/GTAVI/Pink_tote/Pink_tote_2.jpg"],
+    link: "",
+    price: ""
   },
   {
     name: "Grand Theft Auto VI – Vice City Money Clip",
@@ -364,9 +366,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Accessories/GTAVI_Vice_City_Money_Clip.jpg",
-    extraImages: [],
-    link: ""
+    image: "images/GTAVI/vice_clip/vice_clip_1.jpg",
+    extraImages: ["images/GTAVI/vice_clip/vice_clip_2.jpg"],
+    link: "",
+    price: ""
   },
   {
     name: "Grand Theft Auto VI – Vice City Zippo® Lighter",
@@ -391,9 +394,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Stickers/GTAVI_Rockstar_Holographic_Sticker_Collection.jpg",
+    image: "images/GTAVI/Stickker/holo/holo_1.jpg",
     extraImages: [],
-    link: ""
+    link: "",
+    price: ""
   },
   {
     name: "Grand Theft Auto VI and Rockstar Games Sticker Collection",
@@ -404,9 +408,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Stickers/GTAVI_Rockstar_Sticker_Collection.jpg",
+    image: "images/GTAVI/Sticker/Sticker_1.jpg",
     extraImages: [],
-    link: ""
+    link: "",
+    price: ""
   },
   {
     name: "Grand Theft Auto VI: The Album – Exclusive Vinyl",
