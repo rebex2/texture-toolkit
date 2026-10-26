@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="rph-version" content="2026.10.24" />
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 
   <title>Rockstar Games Merchandise Catalogue | R★ Games Promo Hub</title>
 
@@ -27,16 +26,12 @@
   <style>
     /* ----- PALETTE ----- */
     :root {
-      --bg-deep: #0a0a1a;
-      --bg-purple: #1a0b2e;
-      --bg-mid: #2a1040;
       --panel: #1a1026;
       --panel-light: #221533;
       --border: #2e1f3d;
       --border-strong: #3d2952;
       --accent: #ff4da6;
       --link: #4de0ff;
-      --gold: #f5c542;
       --white: #f0eaff;
       --muted: #9a86b0;
       --muted-2: #6b5a80;
@@ -95,14 +90,6 @@
       text-transform: uppercase;
       color: var(--muted);
     }
-    .label {
-      font-family: var(--font-body);
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
 
     /* ----- HEADER ----- */
     header {
@@ -124,7 +111,6 @@
       flex-shrink: 0;
       align-items: baseline;
       gap: 6px;
-      cursor: pointer;
     }
     .logo-word {
       color: var(--white);
@@ -186,8 +172,7 @@
       transform-origin: left;
       transition: transform 0.2s;
     }
-    .nav-link:hover { color: var(--white); }
-    .nav-link.active { color: var(--white); }
+    .nav-link:hover, .nav-link.active { color: var(--white); }
     .nav-link.active::after { transform: scaleX(1); }
     .header-right {
       display: flex;
@@ -262,9 +247,7 @@
       from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .page > * {
-      animation: section-in 0.32s var(--ease-out) both;
-    }
+    .page > * { animation: section-in 0.32s var(--ease-out) both; }
     .page > *:nth-child(2) { animation-delay: 0.04s; }
     .page > *:nth-child(3) { animation-delay: 0.08s; }
     .page > *:nth-child(4) { animation-delay: 0.11s; }
@@ -272,15 +255,8 @@
       from { opacity: 0; transform: translateY(4px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @media (prefers-reduced-motion: reduce) {
-      .page.active,
-      .page > * { animation: none; }
-      html { scroll-behavior: auto; }
-    }
 
-    .grid-enter .merch-card {
-      animation: card-in 0.28s var(--ease-out) both;
-    }
+    .grid-enter .merch-card { animation: card-in 0.28s var(--ease-out) both; }
     .grid-enter .merch-card:nth-child(1) { animation-delay: 0.00s; }
     .grid-enter .merch-card:nth-child(2) { animation-delay: 0.02s; }
     .grid-enter .merch-card:nth-child(3) { animation-delay: 0.04s; }
@@ -293,12 +269,9 @@
       from { opacity: 0; transform: translateY(4px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @media (prefers-reduced-motion: reduce) {
-      .grid-enter .merch-card { animation: none; }
-    }
 
     /* ----- BUTTONS ----- */
-    .btn-primary, .btn-secondary, .btn-text, .btn-see-all, .btn-back, .btn-copy-link {
+    .btn-primary, .btn-text, .btn-see-all, .btn-back {
       cursor: pointer;
       font-family: var(--font-body);
       font-weight: 600;
@@ -332,19 +305,8 @@
       box-shadow: 0 6px 20px rgba(255, 77, 166, 0.25);
     }
     .btn-primary:hover::after { background-position: -100% 0; }
-    .btn-secondary {
-      padding: 13px 30px;
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius-sm);
-      background: transparent;
-      color: var(--white);
-      font-size: 0.72rem;
-    }
-    .btn-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
     .btn-text {
+      position: relative;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
@@ -353,7 +315,6 @@
       background: transparent;
       color: var(--muted);
       font-size: 0.72rem;
-      position: relative;
     }
     .btn-text::after {
       content: "";
@@ -443,9 +404,6 @@
       0%, 100% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
     }
-    @media (prefers-reduced-motion: reduce) {
-      .home-title em { animation: none; }
-    }
     .home-hero-description {
       max-width: 540px;
       margin: 1.25rem auto 2.25rem;
@@ -507,6 +465,8 @@
       letter-spacing: 0.04em;
       color: var(--white);
     }
+    .section-header h2 span,
+    .page-hero h1 span { color: var(--accent); }
     .btn-see-all {
       padding: 6px 14px;
       border: 1px solid var(--border-strong);
@@ -551,6 +511,8 @@
       padding: 0.8rem 1.75rem;
       border-bottom: 1px solid var(--border);
     }
+    .filter-bar.subcategory-bar { display: none; }
+    .filter-bar.subcategory-bar.visible { display: flex; }
     .filter-label {
       flex-shrink: 0;
       margin-right: 0.4rem;
@@ -611,7 +573,6 @@
     }
     .catalogue-grid {
       padding: 1.75rem;
-      gap: 1.25rem;
       grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     }
     .home-grid {
@@ -739,9 +700,7 @@
     .empty-state p { font-size: 0.85rem; }
 
     /* ----- ABOUT ----- */
-    .about-hero {
-      border-bottom: 1px solid var(--border);
-    }
+    .about-hero { border-bottom: 1px solid var(--border); }
     .about-hero-inner {
       max-width: 760px;
       margin: 0 auto;
@@ -784,6 +743,10 @@
       line-height: 1.8;
       max-width: 68ch;
       margin-bottom: 1rem;
+    }
+    .about-section p.about-disclaimer {
+      color: var(--muted-2);
+      font-size: 0.82rem;
     }
 
     .team-list {
@@ -1074,7 +1037,6 @@
       top: 84px;
       display: flex;
       flex-direction: column;
-      gap: 0;
     }
     .item-label-block {
       padding: 0.9rem 1.15rem;
@@ -1102,26 +1064,11 @@
       font-weight: 500;
       line-height: 1.45;
     }
-    .item-label-value.gold { color: var(--gold); }
-    .item-label-value.price-value {
-      color: var(--white);
-      font-weight: 500;
-      font-size: 0.88rem;
-    }
-    .item-label-value.availability-text {
-      font-size: 0.88rem;
-      padding: 0;
-      border: none;
-      background: none;
-      display: inline;
-      width: auto;
-    }
-    .item-label-value.availability-available,
-    .item-label-value.availability-unavailable,
-    .item-label-value.availability-unknown {
-      background: none;
-      border-left: none;
-      color: var(--white);
+    .item-label-value.availability-text { display: inline; }
+    .item-source-link {
+      color: var(--link);
+      font-size: 0.8rem;
+      word-break: break-all;
     }
     .view-link {
       display: block;
@@ -1136,7 +1083,6 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       text-align: center;
-      text-decoration: none;
       transition: background 0.15s, box-shadow 0.2s;
     }
     .view-link:hover {
@@ -1205,7 +1151,7 @@
       transition: color 0.15s;
     }
     .footer-links button:hover { color: var(--white); }
-    footer span { color: var(--accent); }
+    .footer-brand { color: var(--accent); }
 
     /* ----- LIGHTBOX ----- */
     .lightbox {
@@ -1245,9 +1191,6 @@
       font-family: var(--font-body);
     }
     .lightbox-close:hover { color: var(--accent); }
-    @media (prefers-reduced-motion: reduce) {
-      .lightbox.open { animation: none; }
-    }
 
     /* ----- RESPONSIVE ----- */
     @media (max-width: 820px) {
@@ -1284,12 +1227,13 @@
       .form-submit { align-self: stretch; }
     }
 
-    /* Subcategory filter bar */
-    .filter-bar.subcategory-bar {
-      display: none;
-    }
-    .filter-bar.subcategory-bar.visible {
-      display: flex;
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .page.active,
+      .page > *,
+      .grid-enter .merch-card,
+      .home-title em,
+      .lightbox.open { animation: none; }
     }
   </style>
 </head>
@@ -1297,11 +1241,11 @@
 
   <!-- HEADER -->
   <header>
-    <a class="logo" href="#home">
-      <div class="logo-word">R<span class="logo-star">★</span> Games <span class="logo-star">Promo</span> Hub</div>
+    <div class="logo">
+      <a class="logo-word" href="#home" data-page="home">R<span class="logo-star">★</span> Games <span class="logo-star">Promo</span> Hub</a>
       <div class="logo-divider"></div>
-      <a class="logo-subtitle" href="#catalogue" id="logoSubtitle" style="cursor:pointer;">Catalogue</a>
-    </a>
+      <a class="logo-subtitle" href="#catalogue" data-page="catalogue">Catalogue</a>
+    </div>
     <nav class="desktop-nav" aria-label="Main navigation">
       <button class="nav-link active" data-page="home">Home</button>
       <button class="nav-link" data-page="catalogue">Catalogue</button>
@@ -1355,7 +1299,7 @@
 
       <section class="home-section">
         <div class="section-header">
-          <h2>Latest additions</h2>
+          <h2>Latest <span>additions</span></h2>
           <button class="btn-see-all" data-page="catalogue">See all →</button>
         </div>
         <div class="home-grid" id="homeGrid"></div>
@@ -1365,7 +1309,7 @@
     <!-- CATALOGUE -->
     <section class="page" id="page-catalogue">
       <section class="page-hero">
-        <h1>Merch Catalogue</h1>
+        <h1>Merch <span>Catalogue</span></h1>
         <p>Every piece of promo gear — from GTA to Red Dead &amp; beyond</p>
       </section>
       <div class="filter-bar" id="gameFilterBar" aria-label="Filter by game">
@@ -1380,7 +1324,7 @@
         <span class="filter-label">Subcategory</span>
       </div>
       <div class="search-wrap">
-        <input class="search-input" id="searchInput" type="search" placeholder="Search by name, game, or keyword…" />
+        <input class="search-input" id="searchInput" type="search" placeholder="Search by name, game, or keyword…" aria-label="Search the catalogue" />
       </div>
       <div class="catalogue-grid" id="catalogue"></div>
     </section>
@@ -1391,7 +1335,7 @@
         <div class="about-hero-inner">
           <div class="about-hero-text">
             <p class="eyebrow">Fan-made &amp; community-driven</p>
-            <h1>About <span>this</span> site</h1>
+            <h1>About this <span>site</span></h1>
             <p>RockstarPromoHub started with a simple frustration: frustration searching the internet for accurate and detailed information about Rockstar Games promotional merchandise. So as two long-time Rockstar fans we decided to build the resource we wanted for this purpose pulling detailed information and photos about all Rockstar Games promotional items into one place.</p>
             <p>From snapbacks handed out at trade shows to Red Dead plushies, launch-event exclusives, and GTA hoodies, we're always looking for more items to add. There's plenty of interesting material out there, and we're certain we've got a lot left to find.</p>
           </div>
@@ -1399,7 +1343,7 @@
       </section>
 
       <section class="about-section">
-        <h2>Who runs <span>this</span> website</h2>
+        <h2>Who runs this <span>website</span></h2>
         <div class="team-list">
           <div class="team-member">
             <div class="team-avatar">W</div>
@@ -1442,7 +1386,7 @@
             <h2>How to <span>help us</span></h2>
             <p>Found a piece of merch that's missing from the catalogue, have more information on an existing entry or spotted an error — we want to hear from you!</p>
             <p>Head to the Contact page and let us know. Good-quality photos, source links, release dates, and any other useful information all help build a more complete catalogue.</p>
-            <p style="color: var(--muted-2); font-size: 0.82rem;">RockstarPromoHub is an independent fan project and isn't affiliated with or endorsed by Rockstar Games or Take-Two Interactive. All trademarks belong to their respective owners. We're simply fans who enjoy collecting, documenting, and sharing the merch connected to these games.</p>
+            <p class="about-disclaimer">RockstarPromoHub is an independent fan project and isn't affiliated with or endorsed by Rockstar Games or Take-Two Interactive. All trademarks belong to their respective owners. We're simply fans who enjoy collecting, documenting, and sharing the merch connected to these games.</p>
           </div>
         </div>
       </section>
@@ -1505,7 +1449,7 @@
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
     <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
-    <img id="lightboxImg" src="" alt="" />
+    <img id="lightboxImg" alt="" />
   </div>
 
   <footer>
@@ -1515,80 +1459,33 @@
       <button data-page="about">About</button>
       <button data-page="contact">Contact</button>
     </div>
-    <p>© <span id="footerYear"></span> <span>RockstarPromoHub.com</span> — Fan-made. Not affiliated with Rockstar Games. All trademarks belong to their respective owners.</p>
+    <p>© <span id="footerYear"></span> <span class="footer-brand">RockstarPromoHub.com</span> — Fan-made. Not affiliated with Rockstar Games. All trademarks belong to their respective owners.</p>
   </footer>
 
-  <script src="catalog.js?v=2026.10.24"></script>
+  <!-- Item data (defines the global ITEMS array). Deferred so it never blocks rendering. -->
+  <script src="catalog.js?v=2026.10.24" defer></script>
 
   <script>
-    (function() {
-      var $ = function(id) { return document.getElementById(id); };
+    (() => {
+      'use strict';
 
-      var state = {
-        currentPage: 'home',
-        typeFilter: 'all',
-        gameFilter: 'all',
-        subcategoryFilter: 'all',
-        searchTerm: '',
-        currentItemId: null,
-        items: [],
-        uniqueGames: []
+      const $ = (id) => document.getElementById(id);
+
+      /* ----- STATE ----- */
+      const state = {
+        page: 'home',
+        game: 'all',
+        type: 'all',
+        sub: 'all',
+        itemId: null,
+        items: []
       };
 
-      function escapeHTML(str) {
-        return String(str ?? '').replace(/[&<>"']/g, function(c) {
-          var map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
-          return map[c] || c;
-        });
-      }
-
-      function slugify(text) {
-        return String(text).toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'item';
-      }
-
-      function safeExternalUrl(value) {
-        try { var url = new URL(value); return ['http:', 'https:'].includes(url.protocol) ? url.href : ''; } catch(e) { return ''; }
-      }
-
-      // ---- PRICE HELPERS ----
-      function formatPrice(rawPrice) {
-        if (rawPrice === undefined || rawPrice === null) return '';
-        var str = String(rawPrice).trim();
-        if (!str) return '';
-        if (/^\d+(\.\d{1,2})?$/.test(str)) {
-          return '£' + str;
-        }
-        return str;
-      }
-
-      function hasPrice(item) {
-        if (!item) return false;
-        var p = item.price;
-        if (p === undefined || p === null) return false;
-        var s = String(p).trim();
-        return s !== '' && s.toLowerCase() !== 'n/a' && s.toLowerCase() !== 'na' && s.toLowerCase() !== 'not applicable';
-      }
-
-      function normaliseItem(item, fallbackId) {
-        item = item || {};
-        return {
-          id: String(item.id || fallbackId || 'item'),
-          name: item.name || 'Untitled catalogue item',
-          game: item.game || 'Rockstar Games',
-          category: item.category || 'Other',
-          subcategory: item.subcategory || '',
-          description: item.description || '',
-          year: item.year || 'Not specified',
-          rarity: item.rarity || 'Not specified',
-          availability: item.availability || 'Not specified',
-          price: (item.price !== undefined && item.price !== null) ? String(item.price) : '',
-          image: item.image || '',
-          extraImages: Array.isArray(item.extraImages) ? item.extraImages.filter(Boolean) : [],
-          link: item.link || ''
-        };
-      }
-
-      var CATEGORY_GLYPH = {
+      /* ----- CONSTANTS ----- */
+      const PAGES = ['home', 'catalogue', 'about', 'contact'];
+      const HTML_ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+      const NO_PRICE = ['', 'n/a', 'na', 'not applicable'];
+      const CATEGORY_GLYPH = {
         'Hat': 'H', 'Hats': 'H',
         'Plushie': 'P', 'Plushies': 'P',
         'T-Shirt': 'T', 'T-Shirts': 'T',
@@ -1603,428 +1500,352 @@
         'Other': '•'
       };
 
-      function placeholderImageMarkup(category, label, hidden) {
-        label = label || 'Image coming soon';
-        return '<div class="image-placeholder"' + (hidden ? ' hidden' : '') + '>' +
-          '<span class="placeholder-icon">' + (CATEGORY_GLYPH[category] || '★') + '</span>' +
-          '<span class="placeholder-label">' + label + '</span>' +
-        '</div>';
-      }
+      /* ----- HELPERS ----- */
+      const escapeHTML = (value) => String(value ?? '').replace(/[&<>"']/g, (c) => HTML_ESCAPES[c]);
 
-      function imageMarkup(source, altText, category, eager) {
-        if (!source) return placeholderImageMarkup(category);
-        return '<img src="' + escapeHTML(source) + '" alt="' + escapeHTML(altText) + '" loading="' + (eager ? 'eager' : 'lazy') + '" decoding="async" referrerpolicy="no-referrer" ' +
-          'onerror="this.style.display=\'none\'; this.nextElementSibling.hidden = false;" />' +
-          placeholderImageMarkup(category, 'Image coming soon', true);
-      }
+      const slugify = (text) =>
+        String(text).toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'item';
 
-      function getAvailabilityClass(availability) {
-        var lower = String(availability).toLowerCase();
-        if (lower.includes('yes') || lower.includes('available')) return 'availability-available';
-        if (lower.includes('no') || lower.includes('unavailable')) return 'availability-unavailable';
-        return 'availability-unknown';
-      }
+      const safeExternalUrl = (value) => {
+        try {
+          const url = new URL(value);
+          return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
+        } catch {
+          return '';
+        }
+      };
 
-      function getItems() {
-        if (typeof ITEMS === 'undefined' || !Array.isArray(ITEMS)) return [];
-        var usedIds = {};
-        return ITEMS.map(function(raw) {
-          var id = slugify(raw.name + '-' + raw.game);
-          usedIds[id] = (usedIds[id] || 0) + 1;
-          if (usedIds[id] > 1) id = id + '-' + usedIds[id];
+      const hasPrice = (item) => !NO_PRICE.includes(item.price.toLowerCase());
+      const formatPrice = (price) => (/^\d+(\.\d{1,2})?$/.test(price) ? `£${price}` : price);
+      const unique = (values) => [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b));
+      const pluralItems = (n) => `${n} item${n === 1 ? '' : 's'}`;
+
+      const normaliseItem = (item, fallbackId) => {
+        item = item || {};
+        const normalised = {
+          id: String(item.id || fallbackId || 'item'),
+          name: item.name || 'Untitled catalogue item',
+          game: item.game || 'Rockstar Games',
+          category: item.category || 'Other',
+          subcategory: item.subcategory || '',
+          description: item.description || '',
+          year: item.year || 'Not specified',
+          rarity: item.rarity || 'Not specified',
+          availability: item.availability || 'Not specified',
+          price: String(item.price ?? '').trim(),
+          image: item.image || '',
+          extraImages: Array.isArray(item.extraImages) ? item.extraImages.filter(Boolean) : [],
+          link: item.link || ''
+        };
+        normalised.searchText = [
+          normalised.name, normalised.game, normalised.category, normalised.subcategory, normalised.description
+        ].join(' ').toLowerCase();
+        return normalised;
+      };
+
+      // Built once at startup. IDs are generated exactly as before so existing shared links keep working.
+      const buildItems = () => {
+        if (typeof ITEMS === 'undefined' || !Array.isArray(ITEMS)) {
+          console.error('catalog.js did not define an ITEMS array.');
+          return [];
+        }
+        const used = {};
+        return ITEMS.map((raw) => {
+          let id = slugify(`${raw.name}-${raw.game}`);
+          used[id] = (used[id] || 0) + 1;
+          if (used[id] > 1) id += `-${used[id]}`;
           return normaliseItem(raw, id);
         });
-      }
+      };
 
-      // ---- CARD HTML (price removed from catalogue cards) ----
-      function cardHTML(rawItem) {
-        var item = normaliseItem(rawItem);
-        return '<article class="merch-card">' +
-          '<a class="card-image" href="#item/' + item.id + '" aria-label="View ' + escapeHTML(item.name) + '">' +
-            imageMarkup(item.image, item.name, item.category) +
-          '</a>' +
-          '<a class="card-body" href="#item/' + item.id + '">' +
-            '<div class="card-game">' + escapeHTML(item.game) + '</div>' +
-            '<div class="card-name">' + escapeHTML(item.name) + '</div>' +
-            '<div class="card-description">' + escapeHTML(item.description || 'No description has been added yet.') + '</div>' +
-            '<div class="card-footer">' +
-              '<span class="card-category">' + escapeHTML(item.category) + (item.subcategory ? ' — ' + escapeHTML(item.subcategory) : '') + '</span>' +
-            '</div>' +
+      /* ----- IMAGE MARKUP ----- */
+      const placeholderMarkup = (category, hidden) =>
+        `<div class="image-placeholder"${hidden ? ' hidden' : ''}>` +
+          `<span class="placeholder-icon">${CATEGORY_GLYPH[category] || '★'}</span>` +
+          '<span class="placeholder-label">Image coming soon</span>' +
+        '</div>';
+
+      const imageMarkup = (src, alt, category, eager = false) => {
+        if (!src) return placeholderMarkup(category, false);
+        return `<img src="${escapeHTML(src)}" alt="${escapeHTML(alt)}" loading="${eager ? 'eager' : 'lazy'}" decoding="async" referrerpolicy="no-referrer" />` +
+          placeholderMarkup(category, true);
+      };
+
+      // Broken images swap to the placeholder that follows them. 'error' doesn't bubble, so listen in the capture phase.
+      document.addEventListener('error', (e) => {
+        const img = e.target;
+        if (!(img instanceof HTMLImageElement)) return;
+        const placeholder = img.nextElementSibling;
+        if (!placeholder || !placeholder.classList.contains('image-placeholder')) return;
+        img.hidden = true;
+        placeholder.hidden = false;
+      }, true);
+
+      /* ----- CARDS & GRIDS ----- */
+      const cardHTML = (item) => {
+        const href = `#item/${item.id}`;
+        const category = escapeHTML(item.category) + (item.subcategory ? ` — ${escapeHTML(item.subcategory)}` : '');
+        return `<article class="merch-card">` +
+          `<a class="card-image" href="${href}" aria-label="View ${escapeHTML(item.name)}">${imageMarkup(item.image, item.name, item.category)}</a>` +
+          `<a class="card-body" href="${href}">` +
+            `<div class="card-game">${escapeHTML(item.game)}</div>` +
+            `<div class="card-name">${escapeHTML(item.name)}</div>` +
+            `<div class="card-description">${escapeHTML(item.description || 'No description has been added yet.')}</div>` +
+            `<div class="card-footer"><span class="card-category">${category}</span></div>` +
           '</a>' +
         '</article>';
-      }
+      };
 
-      function animateGridEnter(container) {
-        if (!container) return;
-        container.classList.remove('grid-enter');
-        void container.offsetWidth;
-        container.classList.add('grid-enter');
-      }
+      const renderGrid = (grid, items) => {
+        grid.innerHTML = items.map(cardHTML).join('');
+        grid.classList.remove('grid-enter');
+        void grid.offsetWidth; // restart the entrance animation
+        grid.classList.add('grid-enter');
+      };
 
-      function renderHome() {
-        var items = getItems();
-        if (!items.length) return;
-        var latest = items.slice().reverse().slice(0, 4);
-        $('itemCount').textContent = items.length + ' item' + (items.length === 1 ? '' : 's');
-        var grid = $('homeGrid');
-        grid.innerHTML = latest.map(cardHTML).join('');
-        animateGridEnter(grid);
-      }
+      const renderHome = () => {
+        if (state.items.length) renderGrid($('homeGrid'), state.items.slice(-4).reverse());
+      };
 
-      function renderCatalogue() {
-        var items = getItems();
-        if (!items.length) return;
-        var term = ($('searchInput')?.value || '').toLowerCase().trim();
-        populateGameFilters(items);
-        populateTypeFilters(items);
-        populateSubcategoryFilters(items);
-        $('itemCount').textContent = items.length + ' item' + (items.length === 1 ? '' : 's');
-        var filtered = items.filter(function(item) {
-          var matchType = state.typeFilter === 'all' || item.category === state.typeFilter;
-          var matchGame = state.gameFilter === 'all' || item.game === state.gameFilter;
-          var matchSub = state.subcategoryFilter === 'all' || item.subcategory === state.subcategoryFilter;
-          var searchText = [item.name, item.game, item.category, item.subcategory, item.description].join(' ').toLowerCase();
-          return matchType && matchGame && matchSub && (!term || searchText.indexOf(term) !== -1);
-        });
-        var grid = $('catalogue');
-        if (filtered.length === 0) {
+      const renderCatalogue = () => {
+        const term = $('searchInput').value.toLowerCase().trim();
+        const filtered = state.items.filter((item) =>
+          (state.type === 'all' || item.category === state.type) &&
+          (state.game === 'all' || item.game === state.game) &&
+          (state.sub === 'all' || item.subcategory === state.sub) &&
+          (!term || item.searchText.includes(term))
+        );
+        const grid = $('catalogue');
+        if (!filtered.length) {
           grid.classList.remove('grid-enter');
           grid.innerHTML = '<div class="empty-state"><h3>No items found</h3><p>Try a different filter or search term.</p></div>';
           return;
         }
-        grid.innerHTML = filtered.map(cardHTML).join('');
-        animateGridEnter(grid);
-      }
+        renderGrid(grid, filtered);
+      };
 
-      function populateGameFilters(items) {
-        var bar = $('gameFilterBar');
-        var games = [];
-        var seen = {};
-        items.forEach(function(i) {
-          if (i.game && !seen[i.game]) { seen[i.game] = true; games.push(i.game); }
+      /* ----- FILTERS ----- */
+      const makePill = (key, value, label = value, active = false) => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-pill' + (active ? ' active' : '');
+        btn.dataset[key] = value;
+        btn.textContent = label;
+        return btn;
+      };
+
+      const markActive = (bar, key, value) => {
+        bar.querySelectorAll('.filter-pill').forEach((b) => b.classList.toggle('active', b.dataset[key] === value));
+      };
+
+      const buildFilters = () => {
+        $('gameFilterBar').append(...unique(state.items.map((i) => i.game)).map((g) => makePill('game', g)));
+        $('typeFilterBar').append(...unique(state.items.map((i) => i.category)).map((t) => makePill('type', t)));
+      };
+
+      // Rebuilt whenever the selected type changes.
+      const updateSubcategories = () => {
+        const bar = $('subcategoryFilterBar');
+        const subs = state.type === 'all'
+          ? []
+          : unique(state.items.filter((i) => i.category === state.type).map((i) => i.subcategory));
+        state.sub = 'all';
+        bar.querySelectorAll('.filter-pill').forEach((b) => b.remove());
+        bar.classList.toggle('visible', subs.length > 0);
+        if (subs.length) bar.append(makePill('sub', 'all', 'All', true), ...subs.map((s) => makePill('sub', s)));
+      };
+
+      const bindFilter = (barId, key, apply) => {
+        const bar = $(barId);
+        bar.addEventListener('click', (e) => {
+          const btn = e.target.closest('.filter-pill');
+          if (!btn) return;
+          const value = btn.dataset[key] || 'all';
+          apply(value);
+          markActive(bar, key, value);
+          renderCatalogue();
         });
-        games.sort(function(a, b) { return a.localeCompare(b); });
-        if (games.indexOf(state.gameFilter) === -1) state.gameFilter = 'all';
-        bar.querySelectorAll('[data-generated-game-filter="true"]').forEach(function(b) { b.remove(); });
-        games.forEach(function(game) {
-          var btn = document.createElement('button');
-          btn.className = 'filter-pill' + (state.gameFilter === game ? ' active' : '');
-          btn.dataset.generatedGameFilter = 'true';
-          btn.dataset.game = game;
-          btn.textContent = game;
-          bar.appendChild(btn);
-        });
-        var firstPill = bar.querySelector('.filter-pill');
-        if (firstPill) firstPill.classList.toggle('active', state.gameFilter === 'all');
-      }
+      };
 
-      function populateTypeFilters(items) {
-        var bar = $('typeFilterBar');
-        if (!bar) return;
+      /* ----- NAVIGATION ----- */
+      const closeMobileNav = () => {
+        $('mobileNav').classList.remove('open');
+        $('hamburger').classList.remove('open');
+        $('hamburger').setAttribute('aria-expanded', 'false');
+      };
 
-        var types = [];
-        var seen = {};
-        items.forEach(function(i) {
-          if (i.category && !seen[i.category]) { seen[i.category] = true; types.push(i.category); }
-        });
-        types.sort(function(a, b) { return a.localeCompare(b); });
-
-        if (types.indexOf(state.typeFilter) === -1) state.typeFilter = 'all';
-
-        bar.querySelectorAll('[data-generated-type-filter="true"]').forEach(function(b) { b.remove(); });
-
-        types.forEach(function(type) {
-          var btn = document.createElement('button');
-          btn.className = 'filter-pill' + (state.typeFilter === type ? ' active' : '');
-          btn.dataset.generatedTypeFilter = 'true';
-          btn.dataset.type = type;
-          btn.textContent = type;
-          bar.appendChild(btn);
-        });
-
-        var firstPill = bar.querySelector('.filter-pill');
-        if (firstPill) firstPill.classList.toggle('active', state.typeFilter === 'all');
-      }
-
-      function populateSubcategoryFilters(items) {
-        var bar = $('subcategoryFilterBar');
-        if (!bar) return;
-
-        if (state.typeFilter === 'all') {
-          bar.classList.remove('visible');
-          state.subcategoryFilter = 'all';
-          return;
-        }
-
-        var subcats = [];
-        var seen = {};
-        items.forEach(function(i) {
-          if (i.category === state.typeFilter && i.subcategory && !seen[i.subcategory]) {
-            seen[i.subcategory] = true;
-            subcats.push(i.subcategory);
-          }
-        });
-        subcats.sort(function(a, b) { return a.localeCompare(b); });
-
-        if (subcats.indexOf(state.subcategoryFilter) === -1) {
-          state.subcategoryFilter = 'all';
-        }
-
-        if (subcats.length === 0) {
-          bar.classList.remove('visible');
-          state.subcategoryFilter = 'all';
-          return;
-        }
-
-        bar.classList.add('visible');
-
-        bar.querySelectorAll('[data-generated-sub-filter="true"]').forEach(function(b) { b.remove(); });
-        var label = bar.querySelector('.filter-label');
-        if (!label) {
-          label = document.createElement('span');
-          label.className = 'filter-label';
-          label.textContent = 'Subcategory';
-          bar.prepend(label);
-        }
-
-        var allBtn = document.createElement('button');
-        allBtn.className = 'filter-pill' + (state.subcategoryFilter === 'all' ? ' active' : '');
-        allBtn.dataset.generatedSubFilter = 'true';
-        allBtn.dataset.sub = 'all';
-        allBtn.textContent = 'All';
-        bar.appendChild(allBtn);
-
-        subcats.forEach(function(sub) {
-          var btn = document.createElement('button');
-          btn.className = 'filter-pill' + (state.subcategoryFilter === sub ? ' active' : '');
-          btn.dataset.generatedSubFilter = 'true';
-          btn.dataset.sub = sub;
-          btn.textContent = sub;
-          bar.appendChild(btn);
-        });
-      }
-
-      function showPage(pageName) {
-        var previous = state.currentPage;
-        state.currentPage = pageName;
-        document.querySelectorAll('.page').forEach(function(p) {
-          p.classList.toggle('active', p.id === 'page-' + pageName);
-        });
-        document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(function(l) {
+      const setActiveNav = (pageName) => {
+        document.querySelectorAll('.nav-link, .mobile-nav-link').forEach((l) => {
           l.classList.toggle('active', l.dataset.page === pageName);
         });
-        if (previous !== pageName) {
-          window.scrollTo({ top: 0, behavior: 'auto' });
-        }
+      };
+
+      const showPage = (pageName) => {
+        const previous = state.page;
+        state.page = pageName;
+        document.querySelectorAll('.page').forEach((p) => p.classList.toggle('active', p.id === `page-${pageName}`));
+        setActiveNav(pageName);
+        if (previous !== pageName) window.scrollTo({ top: 0, behavior: 'auto' });
         if (pageName === 'catalogue') renderCatalogue();
         if (pageName === 'home') renderHome();
-        if (pageName !== 'item') {
-          var newUrl = location.pathname + (pageName === 'home' ? '' : '#' + pageName);
-          history.replaceState(null, '', newUrl);
-        }
-      }
+        history.replaceState(null, '', location.pathname + location.search + (pageName === 'home' ? '' : `#${pageName}`));
+      };
 
-      function renderItemPage(itemId) {
-        var items = getItems();
-        var raw = null;
-        for (var i = 0; i < items.length; i++) {
-          if (items[i].id === itemId) { raw = items[i]; break; }
-        }
-        var item = normaliseItem(raw, itemId);
-        var allImages = [item.image];
-        for (var j = 0; j < item.extraImages.length; j++) {
-          if (item.extraImages[j]) allImages.push(item.extraImages[j]);
-        }
-        var wrap = document.querySelector('.item-detail-wrap');
-        state.currentItemId = item.id;
+      /* ----- LIGHTBOX (bound once) ----- */
+      const openLightbox = (src, alt) => {
+        if (!src) return;
+        const img = $('lightboxImg');
+        img.src = src;
+        img.alt = alt || '';
+        $('lightbox').classList.add('open');
+        document.body.style.overflow = 'hidden';
+      };
 
-        wrap.innerHTML =
-          '<button class="btn-back" id="backToCatalogue">← Back to catalogue</button>' +
-          '<div class="item-hero" id="itemPageHero">' +
-            '<div class="zoom-wrapper" id="zoomWrapper">' +
-              imageMarkup(allImages[0], item.name, item.category, true) +
-            '</div>' +
-          '</div>' +
-          '<div class="view-thumbs" id="itemPageThumbs" style="' + (allImages.length > 1 ? '' : 'display:none') + '"></div>' +
+      const closeLightbox = () => {
+        $('lightbox').classList.remove('open');
+        document.body.style.overflow = '';
+        $('lightboxImg').removeAttribute('src');
+      };
+
+      /* ----- ITEM PAGE ----- */
+      const renderItemPage = (itemId) => {
+        const wrap = document.querySelector('.item-detail-wrap');
+        const item = state.items.find((i) => i.id === itemId);
+        const backButton = '<button class="btn-back" id="backToCatalogue">← Back to catalogue</button>';
+
+        if (!item) {
+          state.itemId = null;
+          wrap.innerHTML = backButton +
+            '<div class="empty-state"><h3>Item not found</h3><p>This catalogue item doesn\'t exist or may have been renamed.</p></div>';
+          $('backToCatalogue').addEventListener('click', () => showPage('catalogue'));
+          return;
+        }
+
+        state.itemId = item.id;
+        const images = [item.image, ...item.extraImages].filter(Boolean);
+        const source = safeExternalUrl(item.link);
+
+        const details = [
+          ['Associated game', item.game],
+          ['Year of release', item.year],
+          ['Category', item.category],
+          ['Subcategory', item.subcategory || '—'],
+          ['Rarity', item.rarity],
+          ['Price', hasPrice(item) ? formatPrice(item.price) : 'Not Applicable'],
+          ['Available for purchase', item.availability, 'availability-text']
+        ];
+        const sidebar = details.map(([key, value, cls = '']) =>
+          `<div class="item-label-block"><span class="item-label-key">${key}</span>` +
+          `<div class="item-label-value ${cls}">${escapeHTML(value)}</div></div>`
+        ).join('') + (source
+          ? `<div class="item-label-block"><span class="item-label-key">Source</span>` +
+            `<a class="item-source-link" href="${escapeHTML(source)}" target="_blank" rel="noopener noreferrer">${escapeHTML(source)}</a></div>` +
+            `<a class="view-link" href="${escapeHTML(source)}" target="_blank" rel="noopener noreferrer">View item →</a>`
+          : '');
+
+        const thumbs = images.map((src, i) =>
+          `<button class="view-thumb${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Show image ${i + 1}">` +
+          `<img src="${escapeHTML(src)}" alt="${escapeHTML(item.name)} thumbnail ${i + 1}" loading="lazy" decoding="async" referrerpolicy="no-referrer" /></button>`
+        ).join('');
+
+        wrap.innerHTML = backButton +
+          `<div class="item-hero" id="itemPageHero"><div class="zoom-wrapper" id="zoomWrapper">${imageMarkup(images[0], item.name, item.category, true)}</div></div>` +
+          `<div class="view-thumbs" id="itemPageThumbs"${images.length > 1 ? '' : ' style="display:none"'}>${images.length > 1 ? thumbs : ''}</div>` +
           '<div class="item-detail-body">' +
             '<div class="item-detail-main">' +
-              '<div class="item-game-label">' + escapeHTML(item.game) + '</div>' +
-              '<h1 class="item-detail-name">' + escapeHTML(item.name) + '</h1>' +
+              `<div class="item-game-label">${escapeHTML(item.game)}</div>` +
+              `<h1 class="item-detail-name">${escapeHTML(item.name)}</h1>` +
               '<span class="item-detail-section-label">Description</span>' +
-              '<p class="item-detail-description">' + escapeHTML(item.description || 'No description has been added yet.') + '</p>' +
+              `<p class="item-detail-description">${escapeHTML(item.description || 'No description has been added yet.')}</p>` +
               '<div class="item-detail-share">' +
                 '<span class="item-detail-share-label">Share</span>' +
                 '<button class="btn-copy-link" id="btnCopyLink">Copy link</button>' +
                 '<button class="btn-report-error" id="btnReportError">Report error</button>' +
               '</div>' +
             '</div>' +
-            '<aside class="item-detail-sidebar" id="itemPageSidebar"></aside>' +
+            `<aside class="item-detail-sidebar">${sidebar}</aside>` +
           '</div>';
 
-        $('backToCatalogue').addEventListener('click', function() { showPage('catalogue'); });
+        $('backToCatalogue').addEventListener('click', () => showPage('catalogue'));
 
-        // Price now placed between Rarity and Available for purchase, and always white
-        var labels = [
-          { key: 'Associated game', value: item.game, cls: '' },
-          { key: 'Year of release', value: item.year, cls: '' },
-          { key: 'Category', value: item.category, cls: '' },
-          { key: 'Subcategory', value: item.subcategory || '—', cls: '' },
-          { key: 'Rarity', value: item.rarity, cls: '' },
-          { key: 'Price', value: hasPrice(item) ? formatPrice(item.price) : 'Not Applicable', cls: 'price-value' },
-          { key: 'Available for purchase', value: item.availability || 'Not specified', cls: 'availability-text ' + getAvailabilityClass(item.availability) }
-        ];
-        var sidebarHTML = '';
-        for (var k = 0; k < labels.length; k++) {
-          sidebarHTML += '<div class="item-label-block"><span class="item-label-key">' + labels[k].key + '</span><div class="item-label-value ' + labels[k].cls + '">' + escapeHTML(labels[k].value) + '</div></div>';
-        }
-        $('itemPageSidebar').innerHTML = sidebarHTML;
-        addSourceLink(item);
-        setupThumbnails(item, allImages);
-        setupLightbox(item, allImages);
-
-        $('btnCopyLink').addEventListener('click', function() {
-          var url = location.origin + location.pathname + '#item/' + state.currentItemId;
-          var btn = $('btnCopyLink');
-          navigator.clipboard.writeText(url).then(function() {
-            btn.textContent = 'Copied';
-            btn.classList.add('copied');
-            setTimeout(function() { btn.textContent = 'Copy link'; btn.classList.remove('copied'); }, 1800);
-          }).catch(function() { window.prompt('Copy this link:', url); });
+        const zoomWrapper = $('zoomWrapper');
+        $('itemPageHero').addEventListener('click', () => {
+          const img = zoomWrapper.querySelector('img');
+          if (img && !img.hidden) openLightbox(img.src, img.alt);
         });
 
-        $('btnReportError').addEventListener('click', function() {
-          var itemName = item.name;
-          var game = item.game;
+        const thumbBar = $('itemPageThumbs');
+        thumbBar.addEventListener('click', (e) => {
+          const btn = e.target.closest('.view-thumb');
+          if (!btn) return;
+          thumbBar.querySelectorAll('.view-thumb').forEach((b) => b.classList.toggle('active', b === btn));
+          zoomWrapper.innerHTML = imageMarkup(images[Number(btn.dataset.index)], item.name, item.category, true);
+        });
+
+        const copyBtn = $('btnCopyLink');
+        copyBtn.addEventListener('click', () => {
+          const url = `${location.href.split('#')[0]}#item/${item.id}`;
+          (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject())
+            .then(() => {
+              copyBtn.textContent = 'Copied';
+              copyBtn.classList.add('copied');
+              setTimeout(() => {
+                copyBtn.textContent = 'Copy link';
+                copyBtn.classList.remove('copied');
+              }, 1800);
+            })
+            .catch(() => window.prompt('Copy this link:', url));
+        });
+
+        $('btnReportError').addEventListener('click', () => {
           showPage('contact');
-          setTimeout(function() {
-            var msg = $('cf-message');
-            var topic = $('cf-topic');
-            if (topic) {
-              for (var t = 0; t < topic.options.length; t++) {
-                if (topic.options[t].value === 'Correction / Edit') { topic.selectedIndex = t; break; }
-              }
-            }
-            if (msg) {
-              msg.value = 'Report an error for: ' + itemName + ' (' + game + ')\n\nWhat is wrong?\n';
-              msg.focus();
-            }
-          }, 200);
+          const topic = $('cf-topic');
+          const msg = $('cf-message');
+          topic.value = 'Correction / Edit';
+          msg.value = `Report an error for: ${item.name} (${item.game})\n\nWhat is wrong?\n`;
+          msg.focus();
         });
-      }
+      };
 
-      function addSourceLink(item) {
-        var link = safeExternalUrl(item.link);
-        if (!link) return;
-        var sidebar = $('itemPageSidebar');
-        var block = document.createElement('div');
-        block.className = 'item-label-block';
-        block.innerHTML = '<span class="item-label-key">Source</span><a href="' + escapeHTML(link) + '" target="_blank" rel="noopener noreferrer" style="color:var(--link);word-break:break-all;font-size:0.8rem;">' + escapeHTML(link) + '</a>';
-        sidebar.appendChild(block);
-        var viewLink = document.createElement('a');
-        viewLink.className = 'view-link';
-        viewLink.href = link;
-        viewLink.target = '_blank';
-        viewLink.rel = 'noopener noreferrer';
-        viewLink.textContent = 'View item →';
-        sidebar.appendChild(viewLink);
-      }
-
-      function setupThumbnails(item, allImages) {
-        if (allImages.length <= 1) return;
-        var thumbs = $('itemPageThumbs');
-        var hero = $('itemPageHero');
-        var html = '';
-        for (var i = 0; i < allImages.length; i++) {
-          html += '<button class="view-thumb ' + (i === 0 ? 'active' : '') + '" data-source="' + escapeHTML(allImages[i]) + '" aria-label="Show image ' + (i + 1) + '">' +
-            '<img src="' + escapeHTML(allImages[i]) + '" alt="' + escapeHTML(item.name) + ' thumbnail ' + (i + 1) + '" loading="lazy" decoding="async" referrerpolicy="no-referrer" />' +
-          '</button>';
-        }
-        thumbs.innerHTML = html;
-        thumbs.querySelectorAll('.view-thumb').forEach(function(btn) {
-          btn.addEventListener('click', function() {
-            thumbs.querySelectorAll('.view-thumb').forEach(function(b) { b.classList.remove('active'); });
-            btn.classList.add('active');
-            var wrapper = hero.querySelector('.zoom-wrapper');
-            wrapper.innerHTML = imageMarkup(btn.dataset.source, item.name, item.category, true);
-          });
-        });
-      }
-
-      function setupLightbox(item, allImages) {
-        var hero = $('itemPageHero');
-        var overlay = $('lightbox');
-        var overlayImg = $('lightboxImg');
-        var closeBtn = $('lightboxClose');
-
-        function open(src, alt) {
-          if (!src) return;
-          overlayImg.src = src;
-          overlayImg.alt = alt || '';
-          overlay.classList.add('open');
-          document.body.style.overflow = 'hidden';
-        }
-        function close() {
-          overlay.classList.remove('open');
-          document.body.style.overflow = '';
-          overlayImg.src = '';
-        }
-
-        hero.addEventListener('click', function(e) {
-          var img = hero.querySelector('.zoom-wrapper img');
-          if (img && img.src) open(img.src, img.alt);
-        });
-
-        closeBtn.addEventListener('click', function(e) { e.stopPropagation(); close(); });
-        overlay.addEventListener('click', function(e) {
-          if (e.target === overlay || e.target === overlayImg) close();
-        });
-        document.addEventListener('keydown', function(e) {
-          if (e.key === 'Escape' && overlay.classList.contains('open')) close();
-        });
-      }
-
-      function handleRoute() {
-        var hash = location.hash;
-        if (hash.indexOf('#item/') === 0) {
-          document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
-          document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(function(l) { l.classList.remove('active'); });
-          var itemPage = $('page-item');
+      const handleRoute = () => {
+        const hash = location.hash;
+        if (hash.startsWith('#item/')) {
+          state.page = 'item';
+          document.querySelectorAll('.page').forEach((p) => p.classList.remove('active'));
+          setActiveNav(null);
+          const itemPage = $('page-item');
           itemPage.classList.add('active');
           itemPage.style.animation = 'none';
-          void itemPage.offsetWidth;
+          void itemPage.offsetWidth; // restart the page-in animation
           itemPage.style.animation = '';
           renderItemPage(hash.slice(6));
           window.scrollTo({ top: 0, behavior: 'auto' });
           return;
         }
-        if (hash === '#catalogue' || hash === '#about' || hash === '#contact') {
-          showPage(hash.slice(1));
-          return;
-        }
-        showPage('home');
-      }
+        const page = hash.slice(1);
+        showPage(PAGES.includes(page) ? page : 'home');
+      };
 
-      function bindContactForm() {
-        var form = $('contactForm');
-        if (!form) return;
-        var status = $('cfStatus');
-        var submit = $('cfSubmit');
+      /* ----- CONTACT FORM ----- */
+      const bindContactForm = () => {
+        const form = $('contactForm');
+        const status = $('cfStatus');
+        const submit = $('cfSubmit');
 
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', async (e) => {
           e.preventDefault();
+          const originalLabel = submit.textContent;
           submit.disabled = true;
-          var original = submit.textContent;
           submit.textContent = 'Sending…';
           status.textContent = '';
           status.className = 'form-status';
 
-          fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-          })
-          .then(function(res) { return res.json(); })
-          .then(function(data) {
+          try {
+            const res = await fetch(form.action, {
+              method: 'POST',
+              body: new FormData(form),
+              headers: { Accept: 'application/json' }
+            });
+            const data = await res.json();
             if (data.success) {
               status.textContent = 'Message sent — thanks. We\'ll get back to you soon.';
               status.className = 'form-status success';
@@ -2033,123 +1854,69 @@
               status.textContent = 'Something went wrong. Try again or email us directly.';
               status.className = 'form-status error';
             }
-          })
-          .catch(function() {
+          } catch {
             status.textContent = 'Network error. Please try again.';
             status.className = 'form-status error';
-          })
-          .finally(function() {
+          } finally {
             submit.disabled = false;
-            submit.textContent = original;
-          });
+            submit.textContent = originalLabel;
+          }
         });
-      }
+      };
 
-      function bindEvents() {
-        document.querySelectorAll('.desktop-nav .nav-link').forEach(function(btn) {
-          btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            var page = this.dataset.page;
-            if (page) showPage(page);
-          });
-        });
-
-        document.querySelectorAll('.mobile-nav-link').forEach(function(btn) {
-          btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            var page = this.dataset.page;
-            if (page) {
-              showPage(page);
-              $('mobileNav').classList.remove('open');
-              $('hamburger').classList.remove('open');
-              $('hamburger').setAttribute('aria-expanded', 'false');
-            }
-          });
-        });
-
-        document.querySelectorAll('.footer-links button').forEach(function(btn) {
-          btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            var page = this.dataset.page;
-            if (page) showPage(page);
-          });
-        });
-
-        document.querySelectorAll('.home-actions .btn-primary, .home-actions .btn-text, .btn-see-all').forEach(function(btn) {
-          btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            var page = this.dataset.page;
-            if (page) showPage(page);
-          });
-        });
-
-        document.querySelector('.logo-word').addEventListener('click', function(e) {
+      /* ----- EVENTS ----- */
+      const bindEvents = () => {
+        // Every element with data-page (nav, footer, logo, hero buttons, "see all") navigates via one listener.
+        document.addEventListener('click', (e) => {
+          const trigger = e.target.closest('[data-page]');
+          if (!trigger) return;
           e.preventDefault();
-          showPage('home');
-        });
-        $('logoSubtitle').addEventListener('click', function(e) {
-          e.preventDefault();
-          showPage('catalogue');
+          showPage(trigger.dataset.page);
+          closeMobileNav();
         });
 
-        $('hamburger').addEventListener('click', function() {
-          var nav = $('mobileNav');
-          var isOpen = nav.classList.toggle('open');
-          this.classList.toggle('open');
-          this.setAttribute('aria-expanded', String(isOpen));
+        $('hamburger').addEventListener('click', (e) => {
+          const isOpen = $('mobileNav').classList.toggle('open');
+          e.currentTarget.classList.toggle('open', isOpen);
+          e.currentTarget.setAttribute('aria-expanded', String(isOpen));
         });
 
-        $('typeFilterBar').addEventListener('click', function(e) {
-          var btn = e.target.closest('.filter-pill');
-          if (!btn) return;
-          var type = btn.dataset.type;
-          state.typeFilter = type || 'all';
-          state.subcategoryFilter = 'all';
-          document.querySelectorAll('#typeFilterBar .filter-pill').forEach(function(b) { b.classList.remove('active'); });
-          btn.classList.add('active');
-          renderCatalogue();
+        bindFilter('gameFilterBar', 'game', (v) => { state.game = v; });
+        bindFilter('typeFilterBar', 'type', (v) => { state.type = v; updateSubcategories(); });
+        bindFilter('subcategoryFilterBar', 'sub', (v) => { state.sub = v; });
+
+        let searchTimer;
+        $('searchInput').addEventListener('input', () => {
+          clearTimeout(searchTimer);
+          searchTimer = setTimeout(renderCatalogue, 120);
         });
 
-        $('gameFilterBar').addEventListener('click', function(e) {
-          var btn = e.target.closest('.filter-pill');
-          if (!btn) return;
-          var game = btn.dataset.game;
-          state.gameFilter = game || 'all';
-          document.querySelectorAll('#gameFilterBar .filter-pill').forEach(function(b) { b.classList.remove('active'); });
-          btn.classList.add('active');
-          renderCatalogue();
+        const lightbox = $('lightbox');
+        $('lightboxClose').addEventListener('click', (e) => { e.stopPropagation(); closeLightbox(); });
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox || e.target === $('lightboxImg')) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
         });
 
-        $('subcategoryFilterBar').addEventListener('click', function(e) {
-          var btn = e.target.closest('.filter-pill');
-          if (!btn) return;
-          var sub = btn.dataset.sub;
-          state.subcategoryFilter = sub || 'all';
-          document.querySelectorAll('#subcategoryFilterBar .filter-pill').forEach(function(b) { b.classList.remove('active'); });
-          btn.classList.add('active');
-          renderCatalogue();
-        });
-
-        $('searchInput').addEventListener('input', renderCatalogue);
         window.addEventListener('hashchange', handleRoute);
         bindContactForm();
-      }
+      };
 
-      function init() {
-        var yearEl = $('footerYear');
-        if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-        if (typeof ITEMS !== 'undefined' && Array.isArray(ITEMS)) {
-          renderHome();
-          renderCatalogue();
-          handleRoute();
-          bindEvents();
-        } else {
-          setTimeout(init, 100);
+      /* ----- INIT ----- */
+      const init = () => {
+        $('footerYear').textContent = new Date().getFullYear();
+        state.items = buildItems();
+        if (state.items.length) {
+          $('itemCount').textContent = pluralItems(state.items.length);
+          buildFilters();
         }
-      }
+        bindEvents();
+        handleRoute();
+      };
 
-      init();
+      document.addEventListener('DOMContentLoaded', init);
     })();
   </script>
 </body>
