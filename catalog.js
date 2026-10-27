@@ -394,7 +394,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Stickker/holo/holo_1.jpg",
+    image: "images/GTAVI/Sticker/holo/holo_1.jpg",
     extraImages: [],
     link: "",
     price: ""
