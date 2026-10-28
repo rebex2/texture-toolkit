@@ -143,8 +143,8 @@ description: "Pink T-shirt featuring Grand Theft Auto VI Goodtime State-themed b
 year: "2026",
 rarity: "Common",
 availability: "Available for purchase - Yes",
-image: "images/GTAVI/Clothing/GTAVI_Goodtime_State_Tee_Pink.jpg",
-extraImages: [],
+image: "images/GTAVI/Goodtime_P/Goodtime_P_1.jpg",
+extraImages: ["images/GTAVI/Goodtime_P/Goodtime_P_2.jpg","images/GTAVI/Goodtime_P/Goodtime_P_3.jpg","images/GTAVI/Goodtime_P/Goodtime_P_4.jpg"],
 link: ""
 },
 {
@@ -156,8 +156,8 @@ description: "Black T-shirt featuring Grand Theft Auto VI Goodtime State-themed 
 year: "2026",
 rarity: "Common",
 availability: "Available for purchase - Yes",
-image: "images/GTAVI/Clothing/GTAVI_Goodtime_State_Tee_Black.jpg",
-extraImages: [],
+image: "images/GTAVI/Goodtime_black/Goodtime_black_1.jpg",
+extraImages: ["images/GTAVI/Goodtime_black/Goodtime_black_2.jpg","images/GTAVI/Goodtime_black/Goodtime_black_3.jpg","images/GTAVI/Goodtime_black/Goodtime_black_4.jpg"],
 link: ""
 },
 {
@@ -169,8 +169,8 @@ description: "Blue T-shirt featuring Grand Theft Auto VI Goodtime State-themed b
 year: "2026",
 rarity: "Common",
 availability: "Available for purchase - Yes",
-image: "images/GTAVI/Clothing/GTAVI_Goodtime_State_Tee_Blue.jpg",
-extraImages: [],
+image: "images/GTAVI/Goodtime_B/Goodtime_B_1.jpg",
+extraImages: ["images/GTAVI/Goodtime_B/Goodtime_B_2.jpg","images/GTAVI/Goodtime_B/Goodtime_B_3.jpg","images/GTAVI/Goodtime_B/Goodtime_B_4.jpg"],
 link: ""
 },
 {
@@ -182,8 +182,8 @@ description: "Blue T-shirt featuring Grand Theft Auto VI logo branding.",
 year: "2026",
 rarity: "Common",
 availability: "Available for purchase - Yes",
-image: "images/GTAVI/Clothing/GTAVI_Logo_Tee_Blue.jpg",
-extraImages: [],
+image: "images/GTAVI/Blue_logo/Blue_logo_1.jpg",
+extraImages: ["images/GTAVI/Blue_logo/Blue_logo_2.jpg"],
 link: ""
 },
 {
@@ -195,8 +195,8 @@ description: "Blue women's cropped baby T-shirt featuring Grand Theft Auto VI lo
 year: "2026",
 rarity: "Common",
 availability: "Available for purchase - Yes",
-image: "images/GTAVI/Clothing/GTAVI_Cropped_Baby_Logo_Tee_Blue.jpg",
-extraImages: [],
+image: "images/GTAVI/Blue_logo_woman/Blue_logo_woman_1.jpg",
+extraImages: ["images/GTAVI/Blue_logo_woman/Blue_logo_woman_2.jpg"],
 link: ""
 },
 {
@@ -208,8 +208,8 @@ description: "Pink T-shirt featuring Grand Theft Auto VI logo branding.",
 year: "2026",
 rarity: "Common",
 availability: "Available for purchase - Yes",
-image: "images/GTAVI/Clothing/GTAVI_Logo_Tee_Pink.jpg",
-extraImages: [],
+image: "images/GTAVI/Pink_logo/Pink_logo_1.jpg",
+extraImages: ["images/GTAVI/Pink_logo/Pink_logo_2.jpg"],
 link: ""
 },
 {
@@ -221,8 +221,8 @@ description: "Pink women's cropped baby T-shirt featuring Grand Theft Auto VI lo
 year: "2026",
 rarity: "Common",
 availability: "Available for purchase - Yes",
-image: "images/GTAVI/Clothing/GTAVI_Cropped_Baby_Logo_Tee_Pink.jpg",
-extraImages: [],
+image: "images/GTAVI/Pink_logo_woman/Pink_logo_woman_1.jpg",
+extraImages: ["images/GTAVI/Pink_logo_woman/Pink_logo_woman_2.jpg"],
 link: ""
 },
 {
@@ -234,8 +234,8 @@ description: "Black T-shirt featuring Grand Theft Auto VI logo branding.",
 year: "2026",
 rarity: "Common",
 availability: "Available for purchase - Yes",
-image: "images/GTAVI/Clothing/GTAVI_Logo_Tee_Black.jpg",
-extraImages: [],
+image: "images/GTAVI/Black_logo/Black_logo_1.jpg",
+extraImages: ["images/GTAVI/Black_logo/Black_logo_2.jpg"],
 link: ""
 },
 {
@@ -247,10 +247,12 @@ description: "Black women's cropped baby T-shirt featuring Grand Theft Auto VI l
 year: "2026",
 rarity: "Common",
 availability: "Available for purchase - Yes",
-image: "images/GTAVI/Clothing/GTAVI_Cropped_Baby_Logo_Tee_Black.jpg",
-extraImages: [],
+image: "images/GTAVI/Black_logo_woman/Black_logo_woman_1.jpg",
+extraImages: ["images/GTAVI/Black_logo_woman/Black_logo_woman_2.jpg"],
 link: ""
 },
+// NOTE: The following 6 cap items have NO matching image files in imagesGTA-.txt.
+// Add the image files (e.g. images/GTAVI/Caps/...) or remove/mark these items.
 {
 name: "Rockstar Baseball Cap: Blue and Pink",
 game: "Rockstar Games",
@@ -394,8 +396,7 @@ description: "Collection of holographic stickers featuring Grand Theft Auto VI a
 year: "2026",
 rarity: "Common",
 availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Stickker/holo/holo_1.jpg",
-    image: "images/GTAVI/Sticker/holo/holo_1.jpg",
+image: "images/GTAVI/Sticker/holo/holo_1.jpg",
 extraImages: [],
 link: "",
 price: ""
