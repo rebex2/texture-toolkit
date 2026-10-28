@@ -14,6 +14,20 @@ link: "",
 price: "20"
 },
 {
+name: "Grand Theft Auto V Zippo® Lighter",
+game: "Grand Theft Auto V",
+category: "Accessories",
+subcategory: "Lighters",
+description: "Zippo® lighter featuring Grand Theft Auto V branding.",
+year: "2013",
+rarity: "Uncommon",
+availability: "Available for purchase - Yes",
+image: "images/GTAV/Zippo/Zippo_1.jpg",
+extraImages: ["images/GTAV/Zippo/Zippo_2.jpg","images/GTAV/Zippo/Zippo_3.jpg","images/GTAV/Zippo/Zippo_4.jpg","images/GTAV/Zippo/Zippo_5.jpg","images/GTAV/Zippo/Zippo_6.jpg","images/GTAV/Zippo/Zippo_7.jpg","images/GTAV/Zippo/Zippo_8.jpg","images/GTAV/Zippo/Zippo_9.jpg","images/GTAV/Zippo/Zippo_10.jpg","images/GTAV/Zippo/Zippo_11.jpg","images/GTAV/Zippo/Zippo_12.jpg","images/GTAV/Zippo/Zippo_13.jpg"],
+link: "",
+price: ""
+},
+{
 name: "Pißwasser Beer Bottle",
 game: "Grand Theft Auto IV (2008)",
 category: "Drinkware",
