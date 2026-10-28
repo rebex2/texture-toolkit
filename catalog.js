@@ -8,8 +8,8 @@ const ITEMS = [
     year: "2013",
     rarity: "Rare",
     availability: "Available for purchase - Yes",
-    image: "images/GTAV/Chop/Chop_14.jpg",
-    extraImages: ["images/GTAV/Chop/Chop_1.jpg","images/GTAV/Chop/Chop_2.jpg","images/GTAV/Chop/Chop_3.jpg","images/GTAV/Chop/Chop_4.jpg","images/GTAV/Chop/Chop_5.jpg","images/GTAV/Chop/Chop_6.jpg","images/GTAV/Chop/Chop_7.jpg","images/GTAV/Chop/Chop_8.jpg","images/GTAV/Chop/Chop_9.jpg","images/GTAV/Chop/Chop_10.jpg","images/GTAV/Chop/Chop_11.jpg","images/GTAV/Chop/Chop_12.jpg","images/GTAV/Chop/Chop_13.jpg"],
+    image: "images/GTAV/Chop/Chop_1.jpg",
+    extraImages: ["images/GTAV/Chop/Chop_1.jpg", "images/GTAV/Chop/Chop_2.jpg", "images/GTAV/Chop/Chop_3.jpg", "images/GTAV/Chop/Chop_4.jpg", "images/GTAV/Chop/Chop_9.jpg", "images/GTAV/Chop/Chop_10.jpg", "images/GTAV/Chop/Chop_11.jpg", "images/GTAV/Chop/Chop_12.jpg", "images/GTAV/Chop/Chop_13.jpg"],
     link: "",
     price: "20"
   },
@@ -23,7 +23,7 @@ const ITEMS = [
     rarity: "Very Rare",
     availability: "Available for purchase - No",
     image: "images/GTAIV/Pisswasser/Pisswasser_2.jpg",
-    extraImages: ["images/GTAIV/Pisswasser/Pisswasser_1.jpg","images/GTAIV/Pisswasser/Pisswasser_3.jpg","images/GTAIV/Pisswasser/Pisswasser_4.jpg","images/GTAIV/Pisswasser/Pisswasser_5.jpg","images/GTAIV/Pisswasser/Pisswasser_6.jpg"],
+    extraImages: ["images/GTAIV/Pisswasser/Pisswasser_1.jpg", "images/GTAIV/Pisswasser/Pisswasser_3.jpg", "images/GTAIV/Pisswasser/Pisswasser_4.jpg", "images/GTAIV/Pisswasser/Pisswasser_5.jpg", "images/GTAIV/Pisswasser/Pisswasser_6.jpg"],
     link: ""
   },
   {
@@ -36,7 +36,7 @@ const ITEMS = [
     rarity: "Very Rare",
     availability: "Available for purchase - Yes",
     image: "images/GTAIV/flex-cuff1.jpg",
-    extraImages: ["images/GTAIV/flex-cuff2.jpg","images/GTAIV/flex-cuff3.jpg","images/GTAIV/flex-cuff4.jpg","images/GTAIV/flex-cuff5.jpg"],
+    extraImages: ["images/GTAIV/felx-cuff2.jpg", "images/GTAIV/flex-cuff3.jpg", "images/GTAIV/flex-cuff4.jpg", "images/GTAIV/flex-cuff5.jpg"],
     link: ""
   },
   {
@@ -49,7 +49,7 @@ const ITEMS = [
     rarity: "Common",
     availability: "Available for purchase - Yes",
     image: "images/GTA-SA/wrap/wrap-paper_1.jpg",
-    extraImages: ["images/GTA-SA/wrap/wrap-paper_2.jpg","images/GTA-SA/wrap/wrap-paper_3.jpg","images/GTA-SA/wrap/wrap-paper_4.jpg"],
+    extraImages: ["images/GTA-SA/wrap/wrap-paper_2.jpg", "images/GTA-SA/wrap/wrap-paper_3.jpg", "images/GTA-SA/wrap/wrap-paper_4.jpg"],
     link: ""
   },
   {
@@ -75,7 +75,7 @@ const ITEMS = [
     rarity: "Common",
     availability: "Available for purchase - Yes",
     image: "images/GTAVI/collecters/collecters_1.jpg",
-    extraImages: ["images/GTAVI/collecters/collecters_2.jpg","images/GTAVI/collecters/collecters_3.jpg","images/GTAVI/collecters/collecters_4.jpg","images/GTAVI/collecters/collecters_5.jpg","images/GTAVI/collecters/collecters_6.jpg","images/GTAVI/collecters/collecters_7.jpg","images/GTAVI/collecters/collecters_8.jpg","images/GTAVI/collecters/collecters_9.jpg","images/GTAVI/collecters/collecters_10.jpg","images/GTAVI/collecters/collecters_11.jpg","images/GTAVI/collecters/collecters_12.jpg","images/GTAVI/collecters/collecters_13.jpg"],
+    extraImages: ["images/GTAVI/collecters/collecters_2.jpg", "images/GTAVI/collecters/collecters_3.jpg", "images/GTAVI/collecters/collecters_4.jpg", "images/GTAVI/collecters/collecters_5.jpg", "images/GTAVI/collecters/collecters_6.jpg", "images/GTAVI/collecters/collecters_7.jpg", "images/GTAVI/collecters/collecters_8.jpg", "images/GTAVI/collecters/collecters_9.jpg", "images/GTAVI/collecters/collecters_10.jpg", "images/GTAVI/collecters/collecters_11.jpg", "images/GTAVI/collecters/collecters_12.jpg", "images/GTAVI/collecters/collecters_13.jpg"],
     link: ""
   },
   {
@@ -88,7 +88,7 @@ const ITEMS = [
     rarity: "Common",
     availability: "Available for purchase - Yes",
     image: "images/GTAVI/gator_white_T/gator_white_T_2.jpg",
-    extraImages: ["images/GTAVI/gator_white_T/gator_white_T_1.jpg","images/GTAVI/gator_white_T/gator_white_T_3.jpg","images/GTAVI/gator_white_T/gator_white_T_4.jpg"],
+    extraImages: ["images/GTAVI/gator_white_T/gator_white_T_1.jpg", "images/GTAVI/gator_white_T/gator_white_T_3.jpg", "images/GTAVI/gator_white_T/gator_white_T_4.jpg"],
     link: "",
     price: ""
   },
@@ -102,7 +102,7 @@ const ITEMS = [
     rarity: "Common",
     availability: "Available for purchase - Yes",
     image: "images/Rockstar/BLUE_T/BLUE_T_3.jpg",
-    extraImages: ["images/Rockstar/BLUE_T/BLUE_T_1.jpg","images/Rockstar/BLUE_T/BLUE_T_2.jpg"],
+    extraImages: ["images/Rockstar/BLUE_T/BLUE_T_1.jpg", "images/Rockstar/BLUE_T/BLUE_T_2.jpg"],
     link: "",
     price: ""
   },
@@ -116,7 +116,7 @@ const ITEMS = [
     rarity: "Common",
     availability: "Available for purchase - Yes",
     image: "images/Rockstar/PINK_T/PINK_T_3.jpg",
-    extraImages: ["images/Rockstar/PINK_T/PINK_T_1.jpg","images/Rockstar/PINK_T/PINK_T_2.jpg"],
+    extraImages: ["images/Rockstar/PINK_T/PINK_T_1.jpg", "images/Rockstar/PINK_T/PINK_T_2.jpg"],
     link: "",
     price: ""
   },
@@ -130,7 +130,7 @@ const ITEMS = [
     rarity: "Common",
     availability: "Available for purchase - Yes",
     image: "images/Rockstar/BLACK_T/BLACK_T_2.jpg",
-    extraImages: ["images/Rockstar/BLACK_T/BLACK_T_1.jpg","images/Rockstar/BLACK_T/BLACK_T_3.jpg"],
+    extraImages: ["images/Rockstar/BLACK_T/BLACK_T_1.jpg", "images/Rockstar/BLACK_T/BLACK_T_3.jpg"],
     link: "",
     price: ""
   },
@@ -143,7 +143,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Clothing/GTAVI_Goodtime_State_Tee_Pink.jpg",
+    image: "images/GTAVI/Goodtime_P/Goodtime_P_1.jpg",
     extraImages: [],
     link: ""
   },
@@ -156,7 +156,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Clothing/GTAVI_Goodtime_State_Tee_Black.jpg",
+    image: "images/GTAVI/Goodtime_black/Goodtime_black_1.jpg",
     extraImages: [],
     link: ""
   },
@@ -169,7 +169,7 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Clothing/GTAVI_Goodtime_State_Tee_Blue.jpg",
+    image: "images/GTAVI/Goodtime_B/Goodtime_B_1.jpg",
     extraImages: [],
     link: ""
   },
@@ -182,23 +182,11 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Clothing/GTAVI_Logo_Tee_Blue.jpg",
+    image: "images/GTAVI/Blue_logo/Blue_logo_1.jpg",
     extraImages: [],
     link: ""
   },
-  {
-    name: "Blue Grand Theft Auto VI Women's Cropped Baby Logo Tee",
-    game: "Grand Theft Auto VI",
-    category: "Clothing",
-    subcategory: "Cropped T-shirts",
-    description: "Blue women's cropped baby T-shirt featuring Grand Theft Auto VI logo branding.",
-    year: "2026",
-    rarity: "Common",
-    availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Clothing/GTAVI_Cropped_Baby_Logo_Tee_Blue.jpg",
-    extraImages: [],
-    link: ""
-  },
+
   {
     name: "Pink Grand Theft Auto VI Logo Tee",
     game: "Grand Theft Auto VI",
@@ -208,23 +196,11 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Clothing/GTAVI_Logo_Tee_Pink.jpg",
+    image: "images/GTAVI/Pink_logo/Pink_logo_1.jpg",
     extraImages: [],
     link: ""
   },
-  {
-    name: "Pink Grand Theft Auto VI Women's Cropped Baby Logo Tee",
-    game: "Grand Theft Auto VI",
-    category: "Clothing",
-    subcategory: "Cropped T-shirts",
-    description: "Pink women's cropped baby T-shirt featuring Grand Theft Auto VI logo branding.",
-    year: "2026",
-    rarity: "Common",
-    availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Clothing/GTAVI_Cropped_Baby_Logo_Tee_Pink.jpg",
-    extraImages: [],
-    link: ""
-  },
+
   {
     name: "Black Grand Theft Auto VI Logo Tee",
     game: "Grand Theft Auto VI",
@@ -234,101 +210,17 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Clothing/GTAVI_Logo_Tee_Black.jpg",
+    image: "images/GTAVI/Black_logo/Black_logo_1.jpg",
     extraImages: [],
     link: ""
   },
-  {
-    name: "Black Grand Theft Auto VI Women's Cropped Baby Logo Tee",
-    game: "Grand Theft Auto VI",
-    category: "Clothing",
-    subcategory: "Cropped T-shirts",
-    description: "Black women's cropped baby T-shirt featuring Grand Theft Auto VI logo branding.",
-    year: "2026",
-    rarity: "Common",
-    availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Clothing/GTAVI_Cropped_Baby_Logo_Tee_Black.jpg",
-    extraImages: [],
-    link: ""
-  },
-  {
-    name: "Rockstar Baseball Cap: Blue and Pink",
-    game: "Rockstar Games",
-    category: "Clothing & Accessories",
-    subcategory: "Baseball caps",
-    description: "Baseball cap featuring Rockstar Games branding in blue and pink.",
-    year: "2026",
-    rarity: "Common",
-    availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Caps/Rockstar_Baseball_Cap_Blue_Pink.jpg",
-    extraImages: [],
-    link: ""
-  },
-  {
-    name: "Rockstar Baseball Cap: Pink and Blue",
-    game: "Rockstar Games",
-    category: "Clothing & Accessories",
-    subcategory: "Baseball caps",
-    description: "Baseball cap featuring Rockstar Games branding in pink and blue.",
-    year: "2026",
-    rarity: "Common",
-    availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Caps/Rockstar_Baseball_Cap_Pink_Blue.jpg",
-    extraImages: [],
-    link: ""
-  },
-  {
-    name: "Rockstar Baseball Cap: Black and Pink",
-    game: "Rockstar Games",
-    category: "Clothing & Accessories",
-    subcategory: "Baseball caps",
-    description: "Baseball cap featuring Rockstar Games branding in black and pink.",
-    year: "2026",
-    rarity: "Common",
-    availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Caps/Rockstar_Baseball_Cap_Black_Pink.jpg",
-    extraImages: [],
-    link: ""
-  },
-  {
-    name: "Grand Theft Auto VI Baseball Cap: Blue and Pink",
-    game: "Grand Theft Auto VI",
-    category: "Clothing & Accessories",
-    subcategory: "Baseball caps",
-    description: "Baseball cap featuring Grand Theft Auto VI branding in blue and pink.",
-    year: "2026",
-    rarity: "Common",
-    availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Caps/GTAVI_Baseball_Cap_Blue_Pink.jpg",
-    extraImages: [],
-    link: ""
-  },
-  {
-    name: "Grand Theft Auto VI Baseball Cap: Pink and Blue",
-    game: "Grand Theft Auto VI",
-    category: "Clothing & Accessories",
-    subcategory: "Baseball caps",
-    description: "Baseball cap featuring Grand Theft Auto VI branding in pink and blue.",
-    year: "2026",
-    rarity: "Common",
-    availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Caps/GTAVI_Baseball_Cap_Pink_Blue.jpg",
-    extraImages: [],
-    link: ""
-  },
-  {
-    name: "Grand Theft Auto VI Baseball Cap: Black and Pink",
-    game: "Grand Theft Auto VI",
-    category: "Clothing & Accessories",
-    subcategory: "Baseball caps",
-    description: "Baseball cap featuring Grand Theft Auto VI branding in black and pink.",
-    year: "2026",
-    rarity: "Common",
-    availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Caps/GTAVI_Baseball_Cap_Black_Pink.jpg",
-    extraImages: [],
-    link: ""
-  },
+
+
+
+
+
+
+
   {
     name: "Blue and Pink Grand Theft Auto VI Canvas Tote",
     game: "Grand Theft Auto VI",
@@ -381,7 +273,7 @@ const ITEMS = [
     rarity: "Common",
     availability: "Available for purchase - Yes",
     image: "images/GTAVI/VICE_ZIPPO/VICE_ZIPPO_1.jpg",
-    extraImages: ["images/GTAVI/VICE_ZIPPO/VICE_ZIPPO_2.jpg","images/GTAVI/VICE_ZIPPO/VICE_ZIPPO_3.jpg"],
+    extraImages: ["images/GTAVI/VICE_ZIPPO/VICE_ZIPPO_2.jpg", "images/GTAVI/VICE_ZIPPO/VICE_ZIPPO_3.jpg"],
     link: "",
     price: ""
   },
