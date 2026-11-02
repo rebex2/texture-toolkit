@@ -275,9 +275,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Caps/Rockstar_Baseball_Cap_Blue_Pink.jpg",
+    image: "images/GTAVI/Caps/Caps_1.jpg",
     extraImages: [],
-    link: "£25.99"
+    link: "£25.99",
+    price: "£25.99"
   },
   {
     name: "Rockstar Baseball Cap: Pink and Blue",
@@ -288,9 +289,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Caps/Rockstar_Baseball_Cap_Pink_Blue.jpg",
+    image: "images/GTAVI/Caps/Rockstar_Baseball_Cap_Pink_Blue_1.jpg",
     extraImages: [],
-    link: "£25.99"
+    link: "£25.99",
+    price: "£25.99"
   },
   {
     name: "Rockstar Baseball Cap: Black and Pink",
@@ -301,9 +303,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Caps/Rockstar_Baseball_Cap_Black_Pink.jpg",
+    image: "images/GTAVI/Caps/Rockstar_Baseball_Cap_Black_Pink_1.jpg",
     extraImages: [],
-    link: "£25.99"
+    link: "£25.99",
+    price: "£25.99"
   },
   {
     name: "Grand Theft Auto VI Baseball Cap: Blue and Pink",
@@ -314,9 +317,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Caps/GTAVI_Baseball_Cap_Blue_Pink.jpg",
+    image: "images/GTAVI/Caps/GTAVI_Baseball_Cap_Blue_Pink_1.jpg",
     extraImages: [],
-    link: ""
+    link: "",
+    price: "£25.99"
   },
   {
     name: "Grand Theft Auto VI Baseball Cap: Pink and Blue",
@@ -327,9 +331,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Caps/GTAVI_Baseball_Cap_Pink_Blue.jpg",
+    image: "images/GTAVI/Caps/GTAVI_Baseball_Cap_Pink_Blue_1.jpg",
     extraImages: [],
-    link: ""
+    link: "",
+    price: "£25.99"
   },
   {
     name: "Grand Theft Auto VI Baseball Cap: Black and Pink",
@@ -340,9 +345,10 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Caps/GTAVI_Baseball_Cap_Black_Pink.jpg",
+    image: "images/GTAVI/Caps/GTAVI_Baseball_Cap_Black_Pink_1.jpg",
     extraImages: [],
-    link: ""
+    link: "",
+    price: "£25.99"
   },
   {
     name: "Blue and Pink Grand Theft Auto VI Canvas Tote",
