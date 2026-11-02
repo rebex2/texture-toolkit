@@ -87,10 +87,11 @@ const ITEMS = [
     description: "The Goodtime State – Vice City™ merchandise collection associated with Grand Theft Auto VI. Includes themed apparel and accessories.",
     year: "2026",
     rarity: "Common",
-    availability: "Yes",
+    availability: "Available for purchase - Yes",
     image: "images/GTAVI/collecters/collecters_1.jpg",
     extraImages: ["images/GTAVI/collecters/collecters_2.jpg","images/GTAVI/collecters/collecters_3.jpg","images/GTAVI/collecters/collecters_4.jpg","images/GTAVI/collecters/collecters_5.jpg","images/GTAVI/collecters/collecters_6.jpg","images/GTAVI/collecters/collecters_7.jpg","images/GTAVI/collecters/collecters_8.jpg","images/GTAVI/collecters/collecters_9.jpg","images/GTAVI/collecters/collecters_10.jpg","images/GTAVI/collecters/collecters_11.jpg","images/GTAVI/collecters/collecters_12.jpg","images/GTAVI/collecters/collecters_13.jpg"],
-    link: ""
+    link: "",
+    price: "£349.99"
   },
   {
     name: "White Grand Theft Auto VI Macca the Gator Tee",
