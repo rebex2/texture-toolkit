@@ -62,7 +62,7 @@ const ITEMS = [
     description: "San Andreas-themed gift wrap/wrapping paper.",
     year: "2004",
     rarity: "Common",
-    availability: "Available for purchase - Yes",
+    availability: "Yes",
     image: "images/GTA-SA/wrap/wrap-paper_1.jpg",
     extraImages: ["images/GTA-SA/wrap/wrap-paper_2.jpg","images/GTA-SA/wrap/wrap-paper_3.jpg","images/GTA-SA/wrap/wrap-paper_4.jpg"],
     link: ""
