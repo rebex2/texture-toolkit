@@ -376,56 +376,56 @@ const ITEMS = [
     game: "Grand Theft Auto VI",
     category: "Accessories",
     subcategory: "Money clips",
-    description: "Money clip featuring Grand Theft Auto VI and Vice City-themed branding.",
+    description: "A double-sided chrome money clip featuring Grand Theft Auto VI and Vice City branding.",
     year: "2026",
     rarity: "Common",
-    availability: "Available for purchase - Yes",
+    availability: "Yes",
     image: "images/GTAVI/vice_clip/vice_clip_1.jpg",
     extraImages: ["images/GTAVI/vice_clip/vice_clip_2.jpg"],
     link: "",
-    price: ""
+    price: "£22.99"
   },
   {
     name: "Grand Theft Auto VI – Vice City Zippo® Lighter",
     game: "Grand Theft Auto VI",
     category: "Accessories",
     subcategory: "Lighters",
-    description: "Zippo® lighter featuring Grand Theft Auto VI and Vice City-themed branding.",
+    description: "A refillable, polished chrome Zippo® lighter featuring Grand Theft Auto VI Vice City and Rockstar branding.",
     year: "2026",
     rarity: "Common",
-    availability: "Available for purchase - Yes",
+    availability: "Yes",
     image: "images/GTAVI/VICE_ZIPPO/VICE_ZIPPO_1.jpg",
     extraImages: ["images/GTAVI/VICE_ZIPPO/VICE_ZIPPO_2.jpg","images/GTAVI/VICE_ZIPPO/VICE_ZIPPO_3.jpg"],
     link: "",
-    price: ""
+    price: "£35.99"
   },
   {
     name: "Grand Theft Auto VI and Rockstar Games Holographic Sticker Collection",
     game: "Grand Theft Auto VI",
     category: "Collectibles",
     subcategory: "Sticker collections",
-    description: "Collection of holographic stickers featuring Grand Theft Auto VI and Rockstar Games branding.",
+    description: "A set of 5 vinyl holographic stickers with gradient reflections featuring Grand Theft Auto VI and Rockstar Games branding.",
     year: "2026",
     rarity: "Common",
-    availability: "Available for purchase - Yes",
+    availability: "Yes",
     image: "images/GTAVI/Sticker/holo/holo_1.jpg",
     extraImages: [],
     link: "",
-    price: ""
+    price: "£5.99"
   },
   {
     name: "Grand Theft Auto VI and Rockstar Games Sticker Collection",
     game: "Grand Theft Auto VI",
     category: "Collectibles",
     subcategory: "Sticker collections",
-    description: "Sticker collection featuring Grand Theft Auto VI and Rockstar Games branding.",
+    description: "A set of 7 vinyl stickers featuring Grand Theft Auto VI and Rockstar Games branding.",
     year: "2026",
     rarity: "Common",
-    availability: "Available for purchase - Yes",
+    availability: "Yes",
     image: "images/GTAVI/Sticker/Sticker_1.jpg",
     extraImages: [],
     link: "",
-    price: "£5.99"
+    price: "85.99"
   },
   {
     name: "Grand Theft Auto VI: The Album – Exclusive Vinyl",
