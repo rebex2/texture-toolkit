@@ -442,7 +442,7 @@ const ITEMS = [
     image: "images/GTAVI/Sticker/Sticker_1.jpg",
     extraImages: [],
     link: "",
-    price: "85.99"
+    price: "8.99"
   },
   {
     name: "Grand Theft Auto VI: The Album – Exclusive Vinyl",
