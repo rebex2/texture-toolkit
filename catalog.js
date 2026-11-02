@@ -38,7 +38,8 @@ const ITEMS = [
     availability: "Available for purchase - No",
     image: "images/GTAIV/Pisswasser/Pisswasser_2.jpg",
     extraImages: ["images/GTAIV/Pisswasser/Pisswasser_1.jpg","images/GTAIV/Pisswasser/Pisswasser_3.jpg","images/GTAIV/Pisswasser/Pisswasser_4.jpg","images/GTAIV/Pisswasser/Pisswasser_5.jpg","images/GTAIV/Pisswasser/Pisswasser_6.jpg"],
-    link: ""
+    link: "",
+    price: ""
   },
   {
     name: "Flex Handcuffs",
@@ -98,14 +99,14 @@ const ITEMS = [
     game: "Grand Theft Auto VI",
     category: "Clothing",
     subcategory: "T-shirts",
-    description: "White cotton T-shirt featuring Macca the Gator artwork associated with Grand Theft Auto VI. Part of the game's merchandise collection.",
+    description: "White cotton T-shirt featuring Macca the Gator artwork. This T-shirt was included with the GTA VI collectors boxset and was not available for purchase separately.",
     year: "2026",
     rarity: "Common",
-    availability: "Yes",
+    availability: "Available for purchase - Yes",
     image: "images/GTAVI/gator_white_T/gator_white_T_2.jpg",
     extraImages: ["images/GTAVI/gator_white_T/gator_white_T_1.jpg","images/GTAVI/gator_white_T/gator_white_T_3.jpg","images/GTAVI/gator_white_T/gator_white_T_4.jpg"],
     link: "",
-    price: ""
+    price: "£25.99"
   },
   {
     name: "Blue Rockstar Games Logo Tee",
@@ -157,10 +158,11 @@ const ITEMS = [
     description: "Pink cotton T-shirt featuring Grand Theft Auto VI Goodtime State-themed branding. Available in sizes XS to XL.",
     year: "2026",
     rarity: "Common",
-    availability: "Yes",
+    availability: "Available for purchase - Yes",
     image: "images/GTAVI/Goodtime_P/Goodtime_P_1.jpg",
     extraImages: ["images/GTAVI/Goodtime_P/Goodtime_P_2.jpg","images/GTAVI/Goodtime_P/Goodtime_P_3.jpg","images/GTAVI/Goodtime_P/Goodtime_P_4.jpg"],
-    link: ""
+    link: "",
+    price: "£25.99"
   },
   {
     name: "Black Grand Theft Auto VI Goodtime State Tee",
@@ -170,10 +172,11 @@ const ITEMS = [
     description: "Black cotton T-shirt featuring Grand Theft Auto VI Goodtime State-themed branding. Available in sizes XS to XL.",
     year: "2026",
     rarity: "Common",
-    availability: "Yes",
+    availability: "Available for purchase - Yes",
     image: "images/GTAVI/Goodtime_black/Goodtime_black_1.jpg",
     extraImages: ["images/GTAVI/Goodtime_black/Goodtime_black_2.jpg","images/GTAVI/Goodtime_black/Goodtime_black_3.jpg","images/GTAVI/Goodtime_black/Goodtime_black_4.jpg"],
-    link: ""
+    link: "",
+    price: "£25.99"
   },
   {
     name: "Blue Grand Theft Auto VI Goodtime State Tee",
@@ -183,10 +186,11 @@ const ITEMS = [
     description: "Blue cotton T-shirt featuring Grand Theft Auto VI Goodtime State-themed branding. Available in sizes XS to XL.",
     year: "2026",
     rarity: "Common",
-    availability: "Yes",
+    availability: "Available for purchase - Yes",
     image: "images/GTAVI/Goodtime_B/Goodtime_B_1.jpg",
     extraImages: ["images/GTAVI/Goodtime_B/Goodtime_B_2.jpg","images/GTAVI/Goodtime_B/Goodtime_B_3.jpg","images/GTAVI/Goodtime_B/Goodtime_B_4.jpg"],
-    link: ""
+    link: "",
+    price: "£25.99"
   },
   {
     name: "Blue Grand Theft Auto VI Logo Tee",
@@ -196,10 +200,11 @@ const ITEMS = [
     description: "Blue T-shirt featuring Grand Theft Auto VI logo branding. Available in sizes XS to XL.",
     year: "2026",
     rarity: "Common",
-    availability: "Yes",
+    availability: "Available for purchase - Yes",
     image: "images/GTAVI/Blue_logo/Blue_logo_1.jpg",
     extraImages: ["images/GTAVI/Blue_logo/Blue_logo_2.jpg"],
-    link: ""
+    link: "",
+    price: "£25.99"
   },
   {
     name: "Blue Grand Theft Auto VI Women's Cropped Baby Logo Tee",
@@ -209,10 +214,11 @@ const ITEMS = [
     description: "Blue women's cropped baby cotton T-shirt featuring Grand Theft Auto VI logo branding. Available in sizes XS to XL.",
     year: "2026",
     rarity: "Common",
-    availability: "Yes",
+    availability: "Available for purchase - Yes",
     image: "images/GTAVI/Blue_logo_woman/Blue_logo_woman_1.jpg",
     extraImages: ["images/GTAVI/Blue_logo_woman/Blue_logo_woman_2.jpg"],
-    link: ""
+    link: "",
+    price: "£25.99"
   },
   {
     name: "Pink Grand Theft Auto VI Logo Tee",
@@ -222,10 +228,11 @@ const ITEMS = [
     description: "Pink cotton T-shirt featuring Grand Theft Auto VI logo branding. Available in sizes XS to XL.",
     year: "2026",
     rarity: "Common",
-    availability: "Yes",
+    availability: "Available for purchase - Yes",
     image: "images/GTAVI/Pink_logo/Pink_logo_1.jpg",
     extraImages: ["images/GTAVI/Pink_logo/Pink_logo_2.jpg"],
-    link: ""
+    link: "",
+    price: "£25.99"
   },
   {
     name: "Pink Grand Theft Auto VI Women's Cropped Baby Logo Tee",
@@ -235,10 +242,11 @@ const ITEMS = [
     description: "Pink women's cropped baby cotten T-shirt featuring Grand Theft Auto VI logo branding. Available in sizes XS to XL.",
     year: "2026",
     rarity: "Common",
-    availability: "Yes",
+    availability: "Available for purchase - Yes",
     image: "images/GTAVI/Pink_logo_woman/Pink_logo_woman_1.jpg",
     extraImages: ["images/GTAVI/Pink_logo_woman/Pink_logo_woman_2.jpg"],
-    link: ""
+    link: "",
+    price: "£25.99"
   },
   {
     name: "Black Grand Theft Auto VI Logo Tee",
@@ -248,10 +256,11 @@ const ITEMS = [
     description: "Black cotton T-shirt featuring Grand Theft Auto VI logo branding. Available in sizes XS to XL.",
     year: "2026",
     rarity: "Common",
-    availability: "Yes",
+    availability: "Available for purchase - Yes",
     image: "images/GTAVI/Black_logo/Black_logo_1.jpg",
     extraImages: ["images/GTAVI/Black_logo/Black_logo_2.jpg"],
-    link: ""
+    link: "",
+    price: "£25.99"
   },
   {
     name: "Black Grand Theft Auto VI Women's Cropped Baby Logo Tee",
@@ -261,10 +270,11 @@ const ITEMS = [
     description: "Black women's cropped baby cotten T-shirt featuring Grand Theft Auto VI logo branding. Available in sizes XS to XL.",
     year: "2026",
     rarity: "Common",
-    availability: "Yes",
+    availability: "Available for purchase - Yes",
     image: "images/GTAVI/Black_logo_woman/Black_logo_woman_1.jpg",
     extraImages: ["images/GTAVI/Black_logo_woman/Black_logo_woman_2.jpg"],
-    link: ""
+    link: "",
+    price: "£25.99"
   },
   {
     name: "Rockstar Baseball Cap: Blue and Pink",
