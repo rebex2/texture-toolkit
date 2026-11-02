@@ -283,7 +283,7 @@ const ITEMS = [
     game: "Rockstar Games",
     category: "Clothing & Accessories",
     subcategory: "Baseball caps",
-    description: "A cotton twill fabric Flexfit® baseball cap featuring embroidered Rockstar Games branding in pink and blue. Available in sizes S–M (6 3/4\" – 7 1/4\") and L–XL (7 1/8" – 7 5/8\").",
+    description: "A cotton twill fabric Flexfit® baseball cap featuring embroidered Rockstar Games branding in pink and blue. Available in sizes S–M (6 3/4\" – 7 1/4\") and L–XL (7 1/8\" – 7 5/8\").",
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
