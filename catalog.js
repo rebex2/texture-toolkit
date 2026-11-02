@@ -270,7 +270,7 @@ const ITEMS = [
     game: "Rockstar Games",
     category: "Clothing & Accessories",
     subcategory: "Baseball caps",
-    description: "Baseball cap featuring Rockstar Games branding in blue and pink.",
+    description: "A cotton Flexfit® baseball cap featuring Rockstar Games branding in blue and pink.",
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
