@@ -270,39 +270,39 @@ const ITEMS = [
     game: "Rockstar Games",
     category: "Clothing & Accessories",
     subcategory: "Baseball caps",
-    description: "A cotton Flexfit® baseball cap featuring Rockstar Games branding in blue and pink.",
+    description: "A cotton twill fabric Flexfit® baseball cap featuring embroidered Rockstar Games branding in blue and pink. Available in sizes S–M (6 3/4\" – 7 1/4") and L–XL (7 1/8" – 7 5/8").",
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
     image: "images/GTAVI/Caps/Rockstar_Baseball_Cap_Blue_Pink.jpg",
     extraImages: [],
-    link: ""
+    link: "£25.99"
   },
   {
     name: "Rockstar Baseball Cap: Pink and Blue",
     game: "Rockstar Games",
     category: "Clothing & Accessories",
     subcategory: "Baseball caps",
-    description: "Baseball cap featuring Rockstar Games branding in pink and blue.",
+    description: "A cotton twill fabric Flexfit® baseball cap featuring embroidered Rockstar Games branding in pink and blue. Available in sizes S–M (6 3/4\" – 7 1/4") and L–XL (7 1/8" – 7 5/8").",
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
     image: "images/GTAVI/Caps/Rockstar_Baseball_Cap_Pink_Blue.jpg",
     extraImages: [],
-    link: ""
+    link: "£25.99"
   },
   {
     name: "Rockstar Baseball Cap: Black and Pink",
     game: "Rockstar Games",
     category: "Clothing & Accessories",
     subcategory: "Baseball caps",
-    description: "Baseball cap featuring Rockstar Games branding in black and pink.",
+    description: "A cotton twill fabric Flexfit® baseball cap featuring embroidered Rockstar Games branding in black and pink. Available in sizes S–M (6 3/4\" – 7 1/4") and L–XL (7 1/8" – 7 5/8").",
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
     image: "images/GTAVI/Caps/Rockstar_Baseball_Cap_Black_Pink.jpg",
     extraImages: [],
-    link: ""
+    link: "£25.99"
   },
   {
     name: "Grand Theft Auto VI Baseball Cap: Blue and Pink",
