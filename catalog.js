@@ -18,14 +18,14 @@ const ITEMS = [
     game: "Grand Theft Auto V",
     category: "Accessories",
     subcategory: "Lighters",
-    description: "A refillable, polished chrome Zippo® lighter featuring Grand Theft Auto V branding.",
+    description: "Announced and released into the Rockstar Warehouse on 21st November 2013 (having been gifted to fans on Facebook and Twitter before then). \n\nA refillable, high-polish chrome Zippo® lighter featuring Grand Theft Auto V branding.",
     year: "2013",
     rarity: "Uncommon",
     availability: "Yes",
     image: "images/GTAV/Zippo/Zippo_1.jpg",
     extraImages: ["images/GTAV/Zippo/Zippo_2.jpg","images/GTAV/Zippo/Zippo_3.jpg","images/GTAV/Zippo/Zippo_4.jpg","images/GTAV/Zippo/Zippo_5.jpg","images/GTAV/Zippo/Zippo_6.jpg","images/GTAV/Zippo/Zippo_7.jpg","images/GTAV/Zippo/Zippo_8.jpg","images/GTAV/Zippo/Zippo_9.jpg","images/GTAV/Zippo/Zippo_10.jpg","images/GTAV/Zippo/Zippo_11.jpg","images/GTAV/Zippo/Zippo_12.jpg","images/GTAV/Zippo/Zippo_13.jpg"],
     link: "",
-    price: ""
+    price: "$30"
   },
   {
     name: "Pißwasser Beer Bottle",
