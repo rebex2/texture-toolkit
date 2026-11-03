@@ -18,7 +18,7 @@ const ITEMS = [
     game: "Grand Theft Auto V",
     category: "Accessories",
     subcategory: "Lighters",
-    description: "Zippo® lighter featuring Grand Theft Auto V branding.",
+    description: "A refillable, polished chrome Zippo® lighter featuring Grand Theft Auto V branding.",
     year: "2013",
     rarity: "Uncommon",
     availability: "Yes",
