@@ -449,7 +449,7 @@ const ITEMS = [
     game: "Grand Theft Auto VI",
     category: "Music",
     subcategory: "Vinyl records",
-    description: "Exclusive vinyl edition of 'Grand Theft Auto VI: The Album'. Features the core 34-track official soundtrack across two transparent magenta LPs with blue splatter.",
+    description: "Exclusive vinyl edition of 'Grand Theft Auto VI: The Album'. Features the core 34-track official soundtrack across two transparent magenta with blue splatter LPs.",
     year: "2026",
     rarity: "Uncommon",
     availability: "Yes",
