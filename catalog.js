@@ -4,14 +4,14 @@ const ITEMS = [
     game: "GTA V",
     category: "Plushies & Soft Toys",
     subcategory: "Animal plushies",
-    description: "Announced and released into the Rockstar Warehouse on 5th December 2013. Also given away in many Social Club contests.\n\n A soft plush version of Chop with a removable leather collar and tag plus a secret stash pocket with a silver effect bullet whistle etched with GTA V text and logo. The plush is approximately 15cm high and 25cm long. \n\nRarer to find in its original open-fronted retail box and many are missing the whistle (which was also sold separately). The leash and collar were also sold separately as a set.",
+    description: "Announced and released into the Rockstar Warehouse on 5th December 2013. Also given away in many Social Club contests.\n\n A soft plush version of Chop with a removable leather collar and tag plus a secret stash pocket with a silver effect bullet whistle etched with GTA V text and logo. The plush is approximately 15cm high and 25cm long. \n\nRarer to find in its original open-fronted retail box and many are missing the whistle (which was also sold separately). The collar with an additional leash was also sold separately as a set.",
     year: "2013",
     rarity: "Rare",
     availability: "Yes",
     image: "images/GTAV/Chop/Chop_14.jpg",
     extraImages: ["images/GTAV/Chop/Chop_1.jpg","images/GTAV/Chop/Chop_2.jpg","images/GTAV/Chop/Chop_3.jpg","images/GTAV/Chop/Chop_4.jpg","images/GTAV/Chop/Chop_5.jpg","images/GTAV/Chop/Chop_6.jpg","images/GTAV/Chop/Chop_7.jpg","images/GTAV/Chop/Chop_8.jpg","images/GTAV/Chop/Chop_9.jpg","images/GTAV/Chop/Chop_10.jpg","images/GTAV/Chop/Chop_11.jpg","images/GTAV/Chop/Chop_12.jpg","images/GTAV/Chop/Chop_13.jpg"],
     link: "",
-    price: "20"
+    price: "$30"
   },
   {
     name: "Grand Theft Auto V Zippo® Lighter",
