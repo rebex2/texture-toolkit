@@ -491,7 +491,7 @@ const ITEMS = [
     game: "Grand Theft Auto VI",
     category: "Music",
     subcategory: "CDs",
-    description: "Standard CD edition of 'Grand Theft Auto VI: The Album'. Features the core 34-track official soundtrack spread across two CDS in a jewel case with regular artwork.",
+    description: "Standard CD edition of 'Grand Theft Auto VI: The Album'. Features the core 34-track official soundtrack spread across two CDs in a jewel case with regular artwork.",
     year: "2026",
     rarity: "Common",
     availability: "Yes",
