@@ -463,7 +463,7 @@ const ITEMS = [
     game: "Grand Theft Auto VI",
     category: "Music",
     subcategory: "CDs",
-    description: "Exclusive CD edition of 'Grand Theft Auto VI: The Album'. Features the core 34-track official soundtrack across two CDs with exclusive alternate artwork and distinct packaging housed in a collectible jewel case variant.",
+    description: "An 'exclusive' edition of the CD version of 'Grand Theft Auto VI: The Album'. As with the standard CD edition it features the same core 34-track official soundtrack across two CDs but with exclusive alternate artwork and distinct packaging housed in a collectible jewel case variant.",
     year: "2026",
     rarity: "Uncommon",
     availability: "Yes",
