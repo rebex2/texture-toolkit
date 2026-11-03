@@ -18,7 +18,7 @@ const ITEMS = [
     game: "Grand Theft Auto V",
     category: "Accessories",
     subcategory: "Lighters",
-    description: "Announced and released into the Rockstar Warehouse on 21st November 2013 (having been gifted to fans on Facebook and Twitter before then). \n\nA refillable, high-polish chrome Zippo® lighter featuring Grand Theft Auto V branding.",
+    description: "Announced and released into the Rockstar Warehouse on 21st November 2013 (having been gifted to fans on Facebook and Twitter before then). \n\nA refillable, high-polish chrome Zippo® lighter with a laser etched "V" logo on its front and a small Rockstar logo on the back.",
     year: "2013",
     rarity: "Uncommon",
     availability: "Yes",
