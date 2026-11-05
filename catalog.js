@@ -186,9 +186,9 @@ const ITEMS = [
     description: "Blue heavyweight 100% USA cotton T-shirt featuring Grand Theft Auto VI Goodtime State-themed branding. Available in sizes XS to XL.",
     year: "2026",
     rarity: "Common",
-    availability: "Yes",
-    image: "images/GTAVI/Goodtime_B/Goodtime_B_1.jpg",
-    extraImages: ["images/GTAVI/Goodtime_B/Goodtime_B_2.jpg","images/GTAVI/Goodtime_B/Goodtime_B_3.jpg","images/GTAVI/Goodtime_B/Goodtime_B_4.jpg"],
+    availability: "Available for purchase - Yes",
+    image: "images/GTAVI/Goodtime_B/Goodtime_B_2.jpg",
+    extraImages: ["images/GTAVI/Goodtime_B/Goodtime_B_3.jpg","images/GTAVI/Goodtime_B/Goodtime_B_4.jpg","images/GTAVI/Goodtime_B/Goodtime_B_1.jpg"],
     link: "",
     price: "£25.99"
   },
