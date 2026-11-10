@@ -509,8 +509,8 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAV/new-item/new-item_1.jpg",
-    extraImages: [],
+    image: "images/GTAVI/keychain/keychain_1.jpg",
+    extraImages: ["images/GTAVI/keychain/keychain_2.jpg","images/GTAVI/keychain/keychain_3.jpg"],
     link: "",
     price: "13.99"
   }
