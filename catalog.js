@@ -513,5 +513,19 @@ const ITEMS = [
     extraImages: ["images/GTAVI/keychain/keychain_2.jpg","images/GTAVI/keychain/keychain_3.jpg"],
     link: "",
     price: "13.99"
+  },
+  {
+    name: "Grand Theft Auto VI: Original Score by Justice Double CD",
+    game: "Grand Theft Auto VI (2026)",
+    category: "Audio & Video",
+    subcategory: "CDs",
+    description: "Double CD in a digisleeve with a UV Gloss finish. Features 30 tracks and a number of bonus digital tracks comprising a 3 hour-long suite of material from the game. Became available on 11th December 2026 following a pre-order.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTAVI/justicedoublecd/justicedoublecd_1.jpg",
+    extraImages: [],
+    link: "",
+    price: "£14.19"
   }
 ];
