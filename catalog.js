@@ -519,7 +519,7 @@ const ITEMS = [
     game: "Grand Theft Auto VI (2026)",
     category: "Audio & Video",
     subcategory: "CDs",
-    description: "Double CD in a digisleeve with a UV Gloss finish. Features 30 tracks and a number of bonus digital tracks comprising a 3 hour-long suite of material from the game. Became available on 11th December 2026 following a pre-order.",
+    description: "Double CD in a digisleeve with a UV gloss finish. Features 30 tracks and a number of bonus digital tracks comprising a 3 hour-long suite of material from the game. Became available on 11th December 2026 following a pre-order.",
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
