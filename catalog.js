@@ -527,5 +527,47 @@ const ITEMS = [
     extraImages: ["images/GTAVI/justicedoublecd/justicedoublecd_2.jpg","images/GTAVI/justicedoublecd/justicedoublecd_3.jpg","images/GTAVI/justicedoublecd/justicedoublecd_4.jpg"],
     link: "",
     price: "£14.19"
+  },
+  {
+    name: "New item",
+    game: "Grand Theft Auto V (2013)",
+    category: "Clothing",
+    subcategory: "T-shirts",
+    description: "",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTAV/new-item/new-item_1.jpg",
+    extraImages: [],
+    link: "",
+    price: ""
+  },
+  {
+    name: "Grand Theft Auto VI: Original Score by Justice - Triple Crystal Clear Vinyl (Limited Edition)",
+    game: "Grand Theft Auto VI (2026)",
+    category: "Audio & Video",
+    subcategory: "Vinyl",
+    description: "Triple crystal clear vinyl in a gatefold sleeve with a UV gloss finish. Features 30 tracks and a number of bonus digital tracks comprising a 3 hour-long suite of material from the game. Became available on 11th December 2026 following a pre-order.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTAVI/justiceclearlp/justiceclearlp_1.jpg",
+    extraImages: ["images/GTAVI/justiceclearlp/justiceclearlp_2.jpg","images/GTAVI/justiceclearlp/justiceclearlp_3.jpg","images/GTAVI/justiceclearlp/justiceclearlp_4.jpg"],
+    link: "",
+    price: "£37.57"
+  },
+  {
+    name: "Grand Theft Auto VI: Original Score by Justice - Triple Black Vinyl",
+    game: "Grand Theft Auto VI (2026)",
+    category: "Audio & Video",
+    subcategory: "Vinyl",
+    description: "Triple black vinyl in a gatefold sleeve with a UV gloss finish. Features 30 tracks and a number of bonus digital tracks comprising a 3 hour-long suite of material from the game. Became available on 11th December 2026 following a pre-order.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTAVI/justiceblacklp_1.jpg",
+    extraImages: [],
+    link: "",
+    price: "£34.23"
   }
 ];
