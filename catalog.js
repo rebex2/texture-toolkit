@@ -173,8 +173,8 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Goodtime_black/Goodtime_black_3.jpg",
-    extraImages: ["images/GTAVI/Goodtime_black/Goodtime_black_1.jpg","images/GTAVI/Goodtime_black/Goodtime_black_2.jpg","images/GTAVI/Goodtime_black/Goodtime_black_4.jpg"],
+    image: "images/GTAVI/Goodtime_black/Goodtime_black_1.jpg",
+    extraImages: ["images/GTAVI/Goodtime_black/Goodtime_black_2.jpg","images/GTAVI/Goodtime_black/Goodtime_black_3.jpg","images/GTAVI/Goodtime_black/Goodtime_black_4.jpg"],
     link: "",
     price: "£25.99"
   },
@@ -499,5 +499,19 @@ const ITEMS = [
     extraImages: [],
     link: "",
     price: "£10.99"
+  },
+  {
+    name: "Grand Theft Auto VI Keychain",
+    game: "Grand Theft Auto VI (2026)",
+    category: "Keychains & Clips",
+    subcategory: "Keychains",
+    description: "Chrome metal keyring with a laser-etched Rockstar Games logo on one side and the VI logo with palm trees on the other.",
+    year: "2026",
+    rarity: "Common",
+    availability: "Available for purchase - Yes",
+    image: "images/GTAV/new-item/new-item_1.jpg",
+    extraImages: [],
+    link: "",
+    price: "13.99"
   }
 ];
