@@ -529,20 +529,6 @@ const ITEMS = [
     price: "£14.19"
   },
   {
-    name: "New item",
-    game: "Grand Theft Auto V (2013)",
-    category: "Clothing",
-    subcategory: "T-shirts",
-    description: "",
-    year: "2026",
-    rarity: "Common",
-    availability: "Available for purchase - Yes",
-    image: "images/GTAV/new-item/new-item_1.jpg",
-    extraImages: [],
-    link: "",
-    price: ""
-  },
-  {
     name: "Grand Theft Auto VI: Original Score by Justice - Triple Crystal Clear Vinyl (Limited Edition)",
     game: "Grand Theft Auto VI (2026)",
     category: "Audio & Video",
@@ -565,8 +551,8 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/justiceblacklp_1.jpg",
-    extraImages: [],
+    image: "images/GTAVI/justiceblacklp/justiceblacklp_1.jpg",
+    extraImages: ["images/GTAVI/justiceblacklp/justiceblacklp_2.jpg","images/GTAVI/justiceblacklp/justiceblacklp_3.jpg","images/GTAVI/justiceblacklp/justiceblacklp_4.jpg"],
     link: "",
     price: "£34.23"
   }
