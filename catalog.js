@@ -524,7 +524,7 @@ const ITEMS = [
     rarity: "Common",
     availability: "Available for purchase - Yes",
     image: "images/GTAVI/justicedoublecd/justicedoublecd_1.jpg",
-    extraImages: [],
+    extraImages: ["images/GTAVI/justicedoublecd/justicedoublecd_2.jpg","images/GTAVI/justicedoublecd/justicedoublecd_3.jpg","images/GTAVI/justicedoublecd/justicedoublecd_4.jpg"],
     link: "",
     price: "£14.19"
   }
