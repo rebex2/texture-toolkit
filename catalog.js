@@ -173,8 +173,8 @@ const ITEMS = [
     year: "2026",
     rarity: "Common",
     availability: "Available for purchase - Yes",
-    image: "images/GTAVI/Goodtime_black/Goodtime_black_1.jpg",
-    extraImages: ["images/GTAVI/Goodtime_black/Goodtime_black_2.jpg","images/GTAVI/Goodtime_black/Goodtime_black_3.jpg","images/GTAVI/Goodtime_black/Goodtime_black_4.jpg"],
+    image: "images/GTAVI/Goodtime_black/Goodtime_black_3.jpg",
+    extraImages: ["images/GTAVI/Goodtime_black/Goodtime_black_1.jpg","images/GTAVI/Goodtime_black/Goodtime_black_2.jpg","images/GTAVI/Goodtime_black/Goodtime_black_4.jpg"],
     link: "",
     price: "£25.99"
   },
