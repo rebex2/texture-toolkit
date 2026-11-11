@@ -50,8 +50,8 @@ const ITEMS = [
     year: "2008",
     rarity: "Very Rare",
     availability: "Available for purchase - No",
-    image: "images/GTAIV/flex-cuff1_1.jpg",
-    extraImages: [],
+    image: "images/GTAIV/flexcuff/flexcuff_1.jpg",
+    extraImages: ["images/GTAIV/flexcuff/flexcuff_2.jpg","images/GTAIV/flexcuff/flexcuff_3.jpg","images/GTAIV/flexcuff/flexcuff_4.jpg"],
     link: "",
     price: ""
   },
