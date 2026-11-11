@@ -46,7 +46,7 @@ const ITEMS = [
     game: "Grand Theft Auto IV (2008)",
     category: "Novelty",
     subcategory: "Other Novelty",
-    description: "Flex handcuffs used to promote GTA IV. Given away in the US for promotional purposes only and never available for purchase. These are considered very rare and hard to find.",
+    description: "Flex handcuffs used to promote GTA IV. Given away in the US for promotional purposes only and TEST TEST TEST never available for purchase. These are considered very rare and hard to find.",
     year: "2008",
     rarity: "Very Rare",
     availability: "Available for purchase - No",
