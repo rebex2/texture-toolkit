@@ -86,8 +86,8 @@ const ITEMS = [
   {
     name: "Grand Theft Auto VI: The Goodtime State – Vice City Collection",
     game: "Grand Theft Auto VI (2026)",
-    category: "Merchandise Collection",
-    subcategory: "Apparel & accessories",
+    category: "Game Media",
+    subcategory: "Special/Collectors Editions",
     description: "Described by Rockstar as \"a premium collector’s box\". Measuring 19 inches by 13.5 inches by 12.5 inches and housed in a black cardboard multi-opening shell it includes:\n\n1) Macca the Gator figure\n2) Oakley® Frogskins™ sunglasses\n3) Leonida Keys crossbody bag\n4) New Era® 9FORTY snapback hat\n5) Macca the Gator magnetic mirror\n6) Chunkee the Manatee shot glass\n7) Vice City collectible swizzle spoon\n8) Vice City razor blade keychain (blunt)\n9) Leonida Keys enamel pin set in a metal tin\n10) Leonida Keys sticker pack in stash bag \n11) Double-sided souvenir poster with a map of Leonida\n\nAs with the Red Dead II Collectors Box it does NOT include a copy (physical or digital) of the actual GTA VI game.",
     year: "2026",
     rarity: "Common",
@@ -464,7 +464,7 @@ const ITEMS = [
   {
     name: "Grand Theft Auto VI: The Album – Exclusive CD",
     game: "Grand Theft Auto VI (2026)",
-    category: "Music",
+    category: "Audio & Video",
     subcategory: "CDs",
     description: "An 'exclusive' edition of the CD version of 'Grand Theft Auto VI: The Album'. As with the standard CD edition it features the same core 34-track official soundtrack across two CDs but with exclusive alternate artwork and distinct packaging housed in a collectible jewel case variant.",
     year: "2026",
@@ -478,8 +478,8 @@ const ITEMS = [
   {
     name: "Grand Theft Auto VI: The Album - Standard Vinyl",
     game: "Grand Theft Auto VI (2026)",
-    category: "Music",
-    subcategory: "Vinyl records",
+    category: "Audio & Video",
+    subcategory: "Vinyl",
     description: "Standard vinyl edition of 'Grand Theft Auto VI: The Album'. Features the core 34-track official soundtrack across two black LPs.",
     year: "2026",
     rarity: "Common",
@@ -492,7 +492,7 @@ const ITEMS = [
   {
     name: "Grand Theft Auto VI: The Album - Standard CD",
     game: "Grand Theft Auto VI (2026)",
-    category: "Music",
+    category: "Audio & Video",
     subcategory: "CDs",
     description: "Standard CD edition of 'Grand Theft Auto VI: The Album'. Features the core 34-track official soundtrack spread across two CDs in a jewel case with regular artwork.",
     year: "2026",
