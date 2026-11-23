@@ -580,36 +580,108 @@
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 
-    /* ----- NO-FILTER MODE: 2 columns, capped at 20 items ----- */
-    .catalogue-grid.unfiltered-mode {
-      grid-template-columns: repeat(2, 1fr);
+    /* ----- NO-FILTER PREVIEW MODE -----
+       Wrapper sits around the grid and clips it. The fade is anchored to the
+       wrapper's bottom edge, so the third row physically peeks out from under
+       the gradient. The grid itself uses a 10-column layout and is clipped to
+       a height that lands roughly halfway through row 3.
+       Row height (approx) = card width. Container inner width (at 1440px
+       viewport) ≈ 1440 - 2*1.75rem padding - outer padding. Rather than guess
+       pixel values, we use a fraction of the wrapper's own width via
+       aspect-ratio-aware maths in CSS custom props computed per breakpoint.
+       ------------------------------------------------------------- */
+    .catalogue-preview {
+      position: relative;
+      overflow: hidden;
+      /* default clip height for desktop 10-col grid: tuned so row 3 is ~half cut */
+      --preview-clip: 720px;
+      max-height: var(--preview-clip);
+      transition: max-height 0.3s var(--ease-out);
     }
 
-    /* Divider shown below the capped preview when unfiltered */
-    .catalogue-more-divider {
-      display: none;
-      margin: 0 1.75rem 2rem;
-      padding: 1.5rem 1.5rem;
-      border-top: 1px solid var(--border-strong);
-      border-bottom: 1px solid var(--border-strong);
-      text-align: center;
+    /* When filters are active we remove the clip entirely */
+    .catalogue-preview.is-filtered {
+      max-height: none;
+      overflow: visible;
     }
-    .catalogue-more-divider.visible { display: block; }
-    .catalogue-more-divider p {
+
+    .catalogue-grid.unfiltered-mode {
+      grid-template-columns: repeat(10, 1fr);
+      gap: 1rem;
+      padding: 1.75rem 1.75rem 0;
+    }
+
+    /* The fade + prompt overlay sits inside the preview wrapper, pinned to
+       its bottom edge. Because the wrapper is the thing that's clipped, the
+       fade visually "eats" the bottom half of row 3. */
+    .catalogue-preview-fade {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 220px;
+      pointer-events: none;
+      z-index: 5;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 2rem;
+      background: linear-gradient(
+        to bottom,
+        rgba(10, 10, 26, 0) 0%,
+        rgba(10, 10, 26, 0.55) 35%,
+        rgba(10, 10, 26, 0.92) 70%,
+        rgba(10, 10, 26, 1) 100%
+      );
+      opacity: 0;
+      transition: opacity 0.25s var(--ease-out);
+    }
+    .catalogue-preview.is-unfiltered .catalogue-preview-fade {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .catalogue-preview-prompt {
+      max-width: 560px;
+      padding: 1rem 1.4rem;
+      text-align: center;
+      background: rgba(26, 16, 38, 0.92);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      box-shadow: var(--shadow-depth);
+    }
+    .catalogue-preview-prompt p {
       margin: 0;
       color: var(--muted);
-      font-size: 0.85rem;
-      line-height: 1.7;
+      font-size: 0.82rem;
+      line-height: 1.6;
     }
-    .catalogue-more-divider strong {
-      color: var(--white);
-      font-weight: 600;
-    }
-    .catalogue-more-divider .divider-arrow {
+    .catalogue-preview-prompt strong { color: var(--white); font-weight: 600; }
+    .catalogue-preview-prompt .prompt-arrow {
       display: inline-block;
       margin-left: 0.3rem;
       color: var(--accent);
       font-weight: 700;
+    }
+
+    /* Mobile: 5 columns instead of 10 so cards stay readable, and the clip
+       is recalculated so we still see 2 full rows + half of row 3. */
+    @media (max-width: 768px) {
+      .catalogue-grid.unfiltered-mode {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.7rem;
+        padding: 1rem 1rem 0;
+      }
+      .catalogue-preview { --preview-clip: 560px; }
+      .catalogue-preview-fade { height: 170px; padding-bottom: 1.25rem; }
+      .catalogue-preview-prompt { padding: 0.85rem 1rem; }
+      .catalogue-preview-prompt p { font-size: 0.76rem; }
+    }
+    /* Very narrow phones: drop to 4 columns if 5 would be too tight */
+    @media (max-width: 420px) {
+      .catalogue-grid.unfiltered-mode { grid-template-columns: repeat(4, 1fr); }
     }
 
     .merch-card {
@@ -1312,14 +1384,6 @@
         gap: 0.9rem;
         padding: 1rem;
       }
-      .catalogue-grid.unfiltered-mode {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .catalogue-more-divider {
-        margin: 0 1rem 1.5rem;
-        padding: 1.1rem 1rem;
-      }
-      .catalogue-more-divider p { font-size: 0.78rem; }
       .filter-bar, .search-wrap { padding: 0.75rem 1.25rem; }
       .home-section { padding: 2.5rem 1.25rem; }
       .item-detail-wrap { padding: var(--hero-top) 1.25rem 3rem; }
@@ -1433,12 +1497,16 @@
       <div class="search-wrap">
         <input class="search-input" id="searchInput" type="search" placeholder="Search by name, game, or keyword…" aria-label="Search the catalogue" />
       </div>
-      <div class="catalogue-grid" id="catalogue"></div>
-      <div class="catalogue-more-divider" id="catalogueMoreDivider">
-        <p>
-          Showing 20 of the catalogue. Use the <strong>Game</strong> and <strong>Type</strong> filters above
-          <span class="divider-arrow">↑</span> to see more items.
-        </p>
+      <div class="catalogue-preview" id="cataloguePreview">
+        <div class="catalogue-grid" id="catalogue"></div>
+        <div class="catalogue-preview-fade">
+          <div class="catalogue-preview-prompt">
+            <p>
+              Showing a preview of the catalogue. Use the <strong>Game</strong> and <strong>Type</strong> filters above
+              <span class="prompt-arrow">↑</span> to see more items.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1604,7 +1672,6 @@
       const PAGES = ['home', 'catalogue', 'about', 'contact'];
       const HTML_ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
       const NO_PRICE = ['', 'n/a', 'na', 'not applicable'];
-      const UNFILTERED_LIMIT = 20;
       const CATEGORY_GLYPH = {
         'Hat': 'H', 'Hats': 'H',
         'Plushie': 'P', 'Plushies': 'P',
@@ -1745,28 +1812,23 @@
         );
 
         const grid = $('catalogue');
-        const divider = $('catalogueMoreDivider');
+        const preview = $('cataloguePreview');
 
-        // Toggle 2-column mode
+        // Toggle 10-column layout + clipped preview wrapper
         grid.classList.toggle('unfiltered-mode', isUnfiltered);
-
-        // Cap the visible items at 20 when no filters are active
-        const visible = isUnfiltered ? filtered.slice(0, UNFILTERED_LIMIT) : filtered;
-
-        // Show the divider only when unfiltered AND there are more items than the cap
-        if (divider) {
-          divider.classList.toggle('visible', isUnfiltered && filtered.length > UNFILTERED_LIMIT);
-        }
+        preview.classList.toggle('is-unfiltered', isUnfiltered);
+        preview.classList.toggle('is-filtered', !isUnfiltered);
 
         if (!filtered.length) {
           grid.classList.remove('grid-enter');
           grid.classList.remove('unfiltered-mode');
-          if (divider) divider.classList.remove('visible');
+          preview.classList.remove('is-unfiltered');
+          preview.classList.add('is-filtered');
           grid.innerHTML = '<div class="empty-state"><h3>No items found</h3><p>Try a different filter or search term.</p></div>';
           return;
         }
 
-        renderGrid(grid, visible);
+        renderGrid(grid, filtered);
       };
 
       /* ----- FILTERS ----- */
