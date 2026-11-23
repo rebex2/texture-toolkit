@@ -45,12 +45,13 @@
       --shadow-depth: 0 10px 24px rgba(0, 0, 0, 0.35);
       --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
       --hero-top: 3.5rem;
+      --bg-base: #0a0a1a;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       min-height: 100vh;
-      background: #0a0a1a;
+      background: var(--bg-base);
       color: var(--white);
       font-family: var(--font-body);
       font-size: 15px;
@@ -574,10 +575,98 @@
     .catalogue-grid {
       padding: 1.75rem;
       grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      transition: grid-template-columns 0.25s var(--ease-out);
     }
     .home-grid {
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
+
+    /* ----- NO-FILTER MODE: 2 columns with gradient fade ----- */
+    .catalogue-unfiltered-wrap {
+      position: relative;
+    }
+    .catalogue-grid.unfiltered-mode {
+      grid-template-columns: repeat(2, 1fr);
+      max-height: 960px;
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 52%,
+        rgba(0, 0, 0, 0.75) 72%,
+        rgba(0, 0, 0, 0.25) 90%,
+        transparent 100%
+      );
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 52%,
+        rgba(0, 0, 0, 0.75) 72%,
+        rgba(0, 0, 0, 0.25) 90%,
+        transparent 100%
+      );
+    }
+    .catalogue-unfiltered-wrap::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 260px;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(10, 10, 26, 0.45) 40%,
+        rgba(10, 10, 26, 0.85) 75%,
+        rgba(10, 10, 26, 0.98) 100%
+      );
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.3s var(--ease-out);
+    }
+    .catalogue-unfiltered-wrap.is-unfiltered::after { opacity: 1; }
+    .catalogue-unfiltered-prompt {
+      position: absolute;
+      left: 50%;
+      bottom: 2.25rem;
+      transform: translateX(-50%);
+      z-index: 3;
+      width: min(90%, 560px);
+      padding: 1.1rem 1.5rem;
+      text-align: center;
+      background: rgba(26, 16, 38, 0.88);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: var(--shadow-depth);
+      transition: opacity 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+    }
+    .catalogue-unfiltered-prompt[hidden] {
+      display: block;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-50%) translateY(8px);
+    }
+    .catalogue-unfiltered-prompt p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+    .catalogue-unfiltered-prompt strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+    .catalogue-unfiltered-prompt .prompt-arrow {
+      display: inline-block;
+      margin-left: 0.35rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
     .merch-card {
       position: relative;
       display: flex;
@@ -1278,6 +1367,16 @@
         gap: 0.9rem;
         padding: 1rem;
       }
+      .catalogue-grid.unfiltered-mode {
+        grid-template-columns: repeat(2, 1fr);
+        max-height: 720px;
+      }
+      .catalogue-unfiltered-wrap::after { height: 200px; }
+      .catalogue-unfiltered-prompt {
+        bottom: 1.25rem;
+        padding: 0.9rem 1.1rem;
+      }
+      .catalogue-unfiltered-prompt p { font-size: 0.76rem; }
       .filter-bar, .search-wrap { padding: 0.75rem 1.25rem; }
       .home-section { padding: 2.5rem 1.25rem; }
       .item-detail-wrap { padding: var(--hero-top) 1.25rem 3rem; }
@@ -1391,7 +1490,15 @@
       <div class="search-wrap">
         <input class="search-input" id="searchInput" type="search" placeholder="Search by name, game, or keyword…" aria-label="Search the catalogue" />
       </div>
-      <div class="catalogue-grid" id="catalogue"></div>
+      <div class="catalogue-unfiltered-wrap" id="catalogueWrap">
+        <div class="catalogue-grid" id="catalogue"></div>
+        <div class="catalogue-unfiltered-prompt" id="unfilteredPrompt" hidden>
+          <p>
+            Showing a preview of the catalogue. Use the <strong>Game</strong> and <strong>Type</strong> filters above
+            <span class="prompt-arrow">↑</span> to see more items.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- ABOUT -->
@@ -1680,18 +1787,39 @@
 
       const renderCatalogue = () => {
         const term = $('searchInput').value.toLowerCase().trim();
+
+        // "Unfiltered" = all filter dimensions at 'all' AND no search term
+        const isUnfiltered =
+          state.game === 'all' &&
+          state.type === 'all' &&
+          state.sub === 'all' &&
+          !term;
+
         const filtered = state.items.filter((item) =>
           (state.type === 'all' || item.category === state.type) &&
           (state.game === 'all' || item.game === state.game) &&
           (state.sub === 'all' || item.subcategory === state.sub) &&
           (!term || item.searchText.includes(term))
         );
+
         const grid = $('catalogue');
+        const wrap = $('catalogueWrap');
+        const prompt = $('unfilteredPrompt');
+
+        // Apply / remove the unfiltered preview mode
+        grid.classList.toggle('unfiltered-mode', isUnfiltered);
+        if (wrap) wrap.classList.toggle('is-unfiltered', isUnfiltered);
+        if (prompt) prompt.hidden = !isUnfiltered;
+
         if (!filtered.length) {
           grid.classList.remove('grid-enter');
+          grid.classList.remove('unfiltered-mode');
+          if (wrap) wrap.classList.remove('is-unfiltered');
+          if (prompt) prompt.hidden = true;
           grid.innerHTML = '<div class="empty-state"><h3>No items found</h3><p>Try a different filter or search term.</p></div>';
           return;
         }
+
         renderGrid(grid, filtered);
       };
 
