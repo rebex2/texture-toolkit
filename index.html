@@ -805,7 +805,7 @@
     }
     .empty-state p { font-size: 0.85rem; }
 
-    /* ----- ABOUT ----- */
+   /* ----- ABOUT ----- */
     .about-hero { border-bottom: 1px solid var(--border); }
     .about-hero-inner {
       max-width: 760px;
@@ -929,8 +929,8 @@
       border-left: 1px solid var(--border);
     }
 
-    /* ----- HIATUS NOTICE ----- */
-    .hiatus-notice {
+    /* ----- UPDATE NOTICE ----- */
+    .update-notice {
       margin-top: 2rem;
       padding: 1.5rem 1.75rem;
       background: var(--panel);
@@ -938,7 +938,7 @@
       border-left: 3px solid var(--accent);
       border-radius: var(--radius-md);
     }
-    .hiatus-notice h3 {
+    .update-notice h3 {
       margin-bottom: 0.6rem;
       color: var(--accent);
       font-family: var(--font-body);
@@ -947,13 +947,14 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
     }
-    .hiatus-notice p {
+    .update-notice p {
       color: var(--muted);
       font-size: 0.88rem;
       line-height: 1.75;
       max-width: 68ch;
-      margin-bottom: 0;
+      margin-bottom: 0.75rem;
     }
+    .update-notice p:last-child { margin-bottom: 0; }
 
     /* ----- CONTACT EMAIL BLOCK (in About) ----- */
     .about-contact-email {
@@ -979,6 +980,12 @@
       word-break: break-all;
     }
     .about-contact-email a:hover { text-decoration: underline; }
+    .about-contact-email .submissions-note {
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.75;
+      margin: 0 0 0.9rem;
+    }
     .about-contact-email ul {
       margin: 0.9rem 0 0;
       padding-left: 1.1rem;
