@@ -575,94 +575,39 @@
     .catalogue-grid {
       padding: 1.75rem;
       grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      transition: grid-template-columns 0.25s var(--ease-out);
     }
     .home-grid {
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 
-    /* ----- NO-FILTER MODE: 2 columns with gradient fade ----- */
-    .catalogue-unfiltered-wrap {
-      position: relative;
-    }
+    /* ----- NO-FILTER MODE: 2 columns, capped at 20 items ----- */
     .catalogue-grid.unfiltered-mode {
       grid-template-columns: repeat(2, 1fr);
-      max-height: 960px;
-      overflow: hidden;
-      position: relative;
-      mask-image: linear-gradient(
-        to bottom,
-        black 0%,
-        black 52%,
-        rgba(0, 0, 0, 0.75) 72%,
-        rgba(0, 0, 0, 0.25) 90%,
-        transparent 100%
-      );
-      -webkit-mask-image: linear-gradient(
-        to bottom,
-        black 0%,
-        black 52%,
-        rgba(0, 0, 0, 0.75) 72%,
-        rgba(0, 0, 0, 0.25) 90%,
-        transparent 100%
-      );
     }
-    .catalogue-unfiltered-wrap::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 260px;
-      background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(10, 10, 26, 0.45) 40%,
-        rgba(10, 10, 26, 0.85) 75%,
-        rgba(10, 10, 26, 0.98) 100%
-      );
-      pointer-events: none;
-      z-index: 2;
-      opacity: 0;
-      transition: opacity 0.3s var(--ease-out);
-    }
-    .catalogue-unfiltered-wrap.is-unfiltered::after { opacity: 1; }
-    .catalogue-unfiltered-prompt {
-      position: absolute;
-      left: 50%;
-      bottom: 2.25rem;
-      transform: translateX(-50%);
-      z-index: 3;
-      width: min(90%, 560px);
-      padding: 1.1rem 1.5rem;
+
+    /* Divider shown below the capped preview when unfiltered */
+    .catalogue-more-divider {
+      display: none;
+      margin: 0 1.75rem 2rem;
+      padding: 1.5rem 1.5rem;
+      border-top: 1px solid var(--border-strong);
+      border-bottom: 1px solid var(--border-strong);
       text-align: center;
-      background: rgba(26, 16, 38, 0.88);
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius-md);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      box-shadow: var(--shadow-depth);
-      transition: opacity 0.25s var(--ease-out), transform 0.25s var(--ease-out);
     }
-    .catalogue-unfiltered-prompt[hidden] {
-      display: block;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateX(-50%) translateY(8px);
-    }
-    .catalogue-unfiltered-prompt p {
+    .catalogue-more-divider.visible { display: block; }
+    .catalogue-more-divider p {
       margin: 0;
       color: var(--muted);
-      font-size: 0.82rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.7;
     }
-    .catalogue-unfiltered-prompt strong {
+    .catalogue-more-divider strong {
       color: var(--white);
       font-weight: 600;
     }
-    .catalogue-unfiltered-prompt .prompt-arrow {
+    .catalogue-more-divider .divider-arrow {
       display: inline-block;
-      margin-left: 0.35rem;
+      margin-left: 0.3rem;
       color: var(--accent);
       font-weight: 700;
     }
@@ -1369,14 +1314,12 @@
       }
       .catalogue-grid.unfiltered-mode {
         grid-template-columns: repeat(2, 1fr);
-        max-height: 720px;
       }
-      .catalogue-unfiltered-wrap::after { height: 200px; }
-      .catalogue-unfiltered-prompt {
-        bottom: 1.25rem;
-        padding: 0.9rem 1.1rem;
+      .catalogue-more-divider {
+        margin: 0 1rem 1.5rem;
+        padding: 1.1rem 1rem;
       }
-      .catalogue-unfiltered-prompt p { font-size: 0.76rem; }
+      .catalogue-more-divider p { font-size: 0.78rem; }
       .filter-bar, .search-wrap { padding: 0.75rem 1.25rem; }
       .home-section { padding: 2.5rem 1.25rem; }
       .item-detail-wrap { padding: var(--hero-top) 1.25rem 3rem; }
@@ -1490,14 +1433,12 @@
       <div class="search-wrap">
         <input class="search-input" id="searchInput" type="search" placeholder="Search by name, game, or keyword…" aria-label="Search the catalogue" />
       </div>
-      <div class="catalogue-unfiltered-wrap" id="catalogueWrap">
-        <div class="catalogue-grid" id="catalogue"></div>
-        <div class="catalogue-unfiltered-prompt" id="unfilteredPrompt" hidden>
-          <p>
-            Showing a preview of the catalogue. Use the <strong>Game</strong> and <strong>Type</strong> filters above
-            <span class="prompt-arrow">↑</span> to see more items.
-          </p>
-        </div>
+      <div class="catalogue-grid" id="catalogue"></div>
+      <div class="catalogue-more-divider" id="catalogueMoreDivider">
+        <p>
+          Showing 20 of the catalogue. Use the <strong>Game</strong> and <strong>Type</strong> filters above
+          <span class="divider-arrow">↑</span> to see more items.
+        </p>
       </div>
     </section>
 
@@ -1663,6 +1604,7 @@
       const PAGES = ['home', 'catalogue', 'about', 'contact'];
       const HTML_ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
       const NO_PRICE = ['', 'n/a', 'na', 'not applicable'];
+      const UNFILTERED_LIMIT = 20;
       const CATEGORY_GLYPH = {
         'Hat': 'H', 'Hats': 'H',
         'Plushie': 'P', 'Plushies': 'P',
@@ -1803,24 +1745,28 @@
         );
 
         const grid = $('catalogue');
-        const wrap = $('catalogueWrap');
-        const prompt = $('unfilteredPrompt');
+        const divider = $('catalogueMoreDivider');
 
-        // Apply / remove the unfiltered preview mode
+        // Toggle 2-column mode
         grid.classList.toggle('unfiltered-mode', isUnfiltered);
-        if (wrap) wrap.classList.toggle('is-unfiltered', isUnfiltered);
-        if (prompt) prompt.hidden = !isUnfiltered;
+
+        // Cap the visible items at 20 when no filters are active
+        const visible = isUnfiltered ? filtered.slice(0, UNFILTERED_LIMIT) : filtered;
+
+        // Show the divider only when unfiltered AND there are more items than the cap
+        if (divider) {
+          divider.classList.toggle('visible', isUnfiltered && filtered.length > UNFILTERED_LIMIT);
+        }
 
         if (!filtered.length) {
           grid.classList.remove('grid-enter');
           grid.classList.remove('unfiltered-mode');
-          if (wrap) wrap.classList.remove('is-unfiltered');
-          if (prompt) prompt.hidden = true;
+          if (divider) divider.classList.remove('visible');
           grid.innerHTML = '<div class="empty-state"><h3>No items found</h3><p>Try a different filter or search term.</p></div>';
           return;
         }
 
-        renderGrid(grid, filtered);
+        renderGrid(grid, visible);
       };
 
       /* ----- FILTERS ----- */
