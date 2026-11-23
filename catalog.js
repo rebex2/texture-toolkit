@@ -558,5 +558,19 @@ const ITEMS = [
     extraImages: ["images/GTAVI/justiceblacklp/justiceblacklp_2.jpg","images/GTAVI/justiceblacklp/justiceblacklp_3.jpg","images/GTAVI/justiceblacklp/justiceblacklp_4.jpg"],
     link: "",
     price: "£34.23"
+  },
+  {
+    name: "GTA VI Illuminated Logo Lightbox",
+    game: "Grand Theft Auto VI (2026)",
+    category: "Game Media",
+    subcategory: "Other Game Media",
+    description: "Produced as an exclusive promotional gift by Rockstar Games in August 2026. A custom illuminated display featuring the Grand Theft Auto VI logo, which lights up when powered on.\n\nOnly four examples were reportedly produced, with the lightboxes gifted to selected GTA content creators. Australian YouTuber TGG (The Gaming Gorilla) publicly revealed his example, making it an exceptionally limited piece of GTA VI promotional merchandise.",
+    year: "2026",
+    rarity: "Extremely rare",
+    availability: "Available for purchase - No",
+    image: "images/GTAVI/lightbox/lightbox_2.jpg",
+    extraImages: ["images/GTAVI/lightbox/lightbox_1.jpg"],
+    link: "https://x.com/TGGonYT/status/2093886646123143180",
+    price: "N/A"
   }
 ];
