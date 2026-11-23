@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEAD HORSE</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000000;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Courier New', 'Courier', monospace;
+      padding: 1.5rem;
+      color: #b8b8b8;
+      letter-spacing: 0.5px;
+    }
+
+    .container {
+      max-width: 750px;
+      width: 100%;
+      padding: 2rem 1.5rem;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 10px;
+      color: #9a9a9a;
+      text-align: center;
+      margin-bottom: 2rem;
+      word-break: break-word;
+    }
+
+    .horse-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1rem 0 2rem 0;
+    }
+
+    svg {
+      width: 100%;
+      max-width: 440px;
+      height: auto;
+      display: block;
+    }
+
+    .message {
+      font-size: 1.2rem;
+      text-align: center;
+      color: #a0a0a0;
+      line-height: 1.8;
+      font-style: italic;
+      padding: 0 0.5rem;
+    }
+
+    @media (max-width: 550px) {
+      h1 {
+        font-size: 1.8rem;
+        letter-spacing: 6px;
+      }
+      .message {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>DEAD HORSE</h1>
+
+    <div class="horse-wrapper">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" fill="none">
+        <!-- ground / shadow -->
+        <ellipse cx="250" cy="295" rx="160" ry="20" fill="#0f0f0f" opacity="0.7" />
+
+        <!-- horse body — limp, lying down -->
+        <path d="M120 240 Q80 220 100 185 Q115 155 165 150 Q210 145 260 150 Q330 158 370 175 Q400 190 395 220 Q390 250 340 260 Q280 272 200 268 Q150 265 120 240 Z"
+              fill="#1e1e1e" stroke="#3a3a3a" stroke-width="2.5" stroke-linejoin="round" />
+
+        <!-- neck & head (down, lifeless) -->
+        <path d="M370 185 Q400 160 405 130 Q408 100 380 85 Q350 72 325 85 Q305 98 305 125 Q308 155 330 170 Q350 182 370 185 Z"
+              fill="#1a1a1a" stroke="#3c3c3c" stroke-width="2.5" />
+
+        <!-- mane — messy -->
+        <path d="M380 88 Q390 100 395 120 Q398 138 393 155" stroke="#2c2c2c" stroke-width="4" stroke-linecap="round" />
+        <path d="M370 84 Q378 100 385 115" stroke="#2a2a2a" stroke-width="3.5" stroke-linecap="round" />
+        <path d="M360 82 Q365 100 368 116" stroke="#262626" stroke-width="3" stroke-linecap="round" />
+
+        <!-- ears — drooping -->
+        <path d="M340 84 L330 60 Q335 68 342 80" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="2" />
+        <path d="M365 82 L370 55 Q368 65 363 78" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="2" />
+
+        <!-- X eyes -->
+        <line x1="332" y1="112" x2="352" y2="132" stroke="#6b3a3a" stroke-width="3.5" stroke-linecap="round" />
+        <line x1="352" y1="112" x2="332" y2="132" stroke="#6b3a3a" stroke-width="3.5" stroke-linecap="round" />
+        <line x1="365" y1="108" x2="385" y2="128" stroke="#6b3a3a" stroke-width="3.5" stroke-linecap="round" />
+        <line x1="385" y1="108" x2="365" y2="128" stroke="#6b3a3a" stroke-width="3.5" stroke-linecap="round" />
+
+        <!-- nostrils -->
+        <ellipse cx="385" cy="145" rx="5" ry="4" fill="#0b0b0b" stroke="#2b2b2b" stroke-width="1" />
+        <ellipse cx="370" cy="148" rx="4" ry="3" fill="#0b0b0b" stroke="#2b2b2b" stroke-width="1" />
+
+        <!-- mouth — slack -->
+        <path d="M370 160 Q385 168 395 162" stroke="#2f2f2f" stroke-width="2.5" stroke-linecap="round" />
+
+        <!-- front legs -->
+        <path d="M170 245 L140 300" stroke="#2e2e2e" stroke-width="7" stroke-linecap="round" />
+        <path d="M140 300 L125 315" stroke="#2e2e2e" stroke-width="6" stroke-linecap="round" />
+        <path d="M210 255 L195 305" stroke="#2e2e2e" stroke-width="6" stroke-linecap="round" />
+        <path d="M195 305 L185 320" stroke="#2e2e2e" stroke-width="5" stroke-linecap="round" />
+
+        <!-- back legs -->
+        <path d="M330 260 L340 310" stroke="#2e2e2e" stroke-width="7" stroke-linecap="round" />
+        <path d="M340 310 L355 325" stroke="#2e2e2e" stroke-width="6" stroke-linecap="round" />
+        <path d="M290 265 L300 315" stroke="#2e2e2e" stroke-width="6" stroke-linecap="round" />
+        <path d="M300 315 L315 328" stroke="#2e2e2e" stroke-width="5" stroke-linecap="round" />
+
+        <!-- tail -->
+        <path d="M125 235 Q80 240 60 255 Q40 270 45 280" stroke="#2a2a2a" stroke-width="6" stroke-linecap="round" fill="none" />
+        <path d="M45 280 Q55 285 65 280" stroke="#2a2a2a" stroke-width="4" stroke-linecap="round" />
+
+        <!-- bullet wound -->
+        <circle cx="355" cy="100" r="5" fill="#3d1a1a" stroke="#4f2a2a" stroke-width="1.5" opacity="0.9" />
+        <circle cx="355" cy="100" r="2.5" fill="#1a0a0a" />
+
+        <!-- dust specks -->
+        <circle cx="120" cy="290" r="1.5" fill="#1a1a1a" />
+        <circle cx="410" cy="275" r="1.5" fill="#1a1a1a" />
+        <circle cx="380" cy="305" r="1.2" fill="#1f1f1f" />
+        <circle cx="90" cy="260" r="1.2" fill="#1f1f1f" />
+      </svg>
+    </div>
+
+    <div class="message">
+      “you can’t keep the horse on life support — you just gotta shoot it”
+    </div>
+  </div>
+</body>
+</html>
