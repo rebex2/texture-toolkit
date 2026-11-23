@@ -666,22 +666,19 @@
       font-weight: 700;
     }
 
-    /* Mobile: 5 columns instead of 10 so cards stay readable, and the clip
-       is recalculated so we still see 2 full rows + half of row 3. */
+    /* On phones, the unfiltered preview needs the same minimum card width as
+       the regular catalogue. The former 5/4-column preview made the complete
+       card content (not just thumbnails) too narrow to read. */
     @media (max-width: 768px) {
       .catalogue-grid.unfiltered-mode {
-        grid-template-columns: repeat(5, 1fr);
-        gap: 0.7rem;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.9rem;
         padding: 1rem 1rem 0;
       }
       .catalogue-preview { --preview-clip: 560px; }
       .catalogue-preview-fade { height: 170px; padding-bottom: 1.25rem; }
       .catalogue-preview-prompt { padding: 0.85rem 1rem; }
       .catalogue-preview-prompt p { font-size: 0.76rem; }
-    }
-    /* Very narrow phones: drop to 4 columns if 5 would be too tight */
-    @media (max-width: 420px) {
-      .catalogue-grid.unfiltered-mode { grid-template-columns: repeat(4, 1fr); }
     }
 
     .merch-card {
