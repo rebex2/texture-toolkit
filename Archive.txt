@@ -1,2146 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="rph-version" content="2026.10.24" />
-
-  <title>Rockstar Games Merchandise Catalogue | R★ Games Promo Hub</title>
-
-  <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png" />
-  <link rel="shortcut icon" href="images/favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png" />
-  <link rel="manifest" href="images/favicon/site.webmanifest" />
-
-  <meta name="description" content="Explore a fan-made catalogue of Rockstar Games promotional merchandise, collectibles and branded items. Unofficial and not affiliated with Rockstar Games or Take-Two Interactive." />
-  <meta name="robots" content="index, follow" />
-
-  <meta property="og:title" content="Rockstar Games Merchandise Catalogue | R★ Games Promo Hub" />
-  <meta property="og:description" content="Explore a fan-made catalogue of Rockstar Games promotional merchandise. Unofficial and not affiliated with Rockstar Games or Take-Two Interactive." />
-  <meta property="og:type" content="website" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEAD HORSE</title>
   <style>
-    /* ----- PALETTE ----- */
-    :root {
-      --panel: #1a1026;
-      --panel-light: #221533;
-      --border: #2e1f3d;
-      --border-strong: #3d2952;
-      --accent: #ff4da6;
-      --link: #4de0ff;
-      --white: #f0eaff;
-      --muted: #9a86b0;
-      --muted-2: #6b5a80;
-      --red: #ff3b5c;
-      --green: #2ee6a8;
-      --font-display: "Bebas Neue", sans-serif;
-      --font-body: "Inter", sans-serif;
-      --radius-sm: 2px;
-      --radius-md: 4px;
-      --radius-pill: 999px;
-      --shadow-depth: 0 10px 24px rgba(0, 0, 0, 0.35);
-      --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
-      --hero-top: 3.5rem;
-      --bg-base: #0a0a1a;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      min-height: 100vh;
-      background: var(--bg-base);
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 15px;
-      line-height: 1.55;
-      position: relative;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(1200px 600px at 15% 0%, rgba(176, 110, 255, 0.06), transparent 60%),
-        radial-gradient(900px 500px at 85% 100%, rgba(77, 224, 255, 0.04), transparent 60%),
-        linear-gradient(180deg, #0a0a1a 0%, #120a22 55%, #0e0818 100%);
-      pointer-events: none;
-      z-index: -1;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    button { font: inherit; }
-
-    /* ----- TYPE SCALE ----- */
-    .h-display {
-      font-family: var(--font-display);
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      line-height: 0.95;
-      color: var(--white);
-    }
-    .eyebrow {
-      font-family: var(--font-body);
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    /* ----- HEADER ----- */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      height: 64px;
-      padding: 0 1.75rem;
-      background: rgba(10, 8, 20, 0.92);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-    .logo {
-      display: flex;
-      flex-shrink: 0;
-      align-items: baseline;
-      gap: 6px;
-    }
-    .logo-word {
-      color: var(--white);
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-      letter-spacing: 0.12em;
-      line-height: 1;
-    }
-    .logo-star { color: var(--accent); }
-    .logo-divider {
-      align-self: center;
-      width: 1px;
-      height: 18px;
-      margin: 0 6px;
-      background: var(--border-strong);
-    }
-    .logo-subtitle {
-      align-self: center;
-      color: var(--muted-2);
-      font-size: 0.6rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-    .desktop-nav {
-      display: flex;
-      flex: 1;
-      align-items: center;
-      justify-content: center;
-      gap: 0.25rem;
-    }
-    .nav-link, .mobile-nav-link {
-      border: 0;
-      background: transparent;
-      color: var(--muted);
-      cursor: pointer;
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      transition: color 0.15s;
-    }
-    .nav-link {
-      position: relative;
-      padding: 8px 16px;
-      white-space: nowrap;
-      border-radius: var(--radius-sm);
-    }
-    .nav-link::after {
-      position: absolute;
-      right: 16px;
-      bottom: 2px;
-      left: 16px;
-      height: 1px;
-      background: var(--accent);
-      content: "";
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.2s;
-    }
-    .nav-link:hover, .nav-link.active { color: var(--white); }
-    .nav-link.active::after { transform: scaleX(1); }
-    .header-right {
-      display: flex;
-      flex-shrink: 0;
-      align-items: center;
-      gap: 0.75rem;
-      margin-left: auto;
-    }
-    .item-count {
-      color: var(--muted-2);
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--border);
-    }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      padding: 4px;
-      border: 0;
-      background: transparent;
-      cursor: pointer;
-    }
-    .hamburger span {
-      display: block;
-      width: 20px;
-      height: 1.5px;
-      border-radius: 2px;
-      background: var(--white);
-      transition: all 0.2s;
-    }
-    .hamburger.open span:first-child { transform: translateY(6.5px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-    .mobile-nav {
-      position: fixed;
-      top: 64px;
-      right: 0;
-      left: 0;
-      z-index: 199;
-      display: none;
-      flex-direction: column;
-      padding: 0.5rem 0;
-      background: #120a22;
-      border-bottom: 1px solid var(--border);
-    }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav-link {
-      width: 100%;
-      padding: 14px 1.75rem;
-      border-left: 2px solid transparent;
-      font-size: 0.72rem;
-      text-align: left;
-    }
-    .mobile-nav-link.active, .mobile-nav-link:hover {
-      color: var(--white);
-      border-left-color: var(--accent);
-    }
-
-    /* ----- PAGE TRANSITIONS ----- */
-    .page { display: none; position: relative; }
-    .page.active {
-      display: block;
-      animation: page-in 0.22s var(--ease-out);
-    }
-    @keyframes page-in {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .page > * { animation: section-in 0.32s var(--ease-out) both; }
-    .page > *:nth-child(2) { animation-delay: 0.04s; }
-    .page > *:nth-child(3) { animation-delay: 0.08s; }
-    .page > *:nth-child(4) { animation-delay: 0.11s; }
-    @keyframes section-in {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .grid-enter .merch-card { animation: card-in 0.28s var(--ease-out) both; }
-    .grid-enter .merch-card:nth-child(1) { animation-delay: 0.00s; }
-    .grid-enter .merch-card:nth-child(2) { animation-delay: 0.02s; }
-    .grid-enter .merch-card:nth-child(3) { animation-delay: 0.04s; }
-    .grid-enter .merch-card:nth-child(4) { animation-delay: 0.06s; }
-    .grid-enter .merch-card:nth-child(5) { animation-delay: 0.08s; }
-    .grid-enter .merch-card:nth-child(6) { animation-delay: 0.10s; }
-    .grid-enter .merch-card:nth-child(7) { animation-delay: 0.12s; }
-    .grid-enter .merch-card:nth-child(8) { animation-delay: 0.14s; }
-    @keyframes card-in {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ----- BUTTONS ----- */
-    .btn-primary, .btn-text, .btn-see-all, .btn-back {
-      cursor: pointer;
-      font-family: var(--font-body);
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      transition: background 0.15s, border-color 0.15s, color 0.15s, box-shadow 0.2s;
-    }
-    .btn-primary {
-      position: relative;
-      padding: 13px 30px;
-      border: 1px solid var(--accent);
-      border-radius: var(--radius-sm);
-      background: var(--accent);
-      color: #14061a;
-      font-size: 0.72rem;
-      overflow: hidden;
-    }
-    .btn-primary::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.18) 50%, transparent 70%);
-      background-size: 220% 100%;
-      background-position: 100% 0;
-      transition: background-position 0.6s var(--ease-out);
-      pointer-events: none;
-    }
-    .btn-primary:hover {
-      background: #ff67b3;
-      border-color: #ff67b3;
-      box-shadow: 0 6px 20px rgba(255, 77, 166, 0.25);
-    }
-    .btn-primary:hover::after { background-position: -100% 0; }
-    .btn-text {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 13px 4px;
-      border: 0;
-      background: transparent;
-      color: var(--muted);
-      font-size: 0.72rem;
-    }
-    .btn-text::after {
-      content: "";
-      position: absolute;
-      left: 4px;
-      right: 4px;
-      bottom: 6px;
-      height: 1px;
-      background: linear-gradient(90deg, var(--accent), var(--link));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.25s var(--ease-out);
-    }
-    .btn-text:hover { color: var(--white); }
-    .btn-text:hover::after { transform: scaleX(1); }
-
-    /* ----- HOME HERO ----- */
-    .home-hero {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: var(--hero-top) 1.75rem 3.5rem;
-      border-bottom: 1px solid var(--border);
-      text-align: center;
-      overflow: hidden;
-    }
-    .home-hero::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: min(1100px, 130%);
-      height: min(640px, 90%);
-      transform: translate(-50%, -50%);
-      background: radial-gradient(
-        ellipse at center,
-        rgba(255, 77, 166, 0.10) 0%,
-        rgba(176, 110, 255, 0.06) 35%,
-        transparent 70%
-      );
-      pointer-events: none;
-      z-index: 0;
-    }
-    .home-hero::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: min(520px, 70%);
-      height: 1px;
-      transform: translateX(-50%);
-      background: linear-gradient(90deg, transparent, var(--accent), var(--link), transparent);
-      opacity: 0.55;
-      pointer-events: none;
-    }
-    .home-hero-content { position: relative; z-index: 1; max-width: 760px; }
-    .home-title {
-      margin-bottom: 1rem;
-      font-size: clamp(2.8rem, 8.5vw, 6.4rem);
-      letter-spacing: 0.02em;
-    }
-    .home-title .brand-star {
-      color: var(--accent);
-      display: inline-block;
-      transform: translateY(-0.02em);
-    }
-    .home-title em {
-      font-style: normal;
-      background: linear-gradient(
-        120deg,
-        var(--accent) 0%,
-        #c26bff 30%,
-        var(--link) 55%,
-        #c26bff 75%,
-        var(--accent) 100%
-      );
-      background-size: 220% 100%;
-      background-position: 0% 50%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 9s ease-in-out infinite;
-    }
-    @keyframes shimmer {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-    .home-hero-description {
-      max-width: 540px;
-      margin: 1.25rem auto 2.25rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-    .home-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem 1.25rem;
-    }
-
-    /* ----- FEATURES ----- */
-    .home-features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      border-bottom: 1px solid var(--border);
-    }
-    .feature-block {
-      padding: 2.5rem 2rem;
-      border-right: 1px solid var(--border);
-      transition: background 0.25s var(--ease-out);
-    }
-    .feature-block:hover { background: rgba(255, 77, 166, 0.02); }
-    .feature-block:last-child { border-right: 0; }
-    .feature-block h3 {
-      margin-bottom: 0.6rem;
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .feature-block p {
-      color: var(--muted);
-      font-size: 0.85rem;
-      line-height: 1.7;
-    }
-
-    /* ----- SECTIONS ----- */
-    .home-section {
-      padding: 3rem 1.75rem 4rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 1.75rem;
-    }
-    .section-header h2 {
-      font-family: var(--font-display);
-      font-size: 1.7rem;
-      letter-spacing: 0.04em;
-      color: var(--white);
-    }
-    .section-header h2 span,
-    .page-hero h1 span { color: var(--accent); }
-    .btn-see-all {
-      padding: 6px 14px;
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius-sm);
-      background: transparent;
-      color: var(--muted);
-      font-size: 0.65rem;
-      white-space: nowrap;
-    }
-    .btn-see-all:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-    }
-
-    /* ----- PAGE HERO ----- */
-    .page-hero {
-      padding: var(--hero-top) 1.75rem 2.25rem;
-      border-bottom: 1px solid var(--border);
-      text-align: center;
-    }
-    .page-hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 3.6rem);
-      letter-spacing: 0.03em;
-      line-height: 1;
-      color: var(--white);
-    }
-    .page-hero p {
-      margin-top: 0.6rem;
-      color: var(--muted);
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    /* ----- FILTERS ----- */
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.8rem 1.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .filter-bar.subcategory-bar { display: none; }
-    .filter-bar.subcategory-bar.visible { display: flex; }
-    .filter-label {
-      flex-shrink: 0;
-      margin-right: 0.4rem;
-      color: var(--muted-2);
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .filter-pill {
-      padding: 5px 12px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-pill);
-      background: transparent;
-      color: var(--muted);
-      cursor: pointer;
-      font-family: var(--font-body);
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: color 0.15s, border-color 0.15s, background 0.15s;
-      white-space: nowrap;
-    }
-    .filter-pill:hover {
-      color: var(--white);
-      border-color: var(--border-strong);
-    }
-    .filter-pill.active {
-      background: var(--accent);
-      color: #14061a;
-      border-color: var(--accent);
-    }
-    .search-wrap {
-      padding: 0.85rem 1.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .search-input {
-      width: 100%;
-      max-width: 420px;
-      padding: 10px 14px;
-      outline: 0;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      background: #100a1c;
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      transition: border-color 0.15s;
-    }
-    .search-input:focus { border-color: var(--accent); }
-    .search-input::placeholder { color: var(--muted-2); }
-
-    /* ----- CATALOGUE GRID & CARDS ----- */
-    .catalogue-grid, .home-grid {
-      display: grid;
-      gap: 1.25rem;
-    }
-    .catalogue-grid {
-      padding: 1.75rem;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    }
-    .home-grid {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-
-    /* ----- NO-FILTER PREVIEW MODE -----
-       Wrapper sits around the grid and clips it. The fade is anchored to the
-       wrapper's bottom edge, so the third row physically peeks out from under
-       the gradient. The grid itself uses a 10-column layout and is clipped to
-       a height that lands roughly halfway through row 3.
-       Row height (approx) = card width. Container inner width (at 1440px
-       viewport) ≈ 1440 - 2*1.75rem padding - outer padding. Rather than guess
-       pixel values, we use a fraction of the wrapper's own width via
-       aspect-ratio-aware maths in CSS custom props computed per breakpoint.
-       ------------------------------------------------------------- */
-    .catalogue-preview {
-      position: relative;
-      overflow: hidden;
-      /* default clip height for desktop 10-col grid: tuned so row 3 is ~half cut */
-      --preview-clip: 720px;
-      max-height: var(--preview-clip);
-      transition: max-height 0.3s var(--ease-out);
-    }
-
-    /* When filters are active we remove the clip entirely */
-    .catalogue-preview.is-filtered {
-      max-height: none;
-      overflow: visible;
-    }
-
-    .catalogue-grid.unfiltered-mode {
-      grid-template-columns: repeat(10, 1fr);
-      gap: 1rem;
-      padding: 1.75rem 1.75rem 0;
-    }
-
-    /* The fade + prompt overlay sits inside the preview wrapper, pinned to
-       its bottom edge. Because the wrapper is the thing that's clipped, the
-       fade visually "eats" the bottom half of row 3. */
-    .catalogue-preview-fade {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 220px;
-      pointer-events: none;
-      z-index: 5;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding-bottom: 2rem;
-      background: linear-gradient(
-        to bottom,
-        rgba(10, 10, 26, 0) 0%,
-        rgba(10, 10, 26, 0.55) 35%,
-        rgba(10, 10, 26, 0.92) 70%,
-        rgba(10, 10, 26, 1) 100%
-      );
-      opacity: 0;
-      transition: opacity 0.25s var(--ease-out);
-    }
-    .catalogue-preview.is-unfiltered .catalogue-preview-fade {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .catalogue-preview-prompt {
-      max-width: 560px;
-      padding: 1rem 1.4rem;
-      text-align: center;
-      background: rgba(26, 16, 38, 0.92);
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius-md);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      box-shadow: var(--shadow-depth);
-    }
-    .catalogue-preview-prompt p {
+    /* dark, emo, eerie atmosphere */
+    * {
       margin: 0;
-      color: var(--muted);
-      font-size: 0.82rem;
-      line-height: 1.6;
-    }
-    .catalogue-preview-prompt strong { color: var(--white); font-weight: 600; }
-    .catalogue-preview-prompt .prompt-arrow {
-      display: inline-block;
-      margin-left: 0.3rem;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    /* On phones, the unfiltered preview needs the same minimum card width as
-       the regular catalogue. The former 5/4-column preview made the complete
-       card content (not just thumbnails) too narrow to read. */
-    @media (max-width: 768px) {
-      .catalogue-grid.unfiltered-mode {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 0.9rem;
-        padding: 1rem 1rem 0;
-      }
-      .catalogue-preview { --preview-clip: 560px; }
-      .catalogue-preview-fade { height: 170px; padding-bottom: 1.25rem; }
-      .catalogue-preview-prompt { padding: 0.85rem 1rem; }
-      .catalogue-preview-prompt p { font-size: 0.76rem; }
-    }
-
-    .merch-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-    }
-    @media (hover: hover) {
-      .merch-card:hover {
-        border-color: rgba(255, 77, 166, 0.35);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-depth);
-      }
-      .merch-card:hover .card-image img { transform: scale(1.03); }
-    }
-    .card-image {
-      position: relative;
-      display: flex;
-      aspect-ratio: 1;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      background: #0d0918;
-      cursor: pointer;
-    }
-    .card-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-    .image-placeholder {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      width: 100%;
-      height: 100%;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: #0d0918;
-      color: var(--muted-2);
-      text-align: center;
-      user-select: none;
-      overflow: hidden;
-    }
-    .image-placeholder[hidden] { display: none; }
-    .placeholder-icon {
-      font-family: var(--font-display);
-      font-size: 2.2rem;
-      line-height: 1;
-      opacity: 0.4;
-      letter-spacing: 0.1em;
-    }
-    .placeholder-label {
-      font-family: var(--font-body);
-      font-size: 0.55rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .card-body { display: block; padding: 0.9rem 1rem 1rem; }
-    .card-game {
-      margin-bottom: 5px;
-      color: var(--muted-2);
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .card-name {
-      margin-bottom: 6px;
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 0.92rem;
-      font-weight: 600;
-      line-height: 1.3;
-      letter-spacing: 0;
-    }
-    .card-description {
-      display: -webkit-box;
-      overflow: hidden;
-      margin-bottom: 0.85rem;
-      color: var(--muted);
-      font-size: 0.75rem;
-      line-height: 1.55;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-    }
-    .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; }
-    .card-category {
-      padding: 3px 9px;
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.55rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      border-radius: var(--radius-pill);
-    }
-    .empty-state {
-      grid-column: 1 / -1;
-      padding: 5rem 1rem;
-      color: var(--muted);
-      text-align: center;
-    }
-    .empty-state h3 {
-      margin-bottom: 0.5rem;
-      color: var(--white);
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      letter-spacing: 0.04em;
-    }
-    .empty-state p { font-size: 0.85rem; }
-
-   /* ----- ABOUT ----- */
-    .about-hero { border-bottom: 1px solid var(--border); }
-    .about-hero-inner {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: var(--hero-top) 1.75rem 4rem;
-    }
-    .about-hero-text h1 {
-      margin: 0.75rem 0 1.5rem;
-      font-family: var(--font-display);
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      letter-spacing: 0.03em;
-      line-height: 0.95;
-      color: var(--white);
-    }
-    .about-hero-text h1 span { color: var(--accent); }
-    .about-hero-text p {
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.8;
-      margin-bottom: 1rem;
-      max-width: 62ch;
-    }
-
-    .about-section {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 3.5rem 1.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .about-section h2 {
-      margin-bottom: 1.25rem;
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      letter-spacing: 0.04em;
-      color: var(--white);
-    }
-    .about-section h2 span { color: var(--accent); }
-    .about-section p {
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.8;
-      max-width: 68ch;
-      margin-bottom: 1rem;
-    }
-    .about-section p.about-disclaimer {
-      color: var(--muted-2);
-      font-size: 0.82rem;
-    }
-
-    .team-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem 3rem;
-      margin-top: 0.5rem;
-    }
-    .team-member {
-      display: grid;
-      grid-template-columns: 56px 1fr;
-      gap: 1.25rem;
-      align-items: start;
-    }
-    .team-avatar {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: var(--panel-light);
-      border: 1px solid var(--border-strong);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      letter-spacing: 0.06em;
-      color: var(--accent);
-    }
-    .team-name {
-      color: var(--white);
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-    .team-role {
-      color: var(--muted-2);
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-    .team-desc {
-      color: var(--muted);
-      font-size: 0.85rem;
-      line-height: 1.7;
-    }
-
-    .games-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 1.25rem;
-    }
-    .game-tag {
-      padding: 5px 12px;
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-radius: var(--radius-pill);
-    }
-
-    .about-two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-    .about-two-col > div + div {
-      padding-left: 3rem;
-      border-left: 1px solid var(--border);
-    }
-
-    /* ----- UPDATE NOTICE ----- */
-    .update-notice {
-      margin-top: 2rem;
-      padding: 1.5rem 1.75rem;
-      background: var(--panel);
-      border: 1px solid var(--border-strong);
-      border-left: 3px solid var(--accent);
-      border-radius: var(--radius-md);
-    }
-    .update-notice h3 {
-      margin-bottom: 0.6rem;
-      color: var(--accent);
-      font-family: var(--font-body);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .update-notice p {
-      color: var(--muted);
-      font-size: 0.88rem;
-      line-height: 1.75;
-      max-width: 68ch;
-      margin-bottom: 0.75rem;
-    }
-    .update-notice p:last-child { margin-bottom: 0; }
-
-    /* ----- CONTACT EMAIL BLOCK (in About) ----- */
-    .about-contact-email {
-      margin-top: 2rem;
-      padding: 1.5rem 1.75rem;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-    }
-    .about-contact-email h3 {
-      margin-bottom: 0.75rem;
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .about-contact-email a {
-      color: var(--link);
-      font-size: 0.95rem;
-      font-weight: 500;
-      word-break: break-all;
-    }
-    .about-contact-email a:hover { text-decoration: underline; }
-    .about-contact-email .submissions-note {
-      color: var(--muted);
-      font-size: 0.85rem;
-      line-height: 1.75;
-      margin: 0 0 0.9rem;
-    }
-    .about-contact-email ul {
-      margin: 0.9rem 0 0;
-      padding-left: 1.1rem;
-      color: var(--muted);
-      font-size: 0.85rem;
-      line-height: 1.75;
-    }
-    .about-contact-email li { margin-bottom: 0.5rem; }
-    .about-contact-email li:last-child { margin-bottom: 0; }
-    .about-contact-email li strong { color: var(--white); font-weight: 600; }
-
-    /* ----- CONTACT ----- */
-    .contact-wrap {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: var(--hero-top) 1.75rem 4rem;
-    }
-    .contact-intro { margin-bottom: 2.5rem; }
-    .contact-intro h1 {
-      margin: 0.75rem 0 0.9rem;
-      font-family: var(--font-display);
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      letter-spacing: 0.03em;
-      line-height: 1;
-      color: var(--white);
-    }
-    .contact-intro h1 span { color: var(--accent); }
-    .contact-intro p {
-      max-width: 540px;
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.75;
-    }
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      padding: 1.75rem;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-    }
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .form-field label {
-      color: var(--muted-2);
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .contact-form input[type="text"],
-    .contact-form input[type="email"],
-    .contact-form select,
-    .contact-form textarea {
-      width: 100%;
-      padding: 11px 14px;
-      outline: 0;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      background: #100a1c;
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 0.88rem;
-      transition: border-color 0.15s;
-    }
-    .contact-form textarea {
-      resize: vertical;
-      min-height: 130px;
-      line-height: 1.6;
-    }
-    .contact-form select {
-      appearance: none;
-      -webkit-appearance: none;
-      background-image:
-        linear-gradient(45deg, transparent 50%, var(--muted) 50%),
-        linear-gradient(135deg, var(--muted) 50%, transparent 50%);
-      background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
-      background-size: 5px 5px, 5px 5px;
-      background-repeat: no-repeat;
-      padding-right: 36px;
-      cursor: pointer;
-    }
-    .contact-form select option { background: #1a1026; color: var(--white); }
-    .contact-form input:focus,
-    .contact-form select:focus,
-    .contact-form textarea:focus { border-color: var(--accent); }
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder { color: var(--muted-2); }
-    .form-submit { align-self: flex-start; margin-top: 0.25rem; }
-    .form-submit:disabled { opacity: 0.55; cursor: not-allowed; }
-    .form-status {
-      min-height: 1.2em;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-    .form-status.success { color: var(--green); }
-    .form-status.error { color: var(--red); }
-
-    /* ----- ITEM DETAIL ----- */
-    .item-detail-wrap {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: var(--hero-top) 1.75rem 5rem;
-    }
-    .btn-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin-bottom: 1.75rem;
-      padding: 7px 14px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      background: transparent;
-      color: var(--muted);
-      font-size: 0.65rem;
-    }
-    .btn-back:hover { color: var(--white); border-color: var(--border-strong); }
-    .item-hero {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 7;
-      overflow: hidden;
-      background: #0d0918;
-      border: 1px solid var(--border);
-      cursor: zoom-in;
-      border-radius: var(--radius-md) var(--radius-md) 0 0;
-    }
-    .item-hero:hover { border-color: var(--border-strong); }
-    .item-hero .zoom-wrapper {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      position: relative;
-    }
-    .item-hero .zoom-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-    .item-hero .image-placeholder { min-height: 100%; }
-    .view-thumbs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 2.5rem;
-      padding: 10px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-top: 0;
-      border-radius: 0 0 var(--radius-md) var(--radius-md);
-    }
-    .view-thumb {
-      width: 64px;
-      height: 64px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      opacity: 0.55;
-      transition: border-color 0.15s, opacity 0.15s;
       padding: 0;
-      background: transparent;
+      box-sizing: border-box;
     }
-    .view-thumb img { width: 100%; height: 100%; object-fit: cover; }
-    .view-thumb:hover { opacity: 0.85; }
-    .view-thumb.active { border-color: var(--accent); opacity: 1; }
-    .item-detail-body {
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      align-items: start;
-      gap: 3rem;
-    }
-    .item-detail-main {
-      padding: 1.75rem;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-    }
-    .item-game-label {
-      margin-bottom: 0.5rem;
-      color: var(--muted-2);
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-    .item-detail-name {
-      margin-bottom: 1.5rem;
-      color: var(--white);
-      font-family: var(--font-display);
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      letter-spacing: 0.03em;
-      line-height: 1.1;
-    }
-    .item-detail-section-label {
-      display: block;
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-      color: var(--muted-2);
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-    .item-detail-description {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.85;
-      white-space: pre-line;
-    }
-    .item-detail-sidebar {
-      position: sticky;
-      top: 84px;
+
+    body {
+      background: #0b0b0b;
+      background-image: radial-gradient(circle at 20% 30%, #1a1a1a 0%, #030303 100%);
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-    }
-    .item-label-block {
-      padding: 0.9rem 1.15rem;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-bottom: 0;
-    }
-    .item-label-block:last-child {
-      border-bottom: 1px solid var(--border);
-      border-radius: 0 0 var(--radius-md) var(--radius-md);
-    }
-    .item-label-block:first-child { border-radius: var(--radius-md) var(--radius-md) 0 0; }
-    .item-label-key {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--muted-2);
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .item-label-value {
-      color: var(--white);
-      font-size: 0.88rem;
-      font-weight: 500;
-      line-height: 1.45;
-    }
-    .item-label-value.availability-text { display: inline; }
-    .item-source-link {
-      color: var(--link);
-      font-size: 0.8rem;
-      word-break: break-all;
-    }
-    .view-link {
-      display: block;
-      margin-top: 1rem;
-      padding: 12px;
-      border-radius: var(--radius-sm);
-      background: var(--accent);
-      color: #14061a;
-      font-family: var(--font-body);
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-align: center;
-      transition: background 0.15s, box-shadow 0.2s;
-    }
-    .view-link:hover {
-      background: #ff67b3;
-      box-shadow: 0 6px 20px rgba(255, 77, 166, 0.25);
-    }
-    .item-detail-share {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-top: 1.75rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border);
-    }
-    .item-detail-share-label {
-      color: var(--muted-2);
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    .btn-copy-link, .btn-report-error {
-      padding: 7px 13px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      background: transparent;
-      color: var(--white);
-      font-size: 0.62rem;
-      cursor: pointer;
-      font-family: var(--font-body);
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      transition: border-color 0.15s, color 0.15s;
-    }
-    .btn-copy-link:hover, .btn-report-error:hover { border-color: var(--accent); color: var(--accent); }
-    .btn-copy-link.copied { color: var(--green); border-color: var(--green); }
-
-    /* ----- FOOTER ----- */
-    footer {
-      padding: 2.5rem 1.75rem;
-      border-top: 1px solid var(--border);
-      color: var(--muted-2);
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-align: center;
-      text-transform: uppercase;
-    }
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 1.25rem;
-    }
-    .footer-links button {
-      border: 0;
-      background: transparent;
-      color: var(--muted);
-      cursor: pointer;
-      font-family: var(--font-body);
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      transition: color 0.15s;
-    }
-    .footer-links button:hover { color: var(--white); }
-    .footer-brand { color: var(--accent); }
-
-    /* ----- LIGHTBOX ----- */
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: rgba(8, 4, 16, 0.96);
       align-items: center;
       justify-content: center;
-      padding: 2rem;
-      cursor: zoom-out;
+      font-family: 'Courier New', 'Courier', 'Times New Roman', serif;
+      padding: 1.5rem;
+      color: #b0b0b0;
+      text-shadow: 0 0 4px #3a3a3a;
+      letter-spacing: 0.5px;
     }
-    .lightbox.open { display: flex; animation: lightbox-in 0.18s var(--ease-out); }
-    @keyframes lightbox-in {
-      from { opacity: 0; }
-      to { opacity: 1; }
+
+    /* main container — like a memorial card */
+    .dead-container {
+      max-width: 750px;
+      width: 100%;
+      background: #0e0e0e;
+      border: 1px solid #2a2a2a;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.9), inset 0 0 10px #050505;
+      padding: 2.2rem 1.8rem 1.8rem 1.8rem;
+      border-radius: 4px;
+      position: relative;
+      transition: box-shadow 0.3s;
+      animation: faint-flicker 4s infinite;
     }
-    .lightbox img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius-md);
-    }
-    .lightbox-close {
+
+    .dead-container::before {
+      content: '';
       position: absolute;
-      top: 16px;
-      right: 24px;
-      background: transparent;
-      border: 0;
-      color: var(--white);
-      font-size: 1.8rem;
-      line-height: 1;
-      cursor: pointer;
-      padding: 8px 12px;
-      font-family: var(--font-body);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(45deg, rgba(30, 30, 30, 0.1) 0px, rgba(30, 30, 30, 0.1) 4px, transparent 4px, transparent 8px);
+      pointer-events: none;
+      border-radius: 4px;
     }
-    .lightbox-close:hover { color: var(--accent); }
 
-    /* ----- RESPONSIVE ----- */
-    @media (max-width: 820px) {
-      .about-hero-inner { padding: var(--hero-top) 1.25rem 3rem; }
-      .about-two-col { grid-template-columns: 1fr; gap: 2rem; }
-      .about-two-col > div + div { padding-left: 0; border-left: 0; padding-top: 2rem; border-top: 1px solid var(--border); }
-      .team-list { grid-template-columns: 1fr; gap: 2rem; }
-      .item-detail-body { grid-template-columns: 1fr; gap: 2rem; }
-      .item-detail-sidebar { position: static; }
+    /* subtle emo "scratches" */
+    .dead-container::after {
+      content: '';
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      width: 60px;
+      height: 60px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,20 L80,80 M80,20 L20,80" stroke="%23222222" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/><path d="M30,40 L70,60 M70,40 L30,60" stroke="%231f1f1f" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.4"/></svg>');
+      background-size: contain;
+      opacity: 0.5;
+      pointer-events: none;
     }
-    @media (max-width: 768px) {
-      :root { --hero-top: 2.5rem; }
-      header { padding: 0 1.25rem; height: 60px; }
-      .desktop-nav { display: none; }
-      .hamburger { display: flex; }
-      .item-count { display: none; }
-      .mobile-nav { top: 60px; }
-      .home-hero { padding: var(--hero-top) 1.25rem 2.5rem; }
-      .home-features { grid-template-columns: 1fr; }
-      .feature-block { border-right: 0; border-bottom: 1px solid var(--border); }
-      .feature-block:last-child { border-bottom: 0; }
-      .catalogue-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 0.9rem;
-        padding: 1rem;
+
+    /* title */
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 10px;
+      color: #5a5a5a;
+      text-align: center;
+      margin-bottom: 0.25rem;
+      font-family: 'Courier New', 'Times New Roman', serif;
+      text-shadow: 0 0 8px #1a1a1a, 0 0 15px #0a0a0a;
+      word-break: break-word;
+      border-bottom: 1px dashed #2e2e2e;
+      padding-bottom: 0.5rem;
+    }
+
+    .subhead {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #4f4f4f;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 1.8rem;
+      font-style: italic;
+    }
+
+    /* the horse drawing — dead, shot, x eyes */
+    .horse-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1rem 0 1.8rem 0;
+      filter: drop-shadow(0 0 12px #000000);
+    }
+
+    svg {
+      width: 100%;
+      max-width: 440px;
+      height: auto;
+      display: block;
+      transition: filter 0.3s;
+      filter: grayscale(1) brightness(0.8) contrast(1.2);
+    }
+
+    /* eerie message */
+    .message {
+      font-size: 1.25rem;
+      text-align: center;
+      color: #8a8a8a;
+      margin: 1.8rem 0 1.2rem 0;
+      line-height: 1.8;
+      border-left: 3px solid #2a2a2a;
+      border-right: 3px solid #2a2a2a;
+      padding: 0 1rem;
+      font-style: italic;
+      word-spacing: 2px;
+      text-shadow: 0 0 5px #202020;
+    }
+
+    .message span {
+      color: #5f5f5f;
+      font-size: 0.9rem;
+      display: block;
+      margin-top: 0.8rem;
+      letter-spacing: 2px;
+    }
+
+    /* final line */
+    .final-line {
+      text-align: center;
+      font-size: 1.15rem;
+      color: #4a3a3a;
+      letter-spacing: 2px;
+      margin: 2rem 0 0.8rem 0;
+      font-weight: 400;
+      border-top: 1px solid #222;
+      padding-top: 1.8rem;
+      text-shadow: 0 0 6px #1e1e1e;
+      font-family: 'Courier New', monospace;
+      line-height: 1.6;
+    }
+
+    .final-line small {
+      display: block;
+      font-size: 0.7rem;
+      color: #3a3a3a;
+      letter-spacing: 3px;
+      margin-top: 0.7rem;
+      text-transform: none;
+      font-style: italic;
+    }
+
+    /* small details */
+    .footer-note {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.2rem;
+      font-size: 0.65rem;
+      color: #2a2a2a;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-top: 1px dotted #1e1e1e;
+      padding-top: 1rem;
+    }
+
+    /* subtle flicker — eerie */
+    @keyframes faint-flicker {
+      0% { opacity: 1; }
+      95% { opacity: 0.98; }
+      100% { opacity: 1; }
+    }
+
+    /* mobile */
+    @media (max-width: 550px) {
+      h1 {
+        font-size: 1.8rem;
+        letter-spacing: 6px;
       }
-      .filter-bar, .search-wrap { padding: 0.75rem 1.25rem; }
-      .home-section { padding: 2.5rem 1.25rem; }
-      .item-detail-wrap { padding: var(--hero-top) 1.25rem 3rem; }
-      .item-detail-main { padding: 1.25rem; }
-      .contact-wrap { padding: var(--hero-top) 1.25rem 3rem; }
-      .contact-form { padding: 1.25rem; gap: 1rem; }
-      .form-row { grid-template-columns: 1fr; }
-      .form-submit { align-self: stretch; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .page.active,
-      .page > *,
-      .grid-enter .merch-card,
-      .home-title em,
-      .lightbox.open { animation: none; }
+      .message {
+        font-size: 1rem;
+      }
+      .final-line {
+        font-size: 1rem;
+        letter-spacing: 1px;
+      }
+      .dead-container {
+        padding: 1.5rem 1rem;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="dead-container">
+    <h1>DEAD HORSE</h1>
+    <div class="subhead">— nothing left to say —</div>
 
-  <!-- HEADER -->
-  <header>
-    <div class="logo">
-      <a class="logo-word" href="#home" data-page="home">R<span class="logo-star">★</span> Games <span class="logo-star">Promo</span> Hub</a>
-      <div class="logo-divider"></div>
-      <a class="logo-subtitle" href="#catalogue" data-page="catalogue">Catalogue</a>
+    <!-- horse drawing (shot, X eyes, slumped) -->
+    <div class="horse-wrapper">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" fill="none">
+        <!-- ground / shadow -->
+        <ellipse cx="250" cy="295" rx="160" ry="20" fill="#0f0f0f" opacity="0.7" />
+        
+        <!-- horse body — limp, lying down -->
+        <path d="M120 240 Q80 220 100 185 Q115 155 165 150 Q210 145 260 150 Q330 158 370 175 Q400 190 395 220 Q390 250 340 260 Q280 272 200 268 Q150 265 120 240 Z" 
+              fill="#1e1e1e" stroke="#3a3a3a" stroke-width="2.5" stroke-linejoin="round" />
+        
+        <!-- neck & head (down, lifeless) -->
+        <path d="M370 185 Q400 160 405 130 Q408 100 380 85 Q350 72 325 85 Q305 98 305 125 Q308 155 330 170 Q350 182 370 185 Z" 
+              fill="#1a1a1a" stroke="#3c3c3c" stroke-width="2.5" />
+        
+        <!-- mane — messy -->
+        <path d="M380 88 Q390 100 395 120 Q398 138 393 155" stroke="#2c2c2c" stroke-width="4" stroke-linecap="round" />
+        <path d="M370 84 Q378 100 385 115" stroke="#2a2a2a" stroke-width="3.5" stroke-linecap="round" />
+        <path d="M360 82 Q365 100 368 116" stroke="#262626" stroke-width="3" stroke-linecap="round" />
+        
+        <!-- ears — drooping -->
+        <path d="M340 84 L330 60 Q335 68 342 80" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="2" />
+        <path d="M365 82 L370 55 Q368 65 363 78" fill="#1a1a1a" stroke="#3a3a3a" stroke-width="2" />
+        
+        <!-- X eyes -->
+        <line x1="332" y1="112" x2="352" y2="132" stroke="#6b3a3a" stroke-width="3.5" stroke-linecap="round" />
+        <line x1="352" y1="112" x2="332" y2="132" stroke="#6b3a3a" stroke-width="3.5" stroke-linecap="round" />
+        <line x1="365" y1="108" x2="385" y2="128" stroke="#6b3a3a" stroke-width="3.5" stroke-linecap="round" />
+        <line x1="385" y1="108" x2="365" y2="128" stroke="#6b3a3a" stroke-width="3.5" stroke-linecap="round" />
+        
+        <!-- nostrils -->
+        <ellipse cx="385" cy="145" rx="5" ry="4" fill="#0b0b0b" stroke="#2b2b2b" stroke-width="1" />
+        <ellipse cx="370" cy="148" rx="4" ry="3" fill="#0b0b0b" stroke="#2b2b2b" stroke-width="1" />
+        
+        <!-- mouth — slack -->
+        <path d="M370 160 Q385 168 395 162" stroke="#2f2f2f" stroke-width="2.5" stroke-linecap="round" />
+        
+        <!-- front legs -->
+        <path d="M170 245 L140 300" stroke="#2e2e2e" stroke-width="7" stroke-linecap="round" />
+        <path d="M140 300 L125 315" stroke="#2e2e2e" stroke-width="6" stroke-linecap="round" />
+        <path d="M210 255 L195 305" stroke="#2e2e2e" stroke-width="6" stroke-linecap="round" />
+        <path d="M195 305 L185 320" stroke="#2e2e2e" stroke-width="5" stroke-linecap="round" />
+        
+        <!-- back legs -->
+        <path d="M330 260 L340 310" stroke="#2e2e2e" stroke-width="7" stroke-linecap="round" />
+        <path d="M340 310 L355 325" stroke="#2e2e2e" stroke-width="6" stroke-linecap="round" />
+        <path d="M290 265 L300 315" stroke="#2e2e2e" stroke-width="6" stroke-linecap="round" />
+        <path d="M300 315 L315 328" stroke="#2e2e2e" stroke-width="5" stroke-linecap="round" />
+        
+        <!-- tail -->
+        <path d="M125 235 Q80 240 60 255 Q40 270 45 280" stroke="#2a2a2a" stroke-width="6" stroke-linecap="round" fill="none" />
+        <path d="M45 280 Q55 285 65 280" stroke="#2a2a2a" stroke-width="4" stroke-linecap="round" />
+        
+        <!-- bullet wound -->
+        <circle cx="355" cy="100" r="5" fill="#3d1a1a" stroke="#4f2a2a" stroke-width="1.5" opacity="0.9" />
+        <circle cx="355" cy="100" r="2.5" fill="#1a0a0a" />
+        
+        <!-- dust specks -->
+        <circle cx="120" cy="290" r="1.5" fill="#1a1a1a" />
+        <circle cx="410" cy="275" r="1.5" fill="#1a1a1a" />
+        <circle cx="380" cy="305" r="1.2" fill="#1f1f1f" />
+        <circle cx="90" cy="260" r="1.2" fill="#1f1f1f" />
+      </svg>
     </div>
-    <nav class="desktop-nav" aria-label="Main navigation">
-      <button class="nav-link active" data-page="home">Home</button>
-      <button class="nav-link" data-page="catalogue">Catalogue</button>
-      <button class="nav-link" data-page="about">About</button>
-      <!-- CONTACT NAV LINK HIDDEN — uncomment to restore
-      <button class="nav-link" data-page="contact">Contact</button>
-      -->
-    </nav>
-    <div class="header-right">
-      <span class="item-count" id="itemCount">0 items</span>
-      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
 
-  <div class="mobile-nav" id="mobileNav">
-    <button class="mobile-nav-link active" data-page="home">Home</button>
-    <button class="mobile-nav-link" data-page="catalogue">Catalogue</button>
-    <button class="mobile-nav-link" data-page="about">About</button>
-    <!-- CONTACT MOBILE NAV LINK HIDDEN — uncomment to restore
-    <button class="mobile-nav-link" data-page="contact">Contact / Submissions</button>
-    -->
+    <div class="message">
+      “you can’t keep the horse on life support — you just gotta shoot it”
+    </div>
+
+    <div class="final-line">
+      <small>— and that’s that —</small>
+    </div>
+
   </div>
-
-  <main>
-
-    <!-- HOME -->
-    <section class="page active" id="page-home">
-      <section class="home-hero">
-        <div class="home-hero-content">
-          <h1 class="home-title h-display">R<span class="brand-star">★</span> Games<br /><em>Promo</em> Hub</h1>
-          <p class="home-hero-description">A fan-made catalogue of Rockstar Games promotional merchandise, documenting everything ever released, from exclusive promotional items to rare collector’s pieces.</p>
-          <div class="home-actions">
-            <button class="btn-primary" data-page="catalogue">Browse the Catalogue</button>
-            <button class="btn-text" data-page="about">About this site →</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="home-features">
-        <article class="feature-block">
-          <h3>Every category</h3>
-          <p>Hats, plushies, tees, hoodies, posters, collectibles, keychains, and stickers — all in one place, filterable.</p>
-        </article>
-        <article class="feature-block">
-          <h3>All Rockstar titles</h3>
-          <p>GTA, Red Dead Redemption, Bully, Midnight Club, Max Payne — promo merch from across the Rockstar library.</p>
-        </article>
-        <article class="feature-block">
-          <h3>Rare &amp; limited finds</h3>
-          <p>A collection of Rockstar Games promotional merchandise, press kits and rare items released throughout the years.</p>
-        </article>
-      </section>
-
-      <section class="home-section">
-        <div class="section-header">
-          <h2>Latest <span>additions</span></h2>
-          <button class="btn-see-all" data-page="catalogue">See all →</button>
-        </div>
-        <div class="home-grid" id="homeGrid"></div>
-      </section>
-    </section>
-
-    <!-- CATALOGUE -->
-    <section class="page" id="page-catalogue">
-      <section class="page-hero">
-        <h1>Merch <span>Catalogue</span></h1>
-        <p>Every piece of promo gear — from GTA to Red Dead &amp; beyond</p>
-      </section>
-      <div class="filter-bar" id="gameFilterBar" aria-label="Filter by game">
-        <span class="filter-label">Game</span>
-        <button class="filter-pill active" data-game="all">All games</button>
-      </div>
-      <div class="filter-bar" id="typeFilterBar" aria-label="Filter by item type">
-        <span class="filter-label">Type</span>
-        <button class="filter-pill active" data-type="all">All</button>
-      </div>
-      <div class="filter-bar subcategory-bar" id="subcategoryFilterBar" aria-label="Filter by subcategory">
-        <span class="filter-label">Subcategory</span>
-      </div>
-      <div class="search-wrap">
-        <input class="search-input" id="searchInput" type="search" placeholder="Search by name, game, or keyword…" aria-label="Search the catalogue" />
-      </div>
-      <div class="catalogue-preview" id="cataloguePreview">
-        <div class="catalogue-grid" id="catalogue"></div>
-        <div class="catalogue-preview-fade">
-          <div class="catalogue-preview-prompt">
-            <p>
-              Showing a preview of the catalogue. Use the <strong>Game</strong> and <strong>Type</strong> filters above
-              <span class="prompt-arrow">↑</span> to see more items.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-   <!-- ABOUT -->
-    <section class="page" id="page-about">
-      <section class="about-hero">
-        <div class="about-hero-inner">
-          <div class="about-hero-text">
-            <p class="eyebrow">Fan-made &amp; community-driven</p>
-            <h1>About this <span>site</span></h1>
-            <p>The idea for the Rockstar Games Promo Hub started from a simple frustration: searching the internet for accurate and detailed information about Rockstar Games promotional merchandise, especially older releases, was painful! So as two long-time Rockstar fans we decided to build the resource we wanted for this purpose pulling together detailed information and photos for all Rockstar Games promotional items into one place.</p>
-            <p>From snapbacks handed out at trade shows to plushies, launch-event exclusives, hoodies and more, we're always looking for undocumented items to add. There's plenty of interesting material out there, and we're certain we've got a lot left to find. With your help we can make this the definitive source!</p>
-
-            <div class="update-notice">
-              <h3>A note on updates</h3>
-              <p>This site is updated rather infrequently — Wade, the site maintainer, is kept very busy, so new listings and changes go up as and when time allows rather than on a fixed schedule. The catalogue is not on indefinite hiatus; it's simply a case of limited time.</p>
-              <p><strong>Submissions are very welcome</strong> and genuinely help — if you have an item you'd like to see listed, sending it in takes a lot of the load off. What we aren't able to offer much of at the moment is help arranging sales or hands-on assistance with items, as there simply isn't the time.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="about-section">
-        <h2>Who runs this <span>website</span></h2>
-        <div class="team-list">
-          <div class="team-member">
-            <div class="team-avatar">W</div>
-            <div>
-              <div class="team-name">Wade</div>
-              <div class="team-role">Owner & Administrator</div>
-              <p class="team-desc">Website owner and chief technician. Researcher, contributor and maintainer.</p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="team-avatar">T</div>
-            <div>
-              <div class="team-name">Tommy</div>
-              <div class="team-role">Editor-In-Chief</div>
-              <p class="team-desc">Website direction and quality control. Researcher, contributor and maintainer.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="about-section">
-        <div class="about-two-col">
-          <div>
-            <h2>What we <span>cover</span></h2>
-            <p>The aim of this website is to catalogue all promotional merchandise from across the Rockstar Games universe, covering everything from older releases to the latest titles. Each item records the game it's linked to, its category, a description, release year, rarity, and availability where known.</p>
-          </div>
-          <div>
-            <h2>How to <span>help us</span></h2>
-            <p>Found a piece of merch that's missing from the catalogue, have more information on an existing entry or spotted an error?</p>
-            <p>Please use the email below to get in touch. Good-quality photos, source links, release dates, and any other useful information all help build a more complete catalogue — and submissions are a big help, especially while time is limited.</p>
-          </div>
-        </div>
-
-        <div class="about-contact-email">
-          <h3>Contact</h3>
-          <p class="submissions-note">Got something to submit? Please do send it through — submissions are always appreciated. Do note that assistance with arranging sales or item support is limited, as time is tight.</p>
-          <a href="mailto:rockstarpromohub@gmail.com">rockstarpromohub@gmail.com</a>
-          <ul>
-            <li><strong>Please note:</strong> the site is updated infrequently, so a response could take quite a while.</li>
-            <li><strong>Please do not contact us</strong> about buying or assisting with the sale of any merchandise — RockstarPromoHub is not interested in these requests.</li>
-          </ul>
-        </div>
-      </section>
-    </section>
-
-    <!-- CONTACT — HIDDEN (commented out so the page and form remain available to restore later) -->
-    <!--
-    <section class="page" id="page-contact">
-      <div class="contact-wrap">
-        <div class="contact-intro">
-          <p class="eyebrow">Contact &amp; submissions</p>
-          <h1>Get in <span>touch</span></h1>
-          <p>Got a tip about some merch? Spotted something missing from the catalogue or an error? Please let us know by filling in the form below and we'll get back to you.</p>
-        </div>
-        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="867db492-211b-411d-a95a-fdb6433e9e33" />
-          <input type="hidden" name="subject" value="New submission from RockstarPromoHub" />
-          <input type="hidden" name="from_name" value="RockstarPromoHub Contact Form" />
-          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
-
-          <div class="form-row">
-            <div class="form-field">
-              <label for="cf-name">Name</label>
-              <input id="cf-name" name="name" type="text" required placeholder="Your name" />
-            </div>
-            <div class="form-field">
-              <label for="cf-email">Email</label>
-              <input id="cf-email" name="email" type="email" required placeholder="We can only respond if a email is given," />
-            </div>
-          </div>
-
-          <div class="form-field">
-            <label for="cf-topic">Subject</label>
-            <select id="cf-topic" name="topic" required>
-              <option value="" disabled selected>Choose a topic…</option>
-              <option value="Merch Submission">Merch Submission</option>
-              <option value="Correction / Edit">Correction / Edit</option>
-              <option value="General Question">General Question</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-
-          <div class="form-field">
-            <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" rows="6" required placeholder="Tell us what you've got — item name, game, any source links or photos you can share, an email is required for a response."></textarea>
-          </div>
-
-          <button type="submit" class="btn-primary form-submit" id="cfSubmit">Send Message</button>
-          <p class="form-status" id="cfStatus" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
-    -->
-
-    <!-- ITEM DETAIL -->
-    <section class="page" id="page-item">
-      <div class="item-detail-wrap"></div>
-    </section>
-
-  </main>
-
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
-    <img id="lightboxImg" alt="" />
-  </div>
-
-  <footer>
-    <div class="footer-links">
-      <button data-page="home">Home</button>
-      <button data-page="catalogue">Catalogue</button>
-      <button data-page="about">About</button>
-      <!-- FOOTER CONTACT LINK HIDDEN — uncomment to restore
-      <button data-page="contact">Contact</button>
-      -->
-    </div>
-    <p>© <span id="footerYear"></span> <span class="footer-brand">RockstarPromoHub.com</span> — Fan-made. Not affiliated with Rockstar Games. All trademarks belong to their respective owners.</p>
-  </footer>
-
-  <!-- Item data (defines the global ITEMS array). Deferred so it never blocks rendering. -->
-  <script src="catalog.js?v=2026.10.24" defer></script>
-
-  <script>
-    (() => {
-      'use strict';
-
-      const $ = (id) => document.getElementById(id);
-
-      /* ----- STATE ----- */
-      const state = {
-        page: 'home',
-        game: 'all',
-        type: 'all',
-        sub: 'all',
-        itemId: null,
-        items: []
-      };
-
-      /* ----- CONSTANTS ----- */
-      const PAGES = ['home', 'catalogue', 'about', 'contact'];
-      const HTML_ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
-      const NO_PRICE = ['', 'n/a', 'na', 'not applicable'];
-      const CATEGORY_GLYPH = {
-        'Hat': 'H', 'Hats': 'H',
-        'Plushie': 'P', 'Plushies': 'P',
-        'T-Shirt': 'T', 'T-Shirts': 'T',
-        'Hoodie': 'H', 'Hoodies': 'H',
-        'Poster': 'Po', 'Posters': 'Po',
-        'Collectible': 'C', 'Collectibles': 'C',
-        'Statue / Collectible Figure': 'C',
-        'Keychain': 'K', 'Keychains': 'K',
-        'Sticker': 'S', 'Stickers': 'S',
-        'Mugs and Drinkware': 'M',
-        'Pre-Order Bonus': '★',
-        'Other': '•'
-      };
-
-      /* ----- HELPERS ----- */
-      const escapeHTML = (value) => String(value ?? '').replace(/[&<>"']/g, (c) => HTML_ESCAPES[c]);
-
-      const slugify = (text) =>
-        String(text).toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'item';
-
-      const safeExternalUrl = (value) => {
-        try {
-          const url = new URL(value);
-          return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
-        } catch {
-          return '';
-        }
-      };
-
-      const hasPrice = (item) => !NO_PRICE.includes(item.price.toLowerCase());
-      const formatPrice = (price) => (/^\d+(\.\d{1,2})?$/.test(price) ? `£${price}` : price);
-      const unique = (values) => [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b));
-      const pluralItems = (n) => `${n} item${n === 1 ? '' : 's'}`;
-
-      const normaliseItem = (item, fallbackId) => {
-        item = item || {};
-        const normalised = {
-          id: String(item.id || fallbackId || 'item'),
-          name: item.name || 'Untitled catalogue item',
-          game: item.game || 'Rockstar Games',
-          category: item.category || 'Other',
-          subcategory: item.subcategory || '',
-          description: item.description || '',
-          year: item.year || 'Not specified',
-          rarity: item.rarity || 'Not specified',
-          availability: item.availability || 'Not specified',
-          price: String(item.price ?? '').trim(),
-          image: item.image || '',
-          extraImages: Array.isArray(item.extraImages) ? item.extraImages.filter(Boolean) : [],
-          link: item.link || ''
-        };
-        normalised.searchText = [
-          normalised.name, normalised.game, normalised.category, normalised.subcategory, normalised.description
-        ].join(' ').toLowerCase();
-        return normalised;
-      };
-
-      // Built once at startup. IDs are generated exactly as before so existing shared links keep working.
-      const buildItems = () => {
-        if (typeof ITEMS === 'undefined' || !Array.isArray(ITEMS)) {
-          console.error('catalog.js did not define an ITEMS array.');
-          return [];
-        }
-        const used = {};
-        return ITEMS.map((raw) => {
-          let id = slugify(`${raw.name}-${raw.game}`);
-          used[id] = (used[id] || 0) + 1;
-          if (used[id] > 1) id += `-${used[id]}`;
-          return normaliseItem(raw, id);
-        });
-      };
-
-      /* ----- IMAGE MARKUP ----- */
-      const placeholderMarkup = (category, hidden) =>
-        `<div class="image-placeholder"${hidden ? ' hidden' : ''}>` +
-          `<span class="placeholder-icon">${CATEGORY_GLYPH[category] || '★'}</span>` +
-          '<span class="placeholder-label">Image coming soon</span>' +
-        '</div>';
-
-      const imageMarkup = (src, alt, category, eager = false) => {
-        if (!src) return placeholderMarkup(category, false);
-        return `<img src="${escapeHTML(src)}" alt="${escapeHTML(alt)}" loading="${eager ? 'eager' : 'lazy'}" decoding="async" referrerpolicy="no-referrer" />` +
-          placeholderMarkup(category, true);
-      };
-
-      // Broken images swap to the placeholder that follows them. 'error' doesn't bubble, so listen in the capture phase.
-      document.addEventListener('error', (e) => {
-        const img = e.target;
-        if (!(img instanceof HTMLImageElement)) return;
-        const placeholder = img.nextElementSibling;
-        if (!placeholder || !placeholder.classList.contains('image-placeholder')) return;
-        img.hidden = true;
-        placeholder.hidden = false;
-      }, true);
-
-      /* ----- CARDS & GRIDS ----- */
-      const cardHTML = (item) => {
-        const href = `#item/${item.id}`;
-        const category = escapeHTML(item.category) + (item.subcategory ? ` — ${escapeHTML(item.subcategory)}` : '');
-        return `<article class="merch-card">` +
-          `<a class="card-image" href="${href}" aria-label="View ${escapeHTML(item.name)}">${imageMarkup(item.image, item.name, item.category)}</a>` +
-          `<a class="card-body" href="${href}">` +
-            `<div class="card-game">${escapeHTML(item.game)}</div>` +
-            `<div class="card-name">${escapeHTML(item.name)}</div>` +
-            `<div class="card-description">${escapeHTML(item.description || 'No description has been added yet.')}</div>` +
-            `<div class="card-footer"><span class="card-category">${category}</span></div>` +
-          '</a>' +
-        '</article>';
-      };
-
-      const renderGrid = (grid, items) => {
-        grid.innerHTML = items.map(cardHTML).join('');
-        grid.classList.remove('grid-enter');
-        void grid.offsetWidth; // restart the entrance animation
-        grid.classList.add('grid-enter');
-      };
-
-      const renderHome = () => {
-        if (state.items.length) renderGrid($('homeGrid'), state.items.slice(-4).reverse());
-      };
-
-      const renderCatalogue = () => {
-        const term = $('searchInput').value.toLowerCase().trim();
-
-        // "Unfiltered" = all filter dimensions at 'all' AND no search term
-        const isUnfiltered =
-          state.game === 'all' &&
-          state.type === 'all' &&
-          state.sub === 'all' &&
-          !term;
-
-        const filtered = state.items.filter((item) =>
-          (state.type === 'all' || item.category === state.type) &&
-          (state.game === 'all' || item.game === state.game) &&
-          (state.sub === 'all' || item.subcategory === state.sub) &&
-          (!term || item.searchText.includes(term))
-        );
-
-        const grid = $('catalogue');
-        const preview = $('cataloguePreview');
-
-        // Toggle 10-column layout + clipped preview wrapper
-        grid.classList.toggle('unfiltered-mode', isUnfiltered);
-        preview.classList.toggle('is-unfiltered', isUnfiltered);
-        preview.classList.toggle('is-filtered', !isUnfiltered);
-
-        if (!filtered.length) {
-          grid.classList.remove('grid-enter');
-          grid.classList.remove('unfiltered-mode');
-          preview.classList.remove('is-unfiltered');
-          preview.classList.add('is-filtered');
-          grid.innerHTML = '<div class="empty-state"><h3>No items found</h3><p>Try a different filter or search term.</p></div>';
-          return;
-        }
-
-        renderGrid(grid, filtered);
-      };
-
-      /* ----- FILTERS ----- */
-      const makePill = (key, value, label = value, active = false) => {
-        const btn = document.createElement('button');
-        btn.className = 'filter-pill' + (active ? ' active' : '');
-        btn.dataset[key] = value;
-        btn.textContent = label;
-        return btn;
-      };
-
-      const markActive = (bar, key, value) => {
-        bar.querySelectorAll('.filter-pill').forEach((b) => b.classList.toggle('active', b.dataset[key] === value));
-      };
-
-      const buildFilters = () => {
-        $('gameFilterBar').append(...unique(state.items.map((i) => i.game)).map((g) => makePill('game', g)));
-        $('typeFilterBar').append(...unique(state.items.map((i) => i.category)).map((t) => makePill('type', t)));
-      };
-
-      // Rebuilt whenever the selected type changes.
-      const updateSubcategories = () => {
-        const bar = $('subcategoryFilterBar');
-        const subs = state.type === 'all'
-          ? []
-          : unique(state.items.filter((i) => i.category === state.type).map((i) => i.subcategory));
-        state.sub = 'all';
-        bar.querySelectorAll('.filter-pill').forEach((b) => b.remove());
-        bar.classList.toggle('visible', subs.length > 0);
-        if (subs.length) bar.append(makePill('sub', 'all', 'All', true), ...subs.map((s) => makePill('sub', s)));
-      };
-
-      const bindFilter = (barId, key, apply) => {
-        const bar = $(barId);
-        if (!bar) return;
-        bar.addEventListener('click', (e) => {
-          const btn = e.target.closest('.filter-pill');
-          if (!btn) return;
-          const value = btn.dataset[key] || 'all';
-          apply(value);
-          markActive(bar, key, value);
-          renderCatalogue();
-        });
-      };
-
-      /* ----- NAVIGATION ----- */
-      const closeMobileNav = () => {
-        $('mobileNav').classList.remove('open');
-        $('hamburger').classList.remove('open');
-        $('hamburger').setAttribute('aria-expanded', 'false');
-      };
-
-      const setActiveNav = (pageName) => {
-        document.querySelectorAll('.nav-link, .mobile-nav-link').forEach((l) => {
-          l.classList.toggle('active', l.dataset.page === pageName);
-        });
-      };
-
-      const showPage = (pageName) => {
-        const previous = state.page;
-        state.page = pageName;
-        document.querySelectorAll('.page').forEach((p) => p.classList.toggle('active', p.id === `page-${pageName}`));
-        setActiveNav(pageName);
-        if (previous !== pageName) window.scrollTo({ top: 0, behavior: 'auto' });
-        if (pageName === 'catalogue') renderCatalogue();
-        if (pageName === 'home') renderHome();
-        history.replaceState(null, '', location.pathname + location.search + (pageName === 'home' ? '' : `#${pageName}`));
-      };
-
-      /* ----- LIGHTBOX (bound once) ----- */
-      const openLightbox = (src, alt) => {
-        if (!src) return;
-        const img = $('lightboxImg');
-        img.src = src;
-        img.alt = alt || '';
-        $('lightbox').classList.add('open');
-        document.body.style.overflow = 'hidden';
-      };
-
-      const closeLightbox = () => {
-        $('lightbox').classList.remove('open');
-        document.body.style.overflow = '';
-        $('lightboxImg').removeAttribute('src');
-      };
-
-      /* ----- ITEM PAGE ----- */
-      const renderItemPage = (itemId) => {
-        const wrap = document.querySelector('.item-detail-wrap');
-        const item = state.items.find((i) => i.id === itemId);
-        const backButton = '<button class="btn-back" id="backToCatalogue">← Back to catalogue</button>';
-
-        if (!item) {
-          state.itemId = null;
-          wrap.innerHTML = backButton +
-            '<div class="empty-state"><h3>Item not found</h3><p>This catalogue item doesn\'t exist or may have been renamed.</p></div>';
-          $('backToCatalogue').addEventListener('click', () => showPage('catalogue'));
-          return;
-        }
-
-        state.itemId = item.id;
-        const images = [item.image, ...item.extraImages].filter(Boolean);
-        const source = safeExternalUrl(item.link);
-
-        const details = [
-          ['Associated game', item.game],
-          ['Year of release', item.year],
-          ['Category', item.category],
-          ['Subcategory', item.subcategory || '—'],
-          ['Rarity', item.rarity],
-          ['Price', hasPrice(item) ? formatPrice(item.price) : 'Not Applicable'],
-          ['Available for purchase', item.availability, 'availability-text']
-        ];
-        const sidebar = details.map(([key, value, cls = '']) =>
-          `<div class="item-label-block"><span class="item-label-key">${key}</span>` +
-          `<div class="item-label-value ${cls}">${escapeHTML(value)}</div></div>`
-        ).join('') + (source
-          ? `<div class="item-label-block"><span class="item-label-key">Source</span>` +
-            `<a class="item-source-link" href="${escapeHTML(source)}" target="_blank" rel="noopener noreferrer">${escapeHTML(source)}</a></div>` +
-            `<a class="view-link" href="${escapeHTML(source)}" target="_blank" rel="noopener noreferrer">View item →</a>`
-          : '');
-
-        const thumbs = images.map((src, i) =>
-          `<button class="view-thumb${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Show image ${i + 1}">` +
-          `<img src="${escapeHTML(src)}" alt="${escapeHTML(item.name)} thumbnail ${i + 1}" loading="lazy" decoding="async" referrerpolicy="no-referrer" /></button>`
-        ).join('');
-
-        wrap.innerHTML = backButton +
-          `<div class="item-hero" id="itemPageHero"><div class="zoom-wrapper" id="zoomWrapper">${imageMarkup(images[0], item.name, item.category, true)}</div></div>` +
-          `<div class="view-thumbs" id="itemPageThumbs"${images.length > 1 ? '' : ' style="display:none"'}>${images.length > 1 ? thumbs : ''}</div>` +
-          '<div class="item-detail-body">' +
-            '<div class="item-detail-main">' +
-              `<div class="item-game-label">${escapeHTML(item.game)}</div>` +
-              `<h1 class="item-detail-name">${escapeHTML(item.name)}</h1>` +
-              '<span class="item-detail-section-label">Description</span>' +
-              `<p class="item-detail-description">${escapeHTML(item.description || 'No description has been added yet.')}</p>` +
-              '<div class="item-detail-share">' +
-                '<span class="item-detail-share-label">Share</span>' +
-                '<button class="btn-copy-link" id="btnCopyLink">Copy link</button>' +
-                // REPORT ERROR BUTTON COMMENTED OUT — feature disabled while site is on hiatus
-                // '<button class="btn-report-error" id="btnReportError">Report error</button>' +
-              '</div>' +
-            '</div>' +
-            `<aside class="item-detail-sidebar">${sidebar}</aside>` +
-          '</div>';
-
-        $('backToCatalogue').addEventListener('click', () => showPage('catalogue'));
-
-        const zoomWrapper = $('zoomWrapper');
-        $('itemPageHero').addEventListener('click', () => {
-          const img = zoomWrapper.querySelector('img');
-          if (img && !img.hidden) openLightbox(img.src, img.alt);
-        });
-
-        const thumbBar = $('itemPageThumbs');
-        thumbBar.addEventListener('click', (e) => {
-          const btn = e.target.closest('.view-thumb');
-          if (!btn) return;
-          thumbBar.querySelectorAll('.view-thumb').forEach((b) => b.classList.toggle('active', b === btn));
-          zoomWrapper.innerHTML = imageMarkup(images[Number(btn.dataset.index)], item.name, item.category, true);
-        });
-
-        const copyBtn = $('btnCopyLink');
-        copyBtn.addEventListener('click', () => {
-          const url = `${location.href.split('#')[0]}#item/${item.id}`;
-          (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject())
-            .then(() => {
-              copyBtn.textContent = 'Copied';
-              copyBtn.classList.add('copied');
-              setTimeout(() => {
-                copyBtn.textContent = 'Copy link';
-                copyBtn.classList.remove('copied');
-              }, 1800);
-            })
-            .catch(() => window.prompt('Copy this link:', url));
-        });
-
-        // REPORT ERROR HANDLER COMMENTED OUT — feature disabled while site is on hiatus
-        // $('btnReportError').addEventListener('click', () => {
-        //   showPage('contact');
-        //   const topic = $('cf-topic');
-        //   const msg = $('cf-message');
-        //   topic.value = 'Correction / Edit';
-        //   msg.value = `Report an error for: ${item.name} (${item.game})\n\nWhat is wrong?\n`;
-        //   msg.focus();
-        // });
-      };
-
-      const handleRoute = () => {
-        const hash = location.hash;
-        if (hash.startsWith('#item/')) {
-          state.page = 'item';
-          document.querySelectorAll('.page').forEach((p) => p.classList.remove('active'));
-          setActiveNav(null);
-          const itemPage = $('page-item');
-          itemPage.classList.add('active');
-          itemPage.style.animation = 'none';
-          void itemPage.offsetWidth; // restart the page-in animation
-          itemPage.style.animation = '';
-          renderItemPage(hash.slice(6));
-          window.scrollTo({ top: 0, behavior: 'auto' });
-          return;
-        }
-        const page = hash.slice(1);
-        // The contact page is currently hidden from navigation, but the route is left intact
-        // so existing links still work and the page can be restored by uncommenting its markup.
-        showPage(PAGES.includes(page) ? page : 'home');
-      };
-
-      /* ----- CONTACT FORM — DISABLED WHILE SITE IS ON HIATUS -----
-         The form markup is commented out, so the element won't exist.
-         The handler is commented out below to avoid errors. Uncomment both
-         the form markup and this function to restore the feature.
-      ----------------------------------------------------------------
-      const bindContactForm = () => {
-        const form = $('contactForm');
-        if (!form) return;
-        const status = $('cfStatus');
-        const submit = $('cfSubmit');
-
-        form.addEventListener('submit', async (e) => {
-          e.preventDefault();
-          const originalLabel = submit.textContent;
-          submit.disabled = true;
-          submit.textContent = 'Sending…';
-          status.textContent = '';
-          status.className = 'form-status';
-
-          try {
-            const res = await fetch(form.action, {
-              method: 'POST',
-              body: new FormData(form),
-              headers: { Accept: 'application/json' }
-            });
-            const data = await res.json();
-            if (data.success) {
-              status.textContent = 'Message sent — thanks. We\'ll get back to you soon.';
-              status.className = 'form-status success';
-              form.reset();
-            } else {
-              status.textContent = 'Something went wrong. Try again or email us directly.';
-              status.className = 'form-status error';
-            }
-          } catch {
-            status.textContent = 'Network error. Please try again.';
-            status.className = 'form-status error';
-          } finally {
-            submit.disabled = false;
-            submit.textContent = originalLabel;
-          }
-        });
-      };
-      */
-
-      /* ----- EVENTS ----- */
-      const bindEvents = () => {
-        // Every element with data-page (nav, footer, logo, hero buttons, "see all") navigates via one listener.
-        document.addEventListener('click', (e) => {
-          const trigger = e.target.closest('[data-page]');
-          if (!trigger) return;
-          e.preventDefault();
-          showPage(trigger.dataset.page);
-          closeMobileNav();
-        });
-
-        $('hamburger').addEventListener('click', (e) => {
-          const isOpen = $('mobileNav').classList.toggle('open');
-          e.currentTarget.classList.toggle('open', isOpen);
-          e.currentTarget.setAttribute('aria-expanded', String(isOpen));
-        });
-
-        bindFilter('gameFilterBar', 'game', (v) => { state.game = v; });
-        bindFilter('typeFilterBar', 'type', (v) => { state.type = v; updateSubcategories(); });
-        bindFilter('subcategoryFilterBar', 'sub', (v) => { state.sub = v; });
-
-        let searchTimer;
-        $('searchInput').addEventListener('input', () => {
-          clearTimeout(searchTimer);
-          searchTimer = setTimeout(renderCatalogue, 120);
-        });
-
-        const lightbox = $('lightbox');
-        $('lightboxClose').addEventListener('click', (e) => { e.stopPropagation(); closeLightbox(); });
-        lightbox.addEventListener('click', (e) => {
-          if (e.target === lightbox || e.target === $('lightboxImg')) closeLightbox();
-        });
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
-        });
-
-        window.addEventListener('hashchange', handleRoute);
-        // bindContactForm(); // disabled while site is on hiatus
-      };
-
-      /* ----- INIT ----- */
-      const init = () => {
-        $('footerYear').textContent = new Date().getFullYear();
-        state.items = buildItems();
-        if (state.items.length) {
-          $('itemCount').textContent = pluralItems(state.items.length);
-          buildFilters();
-        }
-        bindEvents();
-        handleRoute();
-      };
-
-      document.addEventListener('DOMContentLoaded', init);
-    })();
-  </script>
 </body>
 </html>
